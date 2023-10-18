@@ -1,0 +1,23 @@
+\documentclass[english, a4paper, 11pt, BCOR=8mm, headings=normal, parskip=half, listof=totoc, bibliography=totoc
+%, draft
+]{scrreprt}
+
+\input{config/packages}
+
+\begin{document}
+
+\input{chapters/000-cover}
+\pagenumbering{Roman}
+\include{chapters/010-declaration}
+\include{chapters/020-abstract}
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+\include{chapters/030-introduction}
+
+\listoffigures
+\listoftables
+\printbibliography
+
+\end{document}
