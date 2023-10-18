@@ -32,8 +32,10 @@
 
 \usepackage[yyyymmdd]{datetime}
 
-\usepackage[backend=biber]{biblatex}
-\addbibresource{references.bib}
+\usepackage[backend=biber,
+%style=alphabetic,]{biblatex}
+style=ieee,]{biblatex}
+\addbibresource{resources/references.bib}
 
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -41,7 +43,7 @@
 \usepackage{scrhack}
 \usepackage{listings}
 \lstset{language=Python, basicstyle=\small, frame=single, numbers=left, xleftmargin=2em, framexleftmargin=1.5em}
-\renewcommand{\lstlistingname}{Algorithmus}
+\renewcommand{\lstlistingname}{algorithm}
 
 \DeclareMathOperator{\sgn}{sgn}
 \newcommand{\vecW}{\ensuremath{\mathbf{w}}}
