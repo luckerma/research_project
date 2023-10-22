@@ -1,0 +1,68 @@
+\usepackage{ifluatex}
+\ifluatex
+ \usepackage{fontspec}
+\else
+ \usepackage[T1]{fontenc}
+\fi
+
+\usepackage[english]{babel}
+\usepackage{csquotes}
+
+\usepackage[headsepline,automark]{scrlayer-scrpage}
+\clearpairofpagestyles
+\ohead[\headmark]{\headmark}
+\ofoot[\pagemark]{\pagemark}
+
+\usepackage{graphicx}
+\graphicspath{{resources/}}
+
+\usepackage{microtype}
+\usepackage{ziffer}
+\usepackage{siunitx}
+
+\usepackage[table, dvipsnames]{xcolor}
+\definecolor{THRed}{RGB}{207,24,32}
+\definecolor{THOrange}{RGB}{236,101,37}
+\definecolor{THPurple}{RGB}{175,54,140}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepackage{hyperref}
+
+\usepackage{datetime2}
+
+\usepackage[backend=biber,
+sorting=none,
+%style=alphabetic,]{biblatex}
+style=ieee,]{biblatex}
+\addbibresource{resources/references.bib}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{scrhack}
+\usepackage{listings}
+\lstset{language=Python, basicstyle=\small, frame=single, numbers=left, xleftmargin=2em, framexleftmargin=1.5em}
+\renewcommand{\lstlistingname}{algorithm}
+
+\DeclareMathOperator{\sgn}{sgn}
+\newcommand{\vecW}{\ensuremath{\mathbf{w}}}
+\newcommand{\ci}{\ensuremath{\mathrm{i}}}
+
+\newcommand{\comm}[1]{\glqq\texttt{\textbackslash #1}\grqq{}}
+
+\hypersetup{
+	pdfauthor={Luca Uckermann},
+	pdftitle={Multi-Camera Multi-Object Tracking and Re-Identification},
+	pdfsubject={Research Project},
+	pdfkeywords={
+        Multi-Camera,
+        Multi-Object,
+        Re-Identification,
+        Tracking,
+	},
+	bookmarksnumbered=true,
+	pdfstartview=FitH,
+%	hidelinks,
+}
