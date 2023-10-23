@@ -1,8 +1,8 @@
 \usepackage{ifluatex}
 \ifluatex
- \usepackage{fontspec}
+	\usepackage{fontspec}
 \else
- \usepackage[T1]{fontenc}
+	\usepackage[T1]{fontenc}
 \fi
 
 \usepackage[english]{babel}
@@ -33,9 +33,9 @@
 \usepackage{datetime2}
 
 \usepackage[backend=biber,
-sorting=none,
-%style=alphabetic,]{biblatex}
-style=ieee,]{biblatex}
+	sorting=none,
+	%style=alphabetic,]{biblatex}
+	style=ieee,]{biblatex}
 \addbibresource{resources/references.bib}
 
 \usepackage{amsmath}
@@ -57,12 +57,13 @@ style=ieee,]{biblatex}
 	pdftitle={Multi-Camera Multi-Object Tracking and Re-Identification},
 	pdfsubject={Research Project},
 	pdfkeywords={
-        Multi-Camera,
-        Multi-Object,
-        Re-Identification,
-        Tracking,
-	},
+			Multi-Camera,
+			Multi-Object,
+			Multi-Target,
+			Re-Identification,
+			Tracking,
+		},
 	bookmarksnumbered=true,
 	pdfstartview=FitH,
-%	hidelinks,
+	%hidelinks,
 }

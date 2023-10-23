@@ -12,7 +12,9 @@
 
 \cite{Kristan21}: VOT21 Challenge Results. Considers single-camera, single-target, model-free tracking. VOT-RT2021 focuses on real-time RGB tracking. Requires predicting bounding boxes. Top two trackers: TrasT\_M and STARK\_RT.
 
-\cite{Kristan22}: VOT22 Challenge Results.
+\cite{Kristan22}: VOT22 Challenge Results. Considers single.camera, single-target. VOT-RT2022 focuses on real-time RGB tracking, VOT-RTs by segmentation, VOT-RTb by bounding boxes. Goes beyond previous challenges (updating datasets). Real-time tracking at 20fps. Top trackers: MS\_AOT and OSTrackSTB.
+
+\cite{Kristan23} VOTS23 Challenge Results. First year considering multiple-target tracking challenge. Explores short- and long-term at once. Only one challenge for all. Does not distinguish between these scenarios. Success is measured in IoU, tracking Quality \\mathbf{Q}, Accuracy, Robustness, NRE, DRE, ADQ. Dataset with challenging situations, wide range and diverse set of objects, object which are a part of other objects.  Also longer videos. 77 trackers submitted, 47 valid. Most trackers applied uniform dynamic model, utilized transformers, general segmentation network SAM. Top tracker: DMAOT built upon VOT22 winner AOT. Best segmentation-based trackers outperformed all bound.box trackers.
 
 \cite{Nguyen22a}: Mathematical multi-camera tracking approach. Pre-clustering obtained from 3D geometry projections.
 
@@ -21,3 +23,5 @@
 \cite{Komorowski22}: Soccer Players. Raw detection heat maps. Google Research Football Environment. Multi camera, multi targets. Cameras have fixed positions. Do not use bounding boxes, instead raw input with heat maps. Graph Neural Network. No visual cues, such as jersey numbers. Player movement trajectories and interaction between neighborhood players.
 
 \cite{Cheng23}: Utilizes information regarding spatial and temporal consistency. Reconfigurable graph model. Two step approach: Associate all objects across cameras spatially then reconfig into a temporal graph model. Matching object across different views.
+
+\cite{Huang23}: Huan23 new overlaping.
