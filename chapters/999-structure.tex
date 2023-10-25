@@ -8,11 +8,23 @@
 
 \cite{Tian19}: General description of multi-camera tracking. State of the Art, Markov Process, graph partition theory, tracking by joint constraints.
 
+\cite{Khan01}: Tracking people in multiple uncalibrated cameras. Discover spatial relationships between the camera FOVs. Tested on PETS 2001.
+
+\subsection{Begging}
+
+\cite{Cai99}: First approaches of tracking humans in multi camera network. Already done in 1999 with real-time tracking. Automatic camera switching. Bayesian classification schema.
+
+\cite{Chang01}: Bayesian modality fusion to track multiple people in an indoor environment. Tries to fix already known occlusion problem.
+
 \subsection{Real-time}
+
+\cite{Wang20}: Toward Real-Time. Only multi-object tracking. Introduces JDE (Joint learning of detection and embedding). Very important paper (first real-time MOT system). Single-shot detector
 
 \cite{Wang21}: Indoor scene, multiple top-view \textbf{fisheye} cameras. Possible to cover large space, less occlusion among objects. People detection and tracking. Calibrate cameras, real time (FPS of about 10) without GPU support.
 
 \cite{Chen22}: Real-time distributed MCMOT system. City-scale scenario. Keeping communication and computing costs of each device low. Installs smart stations on the roadside and connects them to maintain communication. Decentralized Tracking. Kalman filter and hungarian algorithm. YoloX and DeepSORT.
+
+\cite{Zhang21}: FairMOT, one-shot tracker (anchor-free style). Tackles issue of object detection against re-ID. Re-ID often threated as secondary task. Reasons behind failure: anchors, feature sharing, feature dimension.
 
 \subsection{VOT}
 
@@ -22,8 +34,10 @@
 
 \cite{Kristan23} VOTS23 Challenge Results. First year considering multiple-target tracking challenge. Explores short- and long-term at once. Only one challenge for all. Does not distinguish between these scenarios. Success is measured in IoU, tracking Quality \\mathbf{Q}, Accuracy, Robustness, NRE, DRE, ADQ. Dataset with challenging situations, wide range and diverse set of objects, object which are a part of other objects.  Also longer videos. 77 trackers submitted, 47 valid. Most trackers applied uniform dynamic model, utilized transformers, general segmentation network SAM. Top tracker: DMAOT built upon VOT22 winner AOT. Best segmentation-based trackers outperformed all bound.box trackers.
 
-
 \subsection{Dynamic Cameras}
+
+\cite{Zou19}: Tracking multiple vehicles in the front view of an onboard monocular camera. Siamese network with a spatial pyramid pooling. Markov decision process. Effective for real-time long-term tracking. Hungarian algorithm, reinforcement learning.
+
 \cite{Nguyen22b}: Single-Stage Global Association Approach. Dynamic MCMOT (moving cameras in vehicle). Solves fragment-tracking issues. Not relevant for static MCMOT.
 
 \subsection{Person Tracking}
@@ -31,6 +45,8 @@
 \cite{Huang23}: Non-overlapping cameras. Pedestrian Tracking. Fix ID-switching issues with long-term feature extraction. OC-SORT + feature extraction.
 
 \cite{Komorowski22}: Soccer Players. Raw detection heat maps. Google Research Football Environment. Multi camera, multi targets. Cameras have fixed positions. Do not use bounding boxes, instead raw input with heat maps. Graph Neural Network. No visual cues, such as jersey numbers. Player movement trajectories and interaction between neighborhood players.
+
+\cite{You21}: Optical-based Pose Association (OPA). Online data association algorithm. Solve the occlusion problem. Take also human pose (see \cite{Li19}) and optical flow into account, not only visual and spatial information. OpenPose, Object Keypoint Similarity, PWC-Net, Kunh-Munkras algorithm.
 
 \subsection{Vehicle Tracking (AI City)}
 
@@ -42,11 +58,23 @@
 
 \cite{Li22a}: Second place in 2022 AI City Challenge (Track 1). No new innovations made on first glance.
 
+\cite{Qian20}: First place in 2020 AI City Challenge (Track 3). Electricity. Efficient vehicle tracking system. Aggregation loss and fast multi-target cross-camera tracking strategy. Weighted inter-class non-maximum suppression.
+
 \cite{Hsu22}: Graph Auto-Encoder and Self-Supervised Camera Link Model. First implementation of GAE in MTMCT. Very interesting paper. Network topology is learned automatically.
 
-\subsection{Re-ID}
+\subsection{Re-ID, Data Association and Tracklet Matching}
+
+\cite{Hou19}: Locality aware appearance metric (LAAM). Intra- and inter-camera metric for re-ID. Can be applied on top of globally learned re-ID features. Improves tracking accuracy.
+
+\cite{Li19}: State-aware Re-ID. Human pose information is adopted to infer the target state including occlusion status and orientation. State-of-the-art result on Duke-MTMCT.
 
 \cite{Li22b}: Proposes Mutual Information Temporal Weight Aggregated Person Re-ID Model (MI-TWA). Person re-identification. New algorithm. Not so interesting.
+
+\cite{Quach21}: Dynamic Graph Model with Link Prediction. Tackles problem of data association with a dynamic graph model. Better feature representations and able to recover from lost tracks during camera transitions. Works for person and vehicle tracking for overlapping and non-overlapping cameras. First time link prediction and dynamic graph are used together for MCMOT. Attention models.
+
+\cite{Hsu21}: Metadata-Aided Re-ID. Uses metadata information (car type, brand and color) for re-ID. Traffic-aware single-camera tracking. trajectory-based camera link model. Not so interesting.
+
+\cite{He20a}: Tracklet-to-Target Assignment. Solves cross-camera tracklet matching problem by TRACTA. Proposes the Restricted Non-negative Matrix Factorization (RNMF) algorithm. Estimates the number of targets in the whole network. Important paper.
 
 \subsection{Misc}
 
@@ -58,6 +86,10 @@
 
 \cite{Cheng23}: Utilizes information regarding spatial and temporal consistency. Reconfigurable graph model. Two step approach: Associate all objects across cameras spatially then reconfig into a temporal graph model. Matching object across different views.
 
+\subsection{Datasets}
+
+\cite{Koehl20}: Created MTMCT dataset in GTA V. No privacy issues. 6 cameras over 100 minutes per camera. Largest synthetic dataset for multi camera multi person tracking.
+
 \section{Approaches}
 
 Single vs Multi Camera Tracking
@@ -66,11 +98,15 @@ Static vs Dynamic MCMOT
 
 Single-Stage vs Multi-Stage Tracking
 
+Local and Global tracklets
+
+Cross-camera tracklet matching problem
+
 Graph Neural Networks, Self-Attention, Transformers
 
 Hierarchical Clustering
 
-Tracking by detections vs Tracking by
+Tracking by detections vs One-shot (Single-shot)
 
 Challenges: Occlusion, perspective changes, changes in lighting, changes in appearances, unknown number of targets in the whole network, unknown number of cameras in which a certain target appears.
 
@@ -100,6 +136,10 @@ Trajectories and Tracklets
 
 Fisheye vs Normal Cameras
 
+Local neighborhood:
+Single-camera tracking: Consecutive frames.
+Multi-camera tracking: Neighboring cameras.
+
 Different cameras have different technical characteristics.
 
 Appearance features vs Motion features
@@ -125,3 +165,9 @@ Appearance features vs Motion features
 mentioned in \cite{Specker21}:
 
 D. Stadler and J. Beyerer. Improving multiple pedestrian tracking by track management and occlusion handling. In IEEE Conf. Comput. Vis. Pattern Recog., 2021.
+
+Online Tracking?
+
+Hungarian algorithm?
+
+Multi Object vs Multi Target (definitions)
