@@ -18,6 +18,8 @@
 
 \subsection{Real-time}
 
+\cite{Ren17}: Faster R-CNN. Towards Real-Time Object Detection. Region Proposal Network (RPN). RPN is trained end-to-end. Attention mechanism. 5-17 fps on GPU. Two modules (first region proposal, second detector). Sharing convolutional features.
+
 \cite{Wang20}: Toward Real-Time. Only multi-object tracking. Introduces JDE (Joint learning of detection and embedding). Very important paper (first real-time MOT system). Single-shot detector
 
 \cite{Wang21}: Indoor scene, multiple top-view \textbf{fisheye} cameras. Possible to cover large space, less occlusion among objects. People detection and tracking. Calibrate cameras, real time (FPS of about 10) without GPU support.
@@ -44,6 +46,8 @@
 
 \subsection{Person Tracking}
 
+\cite{Chen17b}: Integrating social grouping behavior for tracking pedestrians. Online learned conditional random field (CRF). Non-overlapping cameras.
+
 \cite{Huang23}: Non-overlapping cameras. Pedestrian Tracking. Fix ID-switching issues with long-term feature extraction. OC-SORT + feature extraction.
 
 \cite{Komorowski22}: Soccer Players. Raw detection heat maps. Google Research Football Environment. Multi camera, multi targets. Cameras have fixed positions. Do not use bounding boxes, instead raw input with heat maps. Graph Neural Network. No visual cues, such as jersey numbers. Player movement trajectories and interaction between neighborhood players.
@@ -66,6 +70,12 @@
 
 \subsection{Re-ID, Data Association and Tracklet Matching}
 
+\cite{Peng16}: Unsupervised cross-dataset transfer learning for person re-id. Unsupervised multi-task dictionary learning (UMDL) model. Uses latent attributes. Asymmetric multi-task learning approach.
+
+\cite{Zhang17}: First time use of hierarchical clustering for person re-id. No online method (needs neighboring frames).
+
+\cite{Lee18}: Online-learning-based person re-id. Fully unsupervised learning method. Systematically  builds camera link model. Two-way GMM fitting. Multi-kernel adaptive segmentation. Multi-shot framework.
+
 \cite{Jiang18}: Orientation-driven person re-id (ODPR). Leverages the orientation cuest and stable torso features to learn a discriminative representation. Also estimates camera topology.Entry/Exit zones are clustered with GMM.
 
 \cite{Hou19}: Locality aware appearance metric (LAAM). Intra- and inter-camera metric for re-ID. Can be applied on top of globally learned re-ID features. Improves tracking accuracy.
@@ -80,6 +90,12 @@
 
 \cite{He20a}: Tracklet-to-Target Assignment. Solves cross-camera tracklet matching problem by TRACTA. Proposes the Restricted Non-negative Matrix Factorization (RNMF) algorithm. Estimates the number of targets in the whole network. Important paper.
 
+\subsection{Datasets}
+
+\cite{Ristani16}: Largest annotated calibrated data set for MTMC (DukeMTMC).
+
+\cite{Koehl20}: Created MTMCT dataset in GTA V. No privacy issues. 6 cameras over 100 minutes per camera. Largest synthetic dataset for multi camera multi person tracking.
+
 \subsection{Misc}
 
 \cite{Zhang15a}: Tracking framework for multiple interacting targets both overlapping and non-overlapping cameras, raw target trajectory with group state. SVMS, homography-based voting schema, networkflow problem, K-shortest paths algorithm.
@@ -92,13 +108,11 @@
 
 \cite{Cheng23}: Utilizes information regarding spatial and temporal consistency. Reconfigurable graph model. Two step approach: Associate all objects across cameras spatially then reconfig into a temporal graph model. Matching object across different views.
 
+\cite{Chen17a}: Equalized Global Graph Model-Based Approach. Improved similarity metric for single- and multiple-camera tracking. SCT and ICT in one step.
+
 \cite{Cho19}: Joint person re-id and camera network topology inference. First framework which jointly solves both problems. Minimal prior knowledge about environment. Multi-shot method implemented as random-forest.
 
 \cite{Chu19}: Joint learning of feature, affinity and multi-dimensional assignment (FAMNet). Online MOT. One deep-network for all three tasks. End-to-end learning.
-
-\subsection{Datasets}
-
-\cite{Koehl20}: Created MTMCT dataset in GTA V. No privacy issues. 6 cameras over 100 minutes per camera. Largest synthetic dataset for multi camera multi person tracking.
 
 \section{Approaches}
 
@@ -118,6 +132,8 @@ Graph Neural Networks, Self-Attention, Transformers
 
 Hierarchical Clustering
 
+Gaussian Mixture Models (GMM)
+
 Tracking by detections (Multi-shot) vs One-shot (Single-shot)
 
 Challenges: Occlusion, perspective changes, changes in lighting, changes in appearances, unknown number of targets in the whole network, unknown number of cameras in which a certain target appears.
@@ -130,6 +146,7 @@ Common Pipeline:
     \item Cross Camera Association
     \item Multi Camera Tracking
 \end{itemize}
+
 \section{Die Beschics}
 
 Single Object Detection (SOD)
@@ -182,7 +199,6 @@ Datasets:
     \item Conclusion
 \end{itemize}
 
-
 \section{Research}
 
 \section{Mentioned Papers}
@@ -197,6 +213,30 @@ Ristani, E., Tomasi, C.: Tracking multiple people online and in real time. Proc.
 
 Wei, S.-E., Ramakrishna, V., Kanade, T., et al.: Convolutional pose machines. Proc. IEEE Conf. Computer Vision and Pattern Recognition, Las Vegas, USA, 2016, pp. 4724-4732
 
+mentioned in \cite{Zhang17}:
+
+Kuhn, H. W. 2010. The hungarian method for the as- signment problem. In 50 Years of Integer Programming.
+
+Zhang, X.; Luo, H.; Fan, X.; Xiang, W.; Sun, Y.; Xiao, Q.; Jiang, W.; Zhang, C.; and Sun, J. 2017. Aligne-dreid: Surpassing human-level performance in person re- identification. arXiv preprint arXiv:1711.08184.
+
+Zhong, Z.; Zheng, L.; Cao, D.; and Li, S. 2017. Re- ranking person re-identification with k-reciprocal encod- ing. 2017 IEEE Conference on Computer Vision and Pat- tern Recognition (CVPR) 3652-3661.
+
+mentioned in \cite{Chen17a}:
+
+S. Yu, Y. Yang, and A. Hauptmann, “Harry Potters Marauders Map: Localizing and tracking multiple persons-of-interest by nonnegative dis- cretization,” in Proc. IEEE Conf. Comput. Vis. Pattern Recognit. (CVPR), Jun. 2013, pp. 3714-3720.
+
+mentioned in \cite{Chen17b}:
+
+X. Chen, K. Huang, and T. Tan, “Object tracking across non-overlapping views by learning inter-camera transfer models,” Pattern Recognit., vol. 47, no. 3, pp. 1126-1137, 2014.
+
+E. Reinhard, M. Adhikhmin, B. Gooch, and P. Shirley, “Color transfer between images,” IEEE Comput. Graph. Appl., vol. 21, no. 5, pp. 34-41, Sep./Oct. 2001.
+
+M. Moussaiid, N. Perozo, S. Garnier, D. Helbing, and G. Theraulaz, The walking behaviour of pedestrian social groups and its impact on crowd dynamics
+
+W. Ge, R. T. Collins, and R. B. Ruback, “Vision-based analysis of small groups in pedestrian crowds,” IEEE Trans. Pattern Anal. Mach. Intell., vol. 34, no. 5, pp. 1003-1016, May 2012.
+
+D. Helbing and P. Molnar, Social force model for pedestrian dynamics, Phys. Rev. E, vol. 51, pp. 4282-4286, May 1995.
+
 \subsection{Arising Questions}
 
 Online Tracking?
@@ -204,6 +244,8 @@ Online Tracking?
 Hungarian algorithm?
 
 Multi Object vs Multi Target (definitions)
+
+Attention mechanisms
 
 Detection Frameworks:
 \begin{itemize}
