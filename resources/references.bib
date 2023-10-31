@@ -12,6 +12,20 @@
   volume       = {552},
 }
 
+@article{Blackman04,
+  abstract = {Multiple hypothesis tracking (MHT) is generally accepted as the preferred method for solving the data association problem in modern multiple target tracking (MTT) systems. This paper summarizes the motivations for MHT, the basic principles behind MHT and the alternative implementations in common use. It discusses the manner in which the multiple data association hypotheses formed by MHT can be combined with multiple filter models, such as used by the interacting multiple model (IMM) method. An overview of the studies that show the advantages of MHT over the conventional single hypothesis approach is given. Important current applications and areas of future research and development for MHT are discussed.},
+  author   = {Blackman, S.S.},
+  date     = {2004-01},
+  doi      = {10.1109/MAES.2004.1263228},
+  issn     = {1557-959X},
+  journal  = {IEEE Aerospace and Electronic Systems Magazine},
+  keywords = {},
+  number   = {1},
+  pages    = {5-18},
+  title    = {Multiple hypothesis tracking for multiple target tracking},
+  volume   = {19},
+}
+
 @inproceedings{Bredereck12,
   abstract  = {Multi-object tracking is still a challenging task in computer vision. We propose a robust approach to realize multi-object tracking using multi-camera networks. Detection algorithms are utilized to detect object regions with confidence scores for initialization of individual particle filters. Since data association is the key issue in Tracking-by-Detection mechanism, we present an efficient greedy matching algorithm considering multiple judgments based on likelihood functions. Furthermore, tracking in single cameras is realized by a greedy matching method. Afterwards, 3D geometry positions are obtained from the triangulation relationship between cameras. Corresponding objects are tracked in multiple cameras to take the advantages of multi-camera based tracking. Our algorithm performs online and does not need any information about the scene, no restrictions of enter-and-exit zones, no assumption of areas where objects are moving on and can be extended to any class of object tracking. Experimental results show the benefits of using multiple cameras by the higher accuracy and precision rates.},
   author    = {Bredereck, Michael and Jiang, Xiaoyan and Körner, Marco and Denzler, Joachim},
@@ -178,6 +192,20 @@
   title     = {FAMNet: Joint Learning of Feature, Affinity and Multi-Dimensional Assignment for Online Multiple Object Tracking},
 }
 
+@inproceedings{Dalal05,
+  abstract  = {We study the question of feature sets for robust visual object recognition; adopting linear SVM based human detection as a test case. After reviewing existing edge and gradient based descriptors, we show experimentally that grids of histograms of oriented gradient (HOG) descriptors significantly outperform existing feature sets for human detection. We study the influence of each stage of the computation on performance, concluding that fine-scale gradients, fine orientation binning, relatively coarse spatial binning, and high-quality local contrast normalization in overlapping descriptor blocks are all important for good results. The new approach gives near-perfect separation on the original MIT pedestrian database, so we introduce a more challenging dataset containing over 1800 annotated human images with a large range of pose variations and backgrounds.},
+  author    = {Dalal, N. and Triggs, B.},
+  booktitle = {2005 IEEE Computer Society Conference on Computer Vision and Pattern Recognition (CVPR'05)},
+  date      = {2005-06},
+  doi       = {10.1109/CVPR.2005.177},
+  issn      = {1063-6919},
+  keywords  = {},
+  number    = {},
+  pages     = {886-893 vol. 1},
+  title     = {Histograms of oriented gradients for human detection},
+  volume    = {1},
+}
+
 @book{Daniilidis10,
   author    = {Kostas Daniilidis, Maragos},
   date      = {2010-09},
@@ -208,6 +236,56 @@
   issn      = {1063-6919},
   pages     = {1146--1154},
   title     = {Target Identity-aware Network Flow for online multiple target tracking},
+}
+
+@article{Dendorfer19,
+  author     = {Dendorfer, P. and Rezatofighi, H. and Milan, A. and Shi, J. and Cremers, D. and Reid, I. and Roth, S. and Schindler, K. and Leal-Taix\'{e}, L. },
+  date       = {2019-06},
+  journal    = {arXiv:1906.04567 [cs]},
+  keywords   = {Computer Science - Computer Vision and Pattern Recognition},
+  note       = {arXiv: 1906.04567},
+  shorttitle = {MOT19},
+  title      = {{CVPR19} Tracking and Detection Challenge: {H}ow crowded can it get?},
+  url        = {http://arxiv.org/abs/1906.04567},
+}
+
+@article{Dendorfer20,
+  author     = {Dendorfer, P. and Rezatofighi, H. and Milan, A. and Shi, J. and Cremers, D. and Reid, I. and Roth, S. and Schindler, K. and Leal-Taix\'{e}, L. },
+  date       = {2020-03},
+  journal    = {arXiv:2003.09003[cs]},
+  keywords   = {Computer Science - Computer Vision and Pattern Recognition},
+  note       = {arXiv: 2003.09003},
+  shorttitle = {MOT20},
+  title      = {MOT20: A benchmark for multi object tracking in crowded scenes},
+  url        = {http://arxiv.org/abs/1906.04567},
+}
+
+@inproceedings{Deng09,
+  abstract  = {The explosion of image data on the Internet has the potential to foster more sophisticated and robust models and algorithms to index, retrieve, organize and interact with images and multimedia data. But exactly how such data can be harnessed and organized remains a critical problem. We introduce here a new database called “ImageNet”, a large-scale ontology of images built upon the backbone of the WordNet structure. ImageNet aims to populate the majority of the 80,000 synsets of WordNet with an average of 500–1000 clean and full resolution images. This will result in tens of millions of annotated images organized by the semantic hierarchy of WordNet. This paper offers a detailed analysis of ImageNet in its current state: 12 subtrees with 5247 synsets and 3.2 million images in total. We show that ImageNet is much larger in scale and diversity and much more accurate than the current image datasets. Constructing such a large-scale database is a challenging task. We describe the data collection scheme with Amazon Mechanical Turk. Lastly, we illustrate the usefulness of ImageNet through three simple applications in object recognition, image classification and automatic object clustering. We hope that the scale, accuracy, diversity and hierarchical structure of ImageNet can offer unparalleled opportunities to researchers in the computer vision community and beyond.},
+  author    = {Deng, Jia and Dong, Wei and Socher, Richard and Li, Li-Jia and Kai Li and Li Fei-Fei},
+  booktitle = {2009 IEEE Conference on Computer Vision and Pattern Recognition},
+  date      = {2009-06},
+  doi       = {10.1109/CVPR.2009.5206848},
+  issn      = {1063-6919},
+  keywords  = {},
+  number    = {},
+  pages     = {248-255},
+  title     = {ImageNet: A large-scale hierarchical image database},
+  volume    = {},
+}
+
+@inproceedings{Ferryman09,
+  abstract  = {This paper describes the crowd image analysis challenge that forms part of the PETS 2009 workshop. The aim of this challenge is to use new or existing systems for i) crowd count and density estimation, ii) tracking of individual(s) within a crowd, and iii) detection of separate flows and specific crowd events, in a real-world environment. The dataset scenarios were filmed from multiple cameras and involve multiple actors.},
+  author    = {Ferryman, J. and Shahrokni, A.},
+  booktitle = {2009 Twelfth IEEE International Workshop on Performance Evaluation of Tracking and Surveillance},
+  date      = {2009-12},
+  doi       = {10.1109/PETS-WINTER.2009.5399556},
+  issn      = {},
+  keywords  = {},
+  number    = {},
+  pages     = {1-6},
+  title     = {PETS2009: Dataset and challenge},
+  volume    = {},
 }
 
 @article{Fleuret08,
@@ -350,6 +428,17 @@
   url       = {https://doi.org/10.1145/3240508.3240663},
 }
 
+@article{Kalman60,
+  author   = {Kalman, Rudolph Emil and Others},
+  journal  = {Journal of basic Engineering},
+  keywords = {filtering kalman},
+  number   = {1},
+  pages    = {35--45},
+  title    = {A new approach to linear filtering and prediction problems},
+  volume   = {82},
+  yedatear = {1960},
+}
+
 @inproceedings{Khan01,
   author       = {Khan, Sohaib and Javed, Omar and Shah, Mubarak},
   booktitle    = {2nd IEEE Workshop on Performance Evaluation of Tracking and Surveillance},
@@ -439,6 +528,17 @@
   title     = {The First Visual Object Tracking Segmentation VOTS2023 Challenge Results},
 }
 
+@article{Kuhn55,
+  author    = {Kuhn, Harold W},
+  date      = {1955},
+  journal   = {Naval research logistics quarterly},
+  number    = {1-2},
+  pages     = {83--97},
+  publisher = {Wiley Online Library},
+  title     = {The Hungarian method for the assignment problem},
+  volume    = {2},
+}
+
 @inproceedings{Kuo10,
   abstract  = {We propose a novel system for associating multi-target tracks across multiple non-overlapping cameras by an on-line learned discriminative appearance affinity model. Collecting reliable training samples is a major challenge in on-line learning since supervised correspondence is not available at runtime. To alleviate the inevitable ambiguities in these samples, Multiple Instance Learning (MIL) is applied to learn an appearance affinity model which effectively combines three complementary image descriptors and their corresponding similarity measurements. Based on the spatial-temporal information and the proposed appearance affinity model, we present an improved inter-camera track association framework to solve the ``target handover'' problem across cameras. Our evaluations indicate that our method have higher discrimination between different targets than previous methods.},
   author    = {Kuo, Cheng-Hao and Huang, Chang and Nevatia, Ram},
@@ -508,12 +608,60 @@
   title     = {Multi-Target Multi-Camera Tracking Based On Mutual Information-Temporal Weight Aggregation Person Re-Identification},
 }
 
+@article{Lian23,
+  archiveprefix = {arXiv},
+  author        = {Qing Lian and Tai Wang and Dahua Lin and Jiangmiao Pang},
+  date          = {2023},
+  eprint        = {2303.16628},
+  primaryclass  = {cs.CV},
+  title         = {DORT: Modeling Dynamic Objects in Recurrent for Multi-Camera 3D Object Detection and Tracking},
+}
+
+@article{Lin14,
+  author     = {Tsung{-}Yi Lin and Michael Maire and Serge J. Belongie and Lubomir D. Bourdev and Ross B. Girshick and James Hays and Pietro Perona and Deva Ramanan and Piotr Doll{\'{a}}r and C. Lawrence Zitnick},
+  date       = {2014},
+  eprint     = {1405.0312},
+  eprinttype = {arXiv},
+  journal    = {CoRR},
+  timestamp  = {Mon, 13 Aug 2018 16:48:13 +0200},
+  title      = {Microsoft {COCO:} Common Objects in Context},
+  url        = {http://arxiv.org/abs/1405.0312},
+  volume     = {abs/1405.0312},
+}
+
+@article{Liu15,
+  author     = {Wei Liu and Dragomir Anguelov and Dumitru Erhan and Christian Szegedy and Scott E. Reed and Cheng{-}Yang Fu and Alexander C. Berg},
+  date       = {2015},
+  eprint     = {1512.02325},
+  eprinttype = {arXiv},
+  journal    = {CoRR},
+  timestamp  = {Wed, 12 Feb 2020 08:32:49 +0100},
+  title      = {{SSD:} Single Shot MultiBox Detector},
+  url        = {http://arxiv.org/abs/1512.02325},
+  volume     = {abs/1512.02325},
+}
+
 @article{Liu17,
   author       = {Liu, Wenqian and Camps, Octavia and Sznaier, Mario},
   date         = {2017},
   doi          = {10.48550/arXiv.1709.07065},
   journaltitle = {arXiv preprint arXiv:1709.07065},
   title        = {Multi-camera multi-object tracking},
+}
+
+@article{Lowe04,
+  abstract = {This paper presents a method for extracting distinctive invariant features from images that can be used to perform reliable matching between different views of an object or scene. The features are invariant to image scale and rotation, and are shown to provide robust matching across a substantial range of affine distortion, change in 3D viewpoint, addition of noise, and change in illumination. The features are highly distinctive, in the sense that a single feature can be correctly matched with high probability against a large database of features from many images. This paper also describes an approach to using these features for object recognition. The recognition proceeds by matching individual features to a database of features from known objects using a fast nearest-neighbor algorithm, followed by a Hough transform to identify clusters belonging to a single object, and finally performing verification through least-squares solution for consistent pose parameters. This approach to recognition can robustly identify objects among clutter and occlusion while achieving near real-time performance.},
+  author   = {David G. Lowe},
+  date     = {2004},
+  doi      = {10.1023/B:VISI.0000029664.99615.94},
+  issn     = {1573-1405},
+  journal  = {International Journal of Computer Vision},
+  month    = {11},
+  number   = {2},
+  pages    = {91-110},
+  title    = {Distinctive Image Features from Scale-Invariant Keypoints},
+  url      = {https://doi.org/10.1023/B:VISI.0000029664.99615.94},
+  volume   = {60},
 }
 
 @inproceedings{Lui21,
@@ -538,6 +686,13 @@
   pages        = {3478--3493},
   title        = {A Scalable Algorithm for Tracking an Unknown Number of Targets Using Multiple Sensors},
   volume       = {65},
+}
+
+@inproceedings{Naphade23,
+  author    = {Milind Naphade and Shuo Wang and David C. Anastasiu and Zheng Tang and Ming-Ching Chang and Yue Yao and Liang Zheng and Mohammed Shaiqur Rahman and Meenakshi S. Arya and Anuj Sharma and Qi Feng and Vitaly Ablavsky and Stan Sclaroff and Pranamesh Chakraborty and Sanjita Prajapati and Alice Li and Shangru Li and Krishna Kunadharaju and Shenxin Jiang and Rama Chellappa},
+  booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
+  date      = {2023-06},
+  title     = {The 7th AI City Challenge},
 }
 
 @inproceedings{Nguyen22a,
@@ -627,6 +782,32 @@
   title     = {DyGLIP: A Dynamic Graph Model with Link Prediction for Accurate Multi-Camera Multiple Object Tracking},
 }
 
+@article{Redmon15,
+  author     = {Joseph Redmon and Santosh Kumar Divvala and Ross B. Girshick and Ali Farhadi},
+  date       = {2015},
+  eprint     = {1506.02640},
+  eprinttype = {arXiv},
+  journal    = {CoRR},
+  timestamp  = {Mon, 13 Aug 2018 16:48:08 +0200},
+  title      = {You Only Look Once: Unified, Real-Time Object Detection},
+  url        = {http://arxiv.org/abs/1506.02640},
+  volume     = {abs/1506.02640},
+}
+
+@article{Reid79,
+  abstract = {An algorithm for tracking multiple targets in a cluttered enviroment is developed. The algorithm is capable of initiating tracks, accounting for false or missing reports, and processing sets of dependent reports. As each measurement is received, probabilities are calculated for the hypotheses that the measurement came from previously known targets in a target file, or from a new target, or that the measurement is false. Target states are estimated from each such data-association hypothesis using a Kalman filter. As more measurements are received, the probabilities of joint hypotheses are calculated recursively using all available information such as density of unknown targets, density of false targets, probability of detection, and location uncertainty. This branching technique allows correlation of a measurement with its source based on subsequent, as well as previous, data. To keep the number of hypotheses reasonable, unlikely hypotheses are eliminated and hypotheses with similar target estimates are combined. To minimize computational requirements, the entire set of targets and measurements is divided into clusters that are solved independently. In an illustrative example of aircraft tracking, the algorithm successfully tracks targets over a wide range of conditions.},
+  author   = {Reid, D.},
+  date     = {1979-12},
+  doi      = {10.1109/TAC.1979.1102177},
+  issn     = {1558-2523},
+  journal  = {IEEE Transactions on Automatic Control},
+  keywords = {},
+  number   = {6},
+  pages    = {843-854},
+  title    = {An algorithm for tracking multiple targets},
+  volume   = {24},
+}
+
 @article{Ren17,
   abstract     = {State-of-the-art object detection networks depend on region proposal algorithms to hypothesize object locations. Advances like SPPnet [1] and Fast R-CNN [2] have reduced the running time of these detection networks, exposing region proposal computation as a bottleneck. In this work, we introduce a Region Proposal Network(RPN) that shares full-image convolutional features with the detection network, thus enabling nearly cost-free region proposals. An RPN is a fully convolutional network that simultaneously predicts object bounds and objectness scores at each position. The RPN is trained end-to-end to generate high-quality region proposals, which are used by Fast R-CNN for detection. We further merge RPN and Fast R-CNN into a single network by sharing their convolutional features-using the recently popular terminology of neural networks with 'attention' mechanisms, the RPN component tells the unified network where to look. For the very deep VGG-16 model [3], our detection system has a frame rate of 5 fps (including all steps) on a GPU, while achieving state-of-the-art object detection accuracy on PASCAL VOC 2007, 2012, and MS COCO datasets with only 300 proposals per image. In ILSVRC and COCO 2015 competitions, Faster R-CNN and RPN are the foundations of the 1st-place winning entries in several tracks. Code has been made publicly available.},
   author       = {Ren, Shaoqing and He, Kaiming and Girshick, Ross and Sun, Jian},
@@ -706,6 +887,18 @@
   title     = {CityFlow: A City-Scale Benchmark for Multi-Target Multi-Camera Vehicle Tracking and Re-Identification},
 }
 
+@article{Tao16,
+  author     = {Ran Tao and Efstratios Gavves and Arnold W. M. Smeulders},
+  date       = {2016},
+  eprint     = {1605.05863},
+  eprinttype = {arXiv},
+  journal    = {CoRR},
+  timestamp  = {Tue, 15 Oct 2019 08:23:29 +0200},
+  title      = {Siamese Instance Search for Tracking},
+  url        = {http://arxiv.org/abs/1605.05863},
+  volume     = {abs/1605.05863},
+}
+
 @article{Tesfaye17,
   author      = {Tesfaye, Yonatan Tariku and Zemene, Eyasu and Prati, Andrea and Pelillo, Marcello and Shah, Mubarak},
   date        = {2017},
@@ -754,7 +947,18 @@
   title     = {A Multi-View Pedestrian Tracking Method in an Uncalibrated Camera Network},
 }
 
-@inproceedings{Wang20,
+@article{Voigtlaender19,
+  author     = {Paul Voigtlaender and Michael Krause and Aljosa Osep and Jonathon Luiten and Berin Balachandar Gnana Sekar and Andreas Geiger and Bastian Leibe},
+  date       = {2019},
+  journal    = {arXiv:1902.03604[cs]},
+  keywords   = {Computer Science - Computer Vision and Pattern Recognition},
+  note       = {arXiv: 1902.03604},
+  shorttitle = {MOTS20},
+  title      = {MOTS: Multi-Object Tracking and Segmentation},
+  url        = {http://arxiv.org/abs/1902.03604},
+}
+
+@inproceedings{Wang20a,
   abstract  = {Modern multiple object tracking (MOT) systems usually follow the tracking-by-detection paradigm. It has 1) a detection model for target localization and 2) an appearance embedding model for data association. Having the two models separately executed might lead to efficiency problems, as the running time is simply a sum of the two steps without investigating potential structures that can be shared between them. Existing research efforts on real-time MOT usually focus on the association step, so they are essentially real-time association methods but not real-time MOT system. In this paper, we propose an MOT system that allows target detection and appearance embedding to be learned in a shared model. Specifically, we incorporate the appearance embedding model into a single-shot detector, such that the model can simultaneously output detections and the corresponding embeddings. We further propose a simple and fast association method that works in conjunction with the joint model. In both components the computation cost is significantly reduced compared with former MOT systems, resulting in a neat and fast baseline for future follow-ups on real-time MOT algorithm design. To our knowledge, this work reports the first (near) real-time MOT system, with a running speed of 22 to 40 FPS depending on the input resolution. Meanwhile, its tracking accuracy is comparable to the state-of-the-art trackers embodying separate detection and embedding (SDE) learning ({\$}{\$}64.4{\backslash}{\%}{\$}{\$}64.4{\%}MOTA v.s. {\$}{\$}66.1{\backslash}{\%}{\$}{\$}66.1{\%}MOTA on MOT-16 challenge). Code and models are available at https://github.com/Zhongdao/Towards-Realtime-MOT.},
   author    = {Wang, Zhongdao and Zheng, Liang and Liu, Yixuan and Li, Yali and Wang, Shengjin},
   booktitle = {Computer Vision -- ECCV 2020},
@@ -767,6 +971,18 @@
   title     = {Towards Real-Time Multi-Object Tracking},
 }
 
+@article{Wang20b,
+  author     = {Yongxin Wang and Xinshuo Weng and Kris Kitani},
+  date       = {2020},
+  eprint     = {2006.13164},
+  eprinttype = {arXiv},
+  journal    = {CoRR},
+  timestamp  = {Tue, 20 Oct 2020 12:00:14 +0200},
+  title      = {Joint Detection and Multi-Object Tracking with Graph Neural Networks},
+  url        = {https://arxiv.org/abs/2006.13164},
+  volume     = {abs/2006.13164},
+}
+
 @inproceedings{Wang21,
   abstract  = {In this paper we study techniques for accurate detection, localization, and tracking of multiple people in an indoor scene covered by multiple top-view fisheye cameras. This is a rarely studied setting within the topic of multi-camera object tracking. The experimental results on test videos exhibit good performance for practical use. We also propose methods to account for occlusion by scene objects at different stages of the algorithm that lead to improved results.},
   author    = {Wang, Tsaipei and Liao, Chih-Hao and Hsieh, Li-Hsuan and Tsui, Arvin Wen and Huang, Hsin-Chien},
@@ -777,7 +993,6 @@
   pages     = {1--5},
   title     = {People Detection and Tracking Using a Fisheye Camera Network},
 }
-
 @inproceedings{Wojke17,
   abstract  = {Simple Online and Realtime Tracking (SORT) is a pragmatic approach to multiple object tracking with a focus on simple, effective algorithms. In this paper, we integrate appearance information to improve the performance of SORT. Due to this extension we are able to track objects through longer periods of occlusions, effectively reducing the number of identity switches. In spirit of the original framework we place much of the computational complexity into an offline pre-training stage where we learn a deep association metric on a largescale person re-identification dataset. During online application, we establish measurement-to-track associations using nearest neighbor queries in visual appearance space. Experimental evaluation shows that our extensions reduce the number of identity switches by 45{\%}, achieving overall competitive performance at high frame rates.},
   author    = {Wojke, Nicolai and Bewley, Alex and Paulus, Dietrich},
@@ -837,6 +1052,43 @@
   pages        = {3105--3117},
   title        = {Multi-Target Multi-Camera Tracking With Optical-Based Pose Association},
   volume       = {31},
+}
+
+@inproceedings{Yu13,
+  abstract  = {A device just like Harry Potter's Marauder's Map, which pinpoints the location of each person-of-interest at all times, provides invaluable information for analysis of surveillance videos. To make this device real, a system would be required to perform robust person localization and tracking in real world surveillance scenarios, especially for complex indoor environments with many walls causing occlusion and long corridors with sparse surveillance camera coverage. We propose a tracking-by-detection approach with nonnegative discretization to tackle this problem. Given a set of person detection outputs, our framework takes advantage of all important cues such as color, person detection, face recognition and non-background information to perform tracking. Local learning approaches are used to uncover the manifold structure in the appearance space with spatio-temporal constraints. Nonnegative discretization is used to enforce the mutual exclusion constraint, which guarantees a person detection output to only belong to exactly one individual. Experiments show that our algorithm performs robust localization and tracking of persons-of-interest not only in outdoor scenes, but also in a complex indoor real-world nursing home environment.},
+  author    = {Yu, Shoou-I and Yang, Yi and Hauptmann, Alexander},
+  booktitle = {2013 IEEE Conference on Computer Vision and Pattern Recognition},
+  date      = {2013-06},
+  doi       = {10.1109/CVPR.2013.476},
+  issn      = {1063-6919},
+  keywords  = {},
+  number    = {},
+  pages     = {3714-3720},
+  title     = {Harry Potter's Marauder's Map: Localizing and Tracking Multiple Persons-of-Interest by Nonnegative Discretization},
+  volume    = {},
+}
+
+@article{Yu17,
+  author  = {Yu, Wei and Liang, Fan and He, Xiaofei and Hatcher, William and Lu, Chao and Lin, Jie and Yang, Xinyu},
+  date    = {2017},
+  doi     = {10.1109/ACCESS.2017.2778504},
+  journal = {IEEE Access},
+  month   = {11},
+  pages   = {1-1},
+  title   = {A Survey on the Edge Computing for the Internet of Things},
+  volume  = {PP},
+}
+
+@article{Zadeh21,
+  author     = {Seyed Mojtaba Marvasti{-}Zadeh and Li Cheng and Hossein Ghanei{-}Yakhdan and Shohreh Kasaei},
+  date       = {2019},
+  eprint     = {1912.00535},
+  eprinttype = {arXiv},
+  journal    = {CoRR},
+  timestamp  = {Wed, 21 Jul 2021 08:03:41 +0200},
+  title      = {Deep Learning for Visual Tracking: {A} Comprehensive Survey},
+  url        = {http://arxiv.org/abs/1912.00535},
+  volume     = {abs/1912.00535},
 }
 
 @article{Zhang15a,

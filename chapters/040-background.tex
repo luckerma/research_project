@@ -1,14 +1,112 @@
 \chapter{Background}\label{chap:background}
+This chapter provides an overview of the basic concepts of object detection and tracking and the steps of an Multi-Target Multi-Camera Tracking (MTMCT) system, along with a discussion of its key challenges and issues. Also the foundational building blocks of MTMCT are introduced, namely Single-Target Single-Camera Tracking (ST-SCT) and Multi-Target Single-Camera Tracking (MT-SCT). Futhermore it explains the datasets and metrics used to evaluate MTMCT systems.
+
+\section{Steps of an MTMCT System}\label{sec:steps_of_an_mtmct_system}
+An MTMCT system typically consists of the following steps: detection, feature extraction, data association, and tracking. Only the basic and fundamental concepts are explained in this section, more advanced and recent methods, mostly revolving around deep learning, will be discussed in chapter~\ref{chap:literature_review}.
+
+\subsection{Detection}\label{subsec:detection}
+Detection refers to the process of identifying objects of interest within video frames. This is typically done using a variety of techniques, ranging from traditional image processing methods to deep learning models. The objective of the detection step is to locate and classify objects in the frame, providing a basis for subsequent steps in the MTMCT process.
+
+Commonly used object detection frameworks in the context of MTMCT are Faster R-CNN~\cite{Ren17}, YOLO~\cite{Redmon15}, and SSD~\cite{Liu15}. These frameworks are typically trained on large datasets (see section~\ref{sec:datasets_and_challenges}) to detect a wide range of objects.
+
+\subsection{Feature Extraction}\label{subsec:feature_extraction}
+Feature extraction involves extracting relevant information from detected objects to facilitate tracking. This could include low-level features like color, shape and texture as well as high-level features like object parts and their spatial relationships, speed, and direction of movement. The features extracted from objects are used to identify and distinguish them from other objects in the scene.
+
+Fundamental feature extraction methods are Histogram of Oriented Gradients (HOG)~\cite{Dalal05} and Scale-Invariant Feature Transform (SIFT)~\cite{Lowe04}.
+
+\subsection{Data Association}\label{subsec:data_association}
+Data association is the process of associating detected objects across different frames and camera views. This step is crucial in maintaining the IDs of objects as they move through the scene or even leaving and re-entering the scene, which is called re-identification (re-ID).
+
+The data association step is a huge research field in MTMCT and various methods have been proposed to solve this problem. Most methods are based on the Hungarian algorithm~\cite{Kuhn55} and the Kalman filter~\cite{Kalman60}, which were proposed in the 1960s by Harold Kuhn and Rudolf Kalman respectively.
+
+\subsection{Tracking}\label{subsec:tracking}
+Tracking refers to the step of maintaining the trajectory of detected objects over time. This involves predicting the future location of an object based on its past movements and updating its trajectory as new observations, so the next frame of a video, become available.
+
+Various tracking algorithms can be employed for this purpose, ranging from simple methods like frame-to-frame matching to more sophisticated approaches like Multiple Hypothesis Tracking (MHT)~\cite{Blackman04} and Joint Probabilistic Data Association (JPDA)~\cite{Reid79}.
+
+\section{Fundamental Concepts}\label{sec:fundamental_concepts}
+This section briefly describes the preliminary concepts of MTMCT, which are essential to follow the progression from basic object tracking methods to advanced MTMCT techniques.
+
+\subsection{Single-Target Single-Camera Tracking (ST-SCT)}\label{subsec:st_sct}
+ST-SCT is the simplest form of object tracking and involves tracking a single target in the field of view of a single camera. The primary goal of ST-SCT is to maintain the identity (ID) and trajectory of the target as it moves through the view of the camera.
+
+\subsection{Multi-Target Single-Camera Tracking (MT-SCT)}
+MT-SCT builds upon the principles of ST-SCT but introduces the added complexity of dealing with multiple targets in a view of a single-camera. It aims to track multiple objects simultaneously while maintaining the ID of each target and avoiding ID switches. This requires sophisticated algorithms that can handle occlusions, interactions between targets, and other challenges that especially arise in crowded scenes.
+
+The progression from ST-SCT to MT-SCT, and ultimately to MTMCT, reflects the increasing complexity and capability of tracking systems to handle more complex scenarios. This evolution is possible, due to advances in computer vision and machine learning, which provide the tools necessary to tackle the challenges associated with tracking multiple targets across multiple camera views.
 
 \section{Challenges and Issues}\label{sec:challenges_and_issues}
+The process of tracking multiple objects across various camera views requires careful consideration of various factors that can significantly affect the performance and accuracy of the tracking system. Some of the main challenges and issues faced in MTMCT are discussed in the following sections.
 
 \subsection{Occlusion}\label{subsec:occlusion}
+Occlusion occurs when an object is partially or completely blocked from view, making it difficult to accurately track its position and identity. This can happen when objects overlap with each other or are obstructed by other elements in the scene, such as buildings or trees. Occlusion is a common challenge in crowded environments, such as public spaces and sporting events, where multiple objects are often in close proximity to each other.
 
 \subsection{Varying Lighting Conditions}\label{subsec:varying_lighting_conditions}
+Lighting conditions can have a significant impact on the performance of an MTMCT system. Variations in lighting, such as changes in natural light throughout the day or artificial lighting when a tracked object enters a building, can affect the appearance of objects and make it challenging to maintain consistent tracking. The presence of shadows and reflections can also complicate the tracking process.
 
-\subsection{Camera Calibration}\label{subsec:camera_calibration}
+\subsection{Camera Specifications}\label{subsec:camera_specification}
+The specifications of the cameras used in an MTMCT system can have a significant impact on its performance. When multiple cameras are used, they may have different:
 
-\subsection{Camera Perspective}\label{subsec:camera_perspective}
+\begin{itemize}
+    \item Resolution: The number of pixels in the image
+    \item Frame rate: The number of frames captured per second
+    \item Field of view (FOV): The area captured by the camera
+    \item Angle: The angle from which the camera captures the scene
+\end{itemize}
+
+This can make it challenging to maintain consistent tracking across different camera views, especially when objects move from one camera to another. Objects may appear differently when viewed from different cameras, and their size and shape can be distorted. Achieving accurate tracking requires the system to account for these variations and correctly align objects across different camera views.
+
+\section{Datasets and Challenges}\label{sec:datasets_and_challenges}
+Datasets are a fundamental aspect of MTMCT research, they are the resource for the training, evaluation, and comparison of various tracking methods. A diverse array of datasets exists to fullfil requirements of MTMCT research, each offering unique challenges and scenarios.
+
+Commonly utilized datasets to train object detectors are:
+
+\begin{itemize}
+    \item \textbf{Microsoft COCO} (Common Objects in Context)~\cite{Lin14}: Comprehensive dataset utilized for object detection, segmentation, and captioning. COCO comprises a diverse range of objects.
+    \item \textbf{ImageNet}~\cite{Deng09}: Vast dataset employed for image classification and object detection. Object detectors trained on ImageNet are able to recognize an broad range of objects.
+\end{itemize}
+
+However, MTMCT research typically revolves around tracking specific object classes, predominantly people and vehicles. The following datasets are more fitting for this purpose:
+
+\begin{itemize}
+    \item \textbf{PETS2009} (Performance Evaluation of Tracking and Surveillance)~\cite{Ferryman09}: Focuses on people tracking and surveillance. PETS2009 has a large variety of scenarios, including crowd monitoring and abnormal behavior detection, making it ideal for developing and testing tracking algorithms in complex, dynamic environments.
+    \item \textbf{DukeMTMC}\cite{Ristani16}: Multi-target, multi-camera dataset specifically created for person re-identification and tracking. It offers a comprehensive view of a diverse urban environment. with rich annotations and challenging scenarios, DukeMTMC serves as one of the most important resource for advancing MTMCT research.
+\end{itemize}
+
+In recent years, challenges have been established to encourage research in object tracking, although they have mostly centered on ST-SCT and MT-SCT. Nevertheless, these challenges remain relevant to MTMCT research. The primary challenges are:
+
+\begin{itemize}
+    \item \textbf{MOTChallenge}~\cite{Dendorfer20}: Benchmark dataset specifically designed for MTMCT. It includes crowded environments, variable lighting conditions, and camera movements. Moreover, it provides ground truth data to facilitate evaluation.
+    \item \textbf{AICity Challenge}~\cite{Naphade23}: Focuses on AI applications in smart cities and includes multi-object tracking for traffic surveillance and anomaly detection as one of its key components.
+    \item \textbf{VOT Challenge} (Visual Object Tracking Challenge)~\cite{Kristan22}: An annual competition that provides a standardized dataset and evaluation framework for single-object tracking.
+    \item \textbf{VOTS Challenge} (Visual Object Tracking and Segmentation Challenge)~\cite{Kristan23}: An extension of the VOT Challenge that focuses on multi-object tracking. The challenge, recently published in October 2023, affirms the quickly growing interest in this field.
+\end{itemize}
+
+Table~\ref{tab:overview_datasets_challenges} provides quick overview of relevant datasets, challenges and benchmarks available for MTMCT research, along with their key characteristics and references.
+
+\begin{table}[h]
+    \begin{center}
+        \caption{Overview of Datasets and Challenges \cite[Tab.~2]{Amosa23}}\label{tab:overview_datasets_challenges}
+        \resizebox{\textwidth}{!}{
+            \begin{tabular}{|l|c|c|l|l|l|}
+                \hline
+                \textbf{Name}                    & \textbf{Cameras} & \textbf{Length} & \textbf{Challenges}             & \textbf{Annotations} & \textbf{Scenarios} \\
+                \hline
+                PETS~\cite{Ferryman09}           & 7+               & Varies          & Occlusion, Lighting             & Yes                  & Indoor, Outdoor    \\
+                \hline
+                DUKE~\cite{Ristani16}            & 8                & 85 minutes      & Occlusion, Identity Switch      & Yes                  & Campus Environment \\
+                \hline
+                AICITYChallenge~\cite{Naphade23} & 20+              & Varies          & Occlusion, Scale Variation      & Yes                  & Urban Traffic      \\
+                \hline
+                VOTChallenge~\cite{Kristan22}    & 60               & Varies          & Occlusion, Illumination Changes & Yes                  & Multiple           \\
+                \hline
+                VOTSChallenge~\cite{Kristan23}   & 10+              & Varies          & Occlusion, Background Clutter   & Yes                  & Multiple           \\
+                \hline
+                MOTChallenge~\cite{Dendorfer20}  & 6+               & Varies          & Occlusion, Scale Variation      & Yes                  & Urban Environment  \\
+                \hline
+            \end{tabular}}
+    \end{center}
+\end{table}
 
 \section{Metrics and Evaluation}\label{sec:metrics_and_evaluation}
 
@@ -19,13 +117,3 @@
 \subsection{IDF1}\label{subsec:idf1}
 
 \subsection{MT}\label{subsec:mt}
-
-\section{Components of an MTMCT System}\label{sec:components_of_an_mtmct_system}
-
-\subsection{Detection}\label{subsec:detection}
-
-\subsection{Feature Extraction}\label{subsec:feature_extraction}
-
-\subsection{Data Association}\label{subsec:data_association}
-
-\subsection{Tracking}\label{subsec:tracking}
