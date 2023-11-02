@@ -48,10 +48,10 @@ Lighting conditions can have a significant impact on the performance of an MTMCT
 The specifications of the cameras used in an MTMCT system can have a significant impact on its performance. When multiple cameras are used, they may have different:
 
 \begin{itemize}
-    \item Resolution: The number of pixels in the image
-    \item Frame rate: The number of frames captured per second
-    \item Field of view (FOV): The area captured by the camera
-    \item Angle: The angle from which the camera captures the scene
+    \item \textbf{Resolution:} The number of pixels in the image
+    \item \textbf{Frame rate:} The number of frames captured per second
+    \item \textbf{Field of view (FOV):} The area captured by the camera
+    \item \textbf{Angle:} The angle from which the camera captures the scene
 \end{itemize}
 
 This can make it challenging to maintain consistent tracking across different camera views, especially when objects move from one camera to another. Objects may appear differently when viewed from different cameras, and their size and shape can be distorted. Achieving accurate tracking requires the system to account for these variations and correctly align objects across different camera views.
@@ -62,58 +62,118 @@ Datasets are a fundamental aspect of MTMCT research, they are the resource for t
 Commonly utilized datasets to train object detectors are:
 
 \begin{itemize}
-    \item \textbf{Microsoft COCO} (Common Objects in Context)~\cite{Lin14}: Comprehensive dataset utilized for object detection, segmentation, and captioning. COCO comprises a diverse range of objects.
-    \item \textbf{ImageNet}~\cite{Deng09}: Vast dataset employed for image classification and object detection. Object detectors trained on ImageNet are able to recognize an broad range of objects.
+    \item \textbf{Microsoft COCO (Common Objects in Context):} Comprehensive dataset utilized for object detection, segmentation, and captioning. COCO comprises a diverse range of objects~\cite{Lin14}.
+    \item \textbf{ImageNet:} Vast dataset employed for image classification and object detection. Object detectors trained on ImageNet are able to recognize an broad range of objects~\cite{Deng09}.
 \end{itemize}
 
-However, MTMCT research typically revolves around tracking specific object classes, predominantly people and vehicles. The following datasets are more fitting for this purpose:
+However, MTMCT research typically revolves around tracking specific object classes, predominantly people and vehicles. Datasets, which fits these requirements are listed in table~\ref{tab:overview_datasets}.
 
-\begin{itemize}
-    \item \textbf{PETS2009} (Performance Evaluation of Tracking and Surveillance)~\cite{Ferryman09}: Focuses on people tracking and surveillance. PETS2009 has a large variety of scenarios, including crowd monitoring and abnormal behavior detection, making it ideal for developing and testing tracking algorithms in complex, dynamic environments.
-    \item \textbf{DukeMTMC}\cite{Ristani16}: Multi-target, multi-camera dataset specifically created for person re-identification and tracking. It offers a comprehensive view of a diverse urban environment. with rich annotations and challenging scenarios, DukeMTMC serves as one of the most important resource for advancing MTMCT research.
-\end{itemize}
-
-In recent years, challenges have been established to encourage research in object tracking, although they have mostly centered on ST-SCT and MT-SCT. Nevertheless, these challenges remain relevant to MTMCT research. The primary challenges are:
-
-\begin{itemize}
-    \item \textbf{MOTChallenge}~\cite{Dendorfer20}: Benchmark dataset specifically designed for MTMCT. It includes crowded environments, variable lighting conditions, and camera movements. Moreover, it provides ground truth data to facilitate evaluation.
-    \item \textbf{AICity Challenge}~\cite{Naphade23}: Focuses on AI applications in smart cities and includes multi-object tracking for traffic surveillance and anomaly detection as one of its key components.
-    \item \textbf{VOT Challenge} (Visual Object Tracking Challenge)~\cite{Kristan22}: An annual competition that provides a standardized dataset and evaluation framework for single-object tracking.
-    \item \textbf{VOTS Challenge} (Visual Object Tracking and Segmentation Challenge)~\cite{Kristan23}: An extension of the VOT Challenge that focuses on multi-object tracking. The challenge, recently published in October 2023, affirms the quickly growing interest in this field.
-\end{itemize}
-
-Table~\ref{tab:overview_datasets_challenges} provides quick overview of relevant datasets, challenges and benchmarks available for MTMCT research, along with their key characteristics and references.
-
-\begin{table}[h]
-    \begin{center}
-        \caption{Overview of Datasets and Challenges \cite[Tab.~2]{Amosa23}}\label{tab:overview_datasets_challenges}
-        \resizebox{\textwidth}{!}{
-            \begin{tabular}{|l|c|c|l|l|l|}
-                \hline
-                \textbf{Name}                    & \textbf{Cameras} & \textbf{Length} & \textbf{Challenges}             & \textbf{Annotations} & \textbf{Scenarios} \\
-                \hline
-                PETS~\cite{Ferryman09}           & 7+               & Varies          & Occlusion, Lighting             & Yes                  & Indoor, Outdoor    \\
-                \hline
-                DUKE~\cite{Ristani16}            & 8                & 85 minutes      & Occlusion, Identity Switch      & Yes                  & Campus Environment \\
-                \hline
-                AICITYChallenge~\cite{Naphade23} & 20+              & Varies          & Occlusion, Scale Variation      & Yes                  & Urban Traffic      \\
-                \hline
-                VOTChallenge~\cite{Kristan22}    & 60               & Varies          & Occlusion, Illumination Changes & Yes                  & Multiple           \\
-                \hline
-                VOTSChallenge~\cite{Kristan23}   & 10+              & Varies          & Occlusion, Background Clutter   & Yes                  & Multiple           \\
-                \hline
-                MOTChallenge~\cite{Dendorfer20}  & 6+               & Varies          & Occlusion, Scale Variation      & Yes                  & Urban Environment  \\
-                \hline
-            \end{tabular}}
-    \end{center}
+%TODO: Add missing (!!!) information
+\begin{table}[ht]
+    \centering
+    \caption{Overview of Datasets}\label{tab:overview_datasets}
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{|l|c|c|c|c|c|c|c|c|}
+            \hline
+            \textbf{Dataset}              & \textbf{Environment} & \textbf{Num. of Scenarios} & \textbf{Num. of Cameras (Overlap)} & \textbf{FPS} & \textbf{IDs} & \textbf{Year} & \textbf{Class}  \\
+            \hline
+            MOT16~\cite{Milan16}          & Outdoor              & 14                         & 1                                  & 25-30        & !!!          & 2016          & Person, Vehicle \\
+            DukeMTMC~\cite{Ristani16}     & Outdoor              & 1                          & 8 (\cmark)                         & 60           & 2834         & 2016          & Person          \\
+            WILDTRACK~\cite{Chavdarova18} & Outdoor              & 1                          & 7 (\cmark)                         & 60           & 313          & 2018          & Person          \\
+            MSMT17~\cite{Wei18}           & Mixed                & 12                         & 15 (\cmark)                        & 15           & 4101         & 2018          & Person          \\
+            CityFlowV1~\cite{Tang19}      & Outdoor              & 5                          & 40 (\cmark)                        & 10           & 666          & 2019          & Vehicle         \\
+            MOT20~\cite{Dendorfer20}      & Outdoor              & 8                          & 1                                  & 25           & !!!          & 2020          & Person, Vehicle \\
+            CityFlowV2~\cite{Tang19}      & Outdoor              & 6                          & 46 (\cmark)                        & 10           & 880          & 2021          & Vehicle         \\
+            MMPTRACK~\cite{Han23}         & Indoor               & 5                          & 23 (\cmark)                        & 15           & !!!          & 2023          & Person          \\
+            MEVID~\cite{Davila23}         & Mixed                & 17                         & 33 (\cmark)                        & !!!          & 158          & 2023          & Person          \\
+            \hline
+        \end{tabular}
+    }
 \end{table}
 
+Table~\ref{tab:overview_datasets} provides a summary of various datasets that have significantly contributed to the MTMCT research domain. Each dataset is categorized based on several distinct criteria to reflect its unique characteristics and relevance:
+
+\begin{itemize}
+    \item \textbf{Environment}: Setting of data collection, from controlled indoor environments to dynamic outdoor locations.
+    \item \textbf{Num. of Scenarios}: Details the number of distinct scenarios or situations represented in the dataset.
+    \item \textbf{Num. of Cameras (Overlap)}: Represents the number of cameras involved and indicates if there is an overlap in their views.
+    \item \textbf{FPS}: Specifies the frame rate of the dataset, important for real-time processing considerations.
+    \item \textbf{IDs}: Enumerates the unique identities present, which can provide a measure of the complexity of the dataset.
+    \item \textbf{Year}: States the year of the release, representing the recentness of the dataset.
+    \item \textbf{Class}: Identifies the subjects annotated, such as persons or vehicles.
+\end{itemize}
+
+Each dataset listed plays a role in the following chapters, the reviewed literature is often evaluated on one or more of these datasets. The datasets are also used to train and test the tracking methods.
+
+In recent years, challenges have been established to encourage research in object detection and tracking, although they have mostly centered on ST-SCT and MT-SCT. Nevertheless, these challenges remain relevant to MTMCT research. The most recent representatives of the primary challenges are:
+
+\begin{itemize}
+    \item \textbf{MOT20 Challenge:} Benchmark, which includes crowded environments and variable lighting conditions. Moreover, it provides ground truth data to facilitate evaluation. The MOT datasets are released in conjunction with the MOTChallenge~\cite{Dendorfer20}.
+    \item \textbf{2023 AICity Challenge:}: Focuses on AI applications in smart cities and includes multi-object tracking for traffic surveillance and anomaly detection as one of its key components. The CityFlow datasets belong to the AICity Challenges.~\cite{Naphade23}
+    \item \textbf{VOT2022 Challenge (Visual Object Tracking Challenge):}: An annual competition that provides a standardized dataset and evaluation framework for single-object tracking.~\cite{Kristan22}
+    \item \textbf{VOTS2023 Challenge (Visual Object Tracking and Segmentation Challenge):}: An extension of the VOT Challenge that focuses on multi-object tracking. The challenge, recently published in October 2023, affirms the quickly growing interest in this field.~\cite{Kristan23}
+\end{itemize}
+
 \section{Metrics and Evaluation}\label{sec:metrics_and_evaluation}
+Evaluating the performance of a MTMCT system is critical to understand its effectiveness and reliability. Beside well known metrics like accuracy, precision and recall, there are several metrics specifically designed for multi-target and multi-camera systems. These metrics are discussed in the this section.
 
-\subsection{MOTA}\label{subsec:mota}
+\subsection{MOTP and MOTA}\label{subsec:motp_mota}
+The Multiple Object Tracking Precision (MOTP) and Multiple Object Tracking Accuracy (MOTA) are two standard metrics used for evaluating multi-target tracking systems. MOTP measures the accuracy of the object localization, while MOTA combines three types of errors into a single metric to provide a comprehensive evaluation of the tracking performance. Both of these metrics were introduced by \textcite{Bernardin08} in \citeyear{Bernardin08}.
 
-\subsection{MOTP}\label{subsec:motp}
+\begin{equation}
+    \label{eq:motp}
+    \text{MOTP}=\frac{\sum_{i, t} d_t^i}{\sum_t c_t}
+    \quad\text{\cite[Eq.~1]{Bernardin08}}
+\end{equation}
+
+Equation \ref{eq:motp} provides a measure of the average error in estimated positions of the tracked objects. In this equation, \(d_t^i\) represents the distance between the predicted position and the ground truth position of object \(i\) at frame \(t\), and \(c_t\) is the number of correctly matched objects (the true positives) in frame \(t\). The distances for all matched objects across all frames is divided by the total number of matched objects across all frames. MOTP ranges from 0 to 1, a lower MOTP value indicates higher precision in the object localization.
+
+\begin{equation}
+    \label{eq:mota}
+    \text{MOTA}=1-\frac{\sum_t (m_t+fp_t+mme_t)}{\sum_t g_t}
+    \quad\text{\cite[Eq.~2]{Bernardin08}}
+\end{equation}
+
+Equation \ref{eq:mota} combines three types of errors to give a single performance measure. In this equation, \(m_t\) is the number of misses (true objects not detected), \(fp_t\) is the number of false positives (spurious object detections), \(mme_t\) is the number of mismatch errors (identity switches) and \(g_t\) is the total number of true objects present in frame \(t\). The MOTA score is 1 minus the sum of all errors divided by the total number of true objects across all frames. MOTA ranges from \(-\infty\) to 1, a higher MOTA value indicates better tracking accuracy.
 
 \subsection{IDF1}\label{subsec:idf1}
+The IDF1 score is another important metric for evaluating MTMCT systems. It represents the harmonic mean of the identification precision and recall, providing a balanced measure that accounts for both the ratio of correctly identified detections and the average number of ground-truth and computed detections. This metric was introduced by \citeauthor{Ristani16} in their widely referenced paper \citetitle{Ristani16} \cite{Ristani16}.
 
-\subsection{MT}\label{subsec:mt}
+\begin{equation}
+    \label{eq:idf1}
+    \text{IDF}_1 = \frac{2 \times \text{IDTP}}{2 \times \text{IDTP} + \text{IDFP} + \text{IDFN}}
+    \quad\text{\cite[Eq.~11]{Ristani16}}
+\end{equation}
+
+In equation~\ref{eq:idf1}:
+
+\begin{itemize}
+    \item \textbf{IDTP (Identification True Positives)}: Represents the number of detections that were correctly identified.
+    \item \textbf{IDFP (Identification False Positives)}: Denotes the number of detections that were wrongly identified (misidentifications).
+    \item \textbf{IDFN (Identification False Negatives)}: Indicates the number of actual detections that were missed or not identified.
+\end{itemize}
+
+The IDF1 metric essentially captures the identification precision and recall in multi-object tracking scenarios. The higher the IDF1 score, the better the performance of the tracker in maintaining consistent identities.
+
+\subsection{MT and ML}\label{subsec:mt_ml}
+The Mostly Tracked (ML) and Mostly Lost (ML) are used to assess the effectiveness of a tracking system in maintaining consistent trajectories for the objects being tracked. The metrics published by \textcite{Wu06} in \citeyear{Wu06} are commonly used in the MOTChallenge benchmarks to evaluate the performance of tracking systems.
+
+MT measures the proportion of ground truth trajectories that are covered by the tracker for at least 80\% of their respective lifetimes, indicating the ability of the system to consistently track objects over time. On the other hand, ML measures the proportion of ground truth trajectories that are covered by the tracker for less than 20\% of their respective lifetimes, reflecting the inability of the system to maintain consistent object tracking.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.75\textwidth]{resources/fig/Wu06-MT_ML.png}
+    \caption{MT and ML \cite[Fig.~5]{Wu06}}\label{fig:mt_ml}
+\end{figure}
+
+Figure~\ref{fig:mt_ml} illustrates various scenarios encountered in multi-target tracking evaluations:
+
+\begin{itemize}
+    \item \textbf{Ground Truth Trajectory (Blue):} Represents the actual path or movement of an object in the scene.
+    \item \textbf{Result Trajectory (Red):} Represents the predicted path of an object by the tracking system.
+    \item \textbf{False Alarm:} Points where the tracking system detects an object when there is no one present in the ground truth.
+    \item \textbf{ID Switch:} An instance where the tracking ID assigned to an object changes erroneously during tracking.
+    \item \textbf{Trajectory Fragment:} A segment of the result trajectory that is shorter than the ground truth, indicating a break or interruption in tracking.
+    \item \textbf{Mostly Tracked:} Scenarios where the result trajectory closely follows the ground truth trajectory for the majority of the path of the object (\(\geq 80\%\))
+    \item \textbf{Mostly Lost:} Scenarios where the result trajectory only briefly aligns or intersects with the ground truth trajectory, indicating the object was not effectively tracked for most of its path (\(\leq 20\%\)).
+\end{itemize}

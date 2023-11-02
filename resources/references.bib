@@ -12,6 +12,19 @@
   volume       = {552},
 }
 
+@article{Bernardin08,
+  author    = {Bernardin, Keni and Stiefelhagen, Rainer},
+  doi       = {10.1155/2008/246309},
+  issn      = {1687-5176, 1687-5281},
+  journal   = {EURASIP journal on image and video processing},
+  language  = {english},
+  pages     = {Art.Nr.: 246309},
+  publisher = {{Hindawi}},
+  title     = {Evaluating Multiple Object Tracking Performance: The CLEAR MOT Metrics},
+  volume    = {2},
+  year      = {2008},
+}
+
 @article{Blackman04,
   abstract = {Multiple hypothesis tracking (MHT) is generally accepted as the preferred method for solving the data association problem in modern multiple target tracking (MTT) systems. This paper summarizes the motivations for MHT, the basic principles behind MHT and the alternative implementations in common use. It discusses the manner in which the multiple data association hypotheses formed by MHT can be combined with multiple filter models, such as used by the interacting multiple model (IMM) method. An overview of the studies that show the advantages of MHT over the conventional single hypothesis approach is given. Important current applications and areas of future research and development for MHT are discussed.},
   author   = {Blackman, S.S.},
@@ -56,6 +69,20 @@
   doi       = {10.1109/MOT.2001.937977},
   pages     = {19--26},
   title     = {Tracking multiple people with a multi-camera system},
+}
+
+@inproceedings{Chavdarova18,
+  abstract  = {People detection methods are highly sensitive to occlusions between pedestrians, which are extremely frequent in many situations where cameras have to be mounted at a limited height. The reduction of camera prices allows for the generalization of static multi-camera set-ups. Using joint visual information from multiple synchronized cameras gives the opportunity to improve detection performance. In this paper, we present a new large-scale and high-resolution dataset. It has been captured with seven static cameras in a public open area, and unscripted dense groups of pedestrians standing and walking. Together with the camera frames, we provide an accurate joint (extrinsic and intrinsic) calibration, as well as 7 series of 400 annotated frames for detection at a rate of 2 frames per second. This results in over 40 000 bounding boxes delimiting every person present in the area of interest, for a total of more than 300 individuals. We provide a series of benchmark results using baseline algorithms published over the recent months for multi-view detection with deep neural networks, and trajectory estimation using a non-Markovian model.},
+  author    = {Chavdarova, Tatjana and Baqué, Pierre and Bouquet, Stéphane and Maksai, Andrii and Jose, Cijo and Bagautdinov, Timur and Lettry, Louis and Fua, Pascal and Van Gool, Luc and Fleuret, François},
+  booktitle = {2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  date      = {2018-06},
+  doi       = {10.1109/CVPR.2018.00528},
+  issn      = {2575-7075},
+  keywords  = {},
+  number    = {},
+  pages     = {5030-5039},
+  title     = {WILDTRACK: A Multi-camera HD Dataset for Dense Unscripted Pedestrian Detection},
+  volume    = {},
 }
 
 @article{Chen14,
@@ -227,6 +254,20 @@
   title     = {Consistent Re-identification in a Camera Network},
 }
 
+@inproceedings{Davila23,
+  abstract  = {In this paper, we present the Multi-view Extended Videos with Identities (MEVID) dataset for large-scale, video person re-identification (ReID) in the wild. To our knowledge, MEVID represents the most-varied video person ReID dataset, spanning an extensive indoor and outdoor environment across nine unique dates in a 73-day window, various camera viewpoints, and entity clothing changes. Specifically, we label the identities of 158 unique people wearing 598 outfits taken from 8, 092 tracklets, average length of about 590 frames, seen in 33 camera views from the very-large-scale MEVA person activities dataset. While other datasets have more unique identities, MEVID emphasizes a richer set of information about each individual, such as: 4 outfits/identity vs. 2 outfits/identity in CCVID, 33 viewpoints across 17 locations vs. 6 in 5 simulated locations for MTA, and 10 million frames vs. 3 million for LS-VID. Being based on the MEVA video dataset, we also inherit data that is intentionally demographically balanced to the continental United States. To accelerate the annotation process, we developed a semi-automatic annotation framework and GUI that combines state-of-the-art real-time models for object detection, pose estimation, person ReID, and multi-object tracking. We evaluate several state-of-the-art methods on MEVID challenge problems and comprehensively quantify their robustness in terms of changes of outfit, scale, and background location. Our quantitative analysis on the realistic, unique aspects of MEVID shows that there are significant remaining challenges in video person ReID and indicates important directions for future research.},
+  author    = {Davila, Daniel and Du, Dawei and Lewis, Bryon and Funk, Christopher and Van Pelt, Joseph and Collins, Roderic and Corona, Kellie and Brown, Matt and McCloskey, Scott and Hoogs, Anthony and Clipp, Brian},
+  booktitle = {2023 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+  date      = {2023-01},
+  doi       = {10.1109/WACV56688.2023.00168},
+  issn      = {2642-9381},
+  keywords  = {},
+  number    = {},
+  pages     = {1634-1643},
+  title     = {MEVID: Multi-view Extended Videos with Identities for Video Person Re-Identification},
+  volume    = {},
+}
+
 @inproceedings{Dehghan15,
   abstract  = {In this paper we show that multiple object tracking (MOT) can be formulated in a framework, where the detection and data-association are performed simultaneously. Our method allows us to overcome the confinements of data association based MOT approaches; where the performance is dependent on the object detection results provided at input level. At the core of our method lies structured learning which learns a model for each target and infers the best location of all targets simultaneously in a video clip. The inference of our structured learning is done through a new Target Identity-aware Network Flow (TINF), where each node in the network encodes the probability of each target identity belonging to that node. The proposed Lagrangian relaxation optimization finds the high quality solution to the network. During optimization a soft spatial constraint is enforced between the nodes of the graph which helps reducing the ambiguity caused by nearby targets with similar appearance in crowded scenarios. We show that automatically detecting and tracking targets in a single framework can help resolve the ambiguities due to frequent occlusion and heavy articulation of targets. Our experiments involve challenging yet distinct datasets and show that our method can achieve results better than the state-of-art.},
   author    = {Dehghan, Afshin and Tian, Yicong and Torr, Philip. H. S. and Shah, Mubarak},
@@ -261,7 +302,7 @@
 }
 
 @inproceedings{Deng09,
-  abstract  = {The explosion of image data on the Internet has the potential to foster more sophisticated and robust models and algorithms to index, retrieve, organize and interact with images and multimedia data. But exactly how such data can be harnessed and organized remains a critical problem. We introduce here a new database called “ImageNet”, a large-scale ontology of images built upon the backbone of the WordNet structure. ImageNet aims to populate the majority of the 80,000 synsets of WordNet with an average of 500–1000 clean and full resolution images. This will result in tens of millions of annotated images organized by the semantic hierarchy of WordNet. This paper offers a detailed analysis of ImageNet in its current state: 12 subtrees with 5247 synsets and 3.2 million images in total. We show that ImageNet is much larger in scale and diversity and much more accurate than the current image datasets. Constructing such a large-scale database is a challenging task. We describe the data collection scheme with Amazon Mechanical Turk. Lastly, we illustrate the usefulness of ImageNet through three simple applications in object recognition, image classification and automatic object clustering. We hope that the scale, accuracy, diversity and hierarchical structure of ImageNet can offer unparalleled opportunities to researchers in the computer vision community and beyond.},
+  abstract  = {The explosion of image data on the Internet has the potential to foster more sophisticated and robust models and algorithms to index, retrieve, organize and interact with images and multimedia data. But exactly how such data can be harnessed and organized remains a critical problem. We introduce here a new database called “ImageNet”, a large-scale ontology of images built upon the backbone of the WordNet structure. ImageNet aims to populate the majority of the 80,000 synsets of WordNet with an average of 500-1000 clean and full resolution images. This will result in tens of millions of annotated images organized by the semantic hierarchy of WordNet. This paper offers a detailed analysis of ImageNet in its current state: 12 subtrees with 5247 synsets and 3.2 million images in total. We show that ImageNet is much larger in scale and diversity and much more accurate than the current image datasets. Constructing such a large-scale database is a challenging task. We describe the data collection scheme with Amazon Mechanical Turk. Lastly, we illustrate the usefulness of ImageNet through three simple applications in object recognition, image classification and automatic object clustering. We hope that the scale, accuracy, diversity and hierarchical structure of ImageNet can offer unparalleled opportunities to researchers in the computer vision community and beyond.},
   author    = {Deng, Jia and Dong, Wei and Socher, Richard and Li, Li-Jia and Kai Li and Li Fei-Fei},
   booktitle = {2009 IEEE Conference on Computer Vision and Pattern Recognition},
   date      = {2009-06},
@@ -299,6 +340,20 @@
   pages        = {267--282},
   title        = {Multicamera People Tracking with a Probabilistic Occupancy Map},
   volume       = {30},
+}
+
+@inproceedings{Han23,
+  abstract  = {Multi-camera tracking systems are gaining popularity in applications that demand high-quality tracking results, such as frictionless checkout. In cluttered and crowded environments, monocular multi-object tracking (MOT) systems often fail due to occlusions. Multiple highly overlapped cameras are capable of recovering partial 3D information. When used properly, 3D data can significantly alleviate the occlusion issue. However, training a multi-camera tracker demands a large-scale multi-camera tracking dataset with diverse camera settings and backgrounds. These requirements make the collection of multi-camera tracking dataset challenging and expensive. The cost of creating such a dataset has limited the availability and scale of datasets in this domain. Instead, we appeal to an auto-annotation system to reduce the cost, which uses overlapped and calibrated depth and RGB cameras to build a 3D tracker and automatically generates the 3D tracking results. The results are manually checked and corrected to ensure the label quality, which is much cheaper than solely manual annotation. Next, the 3D tracking results are projected to each calibrated RGB camera view to create 2D tracking results. In this way, we collect and annotate a large-scale densely labeled multi-camera tracking dataset from five different environments. We have conducted extensive experiments using two real-time multi-camera trackers and a person re-identification (ReID) model under different settings. This dataset provides a reliable benchmark for multi-camera, multi-object tracking systems in cluttered and crowded environments. We expect this benchmark to encourage more research attempts in this domain. Our dataset will be publicly released upon the acceptance of this work.},
+  author    = {Han, Xiaotian and You, Quanzeng and Wang, Chunyu and Zhang, Zhizheng and Chu, Peng and Hu, Houdong and Wang, Jiang and Liu, Zicheng},
+  booktitle = {2023 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+  date      = {2023-01},
+  doi       = {10.1109/WACV56688.2023.00484},
+  issn      = {2642-9381},
+  keywords  = {},
+  number    = {},
+  pages     = {4849-4858},
+  title     = {MMPTRACK: Large-scale Densely Annotated Multi-camera Multiple People Tracking Benchmark},
+  volume    = {},
 }
 
 @inproceedings{He19,
@@ -675,6 +730,18 @@
   title     = {City-Scale Multi-Camera Vehicle Tracking Guided by Crossroad Zones},
 }
 
+@article{Luiten20,
+  author     = {Jonathon Luiten and Aljosa Osep and Patrick Dendorfer and Philip H. S. Torr and Andreas Geiger and Laura Leal{-}Taix{\'{e}} and Bastian Leibe},
+  eprint     = {2009.07736},
+  eprinttype = {arXiv},
+  journal    = {CoRR},
+  timestamp  = {Fri, 20 Nov 2020 13:22:19 +0100},
+  title      = {{HOTA:} {A} Higher Order Metric for Evaluating Multi-Object Tracking},
+  url        = {https://arxiv.org/abs/2009.07736},
+  volume     = {abs/2009.07736},
+  year       = {2020},
+}
+
 @article{Meyer17,
   abstract     = {We propose an algorithm for tracking an unknown number of targets based on measurements provided by multiple sensors. Our algorithm achieves low computational complexity and excellent scalability by running belief propagation on a suitably devised factor graph. A redundant formulation of data association uncertainty and the use of “augmented target states” including binary target indicators make it possible to exploit statistical independencies for a drastic reduction of complexity. An increase in the number of targets, sensors, or measurements leads to additional variable nodes in the factor graph but not to higher dimensions of the messages. As a consequence, the complexity of our method scales only quadratically in the number of targets, linearly in the number of sensors, and linearly in the number of measurements per sensor. The performance of the method compares well with that of previously proposed methods, including methods with a less favorable scaling behavior. In particular, our method can outperform multisensor versions of the probability hypothesis density (PHD) filter, the cardinalized PHD filter, and the multi-Bernoulli filter.},
   author       = {Meyer, Florian and Braca, Paolo and Willett, Peter and Hlawatsch, Franz},
@@ -686,6 +753,17 @@
   pages        = {3478--3493},
   title        = {A Scalable Algorithm for Tracking an Unknown Number of Targets Using Multiple Sensors},
   volume       = {65},
+}
+
+@article{Milan16,
+  author     = {Milan, A. and Leal-Taix\'{e}, L. and Reid, I. and Roth, S. and Schindler, K.},
+  date       = {2016-03},
+  journal    = {arXiv:1603.00831 [cs]},
+  keywords   = {Computer Science - Computer Vision and Pattern Recognition},
+  note       = {arXiv: 1603.00831},
+  shorttitle = {MOT16},
+  title      = {{MOT}16: {A} Benchmark for Multi-Object Tracking},
+  url        = {http://arxiv.org/abs/1603.00831},
 }
 
 @inproceedings{Naphade23,
@@ -876,6 +954,17 @@
   title     = {Improving Multi-Target Multi-Camera Tracking by Track Refinement and Completion},
 }
 
+@article{Taix15,
+  author     = {Leal-Taix\'{e}, L. and Milan, A. and Reid, I. and Roth, S. and Schindler, K.},
+  date       = {2015-04},
+  journal    = {arXiv:1504.01942 [cs]},
+  keywords   = {Computer Science - Computer Vision and Pattern Recognition},
+  note       = {arXiv: 1504.01942},
+  shorttitle = {MOTChallenge 2015},
+  title      = {{MOTC}hallenge 2015: {T}owards a Benchmark for Multi-Target Tracking},
+  url        = {http://arxiv.org/abs/1504.01942},
+}
+
 @inproceedings{Tang19,
   abstract  = {Urban traffic optimization using traffic cameras as sensors is driving the need to advance state-of-the-art multi-target multi-camera (MTMC) tracking. This work introduces CityFlow, a city-scale traffic camera dataset consisting of more than 3 hours of synchronized HD videos from 40 cameras across 10 intersections, with the longest distance between two simultaneous cameras being 2.5 km. To the best of our knowledge, CityFlow is the largest-scale dataset in terms of spatial coverage and the number of cameras/videos in an urban environment. The dataset contains more than 200K annotated bounding boxes covering a wide range of scenes, viewing angles, vehicle models, and urban traffic flow conditions. Camera geometry and calibration information are provided to aid spatio-temporal analysis. In addition, a subset of the benchmark is made available for the task of image-based vehicle re-identification (ReID). We conducted an extensive experimental evaluation of baselines/state-of-the-art approaches in MTMC tracking, multi-target single-camera (MTSC) tracking, object detection, and image-based ReID on this dataset, analyzing the impact of different network architectures, loss functions, spatio-temporal models and their combinations on task effectiveness. An evaluation server is launched with the release of our benchmark at the 2019 AI City Challenge (https://www.aicitychallenge.org/) that allows researchers to compare the performance of their newest techniques. We expect this dataset to catalyze research in this field, propel the state-of-the-art forward, and lead to deployed traffic optimization(s) in the real world.},
   author    = {Tang, Zheng and Naphade, Milind and Liu, Ming-Yu and Yang, Xiaodong and Birchfield, Stan and Wang, Shuo and Kumar, Ratnesh and Anastasiu, David and Hwang, Jenq-Neng},
@@ -907,7 +996,6 @@
   eprinttype  = {arXiv},
   title       = {Multi-Target Tracking in Multiple Non-Overlapping Cameras using Constrained Dominant Sets},
 }
-
 @article{Tesfaye19,
   abstract     = {In this paper, a unified three-layer hierarchical approach for solving tracking problem in a multiple non-overlapping cameras setting is proposed. Given a video and a set of detections (obtained by any person detector), we first solve within-camera tracking employing the first two layers of our framework and then, in the third layer, we solve across-camera tracking by associating tracks of the same person in all cameras simultaneously. To best serve our purpose, we propose fast-constrained dominant set clustering (FCDSC), a novel method which is several orders of magnitude faster (close to real time) than existing methods. FCDSC is a parameterized family of quadratic programs that generalizes the standard quadratic optimization problem. In our method, we first build a graph where nodes of the graph represent short-tracklets, tracklets and tracks in the first, second and third layer of the framework, respectively. The edge weights reflect the similarity between nodes. FCDSC takes as input a constrained set, a subset of nodes from the graph which need to be included in the extracted cluster. Given a constrained set, FCDSC generates compact clusters by selecting nodes from the graph which are highly similar to each other and with elements in the constrained set. We have tested this approach on a very large and challenging dataset (namely, MOTchallenge DukeMTMC) and show that the proposed framework outperforms the state-of-the-art approaches. Even though the main focus of this paper is on multi-target tracking in non-overlapping cameras, the proposed approach can also be applied to solve video-based person re-identification problem. We show that when the re-identification problem is formulated as a clustering problem, FCDSC can be used in conjunction with state-of-the-art video-based re-identification algorithms, to increase their already good performances. Our experiments demonstrate the general applicability of the proposed framework for multi-target multi-camera tracking and person re-identification tasks.},
   author       = {Tesfaye, Yonatan Tariku and Zemene, Eyasu and Prati, Andrea and Pelillo, Marcello and Shah, Mubarak},
@@ -993,6 +1081,21 @@
   pages     = {1--5},
   title     = {People Detection and Tracking Using a Fisheye Camera Network},
 }
+
+@inproceedings{Wei18,
+  abstract  = {Although the performance of person Re-Identification (ReID) has been significantly boosted, many challenging issues in real scenarios have not been fully investigated, e.g., the complex scenes and lighting variations, viewpoint and pose changes, and the large number of identities in a camera network. To facilitate the research towards conquering those issues, this paper contributes a new dataset called MSMT171 with many important features, e.g., 1) the raw videos are taken by an 15-camera network deployed in both indoor and outdoor scenes, 2) the videos cover a long period of time and present complex lighting variations, and 3) it contains currently the largest number of annotated identities, i.e., 4,101 identities and 126,441 bounding boxes. We also observe that, domain gap commonly exists between datasets, which essentially causes severe performance drop when training and testing on different datasets. This results in that available training data cannot be effectively leveraged for new testing domains. To relieve the expensive costs of annotating new training samples, we propose a Person Transfer Generative Adversarial Network (PTGAN) to bridge the domain gap. Comprehensive experiments show that the domain gap could be substantially narrowed-down by the PTGAN.},
+  author    = {Wei, Longhui and Zhang, Shiliang and Gao, Wen and Tian, Qi},
+  booktitle = {2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  date      = {2018-06},
+  doi       = {10.1109/CVPR.2018.00016},
+  issn      = {2575-7075},
+  keywords  = {},
+  number    = {},
+  pages     = {79-88},
+  title     = {Person Transfer GAN to Bridge Domain Gap for Person Re-identification},
+  volume    = {},
+}
+
 @inproceedings{Wojke17,
   abstract  = {Simple Online and Realtime Tracking (SORT) is a pragmatic approach to multiple object tracking with a focus on simple, effective algorithms. In this paper, we integrate appearance information to improve the performance of SORT. Due to this extension we are able to track objects through longer periods of occlusions, effectively reducing the number of identity switches. In spirit of the original framework we place much of the computational complexity into an offline pre-training stage where we learn a deep association metric on a largescale person re-identification dataset. During online application, we establish measurement-to-track associations using nearest neighbor queries in visual appearance space. Experimental evaluation shows that our extensions reduce the number of identity switches by 45{\%}, achieving overall competitive performance at high frame rates.},
   author    = {Wojke, Nicolai and Bewley, Alex and Paulus, Dietrich},
@@ -1002,6 +1105,20 @@
   issn      = {2381-8549},
   pages     = {3645--3649},
   title     = {Simple online and realtime tracking with a deep association metric},
+}
+
+@inproceedings{Wu06,
+  abstract  = {Tracking of humans in videos is important for many applications. A major source of difficulty in performing this task is due to inter-human or scene occlusion. We present an approach based on representing humans as an assembly of four body parts and detection of the body parts in single frames which makes the method insensitive to camera motions. The responses of the body part detectors and a combined human detector provide the "observations" used for tracking. Trajectory initialization and termination are both fully automatic and rely on the confidences computed from the detection responses. An object is tracked by data association if its corresponding detection response can be found; otherwise it is tracked by a meanshift style tracker. Our method can track humans with both inter-object and scene occlusions. The system is evaluated on three sets of videos and compared with previous method.},
+  author    = {Bo Wu and Nevatia, R.},
+  booktitle = {2006 IEEE Computer Society Conference on Computer Vision and Pattern Recognition (CVPR'06)},
+  date      = {2006-06},
+  doi       = {10.1109/CVPR.2006.312},
+  issn      = {1063-6919},
+  keywords  = {},
+  number    = {},
+  pages     = {951-958},
+  title     = {Tracking of Multiple, Partially Occluded Humans based on Static Body Part Detection},
+  volume    = {1},
 }
 
 @inproceedings{Xing09,
@@ -1138,6 +1255,46 @@
   title        = {FairMOT: On the Fairness of Detection and Re-identification in Multiple Object Tracking},
   url          = {https://doi.org/10.1007/s11263-021-01513-4},
   volume       = {129},
+}
+
+@inproceedings{Zheng15,
+  abstract  = {This paper contributes a new high quality dataset for person re-identification, named "Market-1501". Generally, current datasets: 1) are limited in scale, 2) consist of hand-drawn bboxes, which are unavailable under realistic settings, 3) have only one ground truth and one query image for each identity (close environment). To tackle these problems, the proposed Market-1501 dataset is featured in three aspects. First, it contains over 32,000 annotated bboxes, plus a distractor set of over 500K images, making it the largest person re-id dataset to date. Second, images in Market-1501 dataset are produced using the Deformable Part Model (DPM) as pedestrian detector. Third, our dataset is collected in an open system, where each identity has multiple images under each camera. As a minor contribution, inspired by recent advances in large-scale image search, this paper proposes an unsupervised Bag-of-Words descriptor. We view person re-identification as a special task of image search. In experiment, we show that the proposed descriptor yields competitive accuracy on VIPeR, CUHK03, and Market-1501 datasets, and is scalable on the large-scale 500k dataset.},
+  author    = {Zheng, Liang and Shen, Liyue and Tian, Lu and Wang, Shengjin and Wang, Jingdong and Tian, Qi},
+  booktitle = {2015 IEEE International Conference on Computer Vision (ICCV)},
+  date      = {2015-12},
+  doi       = {10.1109/ICCV.2015.133},
+  issn      = {2380-7504},
+  keywords  = {},
+  number    = {},
+  pages     = {1116-1124},
+  title     = {Scalable Person Re-identification: A Benchmark},
+  volume    = {},
+}
+
+
+@article{Zheng16a,
+  author     = {Liang Zheng and Hengheng Zhang and Shaoyan Sun and Manmohan Chandraker and Qi Tian},
+  date       = {2016},
+  eprint     = {1604.02531},
+  eprinttype = {arXiv},
+  journal    = {CoRR},
+  timestamp  = {Mon, 13 Aug 2018 16:46:45 +0200},
+  title      = {Person Re-identification in the Wild},
+  url        = {http://arxiv.org/abs/1604.02531},
+  volume     = {abs/1604.02531},
+}
+
+@inproceedings{Zheng16b,
+  abstract  = {This paper considers person re-identification (re-id) in videos. We introduce a new video re-id dataset, named Motion Analysis and Re-identification Set (MARS), a video extension of the Market-1501 dataset. To our knowledge, MARS is the largest video re-id dataset to date. Containing 1,261 IDs and around 20,000 tracklets, it provides rich visual information compared to image-based datasets. Meanwhile, MARS reaches a step closer to practice. The tracklets are automatically generated by the Deformable Part Model (DPM) as pedestrian detector and the GMMCP tracker. A number of false detection/tracking results are also included as distractors which would exist predominantly in practical video databases. Extensive evaluation of the state-of-the-art methods including the space-time descriptors and CNN is presented. We show that CNN in classification mode can be trained from scratch using the consecutive bounding boxes of each identity. The learned CNN embedding outperforms other competing methods considerably and has good generalization ability on other video re-id datasets upon fine-tuning.},
+  address   = {Cham},
+  author    = {Zheng, Liang and Bie, Zhi and Sun, Yifan and Wang, Jingdong and Su, Chi and Wang, Shengjin and Tian, Qi},
+  booktitle = {Computer Vision -- ECCV 2016},
+  editor    = {Leibe, Bastian and Matas, Jiri and Sebe, Nicu and Welling, Max},
+  isbn      = {978-3-319-46466-4},
+  pages     = {868--884},
+  publisher = {Springer International Publishing},
+  title     = {MARS: A Video Benchmark for Large-Scale Person Re-Identification},
+  year      = {2016},
 }
 
 @inproceedings{Zhu19,
