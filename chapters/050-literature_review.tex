@@ -1,27 +1,128 @@
 \chapter{Literature Review}\label{chap:literature_review}
-Provide an overview of the main methods used in MTMCT
+This chapter reviews the literature on Multi-Target Multi-Camera Tracking (MTMCT) and discusses the trends and advancements as well as the milestones in this field. It will only focus on the latest and state-of-the-art methods and technologies and will not cover the whole history of MTMCT including the early methods and algorithms.
+
+\section{The Beginnings}\label{sec:the_beginnings}
+Back in \citeyear{Cai99} and \citeyear{Chang01} \textcite{Cai99} and \textcite{Chang01} conducted research in the area of tracking people in an multi-camera system. Also in \citeyear{Khan01}, \textcite{Khan01} proposed a method for tracking people and vehicles with uncalibrated cameras. The system is able to discover spatial relationships between the FOVs of the three cameras used. All three works rely on Bayesian classification and networks. %TODO: Cite Bayesian
+
+The methods even demonstrated the feasibility of tracking people in real-time, but are in general very limited in their capabilities. For example the work of \citeauthor{Chang01} is limited to people in upright pose. The algorithm proposed by \citeauthor{Cai99} lacks robustness compared to the single-camera tracking and \citeauthor{Khan01} approach does not calibrate the cameras correctly and is highly susceptible to errors caused by occlusion. But since then the field of tracking in multi-camera systems has evolved significantly in the past two decades.
+
+\section{Milestones}\label{sec:milestones}
+This section highlights significant milestones that have shaped the MTMCT research domain, focusing on the three critical areas: object detection, data association, and datasets and benchmarks.
+
+%TODO: Explain differences between CNN, R-CNN and Faster R-CNN
+%TODO: What is the latest YOLO version? YOLOv4 or v8?
+\subsection{Object Detection}\label{subsec:object_detection}
+The foundation for modern object detection methods was laid in \citeyear{Lecun98} by \citeauthor{Lecun98} with the development of Convolutional Neural Networks (CNNs), which are deep learning models specifically designed to process images~\cite{Lecun98}. The advent of deep learning in the past quarter-century has led to a significant improvement in object detection performance.
+
+With the introduction of R-CNN in \citeyear{Girshick14}, \textcite{Girshick14} demonstrated that deep learning can be used for object detection. The architecture follows a two-stage process: first, it proposes regions of interest using a selective search and then classifies these regions using CNN features. Due to R-CNN proposing regions of interest independently, it was computationally intensive. Just one year later improvements were made with Fast R-CNN~\cite{Girshick15}, addressed the inefficiencies of its predecessor by introducing a mechanism to share convolutional computations across region proposals and incorporating a Region of Interest (RoI) pooling layer to extract a fixed-size feature vector from the feature map for each proposal. In \citeyear{Ren17} \citeauthor{Ren17} proposed Faster R-CNN~\cite{Ren17}, which integrated a Region Proposal Network (RPN) into the architecture, allowing for the generation of region proposals almost cost-free by sharing the convolutional features with the downstream detection network. This end-to-end trainable model marked a significant leap in efficiency and set a new standard for object detection tasks.
+
+Following the success of R-CNN and its successors, the object detection landscape was further revolutionized by the introduction of You-Only-Look-Once (YOLO)~\cite{Redmon15} and Single Shot MultiBox Detector (SSD)~\cite{Liu15}, which are designed to be even more efficient and suitable for real-time applications.
+
+The YOLO framework, presented by \citeauthor{Redmon15} in \citeyear{Redmon15}, revolutionized real-time object detection by predicting bounding boxes and class probabilities directly from full images in just one evaluation. YOLO processes the entire image in a single forward pass through the network, divides the image into a grid, and predicts bounding boxes and probabilities for each grid cell. The strength of YOLO lies in its speed, making it highly suitable for applications where real-time detection is crucial. Even though the original author has stopped working on YOLO, due to ethical concerns, it is still being improved continuously. The latest official version, YOLOv4, was released in \citeyear{Bochkovskiy20} by \textcite{Bochkovskiy20}.
+
+\citeauthor{Liu15} proposed SSD in \citeyear{Liu15}, another influential single-shot object detector that balances the trade-off between speed and accuracy. Unlike YOLO, SSD operates on multiple feature maps at different resolutions to effectively handle objects of various sizes. The architecture applies a set of convolutional filters to these feature maps to predict both the bounding box offsets and the class probabilities for a fixed set of default bounding boxes, which are distributed over the image. Detecting and tracking objects across different scales and perspectives makes SSD particularly suitable for MTMCT applications.
+
+\begin{table}[ht]
+    \centering
+    \caption{Overview Object Detectors}\label{tab:overview_object_detectors}
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{|l|c|c|c|}
+            \hline
+            \textbf{Model}            & \textbf{Speed} & \textbf{Accuracy} & \textbf{Computational Requirements} \\
+            \hline
+            YOLO~\cite{Redmon15}      & Very High      & Moderate          & Low                                 \\
+            Faster R-CNN~\cite{Ren17} & Moderate       & High              & High                                \\
+            SSD~\cite{Liu15}          & High           & High              & Moderate                            \\
+            \hline
+        \end{tabular}
+    }
+\end{table}
+
+Table~\ref{tab:overview_object_detectors} compares the mentioned prominent object detection models used in MTMCT:
+
+\begin{itemize}
+    \item \textbf{Speed:} Refers to the time it takes for the detector to process a single frame, usually measured in frames per second (FPS). High speed is crucial for real-time tracking applications, where it is necessary to process video feeds live or near-live.
+    \item \textbf{Accuracy:} Measures the ability to correctly identify and locate objects. It is usually quantified by precision and recall rates, or the average precision (AP) over a dataset.
+    \item \textbf{Computational Requirements:} Refers to the resources needed to run the detector, typically measured in terms of the number of floating-point operations (FLOPs) or the memory and processing power required. Efficient use of computational resources is essential for deploying MTMCT systems on hardware with limited capabilities.
+\end{itemize}
+
+\subsection{Data Association}\label{subsec:data_association}
+Traditional approaches to data association relied heavily on probabilistic methods such as Multiple Hypothesis Tracking (MHT)~\cite{Blackman04} and Bayesian frameworks~\cite{Reid79}. Many methods are based on the Hungarian algorithm~\cite{Kuhn55} and the Kalman filter~\cite{Kalman60}, which were already proposed in the 1960s by Harold Kuhn and Rudolf Kalman respectively. Furthermore fundamental feature extraction methods are Histogram of Oriented Gradients (HOG)~\cite{Dalal05} and Scale-Invariant Feature Transform (SIFT)~\cite{Lowe04}.
+
+The data association problem is tackled by three different approaches:
+
+\begin{itemize}
+    \item \textbf{Graph Optimization:} \cite{Zhang08}
+    \item \textbf{Neural Networks (end-to-end):} \cite{Ristani18}
+    \item \textbf{Siamese Networks:} !!!
+    \item \textbf{Re-ID:} \cite{Zheng15}
+\end{itemize}
+
+\subsection{Datasets and Challenges}\label{subsec:datasets_and_challenges}
+Besides the datasets mentioned in section~\ref{sec:datasets}, which are used for object detection in general, there are also datasets which are more tailored towards MTMCT. Typically revolves around tracking specific object classes, predominantly people and vehicles. Datasets, which fits these requirements are listed in table~\ref{tab:overview_datasets}.
+
+%TODO: Add missing (!!!) information
+\begin{table}[ht]
+    \centering
+    \caption{Overview of Datasets}\label{tab:overview_datasets}
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{|l|c|c|c|c|c|c|c|c|}
+            \hline
+            \textbf{Dataset}              & \textbf{Environment} & \textbf{Num. of Scenarios} & \textbf{Num. of Cameras (Overlap)} & \textbf{FPS} & \textbf{IDs} & \textbf{Year} & \textbf{Class}  \\
+            \hline
+            MOT16~\cite{Milan16}          & Outdoor              & 14                         & 1                                  & 25-30        & !!!          & 2016          & Person, Vehicle \\
+            DukeMTMC~\cite{Ristani16}     & Outdoor              & 1                          & 8 (\cmark)                         & 60           & 2834         & 2016          & Person          \\
+            WILDTRACK~\cite{Chavdarova18} & Outdoor              & 1                          & 7 (\cmark)                         & 60           & 313          & 2018          & Person          \\
+            MSMT17~\cite{Wei18}           & Mixed                & 12                         & 15 (\cmark)                        & 15           & 4101         & 2018          & Person          \\
+            CityFlowV1~\cite{Tang19}      & Outdoor              & 5                          & 40 (\cmark)                        & 10           & 666          & 2019          & Vehicle         \\
+            MOT20~\cite{Dendorfer20}      & Outdoor              & 8                          & 1                                  & 25           & !!!          & 2020          & Person, Vehicle \\
+            CityFlowV2~\cite{Tang19}      & Outdoor              & 6                          & 46 (\cmark)                        & 10           & 880          & 2021          & Vehicle         \\
+            MMPTRACK~\cite{Han23}         & Indoor               & 5                          & 23 (\cmark)                        & 15           & !!!          & 2023          & Person          \\
+            MEVID~\cite{Davila23}         & Mixed                & 17                         & 33 (\cmark)                        & !!!          & 158          & 2023          & Person          \\
+            \hline
+        \end{tabular}
+    }
+\end{table}
+
+Table~\ref{tab:overview_datasets} provides a summary of various datasets that have significantly contributed to the MTMCT research domain. Each dataset is categorized based on several distinct criteria to reflect its unique characteristics and relevance:
+
+\begin{itemize}
+    \item \textbf{Environment}: Setting of data collection, from controlled indoor environments to dynamic outdoor locations.
+    \item \textbf{Num. of Scenarios}: Details the number of distinct scenarios or situations represented in the dataset.
+    \item \textbf{Num. of Cameras (Overlap)}: Represents the number of cameras involved and indicates if there is an overlap in their views.
+    \item \textbf{FPS}: Specifies the frame rate of the dataset, important for real-time processing considerations.
+    \item \textbf{IDs}: Enumerates the unique identities present, which can provide a measure of the complexity of the dataset.
+    \item \textbf{Year}: States the year of the release, representing the recentness of the dataset.
+    \item \textbf{Class}: Identifies the subjects annotated, such as persons or vehicles.
+\end{itemize}
+
+Each dataset listed plays a role in the following sections, the reviewed literature is often evaluated on one or more of these datasets. The datasets are also used to train and test the tracking methods.
+
+In recent years, challenges have been established to encourage research in object detection and tracking, although they have mostly centered on ST-SCT and MT-SCT. Nevertheless, these challenges remain relevant to MTMCT research. The most recent representatives of the primary challenges are:
+
+\begin{itemize}
+    \item \textbf{MOT20 Challenge:} Benchmark, which includes crowded environments and variable lighting conditions. Moreover, it provides ground truth data to facilitate evaluation. The MOT datasets are released in conjunction with the MOTChallenge~\cite{Dendorfer20}.
+    \item \textbf{2023 AICity Challenge:} Focuses on AI applications in smart cities and includes multi-object tracking for traffic surveillance and anomaly detection as one of its key components. The CityFlow datasets belong to the AICity Challenges.~\cite{Naphade23}
+    \item \textbf{VOT2022 Challenge (Visual Object Tracking Challenge):} An annual competition that provides a standardized dataset and evaluation framework for single-object tracking.~\cite{Kristan22}
+    \item \textbf{VOTS2023 Challenge (Visual Object Tracking and Segmentation Challenge):} An extension of the VOT Challenge that focuses on multi-object tracking. The challenge, recently published in October 2023, affirms the quickly growing interest in this field.~\cite{Kristan23}
+\end{itemize}
 
 \section{Methods}\label{sec:methods}
+This section reviews the methods and state-of-the-art algorithms used in MTMCT.
 
-\subsection{Tracking-by-Detection}\label{subsec:tracking-by-detection}
+\subsection{Tracking-by-Detection}\label{subsec:tracking_by_detection}
+The most common approach used by MTMCT systems is to first detect the objects in each frame and then data association is performed to link the detections across frames. This implementation is known as Tracking-by-Detection (TbD) and the two steps are performed separately and sequentially.
 
-\subsection{Single-Object Tracking}\label{subsec:single-object_tracking}
+\subsection{Graph Optimization}\label{subsec:graph_optimization}
 
-\subsection{Multi-Object Tracking}\label{subsec:multi-object_tracking}
 
-\subsection{Single-Camera Tracking}\label{subsec:single-camera_tracking}
+\subsection{Neural Networks}\label{subsec:neural_networks}
 
-\subsection{Multi-Camera Tracking}\label{subsec:multi-camera_tracking}
 
-\subsection{Re-Identification}\label{subsec:re-identification}
+\subsection{Siamese Networks}\label{subsec:siamese_networks}
 
-\section{Trends}\label{sec:trends}
-Discuss the trends and advancements in MTMCT
-
-\subsection{Deep Learning}\label{subsec:deep_learning}
-
-\subsection{Graph Neural Networks}\label{subsec:graph_neural_networks}
 
 \subsection{Edge Computing}\label{subsec:edge_computing}
 
 \section{Strengths and Weaknesses}\label{sec:strengths_and_weaknesses}
+This section discusses the strengths and weaknesses of the reviewed methods and algorithms.

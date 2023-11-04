@@ -7,22 +7,14 @@ An MTMCT system typically consists of the following steps: detection, feature ex
 \subsection{Detection}\label{subsec:detection}
 Detection refers to the process of identifying objects of interest within video frames. This is typically done using a variety of techniques, ranging from traditional image processing methods to deep learning models. The objective of the detection step is to locate and classify objects in the frame, providing a basis for subsequent steps in the MTMCT process.
 
-Commonly used object detection frameworks in the context of MTMCT are Faster R-CNN~\cite{Ren17}, YOLO~\cite{Redmon15}, and SSD~\cite{Liu15}. These frameworks are typically trained on large datasets (see section~\ref{sec:datasets_and_challenges}) to detect a wide range of objects.
-
 \subsection{Feature Extraction}\label{subsec:feature_extraction}
 Feature extraction involves extracting relevant information from detected objects to facilitate tracking. This could include low-level features like color, shape and texture as well as high-level features like object parts and their spatial relationships, speed, and direction of movement. The features extracted from objects are used to identify and distinguish them from other objects in the scene.
-
-Fundamental feature extraction methods are Histogram of Oriented Gradients (HOG)~\cite{Dalal05} and Scale-Invariant Feature Transform (SIFT)~\cite{Lowe04}.
 
 \subsection{Data Association}\label{subsec:data_association}
 Data association is the process of associating detected objects across different frames and camera views. This step is crucial in maintaining the IDs of objects as they move through the scene or even leaving and re-entering the scene, which is called re-identification (re-ID).
 
-The data association step is a huge research field in MTMCT and various methods have been proposed to solve this problem. Most methods are based on the Hungarian algorithm~\cite{Kuhn55} and the Kalman filter~\cite{Kalman60}, which were proposed in the 1960s by Harold Kuhn and Rudolf Kalman respectively.
-
 \subsection{Tracking}\label{subsec:tracking}
 Tracking refers to the step of maintaining the trajectory of detected objects over time. This involves predicting the future location of an object based on its past movements and updating its trajectory as new observations, so the next frame of a video, become available.
-
-Various tracking algorithms can be employed for this purpose, ranging from simple methods like frame-to-frame matching to more sophisticated approaches like Multiple Hypothesis Tracking (MHT)~\cite{Blackman04} and Joint Probabilistic Data Association (JPDA)~\cite{Reid79}.
 
 \section{Fundamental Concepts}\label{sec:fundamental_concepts}
 This section briefly describes the preliminary concepts of MTMCT, which are essential to follow the progression from basic object tracking methods to advanced MTMCT techniques.
@@ -56,7 +48,7 @@ The specifications of the cameras used in an MTMCT system can have a significant
 
 This can make it challenging to maintain consistent tracking across different camera views, especially when objects move from one camera to another. Objects may appear differently when viewed from different cameras, and their size and shape can be distorted. Achieving accurate tracking requires the system to account for these variations and correctly align objects across different camera views.
 
-\section{Datasets and Challenges}\label{sec:datasets_and_challenges}
+\section{Datasets}\label{sec:datasets}
 Datasets are a fundamental aspect of MTMCT research, they are the resource for the training, evaluation, and comparison of various tracking methods. A diverse array of datasets exists to fullfil requirements of MTMCT research, each offering unique challenges and scenarios.
 
 Commonly utilized datasets to train object detectors are:
@@ -66,53 +58,7 @@ Commonly utilized datasets to train object detectors are:
     \item \textbf{ImageNet:} Vast dataset employed for image classification and object detection. Object detectors trained on ImageNet are able to recognize an broad range of objects~\cite{Deng09}.
 \end{itemize}
 
-However, MTMCT research typically revolves around tracking specific object classes, predominantly people and vehicles. Datasets, which fits these requirements are listed in table~\ref{tab:overview_datasets}.
-
-%TODO: Add missing (!!!) information
-\begin{table}[ht]
-    \centering
-    \caption{Overview of Datasets}\label{tab:overview_datasets}
-    \resizebox{\textwidth}{!}{
-        \begin{tabular}{|l|c|c|c|c|c|c|c|c|}
-            \hline
-            \textbf{Dataset}              & \textbf{Environment} & \textbf{Num. of Scenarios} & \textbf{Num. of Cameras (Overlap)} & \textbf{FPS} & \textbf{IDs} & \textbf{Year} & \textbf{Class}  \\
-            \hline
-            MOT16~\cite{Milan16}          & Outdoor              & 14                         & 1                                  & 25-30        & !!!          & 2016          & Person, Vehicle \\
-            DukeMTMC~\cite{Ristani16}     & Outdoor              & 1                          & 8 (\cmark)                         & 60           & 2834         & 2016          & Person          \\
-            WILDTRACK~\cite{Chavdarova18} & Outdoor              & 1                          & 7 (\cmark)                         & 60           & 313          & 2018          & Person          \\
-            MSMT17~\cite{Wei18}           & Mixed                & 12                         & 15 (\cmark)                        & 15           & 4101         & 2018          & Person          \\
-            CityFlowV1~\cite{Tang19}      & Outdoor              & 5                          & 40 (\cmark)                        & 10           & 666          & 2019          & Vehicle         \\
-            MOT20~\cite{Dendorfer20}      & Outdoor              & 8                          & 1                                  & 25           & !!!          & 2020          & Person, Vehicle \\
-            CityFlowV2~\cite{Tang19}      & Outdoor              & 6                          & 46 (\cmark)                        & 10           & 880          & 2021          & Vehicle         \\
-            MMPTRACK~\cite{Han23}         & Indoor               & 5                          & 23 (\cmark)                        & 15           & !!!          & 2023          & Person          \\
-            MEVID~\cite{Davila23}         & Mixed                & 17                         & 33 (\cmark)                        & !!!          & 158          & 2023          & Person          \\
-            \hline
-        \end{tabular}
-    }
-\end{table}
-
-Table~\ref{tab:overview_datasets} provides a summary of various datasets that have significantly contributed to the MTMCT research domain. Each dataset is categorized based on several distinct criteria to reflect its unique characteristics and relevance:
-
-\begin{itemize}
-    \item \textbf{Environment}: Setting of data collection, from controlled indoor environments to dynamic outdoor locations.
-    \item \textbf{Num. of Scenarios}: Details the number of distinct scenarios or situations represented in the dataset.
-    \item \textbf{Num. of Cameras (Overlap)}: Represents the number of cameras involved and indicates if there is an overlap in their views.
-    \item \textbf{FPS}: Specifies the frame rate of the dataset, important for real-time processing considerations.
-    \item \textbf{IDs}: Enumerates the unique identities present, which can provide a measure of the complexity of the dataset.
-    \item \textbf{Year}: States the year of the release, representing the recentness of the dataset.
-    \item \textbf{Class}: Identifies the subjects annotated, such as persons or vehicles.
-\end{itemize}
-
-Each dataset listed plays a role in the following chapters, the reviewed literature is often evaluated on one or more of these datasets. The datasets are also used to train and test the tracking methods.
-
-In recent years, challenges have been established to encourage research in object detection and tracking, although they have mostly centered on ST-SCT and MT-SCT. Nevertheless, these challenges remain relevant to MTMCT research. The most recent representatives of the primary challenges are:
-
-\begin{itemize}
-    \item \textbf{MOT20 Challenge:} Benchmark, which includes crowded environments and variable lighting conditions. Moreover, it provides ground truth data to facilitate evaluation. The MOT datasets are released in conjunction with the MOTChallenge~\cite{Dendorfer20}.
-    \item \textbf{2023 AICity Challenge:}: Focuses on AI applications in smart cities and includes multi-object tracking for traffic surveillance and anomaly detection as one of its key components. The CityFlow datasets belong to the AICity Challenges.~\cite{Naphade23}
-    \item \textbf{VOT2022 Challenge (Visual Object Tracking Challenge):}: An annual competition that provides a standardized dataset and evaluation framework for single-object tracking.~\cite{Kristan22}
-    \item \textbf{VOTS2023 Challenge (Visual Object Tracking and Segmentation Challenge):}: An extension of the VOT Challenge that focuses on multi-object tracking. The challenge, recently published in October 2023, affirms the quickly growing interest in this field.~\cite{Kristan23}
-\end{itemize}
+Beside these datasets, there are several datasets specifically designed for MTMCT research. These datasets are discussed in subsection~\ref{subsec:datasets_and_challenges}.
 
 \section{Metrics and Evaluation}\label{sec:metrics_and_evaluation}
 Evaluating the performance of a MTMCT system is critical to understand its effectiveness and reliability. Beside well known metrics like accuracy, precision and recall, there are several metrics specifically designed for multi-target and multi-camera systems. These metrics are discussed in the this section.
@@ -137,7 +83,7 @@ Equation \ref{eq:motp} provides a measure of the average error in estimated posi
 Equation \ref{eq:mota} combines three types of errors to give a single performance measure. In this equation, \(m_t\) is the number of misses (true objects not detected), \(fp_t\) is the number of false positives (spurious object detections), \(mme_t\) is the number of mismatch errors (identity switches) and \(g_t\) is the total number of true objects present in frame \(t\). The MOTA score is 1 minus the sum of all errors divided by the total number of true objects across all frames. MOTA ranges from \(-\infty\) to 1, a higher MOTA value indicates better tracking accuracy.
 
 \subsection{IDF1}\label{subsec:idf1}
-The IDF1 score is another important metric for evaluating MTMCT systems. It represents the harmonic mean of the identification precision and recall, providing a balanced measure that accounts for both the ratio of correctly identified detections and the average number of ground-truth and computed detections. This metric was introduced by \citeauthor{Ristani16} in their widely referenced paper \citetitle{Ristani16} \cite{Ristani16}.
+The IDF1 score is another important metric for evaluating MTMCT systems. It represents the harmonic mean of the identification precision and recall, providing a balanced measure that accounts for both the ratio of correctly identified detections and the average number of ground-truth and computed detections. This metric was introduced by \citeauthor{Ristani16} in their widely referenced paper \citetitle{Ristani16}~\cite{Ristani16}.
 
 \begin{equation}
     \label{eq:idf1}
@@ -163,7 +109,7 @@ MT measures the proportion of ground truth trajectories that are covered by the 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.75\textwidth]{resources/fig/Wu06-MT_ML.png}
-    \caption{MT and ML \cite[Fig.~5]{Wu06}}\label{fig:mt_ml}
+    \caption{MT and ML~\cite[Fig.~5]{Wu06}}\label{fig:mt_ml}
 \end{figure}
 
 Figure~\ref{fig:mt_ml} illustrates various scenarios encountered in multi-target tracking evaluations:

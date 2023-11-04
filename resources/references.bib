@@ -39,6 +39,18 @@
   volume   = {19},
 }
 
+@article{Bochkovskiy20,
+  author     = {Alexey Bochkovskiy and Chien{-}Yao Wang and Hong{-}Yuan Mark Liao},
+  date       = {2020},
+  eprint     = {2004.10934},
+  eprinttype = {arXiv},
+  journal    = {CoRR},
+  timestamp  = {Tue, 28 Apr 2020 16:10:02 +0200},
+  title      = {YOLOv4: Optimal Speed and Accuracy of Object Detection},
+  url        = {https://arxiv.org/abs/2004.10934},
+  volume     = {abs/2004.10934},
+}
+
 @inproceedings{Bredereck12,
   abstract  = {Multi-object tracking is still a challenging task in computer vision. We propose a robust approach to realize multi-object tracking using multi-camera networks. Detection algorithms are utilized to detect object regions with confidence scores for initialization of individual particle filters. Since data association is the key issue in Tracking-by-Detection mechanism, we present an efficient greedy matching algorithm considering multiple judgments based on likelihood functions. Furthermore, tracking in single cameras is realized by a greedy matching method. Afterwards, 3D geometry positions are obtained from the triangulation relationship between cameras. Corresponding objects are tracked in multiple cameras to take the advantages of multi-camera based tracking. Our algorithm performs online and does not need any information about the scene, no restrictions of enter-and-exit zones, no assumption of areas where objects are moving on and can be extended to any class of object tracking. Experimental results show the benefits of using multiple cameras by the higher accuracy and precision rates.},
   author    = {Bredereck, Michael and Jiang, Xiaoyan and Körner, Marco and Denzler, Joachim},
@@ -342,6 +354,34 @@
   volume       = {30},
 }
 
+@inproceedings{Girshick14,
+  abstract  = {Object detection performance, as measured on the canonical PASCAL VOC dataset, has plateaued in the last few years. The best-performing methods are complex ensemble systems that typically combine multiple low-level image features with high-level context. In this paper, we propose a simple and scalable detection algorithm that improves mean average precision (mAP) by more than 30{\%} relative to the previous best result on VOC 2012 -- achieving a mAP of 53.3{\%}. Our approach combines two key insights: (1) one can apply high-capacity convolutional neural networks (CNNs) to bottom-up region proposals in order to localize and segment objects and (2) when labeled training data is scarce, supervised pre-training for an auxiliary task, followed by domain-specific fine-tuning, yields a significant performance boost. Since we combine region proposals with CNNs, we call our method R-CNN: Regions with CNN features. We also present experiments that provide insight into what the network learns, revealing a rich hierarchy of image features. Source code for the complete system is available at http://www.cs.berkeley.edu/~rbg/rcnn.},
+  author    = {Girshick, Ross and Donahue, Jeff and Darrell, Trevor and Malik, Jitendra},
+  booktitle = {2014 IEEE Conference on Computer Vision and Pattern Recognition},
+  date      = {2014-06},
+  doi       = {10.1109/CVPR.2014.81},
+  issn      = {1063-6919},
+  keywords  = {},
+  number    = {},
+  pages     = {580-587},
+  title     = {Rich Feature Hierarchies for Accurate Object Detection and Semantic Segmentation},
+  volume    = {},
+}
+
+@inproceedings{Girshick15,
+  abstract  = {This paper proposes a Fast Region-based Convolutional Network method (Fast R-CNN) for object detection. Fast R-CNN builds on previous work to efficiently classify object proposals using deep convolutional networks. Compared to previous work, Fast R-CNN employs several innovations to improve training and testing speed while also increasing detection accuracy. Fast R-CNN trains the very deep VGG16 network 9x faster than R-CNN, is 213x faster at test-time, and achieves a higher mAP on PASCAL VOC 2012. Compared to SPPnet, Fast R-CNN trains VGG16 3x faster, tests 10x faster, and is more accurate. Fast R-CNN is implemented in Python and C++ (using Caffe) and is available under the open-source MIT License at https://github.com/rbgirshick/fast-rcnn.},
+  author    = {Girshick, Ross},
+  booktitle = {2015 IEEE International Conference on Computer Vision (ICCV)},
+  date      = {2015-12},
+  doi       = {10.1109/ICCV.2015.169},
+  issn      = {2380-7504},
+  keywords  = {},
+  number    = {},
+  pages     = {1440-1448},
+  title     = {Fast R-CNN},
+  volume    = {},
+}
+
 @inproceedings{Han23,
   abstract  = {Multi-camera tracking systems are gaining popularity in applications that demand high-quality tracking results, such as frictionless checkout. In cluttered and crowded environments, monocular multi-object tracking (MOT) systems often fail due to occlusions. Multiple highly overlapped cameras are capable of recovering partial 3D information. When used properly, 3D data can significantly alleviate the occlusion issue. However, training a multi-camera tracker demands a large-scale multi-camera tracking dataset with diverse camera settings and backgrounds. These requirements make the collection of multi-camera tracking dataset challenging and expensive. The cost of creating such a dataset has limited the availability and scale of datasets in this domain. Instead, we appeal to an auto-annotation system to reduce the cost, which uses overlapped and calibrated depth and RGB cameras to build a 3D tracker and automatically generates the 3D tracking results. The results are manually checked and corrected to ensure the label quality, which is much cheaper than solely manual annotation. Next, the 3D tracking results are projected to each calibrated RGB camera view to create 2D tracking results. In this way, we collect and annotate a large-scale densely labeled multi-camera tracking dataset from five different environments. We have conducted extensive experiments using two real-time multi-camera trackers and a person re-identification (ReID) model under different settings. This dataset provides a reliable benchmark for multi-camera, multi-object tracking systems in cluttered and crowded environments. We expect this benchmark to encourage more research attempts in this domain. Our dataset will be publicly released upon the acceptance of this work.},
   author    = {Han, Xiaotian and You, Quanzeng and Wang, Chunyu and Zhang, Zhizheng and Chu, Peng and Hu, Houdong and Wang, Jiang and Liu, Zicheng},
@@ -616,6 +656,20 @@
   issn      = {2160-7516},
   pages     = {1462--1470},
   title     = {A Dataset for Persistent Multi-target Multi-camera Tracking in RGB-D},
+}
+
+@article{Lecun98,
+  abstract = {Multilayer neural networks trained with the back-propagation algorithm constitute the best example of a successful gradient based learning technique. Given an appropriate network architecture, gradient-based learning algorithms can be used to synthesize a complex decision surface that can classify high-dimensional patterns, such as handwritten characters, with minimal preprocessing. This paper reviews various methods applied to handwritten character recognition and compares them on a standard handwritten digit recognition task. Convolutional neural networks, which are specifically designed to deal with the variability of 2D shapes, are shown to outperform all other techniques. Real-life document recognition systems are composed of multiple modules including field extraction, segmentation recognition, and language modeling. A new learning paradigm, called graph transformer networks (GTN), allows such multimodule systems to be trained globally using gradient-based methods so as to minimize an overall performance measure. Two systems for online handwriting recognition are described. Experiments demonstrate the advantage of global training, and the flexibility of graph transformer networks. A graph transformer network for reading a bank cheque is also described. It uses convolutional neural network character recognizers combined with global training techniques to provide record accuracy on business and personal cheques. It is deployed commercially and reads several million cheques per day.},
+  author   = {Lecun, Y. and Bottou, L. and Bengio, Y. and Haffner, P.},
+  date     = {1998-11},
+  doi      = {10.1109/5.726791},
+  issn     = {1558-2256},
+  journal  = {Proceedings of the IEEE},
+  keywords = {},
+  number   = {11},
+  pages    = {2278-2324},
+  title    = {Gradient-based learning applied to document recognition},
+  volume   = {86},
 }
 
 @article{Lee18,
@@ -996,6 +1050,7 @@
   eprinttype  = {arXiv},
   title       = {Multi-Target Tracking in Multiple Non-Overlapping Cameras using Constrained Dominant Sets},
 }
+
 @article{Tesfaye19,
   abstract     = {In this paper, a unified three-layer hierarchical approach for solving tracking problem in a multiple non-overlapping cameras setting is proposed. Given a video and a set of detections (obtained by any person detector), we first solve within-camera tracking employing the first two layers of our framework and then, in the third layer, we solve across-camera tracking by associating tracks of the same person in all cameras simultaneously. To best serve our purpose, we propose fast-constrained dominant set clustering (FCDSC), a novel method which is several orders of magnitude faster (close to real time) than existing methods. FCDSC is a parameterized family of quadratic programs that generalizes the standard quadratic optimization problem. In our method, we first build a graph where nodes of the graph represent short-tracklets, tracklets and tracks in the first, second and third layer of the framework, respectively. The edge weights reflect the similarity between nodes. FCDSC takes as input a constrained set, a subset of nodes from the graph which need to be included in the extracted cluster. Given a constrained set, FCDSC generates compact clusters by selecting nodes from the graph which are highly similar to each other and with elements in the constrained set. We have tested this approach on a very large and challenging dataset (namely, MOTchallenge DukeMTMC) and show that the proposed framework outperforms the state-of-the-art approaches. Even though the main focus of this paper is on multi-target tracking in non-overlapping cameras, the proposed approach can also be applied to solve video-based person re-identification problem. We show that when the re-identification problem is formulated as a clustering problem, FCDSC can be used in conjunction with state-of-the-art video-based re-identification algorithms, to increase their already good performances. Our experiments demonstrate the general applicability of the proposed framework for multi-target multi-camera tracking and person re-identification tasks.},
   author       = {Tesfaye, Yonatan Tariku and Zemene, Eyasu and Prati, Andrea and Pelillo, Marcello and Shah, Mubarak},
@@ -1208,6 +1263,21 @@
   volume     = {abs/1912.00535},
 }
 
+@inproceedings{Zhang08,
+  abstract  = {We propose a network flow based optimization method for data association needed for multiple object tracking. The maximum-a-posteriori (MAP) data association problem is mapped into a cost-flow network with a non-overlap constraint on trajectories. The optimal data association is found by a min-cost flow algorithm in the network. The network is augmented to include an Explicit Occlusion Model(EOM) to track with long-term inter-object occlusions. A solution to the EOM-based network is found by an iterative approach built upon the original algorithm. Initialization and termination of trajectories and potential false observations are modeled by the formulation intrinsically. The method is efficient and does not require hypotheses pruning. Performance is compared with previous results on two public pedestrian datasets to show its improvement.},
+  author    = {Li Zhang and Yuan Li and Nevatia, Ramakant},
+  booktitle = {2008 IEEE Conference on Computer Vision and Pattern Recognition},
+  date      = {2008-06},
+  doi       = {10.1109/CVPR.2008.4587584},
+  issn      = {1063-6919},
+  keywords  = {},
+  number    = {},
+  pages     = {1-8},
+  title     = {Global data association for multi-object tracking using network flows},
+  volume    = {},
+}
+
+
 @article{Zhang15a,
   abstract     = {In this paper we propose a framework for tracking multiple interacting targets in a wide-area camera network consisting of both overlapping and non-overlapping cameras. Our method is motivated from observations that both individuals and groups of targets interact with each other in natural scenes. We associate each raw target trajectory (i.e., a tracklet) with a group state, which indicates if the trajectory belongs to an individual or a group. Structural Support Vector Machine (SSVM) is applied to the group states to decide if merge or split events occur in the scene. Information fusion between multiple overlapping cameras is handled using a homography-based voting scheme. The problem of tracking multiple interacting targets is then converted to a network flow problem, for which the solution can be obtained by the K-shortest paths algorithm. We demonstrate the effectiveness of the proposed algorithm on the challenging VideoWeb dataset in which a large amount of multi-person interaction activities are present. Comparative analysis with state-of-the-art methods is also shown.},
   author       = {Zhang, Shu and Zhu, Yingying and Roy-Chowdhury, Amit},
@@ -1270,7 +1340,6 @@
   title     = {Scalable Person Re-identification: A Benchmark},
   volume    = {},
 }
-
 
 @article{Zheng16a,
   author     = {Liang Zheng and Hengheng Zhang and Shaoyan Sun and Manmohan Chandraker and Qi Tian},
