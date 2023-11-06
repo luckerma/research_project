@@ -354,6 +354,20 @@
   volume       = {30},
 }
 
+@article{Fortmann83,
+  abstract = {The problem of associating data with targets in a cluttered multi-target environment is discussed and applied to passive sonar tracking. The probabilistic data association (PDA) method, which is based on computing the posterior probability of each candidate measurement found in a validation gate, assumes that only one real target is present and all other measurements are Poisson-distributed clutter. In this paper, a new theoretical result is presented: the joint probabilistic data association (JPDA) algorithm, in which joint posterior association probabilities are computed for multiple targets (or multiple discrete interfering sources) in Poisson clutter. The algorithm is applied to a passive sonar tracking problem with multiple sensors and targets, in which a target is not fully observable from a single sensor. Targets are modeled with four geographic states, two or more acoustic states, and realistic (i.e., low) probabilities of detection at each sample time. A simulation result is presented for two heavily interfering targets illustrating the dramatic tracking improvements obtained by estimating the targets' states using joint association probabilities.},
+  author   = {Fortmann, T. and Bar-Shalom, Y. and Scheffe, M.},
+  date     = {1983-06},
+  doi      = {10.1109/JOE.1983.1145560},
+  issn     = {1558-1691},
+  journal  = {IEEE Journal of Oceanic Engineering},
+  keywords = {},
+  number   = {3},
+  pages    = {173-184},
+  title    = {Sonar tracking of multiple targets using joint probabilistic data association},
+  volume   = {8},
+}
+
 @inproceedings{Girshick14,
   abstract  = {Object detection performance, as measured on the canonical PASCAL VOC dataset, has plateaued in the last few years. The best-performing methods are complex ensemble systems that typically combine multiple low-level image features with high-level context. In this paper, we propose a simple and scalable detection algorithm that improves mean average precision (mAP) by more than 30{\%} relative to the previous best result on VOC 2012 -- achieving a mAP of 53.3{\%}. Our approach combines two key insights: (1) one can apply high-capacity convolutional neural networks (CNNs) to bottom-up region proposals in order to localize and segment objects and (2) when labeled training data is scarce, supervised pre-training for an auxiliary task, followed by domain-specific fine-tuning, yields a significant performance boost. Since we combine region proposals with CNNs, we call our method R-CNN: Regions with CNN features. We also present experiments that provide insight into what the network learns, revealing a rich hierarchy of image features. Source code for the complete system is available at http://www.cs.berkeley.edu/~rbg/rcnn.},
   author    = {Girshick, Ross and Donahue, Jeff and Darrell, Trevor and Malik, Jitendra},
@@ -393,6 +407,20 @@
   number    = {},
   pages     = {4849-4858},
   title     = {MMPTRACK: Large-scale Densely Annotated Multi-camera Multiple People Tracking Benchmark},
+  volume    = {},
+}
+
+@inproceedings{He16,
+  abstract  = {Deeper neural networks are more difficult to train. We present a residual learning framework to ease the training of networks that are substantially deeper than those used previously. We explicitly reformulate the layers as learning residual functions with reference to the layer inputs, instead of learning unreferenced functions. We provide comprehensive empirical evidence showing that these residual networks are easier to optimize, and can gain accuracy from considerably increased depth. On the ImageNet dataset we evaluate residual nets with a depth of up to 152 layers - 8× deeper than VGG nets [40] but still having lower complexity. An ensemble of these residual nets achieves 3.57{\%} error on the ImageNet test set. This result won the 1st place on the ILSVRC 2015 classification task. We also present analysis on CIFAR-10 with 100 and 1000 layers. The depth of representations is of central importance for many visual recognition tasks. Solely due to our extremely deep representations, we obtain a 28{\%} relative improvement on the COCO object detection dataset. Deep residual nets are foundations of our submissions to ILSVRC & COCO 2015 competitions1, where we also won the 1st places on the tasks of ImageNet detection, ImageNet localization, COCO detection, and COCO segmentation.},
+  author    = {He, Kaiming and Zhang, Xiangyu and Ren, Shaoqing and Sun, Jian},
+  booktitle = {2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+  date      = {2016-06},
+  doi       = {10.1109/CVPR.2016.90},
+  issn      = {1063-6919},
+  keywords  = {},
+  number    = {},
+  pages     = {770-778},
+  title     = {Deep Residual Learning for Image Recognition},
   volume    = {},
 }
 
@@ -623,6 +651,19 @@
   title     = {The First Visual Object Tracking Segmentation VOTS2023 Challenge Results},
 }
 
+@article{Krizhevsky12,
+  author    = {Krizhevsky, Alex and Sutskever, Ilya and Hinton, Geoffrey E},
+  booktitle = {Advances in Neural Information Processing Systems},
+  editor    = {F. Pereira and C.J. Burges and L. Bottou and K.Q. Weinberger},
+  journal   = {Advances in neural information processing systems},
+  pages     = {},
+  publisher = {Curran Associates, Inc.},
+  title     = {ImageNet Classification with Deep Convolutional Neural Networks},
+  url       = {https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf},
+  volume    = {25},
+  year      = {2012},
+}
+
 @article{Kuhn55,
   author    = {Kuhn, Harold W},
   date      = {1955},
@@ -809,7 +850,7 @@
   volume       = {65},
 }
 
-@article{Milan16,
+@article{Milan16a,
   author     = {Milan, A. and Leal-Taix\'{e}, L. and Reid, I. and Roth, S. and Schindler, K.},
   date       = {2016-03},
   journal    = {arXiv:1603.00831 [cs]},
@@ -818,6 +859,18 @@
   shorttitle = {MOT16},
   title      = {{MOT}16: {A} Benchmark for Multi-Object Tracking},
   url        = {http://arxiv.org/abs/1603.00831},
+}
+
+@article{Milan16b,
+  author     = {Anton Milan and Seyed Hamid Rezatofighi and Anthony R. Dick and Konrad Schindler and Ian D. Reid},
+  eprint     = {1604.03635},
+  eprinttype = {arXiv},
+  journal    = {CoRR},
+  timestamp  = {Mon, 13 Aug 2018 16:47:54 +0200},
+  title      = {Online Multi-target Tracking using Recurrent Neural Networks},
+  url        = {http://arxiv.org/abs/1604.03635},
+  volume     = {abs/1604.03635},
+  year       = {2016},
 }
 
 @inproceedings{Naphade23,
@@ -973,6 +1026,20 @@
   title     = {Features for multi-target multi-camera tracking and re-identification},
 }
 
+@inproceedings{Schroff15,
+  abstract  = {Despite significant recent advances in the field of face recognition [10, 14, 15, 17], implementing face verification and recognition efficiently at scale presents serious challenges to current approaches. In this paper we present a system, called FaceNet, that directly learns a mapping from face images to a compact Euclidean space where distances directly correspond to a measure offace similarity. Once this space has been produced, tasks such as face recognition, verification and clustering can be easily implemented using standard techniques with FaceNet embeddings asfeature vectors. Our method uses a deep convolutional network trained to directly optimize the embedding itself, rather than an intermediate bottleneck layer as in previous deep learning approaches. To train, we use triplets of roughly aligned matching / non-matching face patches generated using a novel online triplet mining method. The benefit of our approach is much greater representational efficiency: we achieve state-of-the-artface recognition performance using only 128-bytes perface. On the widely used Labeled Faces in the Wild (LFW) dataset, our system achieves a new record accuracy of 99.63{\%}. On YouTube Faces DB it achieves 95.12{\%}. Our system cuts the error rate in comparison to the best published result [15] by 30{\%} on both datasets.},
+  author    = {Schroff, Florian and Kalenichenko, Dmitry and Philbin, James},
+  booktitle = {2015 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+  date      = {2015-06},
+  doi       = {10.1109/CVPR.2015.7298682},
+  issn      = {1063-6919},
+  keywords  = {},
+  number    = {},
+  pages     = {815-823},
+  title     = {FaceNet: A unified embedding for face recognition and clustering},
+  volume    = {},
+}
+
 @article{Song08,
   abstract     = {We address the problem of tracking multiple people in a network of nonoverlapping cameras. This introduces certain challenges that are unique to this particular application scenario, in addition to existing challenges in tracking like pose and illumination variations, occlusion, clutter and sensor noise. For this purpose, we propose a novel multi-objective optimization framework by combining short term feature correspondences across the cameras with long-term feature dependency models. The overall solution strategy involves adapting the similarities between features observed at different cameras based on the long-term models and finding the stochastically optimal path for each person. For modeling the long-term interdependence of the features over space and time, we propose a novel method based on discriminant analysis models. The entire process allows us to adaptively evolve the feature correspondences by observing the system performance over a time window, and correct for errors in the similarity estimations. We show results on data collected by two large camera networks. These experiments prove that incorporation of the long-term models enable us to hold tracks of objects over extended periods of time, including situations where there are large ldquoblindrdquo areas. The proposed approach is implemented by distributing the processing over the entire network.},
   author       = {Song, Bi and Roy-Chowdhury, Amit K.},
@@ -1088,6 +1155,18 @@
   doi       = {10.1109/ICCVW.2015.33},
   pages     = {184--191},
   title     = {A Multi-View Pedestrian Tracking Method in an Uncalibrated Camera Network},
+}
+
+@article{Varior16,
+  author     = {Rahul Rama Varior and Mrinal Haloi and Gang Wang},
+  date       = {2016},
+  eprint     = {1607.08378},
+  eprinttype = {arXiv},
+  journal    = {CoRR},
+  timestamp  = {Mon, 13 Aug 2018 16:48:57 +0200},
+  title      = {Gated Siamese Convolutional Neural Network Architecture for Human Re-Identification},
+  url        = {http://arxiv.org/abs/1607.08378},
+  volume     = {abs/1607.08378},
 }
 
 @article{Voigtlaender19,
@@ -1277,7 +1356,6 @@
   volume    = {},
 }
 
-
 @article{Zhang15a,
   abstract     = {In this paper we propose a framework for tracking multiple interacting targets in a wide-area camera network consisting of both overlapping and non-overlapping cameras. Our method is motivated from observations that both individuals and groups of targets interact with each other in natural scenes. We associate each raw target trajectory (i.e., a tracklet) with a group state, which indicates if the trajectory belongs to an individual or a group. Structural Support Vector Machine (SSVM) is applied to the group states to decide if merge or split events occur in the scene. Information fusion between multiple overlapping cameras is handled using a homography-based voting scheme. The problem of tracking multiple interacting targets is then converted to a network flow problem, for which the solution can be obtained by the K-shortest paths algorithm. We demonstrate the effectiveness of the proposed algorithm on the challenging VideoWeb dataset in which a large amount of multi-person interaction activities are present. Comparative analysis with state-of-the-art methods is also shown.},
   author       = {Zhang, Shu and Zhu, Yingying and Roy-Chowdhury, Amit},
@@ -1364,6 +1442,18 @@
   publisher = {Springer International Publishing},
   title     = {MARS: A Video Benchmark for Large-Scale Person Re-Identification},
   year      = {2016},
+}
+
+@article{Zheng16c,
+  author     = {Liang Zheng and Yi Yang and Alexander G. Hauptmann},
+  eprint     = {1610.02984},
+  eprinttype = {arXiv},
+  journal    = {CoRR},
+  timestamp  = {Mon, 13 Aug 2018 16:47:30 +0200},
+  title      = {Person Re-identification: Past, Present and Future},
+  url        = {http://arxiv.org/abs/1610.02984},
+  volume     = {abs/1610.02984},
+  year       = {2016},
 }
 
 @inproceedings{Zhu19,

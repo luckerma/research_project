@@ -9,9 +9,8 @@ The methods even demonstrated the feasibility of tracking people in real-time, b
 \section{Milestones}\label{sec:milestones}
 This section highlights significant milestones that have shaped the MTMCT research domain, focusing on the three critical areas: object detection, data association, and datasets and benchmarks.
 
-%TODO: Explain differences between CNN, R-CNN and Faster R-CNN
 %TODO: What is the latest YOLO version? YOLOv4 or v8?
-\subsection{Object Detection}\label{subsec:object_detection}
+\subsection{Detection}\label{subsec:milestone_detection}
 The foundation for modern object detection methods was laid in \citeyear{Lecun98} by \citeauthor{Lecun98} with the development of Convolutional Neural Networks (CNNs), which are deep learning models specifically designed to process images~\cite{Lecun98}. The advent of deep learning in the past quarter-century has led to a significant improvement in object detection performance.
 
 With the introduction of R-CNN in \citeyear{Girshick14}, \textcite{Girshick14} demonstrated that deep learning can be used for object detection. The architecture follows a two-stage process: first, it proposes regions of interest using a selective search and then classifies these regions using CNN features. Due to R-CNN proposing regions of interest independently, it was computationally intensive. Just one year later improvements were made with Fast R-CNN~\cite{Girshick15}, addressed the inefficiencies of its predecessor by introducing a mechanism to share convolutional computations across region proposals and incorporating a Region of Interest (RoI) pooling layer to extract a fixed-size feature vector from the feature map for each proposal. In \citeyear{Ren17} \citeauthor{Ren17} proposed Faster R-CNN~\cite{Ren17}, which integrated a Region Proposal Network (RPN) into the architecture, allowing for the generation of region proposals almost cost-free by sharing the convolutional features with the downstream detection network. This end-to-end trainable model marked a significant leap in efficiency and set a new standard for object detection tasks.
@@ -46,17 +45,31 @@ Table~\ref{tab:overview_object_detectors} compares the mentioned prominent objec
     \item \textbf{Computational Requirements:} Refers to the resources needed to run the detector, typically measured in terms of the number of floating-point operations (FLOPs) or the memory and processing power required. Efficient use of computational resources is essential for deploying MTMCT systems on hardware with limited capabilities.
 \end{itemize}
 
-\subsection{Data Association}\label{subsec:data_association}
-Traditional approaches to data association relied heavily on probabilistic methods such as Multiple Hypothesis Tracking (MHT)~\cite{Blackman04} and Bayesian frameworks~\cite{Reid79}. Many methods are based on the Hungarian algorithm~\cite{Kuhn55} and the Kalman filter~\cite{Kalman60}, which were already proposed in the 1960s by Harold Kuhn and Rudolf Kalman respectively. Furthermore fundamental feature extraction methods are Histogram of Oriented Gradients (HOG)~\cite{Dalal05} and Scale-Invariant Feature Transform (SIFT)~\cite{Lowe04}.
+%TODO: Double check citation and references for the following subsections
+\subsection{Feature Extraction}\label{subsec:milestone:eature_extraction}
+Early feature extraction techniques relied on hand-crafted descriptors such as Scale-Invariant Feature Transform (SIFT)~\cite{Lowe04} and Histogram of Oriented Gradients (HOG)~\cite{Dalal05}, which were pivotal in object recognition and re-identification (re-ID) tasks. With the introduction of deep learning, CNNs have enabled the automatic learning of feature representations, greatly enhancing the robustness and power for re-ID~\cite{Krizhevsky12, He16}.
 
-The data association problem is tackled by three different approaches:
+More recently, Siamese networks have emerged as a popular choice for learning discriminative features in a pairwise manner, proving to be highly effective for re-ID tasks~\cite{Varior16}.
 
-\begin{itemize}
-    \item \textbf{Graph Optimization:} \cite{Zhang08}
-    \item \textbf{Neural Networks (end-to-end):} \cite{Ristani18}
-    \item \textbf{Siamese Networks:} !!!
-    \item \textbf{Re-ID:} \cite{Zheng15}
-\end{itemize}
+\subsection{Data Association}\label{subsec:milestone_data_association}
+Data association in MTMCT involves matching detections of the same object across different frames and camera views, which is essential for maintaining object identity over time. The Hungarian algorithm~\cite{Kuhn55}, also known as the Munkres assignment algorithm, has historically been used for optimal assignment in data association, addressing the problem of associating detections to tracks in a globally optimal way.
+
+The complexity of data association increased with the need to handle multiple objects and cameras, giving rise to the development of Joint Probabilistic Data Association Filters (JPDAF) that consider the probabilities of all potential measurement-to-track assignments~\cite{Fortmann83}.
+
+The advent of graph-based approaches provided a robust framework for data association, viewing the problem as finding the shortest path in a graph where each node represents a detection and edges represent association costs~\cite{Zhang08}. This method became especially useful in managing associations over long periods and occlusions.
+
+Recently, with the surge of deep learning, Neural Networks have been employed to learn the data association task, allowing for an end-to-end approach to tracking by directly learning to associate features extracted from raw pixels~\cite{Milan16b}. This signifies a shift from traditional methods that require hand-crafted features and heuristics towards data-driven approaches.
+
+The introduction of appearance models using deep learning has significantly improved the association performance in MTMCT by providing discriminative features that can robustly represent an object across different viewpoints and illumination conditions, which are essential for accurate association over multiple cameras~\cite{Schroff15, Zheng16c}.
+
+\subsection{Tracking}\label{subsec:milestone_tracking}
+The Kalman Filter~\cite{Kalman60} represents one of the early foundations for object tracking, providing a framework for predicting the future locations of an object.
+
+As tracking scenarios became more complex, approaches like Multiple Hypothesis Tracking (MHT)~\cite{Blackman04} were developed to manage several potential data association hypotheses, especially in crowded scenes~\cite{Reid79}.
+
+The integration of deep learning for feature representation in tracking algorithms has been epitomized by DeepSORT, which extends the SORT algorithm by incorporating a deep association metric for improved re-identification in MTMCT scenarios~\cite{Wojke17}.
+
+Graph-based methods are another cornerstone in tracking, framing the tracking task as an optimization problem where the best path in a graph represents the sequence of object detections over time~\cite{Zhang08}.
 
 \subsection{Datasets and Challenges}\label{subsec:datasets_and_challenges}
 Besides the datasets mentioned in section~\ref{sec:datasets}, which are used for object detection in general, there are also datasets which are more tailored towards MTMCT. Typically revolves around tracking specific object classes, predominantly people and vehicles. Datasets, which fits these requirements are listed in table~\ref{tab:overview_datasets}.
@@ -70,7 +83,7 @@ Besides the datasets mentioned in section~\ref{sec:datasets}, which are used for
             \hline
             \textbf{Dataset}              & \textbf{Environment} & \textbf{Num. of Scenarios} & \textbf{Num. of Cameras (Overlap)} & \textbf{FPS} & \textbf{IDs} & \textbf{Year} & \textbf{Class}  \\
             \hline
-            MOT16~\cite{Milan16}          & Outdoor              & 14                         & 1                                  & 25-30        & !!!          & 2016          & Person, Vehicle \\
+            MOT16~\cite{Milan16a}         & Outdoor              & 14                         & 1                                  & 25-30        & !!!          & 2016          & Person, Vehicle \\
             DukeMTMC~\cite{Ristani16}     & Outdoor              & 1                          & 8 (\cmark)                         & 60           & 2834         & 2016          & Person          \\
             WILDTRACK~\cite{Chavdarova18} & Outdoor              & 1                          & 7 (\cmark)                         & 60           & 313          & 2018          & Person          \\
             MSMT17~\cite{Wei18}           & Mixed                & 12                         & 15 (\cmark)                        & 15           & 4101         & 2018          & Person          \\
@@ -111,7 +124,10 @@ In recent years, challenges have been established to encourage research in objec
 This section reviews the methods and state-of-the-art algorithms used in MTMCT.
 
 \subsection{Tracking-by-Detection}\label{subsec:tracking_by_detection}
-The most common approach used by MTMCT systems is to first detect the objects in each frame and then data association is performed to link the detections across frames. This implementation is known as Tracking-by-Detection (TbD) and the two steps are performed separately and sequentially.
+The most common approach used by MTMCT systems is to first detect the objects in each frame and then data association is performed to link the detections across frames. This implementation is known as Tracking-by-Detection (TbD) and the two steps are performed separately and sequentially, which is a so-called multi-shot approach.
+
+\subsection{Single-Shot Approaches}\label{subsec:single-shot_approaches}
+
 
 \subsection{Graph Optimization}\label{subsec:graph_optimization}
 
@@ -123,6 +139,7 @@ The most common approach used by MTMCT systems is to first detect the objects in
 
 
 \subsection{Edge Computing}\label{subsec:edge_computing}
+
 
 \section{Strengths and Weaknesses}\label{sec:strengths_and_weaknesses}
 This section discusses the strengths and weaknesses of the reviewed methods and algorithms.
