@@ -1,19 +1,19 @@
 \chapter{Literature Review}\label{chap:literature_review}
-This chapter reviews the literature on Multi-Target Multi-Camera Tracking (MTMCT) and discusses the trends and advancements as well as the milestones in this field. It will only focus on the latest and state-of-the-art methods and technologies and will not cover the whole history of MTMCT including the early methods and algorithms.
+This chapter reviews the literature on Multi-Target Multi-Camera Tracking (MTMCT) and discusses the trends and advancements as well as the milestones in this field. It will only focus on the latest and state-of-the-art methods and technologies and will not cover the whole history of MTMCT including all the past algorithms and methods. The chapter is structured as follows: Section~\ref{sec:the_beginnings} discusses the beginnings of MTMCT, Section~\ref{sec:milestones} highlights the milestones in MTMCT, Section~\ref{sec:methods} reviews the methods and algorithms used in MTMCT, and Section~\ref{sec:strengths_and_weaknesses} discusses the strengths and weaknesses of the reviewed methods and algorithms.
 
 \section{The Beginnings}\label{sec:the_beginnings}
-Back in \citeyear{Cai99} and \citeyear{Chang01} \textcite{Cai99} and \textcite{Chang01} conducted research in the area of tracking people in an multi-camera system. Also in \citeyear{Khan01}, \textcite{Khan01} proposed a method for tracking people and vehicles with uncalibrated cameras. The system is able to discover spatial relationships between the FOVs of the three cameras used. All three works rely on Bayesian classification and networks. %TODO: Cite Bayesian
+Back in \citeyear{Cai99} and \citeyear{Chang01} \textcite{Cai99} and \textcite{Chang01} conducted research in the area of tracking people in an multi-camera system. Also in \citeyear{Khan01}, \textcite{Khan01} proposed a method for tracking people and vehicles with uncalibrated cameras. The system is able to discover spatial relationships between the FOVs of the three cameras used. All three works rely on Bayesian classification and networks~\cite{Pearl88}.
 
-The methods even demonstrated the feasibility of tracking people in real-time, but are in general very limited in their capabilities. For example the work of \citeauthor{Chang01} is limited to people in upright pose. The algorithm proposed by \citeauthor{Cai99} lacks robustness compared to the single-camera tracking and \citeauthor{Khan01} approach does not calibrate the cameras correctly and is highly susceptible to errors caused by occlusion. But since then the field of tracking in multi-camera systems has evolved significantly in the past two decades.
+The methods even demonstrated the feasibility of tracking people in real-time, but are in general very limited in their capabilities. For example the work of \citeauthor{Chang01} is limited to people in upright pose. The algorithm proposed by \citeauthor{Cai99} lacks robustness compared to the single-camera tracking and \citeauthor{Khan01} approach does not calibrate the cameras correctly and is highly susceptible to errors caused by occlusion. But in the past two decades the field of tracking in multi-camera systems has evolved significantly.
 
 \section{Milestones}\label{sec:milestones}
-This section highlights significant milestones that have shaped the MTMCT research domain, focusing on the three critical areas: object detection, data association, and datasets and benchmarks.
+This section highlights significant milestones that have shaped the MTMCT research domain, focusing on the five critical areas: detection, feature extraction, data association, tracking, and datasets (challenges).
 
 %TODO: What is the latest YOLO version? YOLOv4 or v8?
 \subsection{Detection}\label{subsec:milestone_detection}
 The foundation for modern object detection methods was laid in \citeyear{Lecun98} by \citeauthor{Lecun98} with the development of Convolutional Neural Networks (CNNs), which are deep learning models specifically designed to process images~\cite{Lecun98}. The advent of deep learning in the past quarter-century has led to a significant improvement in object detection performance.
 
-With the introduction of R-CNN in \citeyear{Girshick14}, \textcite{Girshick14} demonstrated that deep learning can be used for object detection. The architecture follows a two-stage process: first, it proposes regions of interest using a selective search and then classifies these regions using CNN features. Due to R-CNN proposing regions of interest independently, it was computationally intensive. Just one year later improvements were made with Fast R-CNN~\cite{Girshick15}, addressed the inefficiencies of its predecessor by introducing a mechanism to share convolutional computations across region proposals and incorporating a Region of Interest (RoI) pooling layer to extract a fixed-size feature vector from the feature map for each proposal. In \citeyear{Ren17} \citeauthor{Ren17} proposed Faster R-CNN~\cite{Ren17}, which integrated a Region Proposal Network (RPN) into the architecture, allowing for the generation of region proposals almost cost-free by sharing the convolutional features with the downstream detection network. This end-to-end trainable model marked a significant leap in efficiency and set a new standard for object detection tasks.
+With the introduction of R-CNN~\cite{Girshick14} in \citeyear{Girshick14}, \citeauthor{Girshick14} demonstrated that deep learning can be used for object detection. The architecture follows a two-stage process: first, it proposes regions of interest using a selective search and then classifies these regions using CNN features. Due to R-CNN proposing the regions of interest independently, it was computationally intensive. Just one year later improvements were made with Fast R-CNN~\cite{Girshick15}, addressed the inefficiencies of its predecessor by introducing a mechanism to share convolutional computations across region proposals and incorporating a Region of Interest (RoI) pooling layer to extract a fixed-size feature vector from the feature map for each proposal. In \citeyear{Ren17} \citeauthor{Ren17} proposed Faster R-CNN~\cite{Ren17}, which integrated a Region Proposal Network (RPN) into the architecture that employs anchors, which are predefined reference boxes of various scales and aspect ratios and used as a basis for proposing potential object locations. This allows the generation of region proposals almost cost-free by sharing the convolutional features with the downstream detection network. This end-to-end trainable model marked a significant leap in efficiency and set a new standard for object detection tasks.
 
 Following the success of R-CNN and its successors, the object detection landscape was further revolutionized by the introduction of You-Only-Look-Once (YOLO)~\cite{Redmon15} and Single Shot MultiBox Detector (SSD)~\cite{Liu15}, which are designed to be even more efficient and suitable for real-time applications.
 
@@ -54,7 +54,7 @@ More recently, Siamese networks have emerged as a popular choice for learning di
 \subsection{Data Association}\label{subsec:milestone_data_association}
 Data association in MTMCT involves matching detections of the same object across different frames and camera views, which is essential for maintaining object identity over time. The Hungarian algorithm~\cite{Kuhn55}, also known as the Munkres assignment algorithm, has historically been used for optimal assignment in data association, addressing the problem of associating detections to tracks in a globally optimal way.
 
-The complexity of data association increased with the need to handle multiple objects and cameras, giving rise to the development of Joint Probabilistic Data Association Filters (JPDAF) that consider the probabilities of all potential measurement-to-track assignments~\cite{Fortmann83}.
+The complexity of data association increased with the need to handle multiple objects and cameras, giving rise to the development of Joint Probabilistic Data Association Filters (JPDAF)~\cite{Fortmann83} that consider the probabilities of all potential measurement-to-track assignments.
 
 The advent of graph-based approaches provided a robust framework for data association, viewing the problem as finding the shortest path in a graph where each node represents a detection and edges represent association costs~\cite{Zhang08}. This method became especially useful in managing associations over long periods and occlusions.
 
@@ -67,31 +67,31 @@ The Kalman Filter~\cite{Kalman60} represents one of the early foundations for ob
 
 As tracking scenarios became more complex, approaches like Multiple Hypothesis Tracking (MHT)~\cite{Blackman04} were developed to manage several potential data association hypotheses, especially in crowded scenes~\cite{Reid79}.
 
-The integration of deep learning for feature representation in tracking algorithms has been epitomized by DeepSORT, which extends the SORT algorithm by incorporating a deep association metric for improved re-identification in MTMCT scenarios~\cite{Wojke17}.
-
-Graph-based methods are another cornerstone in tracking, framing the tracking task as an optimization problem where the best path in a graph represents the sequence of object detections over time~\cite{Zhang08}.
+Graph-based methods are another cornerstone in tracking, framing the tracking task as an optimization problem where the best path in a graph represents the sequence of object detections over time, where the nodes represent detections and and the edges represent the association costs~\cite{Zhang08}.
 
 \subsection{Datasets and Challenges}\label{subsec:datasets_and_challenges}
 Besides the datasets mentioned in section~\ref{sec:datasets}, which are used for object detection in general, there are also datasets which are more tailored towards MTMCT. Typically revolves around tracking specific object classes, predominantly people and vehicles. Datasets, which fits these requirements are listed in table~\ref{tab:overview_datasets}.
 
 %TODO: Add missing (!!!) information
+%TODO: Fix footnote
 \begin{table}[ht]
     \centering
     \caption{Overview of Datasets}\label{tab:overview_datasets}
     \resizebox{\textwidth}{!}{
         \begin{tabular}{|l|c|c|c|c|c|c|c|c|}
             \hline
-            \textbf{Dataset}              & \textbf{Environment} & \textbf{Num. of Scenarios} & \textbf{Num. of Cameras (Overlap)} & \textbf{FPS} & \textbf{IDs} & \textbf{Year} & \textbf{Class}  \\
+            \textbf{Dataset}                                                       & \textbf{Environment} & \textbf{Num. of Scenarios} & \textbf{Num. of Cameras (Overlap)} & \textbf{FPS} & \textbf{IDs} & \textbf{Year} & \textbf{Class}  \\
             \hline
-            MOT16~\cite{Milan16a}         & Outdoor              & 14                         & 1                                  & 25-30        & !!!          & 2016          & Person, Vehicle \\
-            DukeMTMC~\cite{Ristani16}     & Outdoor              & 1                          & 8 (\cmark)                         & 60           & 2834         & 2016          & Person          \\
-            WILDTRACK~\cite{Chavdarova18} & Outdoor              & 1                          & 7 (\cmark)                         & 60           & 313          & 2018          & Person          \\
-            MSMT17~\cite{Wei18}           & Mixed                & 12                         & 15 (\cmark)                        & 15           & 4101         & 2018          & Person          \\
-            CityFlowV1~\cite{Tang19}      & Outdoor              & 5                          & 40 (\cmark)                        & 10           & 666          & 2019          & Vehicle         \\
-            MOT20~\cite{Dendorfer20}      & Outdoor              & 8                          & 1                                  & 25           & !!!          & 2020          & Person, Vehicle \\
-            CityFlowV2~\cite{Tang19}      & Outdoor              & 6                          & 46 (\cmark)                        & 10           & 880          & 2021          & Vehicle         \\
-            MMPTRACK~\cite{Han23}         & Indoor               & 5                          & 23 (\cmark)                        & 15           & !!!          & 2023          & Person          \\
-            MEVID~\cite{Davila23}         & Mixed                & 17                         & 33 (\cmark)                        & !!!          & 158          & 2023          & Person          \\
+            MARS\footnote{extension of Market-1501~\cite{Zheng15}}~\cite{Zheng16b} & !!!                  & !!!                        & !!!                                & !!!          & !!!          & 2016          & Person          \\
+            MOT16~\cite{Milan16a}                                                  & Outdoor              & 14                         & 1                                  & 25-30        & !!!          & 2016          & Person, Vehicle \\
+            DukeMTMC~\cite{Ristani16}                                              & Outdoor              & 1                          & 8 (\cmark)                         & 60           & 2834         & 2016          & Person          \\
+            WILDTRACK~\cite{Chavdarova18}                                          & Outdoor              & 1                          & 7 (\cmark)                         & 60           & 313          & 2018          & Person          \\
+            MSMT17~\cite{Wei18}                                                    & Mixed                & 12                         & 15 (\cmark)                        & 15           & 4101         & 2018          & Person          \\
+            CityFlowV1~\cite{Tang19}                                               & Outdoor              & 5                          & 40 (\cmark)                        & 10           & 666          & 2019          & Vehicle         \\
+            MOT20~\cite{Dendorfer20}                                               & Outdoor              & 8                          & 1                                  & 25           & !!!          & 2020          & Person, Vehicle \\
+            CityFlowV2~\cite{Tang19}                                               & Outdoor              & 6                          & 46 (\cmark)                        & 10           & 880          & 2021          & Vehicle         \\
+            MMPTRACK~\cite{Han23}                                                  & Indoor               & 5                          & 23 (\cmark)                        & 15           & !!!          & 2023          & Person          \\
+            MEVID~\cite{Davila23}                                                  & Mixed                & 17                         & 33 (\cmark)                        & !!!          & 158          & 2023          & Person          \\
             \hline
         \end{tabular}
     }
@@ -124,22 +124,95 @@ In recent years, challenges have been established to encourage research in objec
 This section reviews the methods and state-of-the-art algorithms used in MTMCT.
 
 \subsection{Tracking-by-Detection}\label{subsec:tracking_by_detection}
-The most common approach used by MTMCT systems is to first detect the objects in each frame and then data association is performed to link the detections across frames. This implementation is known as Tracking-by-Detection (TbD) and the two steps are performed separately and sequentially, which is a so-called multi-shot approach.
+The most common approach used by MTMCT systems is to first detect the objects in each frame and then data association is performed to link the detections across frames. This Tracking-by-Detection (TbD) implementation as a multi-shot approach and treats detection and association as separate, sequential tasks, allowing for the use of specialized methods tailored for each step.
+
+One of the pioneering works in this domain is the Simple Online and Realtime Tracking (SORT)~\cite{Bewley16} algorithm proposed by \citeauthor{Bewley16}. SORT employs a combination of Kalman filters for predicting the motion of objects and the Hungarian algorithm for associating detections over time, based on both predicted locations and detected bounding boxes. Its efficiency and speed make it suitable for real-time applications, though it may struggle with identity switches in crowded scenes due to its reliance on motion cues alone.
+
+Building on the foundation laid by SORT, \citeauthor{Wojke17} introduced the DeepSORT~\cite{Wojke17} algorithm, which enhances the tracking performance by incorporating deep learning techniques for appearance features extraction. DeepSORT extends SORT by adding a neural network that generates a high-dimensional vector representation of the appearance of an object, which can be used to compute similarity scores between detections. This addition significantly improves the robustness of the tracker in scenarios where motion predictions are insufficient, such as occlusions or complex, dynamic environments.
+
+Both SORT and DeepSORT have set benchmarks in the field of object tracking, with the latter demonstrating how the integration of motion and appearance information can lead to improved tracking performance.
+
+\begin{itemize}
+    \item \textbf{SORT:} Focuses on speed and simplicity by using motion models for prediction and frame-by-frame data association.
+    \item \textbf{DeepSORT:} Improves SORT by adding appearance information into the data association step, thus enhancing tracking accuracy, especially in cases where objects interact closely or are temporarily occluded.
+\end{itemize}
+
+It is important to mention that both tracking frameworks rely on an external object detector to provide bounding box detections, which can be any of the object detection models discussed in section~\ref{subsec:milestone_detection}. Also SORT as well as DeepSORT are not
 
 \subsection{Single-Shot Approaches}\label{subsec:single-shot_approaches}
+In contrast to the TbD implementations, single-shot approaches aim to perform detection and data association simultaneously in a single step. This paradigm, while less common, offers the advantage of speed and simplicity by eliminating the need for separate data association algorithms. Especially in scenarios where computational resources are limited and real-time performance is critical, single-shot approaches can be highly effective.
+
+A notable contribution in this domain is the Single-Shot Multi Object Tracking (SMOT)~\cite{Li20} algorithm proposed by \citeauthor{Li20} in \citeyear{Li20}. SMOT is a tracking framework, which is able to convert any single-shot object detector into a multi-object tracker, which is able to simultaneously generate detection and tracking outputs. It is based on work of \textcite{Bergmann19}, who developed a \textit{Tracktor}, an object detector, which is also able to track objects at the same time. The SMOT framework is able to generate tracklets with a almost constant runtime with respect to number of targets, due to the use of a light-weighted linkage algorithm for online tracklet linking.
+
+In the same year \citeauthor{Wang20a} published the paper \citetitle{Wang20a}, which proposes a single deep-network that Jointly learns the Detection and Embedding (JDE) model. Due to reduction of computational cost, the system is able to achieve (near) real-time performance, while being almost as accurate as the models, which are separately trained for detection and embedding. The architecture is based on the Feature Pyramid Network (FPN)~\cite{Lin17}, which is useful for detecting objects of different sizes. A variation of the triplet loss~\cite{Schroff15} is used to learn the embedding space, which is used for data association. This variation of the triplet loss is defines as follows:
+
+\begin{equation}
+    \label{eq:triplet_loss}
+    \mathcal{L}_{\text{triplet}}=\sum_i \max \left(0, f^{\top} f_i^{-}-f^{\top} f^{+}\right)
+    \quad\text{\cite[Eq.~1]{Wang20a}}
+\end{equation}
+
+\begin{itemize}
+    \item \(f^{\top}\): Instance in a mini-batch selected as the anchor
+    \item \(f^{+}\): Represents a positive instance (same ID as anchor)
+    \item \(f^{-}\): Represents a negative instance (different ID as anchor)
+\end{itemize}
+
+The triplet loss defined in equation~\ref{eq:triplet_loss} is used to learn an embedding space where instances of the same identity are closely mapped to each other while pushing apart the embeddings of dissimilar identities.
+
+An even more recent framework is the FairMOT~\cite{Zhang21} algorithm proposed by \citeauthor{Zhang21} in \citeyear{Zhang21}. It combines the two tasks of object detection and re-ID while addressing the \textit{unfairness} issue in multi-task learning, which arises because re-ID is often treated as a secondary task in existing frameworks and is not given enough attention. The paper raises three key issues with existing multi-task learning frameworks:
+
+\begin{enumerate}
+    \item \textbf{Unfairness Caused by Anchors:} Re-ID task is overlooked in the anchor-based detection framework, where the anchors are only optimized for the detection task.
+    \item \textbf{Unfairness Caused by Features:} One-shot trackers share most of their features between the detection and re-ID branches. While detection requires deep features to estimate the object class re-ID requires low-level appearance features to distinguish between different identities, this leads to a conflict between the two tasks.
+    \item \textbf{Unfairness Caused by Feature Dimension:} The features dimension of re-ID features is usually much higher than the detection features, but high-dimensional features notably harm the detection performance.
+\end{enumerate}
+
+To jointly train the detection and re-ID branches in the FairMOT network the uncertainty loss proposed by \textcite{Cipolla18} is used. The uncertainty loss is defined as follows:
+
+\begin{equation}
+    \label{eq:uncertainty_loss}
+    L_{\text{total}}=\frac{1}{2}\left(\frac{1}{e^{w_1}} L_{\text{detection}}+\frac{1}{e^{w_2}} L_{\text{identity}}+w_1+w_2\right)
+    \quad\text{\cite[Eq.~5]{Zhang21}}
+\end{equation}
+
+The uncertainty loss defined in equation~\ref{eq:uncertainty_loss} is used to jointly train the detection and re-ID tasks by assigning different weights to the two tasks to allow a fair learning process. The weights \(w_1\) and \(w_2\) are used to control the balance between the two tasks and are learned during training. \(L_{\text{detection}}\) and \(L_{\text{identity}}\) are the detection and re-ID losses respectively.
+
+By addressing the three key issues with existing multi-task learning frameworks, the FairMOT framework is able to outperform state-of-the-art methods in terms of both tracking accuracy and speed on the MOT17 dataset.
+
+An important notice is that the term \textit{single-shot} used by those frameworks only refers to the detection and intra-camera tracking, the inter-camera (multi-camera) associations still require an additional separate step.
+
+\subsection{Geometrical Approaches}\label{subsec:geometrical_approaches}
 
 
 \subsection{Graph Optimization}\label{subsec:graph_optimization}
 
 
-\subsection{Neural Networks}\label{subsec:neural_networks}
-
-
-\subsection{Siamese Networks}\label{subsec:siamese_networks}
-
+%TODO:~\cite{Chen17a}: Equalized Global Graph Model-Based Approach. Improved similarity metric for single- and multiple-camera tracking. SCT and ICT in one step.
+%TODO:~\cite{Cheng23}: ReST: Spatial-Temporal Graph Model
+%TODO:~\cite{Nguyen22b}: Single-Stage Global Association Step (one-to-many assignment problem), Fractional Optimal Transport Assignment (FOTA), dynamic cameras, (on-the-move), single-stage approach (combines intra- and inter-camera association), outputs of an object detector are directly used
+%TODO:~\cite{Quach21}: Dynamic Graph Model with Link Prediction. Tackles problem of data association with a dynamic graph model. Better feature representations and able to recover from lost tracks during camera transitions. Works for person and vehicle tracking for overlapping and non-overlapping cameras. First time link prediction and dynamic graph are used together for MCMOT. Attention models.
+%TODO:~\cite{Komorowski22}: Soccer Players. Raw detection heat maps. Google Research Football Environment. Multi camera, multi targets. Cameras have fixed positions. Do not use bounding boxes, instead raw input with heat maps. Graph Neural Network. No visual cues, such as jersey numbers. Player movement trajectories and interaction between neighborhood players.
 
 \subsection{Edge Computing}\label{subsec:edge_computing}
+%TODO:~\cite{Li20}: SMOT components can be replaced with faster versions to achieve real-time performance on edge devices.
 
+\subsection{Online and Real-Time}\label{subsec:online_and_real-time}
+In addition to subsection \ref{subsec:single-shot_approaches}, which deals with single-shot approaches and their relevance for real-time applications, this section focuses on online and real-time implementations, mentioning certain methods.
+
+Unlike most of the methods used in MTMCT, the real-time system Uni-ID~\cite{Chen22} follows a distributed concept to ensure that the communication and computing costs of each camera in the network remain almost constant as the number of cameras increases. Therefore, smart stations are installed on the tracked roadside and connected by a wireless multi-hop network. YOLO is used for detection and DeepSORT for tracking. First, intra-camera tracking and feature extraction is performed to assign a local ID to each object. Second, the local ID, features and track information of the target are sent to the adjacent node in the network. Third, the adjacent node performs inter-camera tracking to assign a global ID to the target. The system is tested with three nodes and achieves real-time performance with a relatively low performance GPU for each node.
+
+The work of \textcite{Wang21} focuses on the less attention-grabbing use of fisheye cameras to simulate a checkout-free store, where each person enters or exits the store by scanning a QR code that initializes and terminates the tracking process. Compared to perspective cameras, fisheye cameras are able to cover a larger area with a single camera, reducing the number of cameras needed in the system. In addition, fisheye cameras are less susceptible to occlusion when mounted on a ceiling (top-view). Once a camera is calibrated, the occupancy map of the scene can be created to determine the likelihood of a person being in a particular area and to match the tracks of the same person across different cameras. In a scenario with 5 fisheye cameras and 5 to 10 people in a scene simultaneously, the system achieves real-time performance of about 10 FPS without GPU support.
+
+%\TODO:~cite{Tesfaye19}: Multiple non-overlapping cameras using fast-constrained dominant set clustering (FCDSC). Three-layer hierarchical approach. Orders of magnitudes faster than existing methods. Can be used in conjunction with re-id algorithms. Good graphics in paper.
 
 \section{Strengths and Weaknesses}\label{sec:strengths_and_weaknesses}
 This section discusses the strengths and weaknesses of the reviewed methods and algorithms.
+
+%TODO:~\cite{Huang23}: Non-overlapping cameras. Pedestrian Tracking. Fix ID-switching issues with long-term feature extraction. OC-SORT + feature extraction, most cited on ieee
+
+%TODO:~\cite{Fleuret08}: Most cited on ieee
+
+%TODO:~\cite{Hsu22}: Graph Auto-Encoder and Self-Supervised Camera Link Model. First implementation of GAE in MTMCT. Very interesting paper. Network topology is learned automatically.
+
+%TODO:~\cite{Ristani18}: High-quality appearance features.

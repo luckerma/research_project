@@ -12,6 +12,20 @@
   volume       = {552},
 }
 
+@inproceedings{Bergmann19,
+  abstract  = {The problem of tracking multiple objects in a video sequence poses several challenging tasks. For tracking-by-detection, these include object re-identification, motion prediction and dealing with occlusions. We present a tracker (without bells and whistles) that accomplishes tracking without specifically targeting any of these tasks, in particular, we perform no training or optimization on tracking data. To this end, we exploit the bounding box regression of an object detector to predict the position of an object in the next frame, thereby converting a detector into a Tracktor. We demonstrate the potential of Tracktor and provide a new state-of-the-art on three multi-object tracking benchmarks by extending it with a straightforward re-identification and camera motion compensation. We then perform an analysis on the performance and failure cases of several state-of-the-art tracking methods in comparison to our Tracktor. Surprisingly, none of the dedicated tracking methods are considerably better in dealing with complex tracking scenarios, namely, small and occluded objects or missing detections. However, our approach tackles most of the easy tracking scenarios. Therefore, we motivate our approach as a new tracking paradigm and point out promising future research directions. Overall, Tracktor yields superior tracking performance than any current tracking method and our analysis exposes remaining and unsolved tracking challenges to inspire future research directions.},
+  author    = {Bergmann, Philipp and Meinhardt, Tim and Leal-Taixé, Laura},
+  booktitle = {2019 IEEE/CVF International Conference on Computer Vision (ICCV)},
+  date      = {2019-10},
+  doi       = {10.1109/ICCV.2019.00103},
+  issn      = {2380-7504},
+  keywords  = {},
+  number    = {},
+  pages     = {941-951},
+  title     = {Tracking Without Bells and Whistles},
+  volume    = {},
+}
+
 @article{Bernardin08,
   author    = {Bernardin, Keni and Stiefelhagen, Rainer},
   doi       = {10.1155/2008/246309},
@@ -23,6 +37,20 @@
   title     = {Evaluating Multiple Object Tracking Performance: The CLEAR MOT Metrics},
   volume    = {2},
   year      = {2008},
+}
+
+@inproceedings{Bewley16,
+  abstract  = {This paper explores a pragmatic approach to multiple object tracking where the main focus is to associate objects efficiently for online and realtime applications. To this end, detection quality is identified as a key factor influencing tracking performance, where changing the detector can improve tracking by up to 18.9{\%}. Despite only using a rudimentary combination of familiar techniques such as the Kalman Filter and Hungarian algorithm for the tracking components, this approach achieves an accuracy comparable to state-of-the-art online trackers. Furthermore, due to the simplicity of our tracking method, the tracker updates at a rate of 260 Hz which is over 20x faster than other state-of-the-art trackers.},
+  author    = {Bewley, Alex and Ge, Zongyuan and Ott, Lionel and Ramos, Fabio and Upcroft, Ben},
+  booktitle = {2016 IEEE International Conference on Image Processing (ICIP)},
+  date      = {2016-09},
+  doi       = {10.1109/ICIP.2016.7533003},
+  issn      = {2381-8549},
+  keywords  = {},
+  number    = {},
+  pages     = {3464-3468},
+  title     = {Simple online and realtime tracking},
+  volume    = {},
 }
 
 @article{Blackman04,
@@ -229,6 +257,20 @@
   issn      = {2380-7504},
   pages     = {6171--6180},
   title     = {FAMNet: Joint Learning of Feature, Affinity and Multi-Dimensional Assignment for Online Multiple Object Tracking},
+}
+
+@inproceedings{Cipolla18,
+  abstract  = {Numerous deep learning applications benefit from multitask learning with multiple regression and classification objectives. In this paper we make the observation that the performance of such systems is strongly dependent on the relative weighting between each task's loss. Tuning these weights by hand is a difficult and expensive process, making multi-task learning prohibitive in practice. We propose a principled approach to multi-task deep learning which weighs multiple loss functions by considering the homoscedastic uncertainty of each task. This allows us to simultaneously learn various quantities with different units or scales in both classification and regression settings. We demonstrate our model learning per-pixel depth regression, semantic and instance segmentation from a monocular input image. Perhaps surprisingly, we show our model can learn multi-task weightings and outperform separate models trained individually on each task.},
+  author    = {Cipolla, Roberto and Gal, Yarin and Kendall, Alex},
+  booktitle = {2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  date      = {2018-06},
+  doi       = {10.1109/CVPR.2018.00781},
+  issn      = {2575-7075},
+  keywords  = {},
+  number    = {},
+  pages     = {7482-7491},
+  title     = {Multi-task Learning Using Uncertainty to Weigh Losses for Scene Geometry and Semantics},
+  volume    = {},
 }
 
 @inproceedings{Dalal05,
@@ -737,6 +779,18 @@
   title     = {State-Aware Re-Identification Feature for Multi-Target Multi-Camera Tracking},
 }
 
+@article{Li20,
+  author     = {Wei Li and Yuanjun Xiong and Shuo Yang and Siqi Deng and Wei Xia},
+  eprint     = {2010.16031},
+  eprinttype = {arXiv},
+  journal    = {CoRR},
+  timestamp  = {Mon, 15 May 2023 16:24:40 +0200},
+  title      = {{SMOT:} Single-Shot Multi Object Tracking},
+  url        = {https://arxiv.org/abs/2010.16031},
+  volume     = {abs/2010.16031},
+  year       = {2020},
+}
+
 @inproceedings{Li22a,
   abstract  = {Multi-Target Multi-Camera tracking is a fundamental task for intelligent traffic systems. The track 1 of AI City Challenge 2022 aims at the city-scale multi-camera vehicle tracking task. In this paper we propose an accurate vehicle tracking system composed of 4 parts, including: (1) State-of-the-art detection and re-identification models for vehicle detection and feature extraction. (2) Single camera tracking, where we introduce augmented tracks prediction and multi-level association method on top of tracking-by-detection paradigm.(3) Zone-based singe-camera track-let merging strategy. (4) Multi-camera spatial-temporal matching and clustering strategy. The proposed system achieves promising results and ranks the second place in Track 1 of the AI City Challenge 2022 with a IDF1 score of 0.8437.},
   author    = {Li, Fei and Wang, Zhen and Nie, Ding and Zhang, Shiyi and Jiang, Xingqun and Zhao, Xingxing and Hu, Peng},
@@ -777,6 +831,20 @@
   title      = {Microsoft {COCO:} Common Objects in Context},
   url        = {http://arxiv.org/abs/1405.0312},
   volume     = {abs/1405.0312},
+}
+
+@inproceedings{Lin17,
+  abstract  = {Feature pyramids are a basic component in recognition systems for detecting objects at different scales. But pyramid representations have been avoided in recent object detectors that are based on deep convolutional networks, partially because they are slow to compute and memory intensive. In this paper, we exploit the inherent multi-scale, pyramidal hierarchy of deep convolutional networks to construct feature pyramids with marginal extra cost. A top-down architecture with lateral connections is developed for building high-level semantic feature maps at all scales. This architecture, called a Feature Pyramid Network (FPN), shows significant improvement as a generic feature extractor in several applications. Using a basic Faster R-CNN system, our method achieves state-of-the-art single-model results on the COCO detection benchmark without bells and whistles, surpassing all existing single-model entries including those from the COCO 2016 challenge winners. In addition, our method can run at 5 FPS on a GPU and thus is a practical and accurate solution to multi-scale object detection. Code will be made publicly available.},
+  author    = {Lin, Tsung-Yi and Dollár, Piotr and Girshick, Ross and He, Kaiming and Hariharan, Bharath and Belongie, Serge},
+  booktitle = {2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+  date      = {2017-07},
+  doi       = {10.1109/CVPR.2017.106},
+  issn      = {1063-6919},
+  keywords  = {},
+  number    = {},
+  pages     = {936-944},
+  title     = {Feature Pyramid Networks for Object Detection},
+  volume    = {},
 }
 
 @article{Liu15,
@@ -921,6 +989,20 @@
   doi       = {10.1109/ICDSC.2009.5289365},
   pages     = {1--6},
   title     = {Color Brightness Transfer Function evaluation for non overlapping multi camera tracking},
+}
+
+@incollection{Pearl88,
+  address   = {San Francisco (CA)},
+  author    = {Judea Pearl},
+  booktitle = {Probabilistic Reasoning in Intelligent Systems},
+  date      = {1988},
+  doi       = {https://doi.org/10.1016/B978-0-08-051489-5.50007-2},
+  editor    = {Judea Pearl},
+  isbn      = {978-0-08-051489-5},
+  pages     = {1-141},
+  publisher = {Morgan Kaufmann},
+  title     = {Probabilistic Reasoning in Intelligent Systems (Chapters 1-3)},
+  url       = {https://www.sciencedirect.com/science/article/pii/B9780080514895500072},
 }
 
 @inproceedings{Pellegrini09,
