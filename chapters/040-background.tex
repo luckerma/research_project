@@ -13,6 +13,15 @@ Feature extraction involves extracting relevant information from detected object
 \subsection{Data Association}\label{subsec:data_association}
 Data association is the process of associating current detected objects with existing tracks based on similarities in their features. This is done by comparing the features of detected objects with the features of existing tracks and assigning the detected objects to the most similar tracks. This step is critical in maintaining the identity of objects as they move through the scene or even leaving and re-entering the scene, which is called re-identification (re-ID). Commonly the data association step is first performed on a single camera view (intra-camera), before the tracks are associated across multiple camera views (inter-camera).
 
+%TODO: Fix (a) and (b) in figure
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.75\textwidth]{resources/fig/Tesfaye19-intra_inter_camera_tracking.png}
+    \caption{Intra- and inter-camera tracking~\cite[Fig.~1]{Tesfaye19}}\label{fig:intra_inter_camera_tracking}
+\end{figure}
+
+The two steps of data association of three non-overlapping camera views are illustrated in Figure~\ref{fig:intra_inter_camera_tracking}. The first step is intra-camera tracking, where the tracks are associated independently within the three camera views. The second step is inter-camera tracking, where the tracks are associated across the three camera views and the IDs of the objects are maintained. This simple example can be extended to any number of camera views, overlapping or non-overlapping.
+
 \subsection{Tracking}\label{subsec:tracking}
 Tracking refers to the step of maintaining the trajectory of detected objects over time. This involves predicting the future location of an object based on its past movements and updating its trajectory as new observations, so the next frame of a video, become available. To sum it up tracking is responsible for maintaining and managing the tracks and IDs of objects as they move through the scene and to ensure consistent global IDs across multiple camera views.
 

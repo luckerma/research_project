@@ -182,34 +182,53 @@ By addressing the three key issues with existing multi-task learning frameworks,
 
 An important notice is that the term \textit{single-shot} used by those frameworks only refers to the detection and intra-camera tracking, the inter-camera (multi-camera) associations still require an additional separate step.
 
+%TODO: Write subsection: Attention models, self-attention, transformer, 
+\subsection{Tracking-by-Attention}\label{subsec:tracking_by_attention}Tracking-by-Attention (TbA) represents a paradigm shift in MTMCT systems by incorporating attention mechanisms that prioritize the most salient features of objects during tracking. The attention paradigm, inspired by the visual ability of humans to focus selectively, has been integrated into tracking frameworks to dynamically emphasize important spatial and temporal features.
+
 \subsection{Geometrical Approaches}\label{subsec:geometrical_approaches}
+Geometrical approaches are based on the assumption that the cameras are calibrated and the scene is static. The calibration of the cameras is necessary to determine the relative position and orientation
 
-
+%TODO: Association is typically done in a hierarchical manner
 \subsection{Graph Optimization}\label{subsec:graph_optimization}
+Graph-based approaches have been widely used in MTMCT, especially for data association. The problem of data association can be formulated as a graph optimization problem, where each node represents a detection and edges represent the association costs. The goal is to find the shortest path in the graph, which represents the sequence of object detections over time.
 
+In \citeyear{Chen17a} \textcite{Chen17a} proposed a pedestrian tracking model, which combines inter- and intra-camera tracking and unifies the two steps into one global graph by considering the initial observations as inputs and directly outputting the final trajectories. Due to the fact that the initial observations contain more information like motion than simple detections, they are more credible for data association. Futhermore, it speeds up computing time, because the number of observations is much smaller than the number of detections. The main focus of this paper is on equalizing the similarity metrics of both tasks to allow unbiased data association. An equalization of metrics is needed, if it is not applied the joint approach would favor objects from the same camera view almost all the time as more similar, because the observations are made under the same circumstances like view angle and illumination. Experimental results show that the proposed joint approach leads to improved performance compared to tackling the association as two independent tasks, especially when the accuracy of intra-camera tracking quality is poor the two step approach is not able to recover at the second step and produces mismatches errors.
 
-%TODO:~\cite{Chen17a}: Equalized Global Graph Model-Based Approach. Improved similarity metric for single- and multiple-camera tracking. SCT and ICT in one step.
-%TODO:~\cite{Cheng23}: ReST: Spatial-Temporal Graph Model
-%TODO:~\cite{Nguyen22b}: Single-Stage Global Association Step (one-to-many assignment problem), Fractional Optimal Transport Assignment (FOTA), dynamic cameras, (on-the-move), single-stage approach (combines intra- and inter-camera association), outputs of an object detector are directly used
-%TODO:~\cite{Quach21}: Dynamic Graph Model with Link Prediction. Tackles problem of data association with a dynamic graph model. Better feature representations and able to recover from lost tracks during camera transitions. Works for person and vehicle tracking for overlapping and non-overlapping cameras. First time link prediction and dynamic graph are used together for MCMOT. Attention models.
+Similar to~\cite{Chen17a} \citeauthor{Nguyen22b} present a single-stage approach that combines intra- and inter-camera association by reformulating it as a single-global one-to-many assignment problem. With a focus on dynamic (on-the-move) cameras, the method is used in an autonomous vehicle (AV) environment, which is not the focus of this project, but still an interesting concept and worth mentioning. The proposed method is called Fractional Optimal Transport Assignment (FOTA)~\cite{Nguyen22b} and can be used in both the tracking-by-detection and tracking-by-attention paradigms. The architecture consists of an encoder, two decoders and a box-matching layer. The encoder extracts features of the current and previous frames from the cameras and encodes the feature maps into keys that are used by the decoders to detect and track object boxes. The box-matching layer is then used to match the boxes and provide the final tracking results. The FOTA method results in a reduction of ID switch errors in a large AV dataset compared to state-of-the-art methods.
+
+The Dynamic Graph Model with Link Prediction (DyGLIP)~\cite{Quach21} approach proposed by \citeauthor{Quach21} in \citeyear{Quach21} is a graph model that uses link prediction to solve the data association problem. It works for both overlapping and non-overlapping cameras and is tested on both person and vehicle tracking. The main advantage are better feature representations and the ability to recover from lost tracks during camera transitions. DyGLIP combines link prediction in conjunction with a dynamic graph formulation that takes temporal information of an object into account for the first time in MTMCT.
+
+\citeauthor{Cheng23} propose a Reconfigurable Spatial-Temporal Graph Model (ReST)~\cite{Cheng23} in \citeyear{Cheng23}, that handles data association in two steps. First spatial association matches objects across different views at the same frames. Before the second step, a graph reconfiguration module simplifies and reconfigures the graph. Then, temporal association uses information such as speed and time to build a temporal graph and match objects across different frames. Unlike traditional approaches ReST does not rely on single-camera tracking results, because it directly matches objects across camera views in the first step. Another advantage is that two graph models can be trained separately, so there is no need to compromise between the two tasks of intra- and inter-camera data association. The ReST model achieves state-of-the-art performance on the Wildtrack dataset.
+
 %TODO:~\cite{Komorowski22}: Soccer Players. Raw detection heat maps. Google Research Football Environment. Multi camera, multi targets. Cameras have fixed positions. Do not use bounding boxes, instead raw input with heat maps. Graph Neural Network. No visual cues, such as jersey numbers. Player movement trajectories and interaction between neighborhood players.
 
 \subsection{Edge Computing}\label{subsec:edge_computing}
-%TODO:~\cite{Li20}: SMOT components can be replaced with faster versions to achieve real-time performance on edge devices.
+The term \textit{edge computing} refers to the concept of processing data near the source of the data, which is in contrast to the traditional approach of processing data in a centralized cloud. The advantages of edge computing are low latency, reduced bandwidth, and improved security. The major disadvantage is the limited computational resources of edge devices in this case the cameras themselves.
+
+In the paper of the already discussed single-shot approach SMOT~\cite{Li20} it is mentioned that replacing the components of the SMOT framework with faster versions can achieve real-time performance on less powerful machines like edge devices.
 
 \subsection{Online and Real-Time}\label{subsec:online_and_real-time}
-In addition to subsection \ref{subsec:single-shot_approaches}, which deals with single-shot approaches and their relevance for real-time applications, this section focuses on online and real-time implementations, mentioning certain methods.
+In addition to subsection~\ref{subsec:single-shot_approaches}, which deals with single-shot approaches and their relevance for real-time applications, this section focuses on online and real-time implementations, mentioning certain methods.
 
 Unlike most of the methods used in MTMCT, the real-time system Uni-ID~\cite{Chen22} follows a distributed concept to ensure that the communication and computing costs of each camera in the network remain almost constant as the number of cameras increases. Therefore, smart stations are installed on the tracked roadside and connected by a wireless multi-hop network. YOLO is used for detection and DeepSORT for tracking. First, intra-camera tracking and feature extraction is performed to assign a local ID to each object. Second, the local ID, features and track information of the target are sent to the adjacent node in the network. Third, the adjacent node performs inter-camera tracking to assign a global ID to the target. The system is tested with three nodes and achieves real-time performance with a relatively low performance GPU for each node.
 
 The work of \textcite{Wang21} focuses on the less attention-grabbing use of fisheye cameras to simulate a checkout-free store, where each person enters or exits the store by scanning a QR code that initializes and terminates the tracking process. Compared to perspective cameras, fisheye cameras are able to cover a larger area with a single camera, reducing the number of cameras needed in the system. In addition, fisheye cameras are less susceptible to occlusion when mounted on a ceiling (top-view). Once a camera is calibrated, the occupancy map of the scene can be created to determine the likelihood of a person being in a particular area and to match the tracks of the same person across different cameras. In a scenario with 5 fisheye cameras and 5 to 10 people in a scene simultaneously, the system achieves real-time performance of about 10 FPS without GPU support.
 
-%\TODO:~cite{Tesfaye19}: Multiple non-overlapping cameras using fast-constrained dominant set clustering (FCDSC). Three-layer hierarchical approach. Orders of magnitudes faster than existing methods. Can be used in conjunction with re-id algorithms. Good graphics in paper.
+\citeauthor{Tesfaye19} propose the use of Fast-Constrained Dominant Set Clustering (FCDSC)~\cite{Tesfaye19} to solve both intra- and inter-camera simultaneously. The method is orders of magnitudes faster than existing graph-based methods due to instead of considering the whole graph only a sub-graph is considered. The proposed method follows a three-layer hierarchical approach. The first two layers solve the intra-camera tracking and the third layer the inter-camera tracking while merging the tracks of the same person across camera views. The tracking algorithm runs at 18 FPS and is 2000 times fast than CDSC~\cite{Zemene16} which it is based on.
+
+\subsection{State-of-the-art approaches papers with code}
+\begin{itemize}
+    \item LMGP~\cite{Nguyen22a}
+    \item Early Bird~\cite{Teepe23}
+    \item Anchor Guided Clustering~\cite{Huang23b}
+    \item Smiletrack~\cite{Wang23}
+    \item UMMT~\cite{Yang23}
+\end{itemize}
 
 \section{Strengths and Weaknesses}\label{sec:strengths_and_weaknesses}
 This section discusses the strengths and weaknesses of the reviewed methods and algorithms.
 
-%TODO:~\cite{Huang23}: Non-overlapping cameras. Pedestrian Tracking. Fix ID-switching issues with long-term feature extraction. OC-SORT + feature extraction, most cited on ieee
+%TODO:~\cite{Huang23a}: Non-overlapping cameras. Pedestrian Tracking. Fix ID-switching issues with long-term feature extraction. OC-SORT + feature extraction, most cited on ieee
 
 %TODO:~\cite{Fleuret08}: Most cited on ieee
 
