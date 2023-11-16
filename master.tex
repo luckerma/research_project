@@ -10,7 +10,11 @@
 \pagenumbering{Roman}
 \include{chapters/010-declaration}
 \include{chapters/020-abstract}
-\tableofcontents
+
+{
+    \hypersetup{hidelinks}
+    \tableofcontents
+}
 
 \newpage
 \pagenumbering{arabic}
@@ -20,10 +24,13 @@
 \include{chapters/060-discussion}
 \include{chapters/070-conclusion}
 
-\include{chapters/999-structure}
+%\include{chapters/999-structure}
 
-\listoffigures
-\listoftables
+{
+    \hypersetup{hidelinks}
+    \listoffigures
+    \listoftables
+}
 \printbibliography
 
 \end{document}

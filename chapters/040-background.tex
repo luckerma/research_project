@@ -1,5 +1,5 @@
 \chapter{Background}\label{chap:background}
-This chapter provides an overview of the basic concepts of object detection and tracking and the steps of an Multi-Target Multi-Camera Tracking (MTMCT) system, along with a discussion of its key challenges and issues. Also the foundational building blocks of MTMCT are introduced, namely Single-Target Single-Camera Tracking (ST-SCT) and Multi-Target Single-Camera Tracking (MT-SCT). Futhermore it explains the datasets and metrics used to evaluate MTMCT systems.
+This chapter provides an overview of the basic concepts of object detection and tracking and the steps of an Multi-Target Multi-Camera Tracking (MTMCT) system, along with a discussion of its key challenges and issues. Also the foundational building blocks of MTMCT are introduced. Futhermore it explains the datasets and metrics used to evaluate MTMCT systems.
 
 \section{Steps of an MTMCT System}\label{sec:steps_of_an_mtmct_system}
 An MTMCT system typically consists of the following steps: detection, feature extraction, data association, and tracking. Only the basic and fundamental concepts are explained in this section, more advanced and recent methods, mostly revolving around deep learning, will be discussed in chapter~\ref{chap:literature_review}.
@@ -11,13 +11,22 @@ Detection refers to the process of identifying objects of interest within video 
 Feature extraction involves extracting relevant information from detected objects to facilitate tracking. This could include low-level features like color, shape and texture as well as high-level features like object parts and their spatial relationships, speed, and direction of movement. The features extracted from objects are used to identify and distinguish them from other objects in the scene.
 
 \subsection{Data Association}\label{subsec:data_association}
+To understand the data association step the following terms need to be defined:
+
+\begin{itemize}
+    \item \textbf{Tracklets:} Short segments of a path of an object captured within the view of a single camera, formed by connecting successive frame detections.
+    \item \textbf{Trajectories:} The complete path of an object over time, often across multiple frames and cameras, created by merging together tracklets.
+    \item \textbf{Tracks:} Refined trajectories that represent the validated path of an object after correction for inaccuracies and false detections.
+\end{itemize}
+
+In the research literature, these terms are often used interchangeably and not always consistently, but for the purposes of this project, the above definitions are used.
+
 Data association is the process of associating current detected objects with existing tracks based on similarities in their features. This is done by comparing the features of detected objects with the features of existing tracks and assigning the detected objects to the most similar tracks. This step is critical in maintaining the identity of objects as they move through the scene or even leaving and re-entering the scene, which is called re-identification (re-ID). Commonly the data association step is first performed in a hierarchical manner: first on a single camera view (intra-camera), before the tracks are associated across multiple camera views (inter-camera) and finally being optimized globally.
 
-%TODO: Fix (a) and (b) in figure
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.75\textwidth]{resources/fig/Tesfaye19-intra_inter_camera_tracking.png}
-    \caption{Intra- and inter-camera tracking~\cite[Fig.~1]{Tesfaye19}}\label{fig:intra_inter_camera_tracking}
+    \caption{Intra- (left) and inter-camera (right) tracking~\cite[Fig.~1]{Tesfaye19}}\label{fig:intra_inter_camera_tracking}
 \end{figure}
 
 The two steps of data association of three non-overlapping camera views are illustrated in Figure~\ref{fig:intra_inter_camera_tracking}. The first step is intra-camera tracking, where the tracks are associated independently within the three camera views. The second step is inter-camera tracking, where the tracks are associated across the three camera views and the IDs of the objects are maintained. This simple example can be extended to any number of camera views, overlapping or non-overlapping.
@@ -28,11 +37,11 @@ Tracking refers to the step of maintaining the trajectory of detected objects ov
 \section{Fundamental Concepts}\label{sec:fundamental_concepts}
 This section briefly describes the preliminary concepts of MTMCT, which are essential to follow the progression from basic object tracking methods to advanced MTMCT techniques.
 
-\subsection{Single-Target Single-Camera Tracking (ST-SCT)}\label{subsec:st_sct}
-ST-SCT is the simplest form of object tracking and involves tracking a single target in the field of view of a single camera. The primary goal of ST-SCT is to maintain the identity (ID) and trajectory of the target as it moves through the view of the camera.
+\subsection{Single-Target Single-Camera Tracking}\label{subsec:st_sct}
+Single-Target Single-Camera Tracking (ST-SCT) is the simplest form of object tracking and involves tracking a single target in the field of view of a single camera. The primary goal of ST-SCT is to maintain the identity (ID) and trajectory of the target as it moves through the view of the camera.
 
-\subsection{Multi-Target Single-Camera Tracking (MT-SCT)}\label{subsec:mt_sct}
-MT-SCT builds upon the principles of ST-SCT but introduces the added complexity of dealing with multiple targets in a view of a single-camera. It aims to track multiple objects simultaneously while maintaining the ID of each target and avoiding ID switches. This requires sophisticated algorithms that can handle occlusions, interactions between targets, and other challenges that especially arise in crowded scenes.
+\subsection{Multi-Target Single-Camera Tracking}\label{subsec:mt_sct}
+Multi-Target Single-Camera Tracking (MT-SCT) builds upon the principles of ST-SCT but introduces the added complexity of dealing with multiple targets in a view of a single-camera. It aims to track multiple objects simultaneously while maintaining the ID of each target and avoiding ID switches. This requires sophisticated algorithms that can handle occlusions, interactions between targets, and other challenges that especially arise in crowded scenes.
 
 The progression from ST-SCT to MT-SCT, and ultimately to MTMCT, reflects the increasing complexity and capability of tracking systems to handle more complex scenarios. This evolution is possible, due to advances in computer vision and machine learning, which provide the tools necessary to tackle the challenges associated with tracking multiple targets across multiple camera views.
 

@@ -110,6 +110,15 @@
   volume       = {21},
 }
 
+@misc{Cao23,
+  archiveprefix = {arXiv},
+  author        = {Jinkun Cao and Jiangmiao Pang and Xinshuo Weng and Rawal Khirodkar and Kris Kitani},
+  date          = {2023},
+  eprint        = {2203.14360},
+  primaryclass  = {cs.CV},
+  title         = {Observation-Centric SORT: Rethinking SORT for Robust Multi-Object Tracking},
+}
+
 @inproceedings{Chang01,
   abstract  = {We present a multi-camera system based on Bayesian modality fusion to track multiple people in an indoor environment. Bayesian networks are used to combine multiple modalities for matching subjects between consecutive image frames and between multiple camera views. Unlike other occlusion reasoning methods, we use multiple cameras in order to obtain continuous visual information of people in either or both cameras so that they can be tracked through interactions. Results demonstrate that the system can maintain people's identities by using multiple cameras cooperatively.},
   author    = {Chang, T.-H. and Gong, S.},
@@ -282,6 +291,20 @@
   volume    = {},
 }
 
+@article{Comaniciu02,
+  abstract = {A general non-parametric technique is proposed for the analysis of a complex multimodal feature space and to delineate arbitrarily shaped clusters in it. The basic computational module of the technique is an old pattern recognition procedure: the mean shift. For discrete data, we prove the convergence of a recursive mean shift procedure to the nearest stationary point of the underlying density function and, thus, its utility in detecting the modes of the density. The relation of the mean shift procedure to the Nadaraya-Watson estimator from kernel regression and the robust M-estimators; of location is also established. Algorithms for two low-level vision tasks discontinuity-preserving smoothing and image segmentation - are described as applications. In these algorithms, the only user-set parameter is the resolution of the analysis, and either gray-level or color images are accepted as input. Extensive experimental results illustrate their excellent performance.},
+  author   = {Comaniciu, D. and Meer, P.},
+  date     = {2002-05},
+  doi      = {10.1109/34.1000236},
+  issn     = {1939-3539},
+  journal  = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  keywords = {},
+  number   = {5},
+  pages    = {603-619},
+  title    = {Mean shift: a robust approach toward feature space analysis},
+  volume   = {24},
+}
+
 @inproceedings{Dalal05,
   abstract  = {We study the question of feature sets for robust visual object recognition; adopting linear SVM based human detection as a test case. After reviewing existing edge and gradient based descriptors, we show experimentally that grids of histograms of oriented gradient (HOG) descriptors significantly outperform existing feature sets for human detection. We study the influence of each stage of the computation on performance, concluding that fine-scale gradients, fine orientation binning, relatively coarse spatial binning, and high-quality local contrast normalization in overlapping descriptor blocks are all important for good results. The new approach gives near-perfect separation on the original MIT pedestrian database, so we introduce a more challenging dataset containing over 1800 annotated human images with a large range of pose variations and backgrounds.},
   author    = {Dalal, N. and Triggs, B.},
@@ -378,14 +401,6 @@
   volume    = {},
 }
 
-@online{Exposing.ai,
-  author  = {Harvey, Adam. LaPlace, Jules.},
-  title   = {Exposing.ai},
-  url     = {https://exposing.ai},
-  urldate = {2023-11-01},
-  year    = 2021,
-}
-
 @inproceedings{Ferryman09,
   abstract  = {This paper describes the crowd image analysis challenge that forms part of the PETS 2009 workshop. The aim of this challenge is to use new or existing systems for i) crowd count and density estimation, ii) tracking of individual(s) within a crowd, and iii) detection of separate flows and specific crowd events, in a real-world environment. The dataset scenarios were filmed from multiple cameras and involve multiple actors.},
   author    = {Ferryman, J. and Shahrokni, A.},
@@ -412,6 +427,7 @@
   title        = {Multicamera People Tracking with a Probabilistic Occupancy Map},
   volume       = {30},
 }
+
 
 @article{Fortmann83,
   abstract = {The problem of associating data with targets in a cluttered multi-target environment is discussed and applied to passive sonar tracking. The probabilistic data association (PDA) method, which is based on computing the posterior probability of each candidate measurement found in a validation gate, assumes that only one real target is present and all other measurements are Poisson-distributed clutter. In this paper, a new theoretical result is presented: the joint probabilistic data association (JPDA) algorithm, in which joint posterior association probabilities are computed for multiple targets (or multiple discrete interfering sources) in Poisson clutter. The algorithm is applied to a passive sonar tracking problem with multiple sensors and targets, in which a target is not fully observable from a single sensor. Targets are modeled with four geographic states, two or more acoustic states, and realistic (i.e., low) probabilities of detection at each sample time. A simulation result is presented for two heavily interfering targets illustrating the dramatic tracking improvements obtained by estimating the targets' states using joint association probabilities.},
@@ -479,6 +495,14 @@
   volume    = {},
 }
 
+@online{Harvey21,
+  author  = {Harvey, Adam. LaPlace, Jules.},
+  title   = {Exposing.ai DukeMTMC},
+  url     = {https://exposing.ai/duke_mtmc/},
+  urldate = {2023-11-01},
+  year    = {2019},
+}
+
 @inproceedings{He16,
   abstract  = {Deeper neural networks are more difficult to train. We present a residual learning framework to ease the training of networks that are substantially deeper than those used previously. We explicitly reformulate the layers as learning residual functions with reference to the layer inputs, instead of learning unreferenced functions. We provide comprehensive empirical evidence showing that these residual networks are easier to optimize, and can gain accuracy from considerably increased depth. On the ImageNet dataset we evaluate residual nets with a depth of up to 152 layers - 8× deeper than VGG nets [40] but still having lower complexity. An ensemble of these residual nets achieves 3.57{\%} error on the ImageNet test set. This result won the 1st place on the ILSVRC 2015 classification task. We also present analysis on CIFAR-10 with 100 and 1000 layers. The depth of representations is of central importance for many visual recognition tasks. Solely due to our extremely deep representations, we obtain a 28{\%} relative improvement on the COCO object detection dataset. Deep residual nets are foundations of our submissions to ILSVRC & COCO 2015 competitions1, where we also won the 1st places on the tasks of ImageNet detection, ImageNet localization, COCO detection, and COCO segmentation.},
   author    = {He, Kaiming and Zhang, Xiangyu and Ren, Shaoqing and Sun, Jian},
@@ -500,6 +524,7 @@
   title     = {Multi-Camera Vehicle Tracking with Powerful Visual Features and Spatial-Temporal Cue.},
   volume    = {1},
 }
+
 
 @article{He20a,
   abstract     = {This paper focuses on the Multi-Target Multi-Camera Tracking task (MTMCT), which aims at tracking multiple targets within a multi-camera network. As the trajectory of each target is inherently split into multiple sub-trajectories (namely local tracklets) in a multi-camera network, a major challenge of MTMCT is how to accurately match the local tracklets generated within each camera across different cameras and generate a complete global trajectory for each target, i.e., the cross-camera tracklet matching problem. We solve the cross-camera tracklet matching problem by TRACklet-to-Target Assignment (TRACTA), and propose the Restricted Non-negative Matrix Factorization (RNMF) algorithm to compute the optimal assignment solution that meets a set of constraints, which should be in force in practice. TRACTA can correct the tracking errors caused by occlusions and missed detections in local tracklets, and produce a complete global trajectory for each target across all the cameras. Moreover, we also develop an analytical way of estimating the total number of targets in the camera network, which plays an important role to compute the tracklet-to-target assignment. Experimental evaluations and ablation studies on four MTMCT benchmark datasets show the superiority of the proposed TRACTA method.},
@@ -561,6 +586,18 @@
   date      = {2019},
   pages     = {416--424},
   title     = {Multi-camera tracking of vehicles based on deep features re-id and trajectory-based camera link models.},
+}
+
+@article{Hsu20,
+  author     = {Hung{-}Min Hsu and Yizhou Wang and Jenq{-}Neng Hwang},
+  date       = {2020},
+  eprint     = {2008.09785},
+  eprinttype = {arXiv},
+  journal    = {CoRR},
+  timestamp  = {Thu, 15 Oct 2020 13:07:58 +0200},
+  title      = {Traffic-Aware Multi-Camera Tracking of Vehicles Based on ReID and Camera Link Model},
+  url        = {https://arxiv.org/abs/2008.09785},
+  volume     = {abs/2008.09785},
 }
 
 @article{Hsu21,
@@ -641,6 +678,22 @@
   url       = {https://doi.org/10.1145/3240508.3240663},
 }
 
+@online{Jocher23a,
+  author  = {Glenn Jocher, Ayush Chaurasia},
+  title   = {Ultralytics YOLOv8 Docs},
+  url     = {https://docs.ultralytics.com/},
+  urldate = {2023-11-01},
+  year    = {2023},
+}
+
+@online{Jocher23b,
+  author  = {Glenn Jocher, Ayush Chaurasia},
+  title   = {Ultralytics YOLOv8 Github},
+  url     = {https://github.com/ultralytics/ultralytics/},
+  urldate = {2023-11-01},
+  year    = {2023},
+}
+
 @article{Kalman60,
   author   = {Kalman, Rudolph Emil and Others},
   journal  = {Journal of basic Engineering},
@@ -685,6 +738,15 @@
   pages     = {98--109},
   publisher = {Springer Berlin Heidelberg},
   title     = {Multi-camera Tracking and Segmentation of Occluded People on Ground Plane Using Search-Guided Particle Filtering},
+}
+
+@misc{Kipf16,
+  archiveprefix = {arXiv},
+  author        = {Thomas N. Kipf and Max Welling},
+  date          = {2016},
+  eprint        = {1611.07308},
+  primaryclass  = {stat.ML},
+  title         = {Variational Graph Auto-Encoders},
 }
 
 @inproceedings{Koehl20,
@@ -863,6 +925,20 @@
   volume     = {abs/2010.16031},
 }
 
+@inproceedings{Li21,
+  abstract  = {We address the task of Re-Identification (Re-ID) in multi-target multi-camera (MTMC) tracking where we track multiple pedestrians using multiple overlapping uncalibrated (unknown pose) cameras. Since the videos are temporally synchronized and spatially overlapping, we can see a person from multiple views and associate their trajectory across cameras. In order to find the correct association between pedestrians visible from multiple views during the same time window, we extract a visual feature from a tracklet (sequence of pedestrian images) that encodes its similarity and dissimilarity to all other candidate tracklets. We propose a inter-tracklet (person to person) attention mechanism that learns a representation for a target tracklet while taking into account other tracklets across multiple views. Furthermore, to encode the gait and motion of a person, we introduce second intra-tracklet (person-specific) attention module with position embeddings. This second module employs a transformer encoder to learn a feature from a sequence of features over one tracklet. Experimental results on WILDTRACK and our new dataset ‘ConstructSite’ confirm the superiority of our model over state-of-the-art ReID methods (5% and 10% performance gain respectively) in the context of uncalibrated MTMC tracking. While our model is designed for overlapping cameras, we also obtain state-of-the-art results on two other benchmark datasets (MARS and DukeMTMC) with non-overlapping cameras.},
+  author    = {Li, Yu-Jhe and Weng, Xinshuo and Xu, Yan and Kitani, Kris},
+  booktitle = {2021 IEEE/CVF International Conference on Computer Vision (ICCV)},
+  date      = {2021-10},
+  doi       = {10.1109/ICCV48922.2021.00969},
+  issn      = {2380-7504},
+  keywords  = {},
+  number    = {},
+  pages     = {9814-9824},
+  title     = {Visio-Temporal Attention for Multi-Camera Multi-Target Association},
+  volume    = {},
+}
+
 @inproceedings{Li22a,
   abstract  = {Multi-Target Multi-Camera tracking is a fundamental task for intelligent traffic systems. The track 1 of AI City Challenge 2022 aims at the city-scale multi-camera vehicle tracking task. In this paper we propose an accurate vehicle tracking system composed of 4 parts, including: (1) State-of-the-art detection and re-identification models for vehicle detection and feature extraction. (2) Single camera tracking, where we introduce augmented tracks prediction and multi-level association method on top of tracking-by-detection paradigm.(3) Zone-based singe-camera track-let merging strategy. (4) Multi-camera spatial-temporal matching and clustering strategy. The proposed system achieves promising results and ranks the second place in Track 1 of the AI City Challenge 2022 with a IDF1 score of 0.8437.},
   author    = {Li, Fei and Wang, Zhen and Nie, Ding and Zhang, Shiyi and Jiang, Xingqun and Zhao, Xingxing and Hu, Peng},
@@ -974,6 +1050,20 @@
   title      = {{HOTA:} {A} Higher Order Metric for Evaluating Multi-Object Tracking},
   url        = {https://arxiv.org/abs/2009.07736},
   volume     = {abs/2009.07736},
+}
+
+@inproceedings{Meinhardt22,
+  abstract  = {The challenging task of multi-object tracking (MOT) requires simultaneous reasoning about track initialization, identity, and spatio-temporal trajectories. We formulate this task as a frame-to-frame set prediction problem and introduce TrackFormer, an end-to-end trainable MOT approach based on an encoder-decoder Transformer architecture. Our model achieves data association between frames via attention by evolving a set of track predictions through a video sequence. The Transformer decoder initializes new tracks from static object queries and autoregressively follows existing tracks in space and time with the conceptually new and identity preserving track queries. Both query types benefit from self- and encoder-decoder attention on global frame-level features, thereby omitting any additional graph optimization or modeling of motion and/or appearance. TrackFormer introduces a new tracking-by-attention paradigm and while simple in its design is able to achieve state-of-the-art performance on the task of multi-object tracking (MOT17) and segmentation (MOTS20). The code is available at https://github.com/timmeinhardt/TrackFormer},
+  author    = {Meinhardt, Tim and Kirillov, Alexander and Leal-Taixé, Laura and Feichtenhofer, Christoph},
+  booktitle = {2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  date      = {2022-06},
+  doi       = {10.1109/CVPR52688.2022.00864},
+  issn      = {2575-7075},
+  keywords  = {},
+  number    = {},
+  pages     = {8834-8844},
+  title     = {TrackFormer: Multi-Object Tracking with Transformers},
+  volume    = {},
 }
 
 @article{Meyer17,
@@ -1242,6 +1332,26 @@
   title     = {Improving Multi-Target Multi-Camera Tracking by Track Refinement and Completion},
 }
 
+@article{Sun20,
+  author     = {Peize Sun and Yi Jiang and Rufeng Zhang and Enze Xie and Jinkun Cao and Xinting Hu and Tao Kong and Zehuan Yuan and Changhu Wang and Ping Luo},
+  date       = {2020},
+  eprint     = {2012.15460},
+  eprinttype = {arXiv},
+  journal    = {CoRR},
+  timestamp  = {Wed, 02 Jun 2021 11:38:18 +0200},
+  title      = {TransTrack: Multiple-Object Tracking with Transformer},
+  url        = {https://arxiv.org/abs/2012.15460},
+  volume     = {abs/2012.15460},
+}
+
+@online{Synced20,
+  author  = {Synced},
+  title   = {YOLO Creator Says He Stopped CV Research Due to Ethical Concerns},
+  url     = {https://medium.com/syncedreview/yolo-creator-says-he-stopped-cv-research-due-to-ethical-concerns-b55a291ebb29},
+  urldate = {2023-11-01},
+  year    = {2020},
+}
+
 @article{Taix15,
   author     = {Leal-Taix\'{e}, L. and Milan, A. and Reid, I. and Roth, S. and Schindler, K.},
   date       = {2015-04},
@@ -1343,6 +1453,18 @@
   title      = {Gated Siamese Convolutional Neural Network Architecture for Human Re-Identification},
   url        = {http://arxiv.org/abs/1607.08378},
   volume     = {abs/1607.08378},
+}
+
+@article{Vaswani17,
+  author     = {Ashish Vaswani and Noam Shazeer and Niki Parmar and Jakob Uszkoreit and Llion Jones and Aidan N. Gomez and Lukasz Kaiser and Illia Polosukhin},
+  date       = {2017},
+  eprint     = {1706.03762},
+  eprinttype = {arXiv},
+  journal    = {CoRR},
+  timestamp  = {Sat, 23 Jan 2021 01:20:40 +0100},
+  title      = {Attention Is All You Need},
+  url        = {http://arxiv.org/abs/1706.03762},
+  volume     = {abs/1706.03762},
 }
 
 @article{Voigtlaender19,
@@ -1451,7 +1573,19 @@
   title     = {Multi-object tracking through occlusions by local tracklets filtering and global tracklets association with detection responses},
 }
 
-@inproceedings{Yang22,
+@article{Yang21,
+  author     = {Zongxin Yang and Yunchao Wei and Yi Yang},
+  date       = {2021},
+  eprint     = {2106.02638},
+  eprinttype = {arXiv},
+  journal    = {CoRR},
+  timestamp  = {Fri, 27 Aug 2021 14:43:47 +0200},
+  title      = {Associating Objects with Transformers for Video Object Segmentation},
+  url        = {https://arxiv.org/abs/2106.02638},
+  volume     = {abs/2106.02638},
+}
+
+@inproceedings{Yang22a,
   abstract  = {Multi-Camera Multi-Target tracking (MCMT) is an essential task in intelligent transportation systems. It is highly challenging due to several problems such as heavy occlusion and appearance variance caused by various camera perspectives and congested vehicles. In this paper, we propose a practical framework for dealing with the city-scale MCMT task, consisting of four modules. The vehicles detection and ReID feature extraction are the first two modules, which locate all vehicles and extract the appearance features for all cameras. The third module is Single-Camera Multi-Target tracking (SCMT), which tracks multiple vehicles to generate candidate trajectories within each camera on the basis of the detected boxes and appearance features. The last module is Inter-Camera Association (ICA), which associates all candidate trajectories between two successive cameras using the K-reciprocal nearest neighbors algorithm, and combines all successively matched trajectories for final results. The ICA module takes the constraints of traveling time, road topology structures, and traffic rules into consideration to reduce the searching space and accelerate the matching speed. Experiments results on the public test set of 2022 AI CITY CHALLENGE Track1 demonstrate the effectiveness of our method, which achieves IDF1 of 84.86{\%}, ranking 1st on the leaderboard.},
   author    = {Yang, Xipeng and Ye, Jin and Lu, Jincheng and Gong, Chenting and Jiang, Minyue and Lin, Xiangru and Zhang, Wei and Tan, Xiao and Li, Yingying and Ye, Xiaoqing and Ding, Errui},
   booktitle = {2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)},
@@ -1460,6 +1594,15 @@
   issn      = {2160-7516},
   pages     = {3095--3105},
   title     = {Box-Grained Reranking Matching for Multi-Camera Multi-Target Tracking},
+}
+
+@misc{Yang22b,
+  archiveprefix = {arXiv},
+  author        = {Zongxin Yang and Yi Yang},
+  date          = {2022},
+  eprint        = {2210.09782},
+  primaryclass  = {cs.CV},
+  title         = {Decoupling Features in Hierarchical Propagation for Video Object Segmentation},
 }
 
 @misc{Yang23,
@@ -1586,7 +1729,6 @@
   pages     = {365--372},
   title     = {A Camera Network Tracking (CamNeT) Dataset and Performance Baseline},
 }
-
 @article{Zhang17,
   author      = {Zhang, Zhimeng and Wu, Jianan and Zhang, Xuan and Zhang, Chi},
   date        = {2017},
@@ -1675,6 +1817,20 @@
   volume    = {},
 }
 
+@inproceedings{Zhou19,
+  abstract  = {As an instance-level recognition problem, person re-identification (ReID) relies on discriminative features, which not only capture different spatial scales but also encapsulate an arbitrary combination of multiple scales. We callse features of both homogeneous and heterogeneous scales omni-scale features. In this paper, a novel deep ReID CNN is designed, termed Omni-Scale Network (OSNet), for omni-scale feature learning. This is achieved by designing a residual block composed of multiple convolutional feature streams, each detecting features at a certain scale. Importantly, a novel unified aggregation gate is introduced to dynamically fuse multi-scale features with input-dependent channel-wise weights. To efficiently learn spatial-channel correlations and avoid overfitting, the building block uses both pointwise and depthwise convolutions. By stacking such blocks layer-by-layer, our OSNet is extremely lightweight and can be trained from scratch on existing ReID benchmarks. Despite its small model size, our OSNet achieves state-of-the-art performance on six person-ReID datasets. Code and models are available at: https://github.com/KaiyangZhou/deep-person-reid.},
+  author    = {Zhou, Kaiyang and Yang, Yongxin and Cavallaro, Andrea and Xiang, Tao},
+  booktitle = {2019 IEEE/CVF International Conference on Computer Vision (ICCV)},
+  date      = {2019-10},
+  doi       = {10.1109/ICCV.2019.00380},
+  issn      = {2380-7504},
+  keywords  = {},
+  number    = {},
+  pages     = {3701-3711},
+  title     = {Omni-Scale Feature Learning for Person Re-Identification},
+  volume    = {},
+}
+
 @article{Zhou20,
   author     = {Xingyi Zhou and Vladlen Koltun and Philipp Kr{\"{a}}henb{\"{u}}hl},
   date       = {2020},
@@ -1697,6 +1853,7 @@
   pages       = {366--382},
   title       = {Online Multi-Object Tracking with Dual Matching Attention Networks},
 }
+
 @article{Zou19,
   abstract     = {Online multi-object tracking (MOT) has broad applications in time-critical video analysis scenarios such as advanced driver-assistance systems (ADASs) and autonomous driving. In this paper, the proposed system aims at tracking multiple vehicles in the front view of an onboard monocular camera. The vehicle detection probes are customized to generate high precision detection, which plays a basic role in the following tracking-by-detection method. A novel Siamese network with a spatial pyramid pooling (SPP) layer is applied to calculate pairwise appearance similarity. The motion model captured from the refined bounding box provides the relative movements and aspects. The online-learned policy treats each tracking period as a Markov decision process (MDP) to maintain long-term, robust tracking. The proposed method is validated in a moving vehicle with an onboard NVIDIA Jetson TX2 and returns real-time speeds. Compared with other methods on KITTI and self-collected datasets, our method achieves significant performance in terms of the &ldquo;Mostly-tracked&rdquo;, &ldquo;Fragmentation&rdquo;, and &ldquo;ID switch&rdquo; variables.},
   author       = {Zou, Yi and Zhang, Weiwei and Weng, Wendi and Meng, Zhengyun},
