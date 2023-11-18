@@ -119,6 +119,18 @@
   title         = {Observation-Centric SORT: Rethinking SORT for Robust Multi-Object Tracking},
 }
 
+@article{Carion20,
+  author     = {Nicolas Carion and Francisco Massa and Gabriel Synnaeve and Nicolas Usunier and Alexander Kirillov and Sergey Zagoruyko},
+  date       = {2020},
+  eprint     = {2005.12872},
+  eprinttype = {arXiv},
+  journal    = {CoRR},
+  timestamp  = {Thu, 28 May 2020 17:38:09 +0200},
+  title      = {End-to-End Object Detection with Transformers},
+  url        = {https://arxiv.org/abs/2005.12872},
+  volume     = {abs/2005.12872},
+}
+
 @inproceedings{Chang01,
   abstract  = {We present a multi-camera system based on Bayesian modality fusion to track multiple people in an indoor environment. Bayesian networks are used to combine multiple modalities for matching subjects between consecutive image frames and between multiple camera views. Unlike other occlusion reasoning methods, we use multiple cameras in order to obtain continuous visual information of people in either or both cameras so that they can be tracked through interactions. Results demonstrate that the system can maintain people's identities by using multiple cameras cooperatively.},
   author    = {Chang, T.-H. and Gong, S.},
@@ -428,7 +440,6 @@
   volume       = {30},
 }
 
-
 @article{Fortmann83,
   abstract = {The problem of associating data with targets in a cluttered multi-target environment is discussed and applied to passive sonar tracking. The probabilistic data association (PDA) method, which is based on computing the posterior probability of each candidate measurement found in a validation gate, assumes that only one real target is present and all other measurements are Poisson-distributed clutter. In this paper, a new theoretical result is presented: the joint probabilistic data association (JPDA) algorithm, in which joint posterior association probabilities are computed for multiple targets (or multiple discrete interfering sources) in Poisson clutter. The algorithm is applied to a passive sonar tracking problem with multiple sensors and targets, in which a target is not fully observable from a single sensor. Targets are modeled with four geographic states, two or more acoustic states, and realistic (i.e., low) probabilities of detection at each sample time. A simulation result is presented for two heavily interfering targets illustrating the dramatic tracking improvements obtained by estimating the targets' states using joint association probabilities.},
   author   = {Fortmann, T. and Bar-Shalom, Y. and Scheffe, M.},
@@ -524,7 +535,6 @@
   title     = {Multi-Camera Vehicle Tracking with Powerful Visual Features and Spatial-Temporal Cue.},
   volume    = {1},
 }
-
 
 @article{He20a,
   abstract     = {This paper focuses on the Multi-Target Multi-Camera Tracking task (MTMCT), which aims at tracking multiple targets within a multi-camera network. As the trajectory of each target is inherently split into multiple sub-trajectories (namely local tracklets) in a multi-camera network, a major challenge of MTMCT is how to accurately match the local tracklets generated within each camera across different cameras and generate a complete global trajectory for each target, i.e., the cross-camera tracklet matching problem. We solve the cross-camera tracklet matching problem by TRACklet-to-Target Assignment (TRACTA), and propose the Restricted Non-negative Matrix Factorization (RNMF) algorithm to compute the optimal assignment solution that meets a set of constraints, which should be in force in practice. TRACTA can correct the tracking errors caused by occlusions and missed detections in local tracklets, and produce a complete global trajectory for each target across all the cameras. Moreover, we also develop an analytical way of estimating the total number of targets in the camera network, which plays an important role to compute the tracklet-to-target assignment. Experimental evaluations and ablation studies on four MTMCT benchmark datasets show the superiority of the proposed TRACTA method.},
@@ -926,7 +936,7 @@
 }
 
 @inproceedings{Li21,
-  abstract  = {We address the task of Re-Identification (Re-ID) in multi-target multi-camera (MTMC) tracking where we track multiple pedestrians using multiple overlapping uncalibrated (unknown pose) cameras. Since the videos are temporally synchronized and spatially overlapping, we can see a person from multiple views and associate their trajectory across cameras. In order to find the correct association between pedestrians visible from multiple views during the same time window, we extract a visual feature from a tracklet (sequence of pedestrian images) that encodes its similarity and dissimilarity to all other candidate tracklets. We propose a inter-tracklet (person to person) attention mechanism that learns a representation for a target tracklet while taking into account other tracklets across multiple views. Furthermore, to encode the gait and motion of a person, we introduce second intra-tracklet (person-specific) attention module with position embeddings. This second module employs a transformer encoder to learn a feature from a sequence of features over one tracklet. Experimental results on WILDTRACK and our new dataset ‘ConstructSite’ confirm the superiority of our model over state-of-the-art ReID methods (5% and 10% performance gain respectively) in the context of uncalibrated MTMC tracking. While our model is designed for overlapping cameras, we also obtain state-of-the-art results on two other benchmark datasets (MARS and DukeMTMC) with non-overlapping cameras.},
+  abstract  = {We address the task of Re-Identification (Re-ID) in multi-target multi-camera (MTMC) tracking where we track multiple pedestrians using multiple overlapping uncalibrated (unknown pose) cameras. Since the videos are temporally synchronized and spatially overlapping, we can see a person from multiple views and associate their trajectory across cameras. In order to find the correct association between pedestrians visible from multiple views during the same time window, we extract a visual feature from a tracklet (sequence of pedestrian images) that encodes its similarity and dissimilarity to all other candidate tracklets. We propose a inter-tracklet (person to person) attention mechanism that learns a representation for a target tracklet while taking into account other tracklets across multiple views. Furthermore, to encode the gait and motion of a person, we introduce second intra-tracklet (person-specific) attention module with position embeddings. This second module employs a transformer encoder to learn a feature from a sequence of features over one tracklet. Experimental results on WILDTRACK and our new dataset ‘ConstructSite’ confirm the superiority of our model over state-of-the-art ReID methods (5{\%} and 10{\%} performance gain respectively) in the context of uncalibrated MTMC tracking. While our model is designed for overlapping cameras, we also obtain state-of-the-art results on two other benchmark datasets (MARS and DukeMTMC) with non-overlapping cameras.},
   author    = {Li, Yu-Jhe and Weng, Xinshuo and Xu, Yan and Kitani, Kris},
   booktitle = {2021 IEEE/CVF International Conference on Computer Vision (ICCV)},
   date      = {2021-10},
@@ -1127,6 +1137,21 @@
   eprintclass = {cs.CV},
   eprinttype  = {arXiv},
   title       = {Multi-Camera Multi-Object Tracking on the Move via Single-Stage Global Association Approach},
+}
+
+@article{Nikodem20,
+  abstract       = {Typical approaches to visual vehicle tracking across large area require several cameras and complex algorithms to detect, identify and track the vehicle route. Due to memory requirements, computational complexity and hardware constrains, the video images are transmitted to a dedicated workstation equipped with powerful graphic processing units. However, this requires large volumes of data to be transmitted and may raise privacy issues. This paper presents a dedicated deep learning detection and tracking algorithms that can be run directly on the camera&rsquo;s embedded system. This method significantly reduces the stream of data from the cameras, reduces the required communication bandwidth and expands the range of communication technologies to use. Consequently, it allows to use short-range radio communication to transmit vehicle-related information directly between the cameras, and implement the multi-camera tracking directly in the cameras. The proposed solution includes detection and tracking algorithms, and a dedicated low-power short-range communication for multi-target multi-camera tracking systems that can be applied in parking and intersection scenarios. System components were evaluated in various scenarios including different environmental and weather conditions.},
+  article-number = {3334},
+  author         = {Nikodem, Maciej and Słabicki, Mariusz and Surmacz, Tomasz and Mrówka, Paweł and Dołęga, Cezary},
+  doi            = {10.3390/s20113334},
+  issn           = {1424-8220},
+  journal        = {Sensors},
+  number         = {11},
+  pubmedid       = {32545370},
+  title          = {Multi-Camera Vehicle Tracking Using Edge Computing and Low-Power Communication},
+  url            = {https://www.mdpi.com/1424-8220/20/11/3334},
+  volume         = {20},
+  year           = {2020},
 }
 
 @inproceedings{Nummiaro03,
@@ -1514,13 +1539,27 @@
   title     = {People Detection and Tracking Using a Fisheye Camera Network},
 }
 
-@misc{Wang23,
+@misc{Wang23a,
   archiveprefix = {arXiv},
   author        = {Yu-Hsiang Wang and Jun-Wei Hsieh and Ping-Yang Chen and Ming-Ching Chang and Hung Hin So and Xin Li},
   date          = {2023},
   eprint        = {2211.08824},
   primaryclass  = {cs.CV},
   title         = {SMILEtrack: SiMIlarity LEarning for Occlusion-Aware Multiple Object Tracking},
+}
+
+@article{Wang23b,
+  abstract = {The rapid increase in the volume of video data generated from edges in the Industrial Internet of Things, opens up new possibilities for enhancing the application of video service. Multi-camera Multi-object Tracking (MCMT) has always been a fundamental task in video surveillance or traffic control. However, the traditional MCMT methods are limited by the communication bottleneck and computation resources of the centralized curator, and suffer from security and privacy issues. In this paper, we first design Multi-camera Multi-hypothesis Tracking (MC-MHT) framework to achieve real-time tracking performance among edge cameras. The complex association of objects is described by multi-skip trees. The tracking task is well distributed to each camera. Then, we integrate Multi-camera TrackingChain (MCTChain) into MC-MHT to ensure security and trust. The state transition of targets in multi-camera is illustrated from the perspective of blockchain transactions. The transactions are validated by an integrated tracking consensus to counter Byzantine behavior. Numerical results derived from real-world scenarios and CAMPUS dataset show that the proposed method achieves real-time performance (24-36 FPs) and 79.0-82.4 MOTA indicator, as well as reduces identity switch errors about 71{\%} under Byzantine attack.},
+  author   = {Wang, Shuai and Sheng, Hao and Zhang, Yang and Yang, Da and Shen, Jiahao and Chen, Rongshan},
+  date     = {2023},
+  doi      = {10.1109/TII.2023.3261890},
+  issn     = {1941-0050},
+  journal  = {IEEE Transactions on Industrial Informatics},
+  keywords = {},
+  number   = {},
+  pages    = {1-10},
+  title    = {Blockchain-Empowered Distributed Multi-Camera Multi-Target Tracking in Edge Computing},
+  volume   = {},
 }
 
 @inproceedings{Wei18,
@@ -1689,6 +1728,18 @@
   url        = {http://arxiv.org/abs/1608.00641},
   volume     = {abs/1608.00641},
 }
+@article{Zeng21,
+  author     = {Fangao Zeng and Bin Dong and Tiancai Wang and Cheng Chen and Xiangyu Zhang and Yichen Wei},
+  booktitle  = {European Conference on Computer Vision (ECCV)},
+  date       = {2021},
+  eprint     = {2105.03247},
+  eprinttype = {arXiv},
+  journal    = {CoRR},
+  timestamp  = {Thu, 24 Nov 2022 08:33:45 +0100},
+  title      = {{MOTR:} End-to-End Multiple-Object Tracking with TRansformer},
+  url        = {https://arxiv.org/abs/2105.03247},
+  volume     = {abs/2105.03247},
+}
 
 @inproceedings{Zhang08,
   abstract  = {We propose a network flow based optimization method for data association needed for multiple object tracking. The maximum-a-posteriori (MAP) data association problem is mapped into a cost-flow network with a non-overlap constraint on trajectories. The optimal data association is found by a min-cost flow algorithm in the network. The network is augmented to include an Explicit Occlusion Model(EOM) to track with long-term inter-object occlusions. A solution to the EOM-based network is found by an iterative approach built upon the original algorithm. Initialization and termination of trajectories and potential false observations are modeled by the formulation intrinsically. The method is efficient and does not require hypotheses pruning. Performance is compared with previous results on two public pedestrian datasets to show its improvement.},
@@ -1729,6 +1780,7 @@
   pages     = {365--372},
   title     = {A Camera Network Tracking (CamNeT) Dataset and Performance Baseline},
 }
+
 @article{Zhang17,
   author      = {Zhang, Zhimeng and Wu, Jianan and Zhang, Xuan and Zhang, Chi},
   date        = {2017},
@@ -1750,6 +1802,15 @@
   title        = {FairMOT: On the Fairness of Detection and Re-identification in Multiple Object Tracking},
   url          = {https://doi.org/10.1007/s11263-021-01513-4},
   volume       = {129},
+}
+
+@misc{Zhang23,
+  archiveprefix = {arXiv},
+  author        = {Ce Zhang and Chengjie Zhang and Yiluan Guo and Lingji Chen and Michael Happold},
+  eprint        = {2306.17000},
+  primaryclass  = {cs.CV},
+  title         = {MotionTrack: End-to-End Transformer-based Multi-Object Tracing with LiDAR-Camera Fusion},
+  year          = {2023},
 }
 
 @inproceedings{Zheng15,
