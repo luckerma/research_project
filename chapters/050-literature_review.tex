@@ -59,14 +59,12 @@ The complexity of data association increased with the need to handle multiple ob
 
 The advent of graph-based approaches provided a robust framework for data association by viewing the problem as finding the shortest path in a graph, where each node represents a detection and edges represent association costs~\cite{Zhang08}. This method became particularly useful for managing associations over long-time periods and occlusions.
 
-More recently, with the rise of deep learning, neural networks have been used to learn the data association task, allowing an end-to-end approach to tracking by directly learning to associate features extracted from raw pixels, namely Recurrent Neural Networks (RNNs)~\cite{Milan16b}. This represents a shift from traditional methods that require hand-crafted features and heuristics to data-driven approaches.
-
-The introduction of appearance models using deep learning has significantly improved association performance in MTMCT by providing discriminative features that can robustly represent an object across different viewpoints and lighting conditions, which is essential for accurate association across multiple cameras~\cite{Schroff15}.
+More recently, with the rise of deep learning, \textcite{Milan16b} use Recurrent Neural Networks (RNNs)~\cite{Rumelhart86} to learn the data association task, enabling an end-to-end approach to online multi-target tracking. This represents a shift from traditional methods that require hand-crafted features and heuristics to data-driven approaches.
 
 \subsection{Tracking}\label{subsec:milestone_tracking}
 The Kalman Filter~\cite{Kalman60} is one of the early foundations of object tracking, providing a framework for predicting the future locations of an object.
 
-As tracking scenarios became more complex, approaches such as Multiple Hypothesis Tracking (MHT)~\cite{Blackman04} were developed to manage multiple potential data association hypotheses, especially in crowded scenes~\cite{Reid79}.
+As tracking scenarios became more complex, approaches such as Multiple Hypothesis Tracking (MHT)~\cite{Blackman04} were developed to manage multiple potential data association hypotheses, especially in cluttered scenes~\cite{Reid79}.
 
 \subsection{Datasets and Challenges}\label{subsec:datasets_and_challenges}
 In addition to the datasets mentioned in the section~\ref{sec:datasets}, which are used for object detection in general, there are also datasets that are more specific to MTMCT. Typically, these are for tracking specific object classes, mainly people and vehicles. Datasets that meet these requirements are listed in the table~\ref{tab:overview_datasets}.
@@ -111,6 +109,14 @@ The table~\ref{tab:overview_datasets} provides a summary of various datasets tha
 
 Each of the datasets listed plays a role in the following sections and the literature reviewed is often evaluated using one or more of these datasets. The datasets are also used to train and test the tracking methods.
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.75\textwidth]{resources/fig/Ma21-dukemtmc.png}
+    \caption{DukeMTMC~\cite[Fig.~2]{Ma21}}\label{fig:dukemtmc}
+\end{figure}
+
+Figure~\ref{fig:dukemtmc} visualizes part of the DukeMTMC dataset as an example of one of the MTMCT datasets. It shows the camera views of the Duke University campus used in the dataset, illustrating the variety of scenes and perspectives for tracking individuals across different locations and conditions. The central aerial view shows the spatial arrangement of the cameras, with their respective FOVs highlighted. All eight camera views are shown in a given frame, including the bounding boxes of the tracked individuals.
+
 In recent years, challenges have been established to encourage research in object detection and tracking, although they have mostly focused on STSCT and MTSCT. Nevertheless, these challenges remain relevant to MTMCT research. The most recent representatives of the primary challenges are:
 
 \begin{itemize}
@@ -151,7 +157,7 @@ Tracking-by-Segmentation (TbS), on the other hand, focuses on delineating the pr
 \subsubsection{Tracking-by-Attention}\label{subsubsec:tracking_by_attention}Tracking-by-Attention (TbA) represents a paradigm shift in MTMCT systems by incorporating attention mechanisms that prioritize the most salient features of objects during tracking. The attention paradigm, inspired by the visual ability of humans to selectively focus, has been integrated into tracking frameworks to dynamically highlight important spatial and temporal features.
 
 \subsection{Single-Shot Approaches}\label{subsec:single-shot_approaches}
-In contrast to all of the above tracking paradigms, single-shot approaches aim to perform detection and data association simultaneously in a single-step. While less common, this approach offers the advantage of speed and simplicity by eliminating the need for separate data association algorithms. Especially in scenarios where computational resources are limited and real-time performance is critical, single-shot approaches can be vere effective.
+In contrast to all of the above tracking paradigms, single-shot approaches aim to perform detection and data association simultaneously in a single-step. While less common, this approach offers the advantage of speed and simplicity by eliminating the need for separate data association algorithms. Especially in scenarios where computational resources are limited and real-time performance is critical, single-shot approaches can be very effective.
 
 A notable contribution in this area is the Single-Shot Multi Object Tracking (SMOT)~\cite{Li20} algorithm proposed by \citeauthor{Li20} in \citeyear{Li20}. SMOT is a tracking framework capable of converting any single-shot object detector into a multi-object tracker, which is able to simultaneously generate detection and tracking outputs. It is based on the work of \citeauthor{Bergmann19}, who developed the Tracktor~\cite{Bergmann19}, an object detector that is also able to track objects at the same time. The SMOT framework is able to generate tracklets with an almost constant runtime with respect to the number of targets, due to the use of a lightweight linking algorithm for online tracklet linking.
 

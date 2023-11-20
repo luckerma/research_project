@@ -21,7 +21,7 @@ To understand the data association step, it is necessary to define the following
 
 In the research literature, these terms are often used interchangeably and not always consistently, but for the purposes of this project, the above definitions will be used.
 
-Data association is the process of associating currently detected objects with existing trajectories based on similarities in their features. This is done by comparing the features of detected objects with the features of existing trajectories and assigning the detected objects to the most similar trajectories. This step is critical for maintaining the ID of objects as they move through or even leave and re-enter the scene, which is called re-ID. Typically, the data association step is performed hierarchically: first on a single-camera view (intra-camera), before the trajectories are associated across multiple camera views (inter-camera) and finally optimized globally.
+Data association is the process of associating currently detected objects with existing trajectories based on similarities in their features. This is done by comparing the features of detected objects with the features of existing trajectories and assigning the detected objects to the most similar trajectories. This step is critical for maintaining the ID of objects as they move through or even leave and re-enter the scene, which is called re-ID. Typically, the data association step is performed hierarchically: first on a single-camera view (intra-camera), before the trajectories are associated across multi-camera views (inter-camera) and finally optimized globally.
 
 \begin{figure}[ht]
     \centering
@@ -30,6 +30,14 @@ Data association is the process of associating currently detected objects with e
 \end{figure}
 
 The two steps of data association of three non-overlapping camera views are illustrated in Figure~\ref{fig:intra_inter_camera_tracking}. The first step is intra-camera tracking, where the trajectories within the three camera views are associated independently. The second step is inter-camera tracking, where the trajectories are associated across the three camera views and the IDs of the objects are maintained. This simple example can be extended to any number of camera views, overlapping or non-overlapping.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.75\textwidth]{resources/fig/Ma21-tracking_process.png}
+    \caption{Tracking process~\cite[Fig.~1]{Ma21}}\label{fig:projection}
+\end{figure}
+
+Figure~\ref{fig:projection} shows a schematic representation of the inter-camera matching and tracking process of the three camera views. This figure complements figure~\ref{fig:intra_inter_camera_tracking} by visually demonstrating the steps mentioned. First, the people in the three camera views are detected and intra-camera tracking is performed by merging the individual detections into tracklets. Optionally, depending on the algorithm, localization within the world (using a common ground plane) could be performed. Finally, after the intra-camera trajectories have been generated, the inter-camera matching is performed to obtain the final tracks of the people.
 
 \subsection{Tracking}\label{subsec:tracking}
 Tracking refers to the step of maintaining the trajectory of detected objects over time. This involves predicting the future location of an object based on its past movements and updating its trajectory as new observations (tracklets), the next frame of a video, become available. In summary, tracking is responsible for maintaining and managing the trajectories and IDs of objects as they move through the scene and ensuring consistent global IDs across multiple camera views.
