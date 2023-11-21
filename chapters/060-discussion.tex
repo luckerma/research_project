@@ -2,9 +2,9 @@
 This chapter provides a critical analysis of the methods, challenges, and future prospects in the field of MTMCT. It compares the mentioned approaches, discusses the gaps and limitations of these methodologies, and mentions the ethical implications and future advances that could revolutionize the field of MTMCT.
 
 \section{Summary of Methods}\label{sec:summary_of_methods}
-Early research in MTMCT relied primarily on Bayesian classification and network models. These basic methods were instrumental in kick-starting research in the field, but they were limited by robustness and error susceptibility, especially in challenging scenarios such as occlusions or varied poses.
+Early research in MTMCT relied primarily on Bayesian classification and simple network models. These basic methods were instrumental in kick-starting research in the field, but they were limited by robustness and error susceptibility, especially in challenging scenarios such as occlusions or varied poses.
 
-The advent of CNNs marked a significant shift, introducing deep learning to object detection and significantly improving performance. Building on CNNs, R-CNN and its successors, including Fast R-CNN and Faster R-CNN, improved efficiency and reduced computational overhead. They introduced more effective RoI handling.
+The advent of CNNs marked a significant shift, introducing deep learning to object detection and significantly improving performance. Building on CNN, R-CNN and its successors, including Fast R-CNN and Faster R-CNN, improved efficiency and reduced computational overhead. They introduced more effective RoI handling.
 
 The introduction of real-time object detection frameworks such as YOLO and SSD was a game changer. YOLO, with its single forward pass image processing, revolutionized real-time object detection, and the multiple feature maps of SSD effectively addressed the challenge of varying object sizes.
 
@@ -27,7 +27,7 @@ Existing datasets and challenges still focus primarily on intra-camera tracking.
 
 Intensive research on intra-camera detection and tracking frameworks such as YOLO, Faster R-CNN, SSD and DeepSORT has led to significant progress in these areas. However, these methods are not optimized for inter-camera tracking, which requires at least one step further or a completely different approach. The lack of a unified framework for inter-camera tracking is a significant gap in current research.
 
-Single-shot approaches such as SMOT and JDE have been instrumental in simplifying the tracking process by integrating detection and tracking into a single-step, increasing speed and efficiency.
+Single-shot approaches such as SMOT and JDE have been instrumental in simplifying the tracking process by integrating detection and tracking into a single-step, increasing speed and efficiency. However, the prioritization of speed compromises accuracy, especially when detecting small or overlapping objects.
 
 Graph-based approaches such as DyGLIP and ReST are powerful frameworks for data association, especially in occlusion scenarios. However, graph-based approaches are computationally intensive, which is a significant limitation in real-time applications. With the introduction of FCDSC, which considers only a sub-graph at a time, the computational complexity of graph-based approaches has been significantly reduced, finally making them feasible for real-time applications.
 

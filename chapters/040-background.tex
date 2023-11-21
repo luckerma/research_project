@@ -21,7 +21,7 @@ To understand the data association step, it is necessary to define the following
 
 In the research literature, these terms are often used interchangeably and not always consistently, but for the purposes of this project, the above definitions will be used.
 
-Data association is the process of associating currently detected objects with existing trajectories based on similarities in their features. This is done by comparing the features of detected objects with the features of existing trajectories and assigning the detected objects to the most similar trajectories. This step is critical for maintaining the ID of objects as they move through or even leave and re-enter the scene, which is called re-ID. Typically, the data association step is performed hierarchically: first on a single-camera view (intra-camera), before the trajectories are associated across multi-camera views (inter-camera) and finally optimized globally.
+Data association is the process of associating currently detected objects with existing trajectories based on similarities in their features. This is done by comparing the features of detected objects and trajectories with the features of existing trajectories and assigning the detected objects to the most similar trajectories. This step is critical for maintaining the IDs of objects as they move through or even leave and re-enter the scene, which is called re-ID. Typically, the data association step is performed hierarchically: first on a single-camera view (intra-camera), before the trajectories are associated across multi-camera views (inter-camera) and finally optimized globally to form tracks.
 
 \begin{figure}[ht]
     \centering
@@ -31,25 +31,26 @@ Data association is the process of associating currently detected objects with e
 
 The two steps of data association of three non-overlapping camera views are illustrated in Figure~\ref{fig:intra_inter_camera_tracking}. The first step is intra-camera tracking, where the trajectories within the three camera views are associated independently. The second step is inter-camera tracking, where the trajectories are associated across the three camera views and the IDs of the objects are maintained. This simple example can be extended to any number of camera views, overlapping or non-overlapping.
 
+%TODO: Change "Cross" to "Inter" in figure
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.75\textwidth]{resources/fig/Ma21-tracking_process.png}
     \caption{Tracking process~\cite[Fig.~1]{Ma21}}\label{fig:projection}
 \end{figure}
 
-Figure~\ref{fig:projection} shows a schematic representation of the inter-camera matching and tracking process of the three camera views. This figure complements figure~\ref{fig:intra_inter_camera_tracking} by visually demonstrating the steps mentioned. First, the people in the three camera views are detected and intra-camera tracking is performed by merging the individual detections into tracklets. Optionally, depending on the algorithm, localization within the world (using a common ground plane) could be performed. Finally, after the intra-camera trajectories have been generated, the inter-camera matching is performed to obtain the final tracks of the people.
+Figure~\ref{fig:projection} shows a schematic representation of the intra-, inter-camera matching and tracking process of the three camera views. This figure complements figure~\ref{fig:intra_inter_camera_tracking} by visually demonstrating the steps mentioned. First, the people in the three camera views are detected and intra-camera tracking is performed by merging the individual detections into tracklets. Optionally, depending on the algorithm, localization within the world (using a common ground plane) could be performed. Finally, after the intra-camera trajectories have been generated, the inter-camera matching is performed to obtain the final tracks of the people.
 
 \subsection{Tracking}\label{subsec:tracking}
-Tracking refers to the step of maintaining the trajectory of detected objects over time. This involves predicting the future location of an object based on its past movements and updating its trajectory as new observations (tracklets), the next frame of a video, become available. In summary, tracking is responsible for maintaining and managing the trajectories and IDs of objects as they move through the scene and ensuring consistent global IDs across multiple camera views.
+Tracking refers to the step of maintaining the tracklets and trajectories of detected objects over time. This involves predicting the future location of an object based on its past movements and updating its trajectory as new observations (tracklets) become available with the next frame of a video. In summary, tracking is responsible for maintaining and managing the trajectories and IDs of objects as they move through the scene and ensuring consistent global IDs across multiple camera views.
 
 \section{Fundamental Concepts}\label{sec:fundamental_concepts}
 This section briefly describes the fundamental concepts of MTMCT that are essential for following the progression from basic object tracking methods to advanced MTMCT techniques.
 
 \subsection{Single-Target Single-Camera Tracking}\label{subsec:st_sct}
-Single-Target Single-Camera Tracking (STSCT) is the simplest form of object tracking and involves tracking a single target in the FOV of a single-camera. The primary goal of STSCT is to maintain the ID and trajectory of the target as it moves through the FOV of the camera.
+STSCT is the simplest form of object tracking and involves tracking a single target in the FOV of a single-camera. The primary goal of STSCT is to maintain the ID and trajectory of the target as it moves through the FOV of the camera.
 
 \subsection{Multi-Target Single-Camera Tracking}\label{subsec:mt_sct}
-Multi-Target Single-Camera Tracking (MTSCT) builds on the principles of STSCT, but introduces the added complexity of dealing with multiple targets in a single-camera view. The goal is to track multiple objects simultaneously while maintaining the ID of each target and avoiding ID switches. This requires sophisticated algorithms that can handle occlusions, interactions between targets, and other challenges that arise especially in crowded scenes.
+MTSCT builds on the principles of STSCT, but introduces the added complexity of dealing with multiple targets in a single-camera view. The goal is to track multiple targets simultaneously while maintaining the ID of each target and avoiding ID switches. This requires sophisticated algorithms that can handle occlusions, interactions between targets, and other challenges that arise especially in crowded scenes.
 
 The evolution from STSCT to MTSCT and ultimately to MTMCT reflects the increasing complexity and ability of tracking systems to handle more complex scenarios. This evolution is made possible by advances in computer vision and machine learning, which provide the tools necessary to overcome the challenges associated with tracking multiple targets across multiple camera views.
 
@@ -57,7 +58,7 @@ The evolution from STSCT to MTSCT and ultimately to MTMCT reflects the increasin
 The process of tracking multiple objects across multiple camera views requires careful consideration of several factors that can significantly affect the performance and accuracy of the tracking system. Some of the major challenges and issues faced in MTMCT are discussed in the following subsections.
 
 \subsection{Occlusion}\label{subsec:occlusion}
-Occlusion occurs when an object is partially or completely blocked from view, making it difficult to accurately track its position and ID. This can happen when objects overlap or are obstructed by other elements in the scene, such as buildings or trees. Occlusion is a common challenge in crowded environments, such as public spaces and sporting events, where multiple objects are often in close proximity.
+Occlusion occurs when an object is partially or completely blocked from view, making it difficult to accurately track its position and maintain its ID. This can happen when objects overlap or are obstructed by other elements in the scene, such as buildings or trees. Occlusion is a common challenge in crowded environments, such as public spaces and sporting events, where multiple objects are often in close proximity.
 
 \subsection{Varying Lighting Conditions}\label{subsec:varying_lighting_conditions}
 Lighting conditions can have a significant impact on the performance of an MTMCT system. Variations in lighting, such as changes in natural light throughout the day or artificial lighting when a tracked object enters a building, can affect the appearance of objects and make it difficult to maintain consistent tracking. The presence of shadows and reflections can also make tracking difficult.
@@ -149,6 +150,6 @@ Figure~\ref{fig:mt_ml} illustrates various scenarios encountered in multi-target
     \item \textbf{False Alarm:} Points where the tracking system detects an object when there is no object in the ground truth.
     \item \textbf{ID Switch:} An instance where the ID assigned to an object is incorrectly changed during tracking.
     \item \textbf{Trajectory Fragment:} A segment of the resulting trajectory that is shorter than the ground truth, indicating a break or interruption in tracking.
-    \item \textbf{Mostly Tracked:} Scenarios where the resulting trajectory closely follows the ground truth trajectory for most of the path of the object (\(\geq 80\%\))
+    \item \textbf{Mostly Tracked:} Scenarios where the resulting trajectory closely follows the ground truth trajectory for most of the path of the object (\(\geq 80\%\)).
     \item \textbf{Mostly Lost:} Scenarios where the resulting trajectory only briefly aligns or intersects with the ground truth trajectory, indicating that the object was not effectively tracked for most of its path (\(\leq 20\%\)).
 \end{itemize}
