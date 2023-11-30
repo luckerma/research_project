@@ -88,15 +88,6 @@
   volume     = {abs/2004.10934},
 }
 
-@inproceedings{Bredereck12,
-  abstract  = {Multi-object tracking is still a challenging task in computer vision. We propose a robust approach to realize multi-object tracking using multi-camera networks. Detection algorithms are utilized to detect object regions with confidence scores for initialization of individual particle filters. Since data association is the key issue in Tracking-by-Detection mechanism, we present an efficient greedy matching algorithm considering multiple judgments based on likelihood functions. Furthermore, tracking in single cameras is realized by a greedy matching method. Afterwards, 3D geometry positions are obtained from the triangulation relationship between cameras. Corresponding objects are tracked in multiple cameras to take the advantages of multi-camera based tracking. Our algorithm performs online and does not need any information about the scene, no restrictions of enter-and-exit zones, no assumption of areas where objects are moving on and can be extended to any class of object tracking. Experimental results show the benefits of using multiple cameras by the higher accuracy and precision rates.},
-  author    = {Bredereck, Michael and Jiang, Xiaoyan and Körner, Marco and Denzler, Joachim},
-  booktitle = {2012 Sixth International Conference on Distributed Smart Cameras (ICDSC)},
-  date      = {2012-10},
-  pages     = {1--6},
-  title     = {Data association for multi-object Tracking-by-Detection in multi-camera networks},
-}
-
 @article{Cai99,
   abstract     = {This paper presents a comprehensive framework for tracking coarse human models from sequences of synchronized monocular grayscale images in multiple camera coordinates. It demonstrates the feasibility of an end-to-end person tracking system using a unique combination of motion analysis on 3D geometry in different camera coordinates and other existing techniques in motion detection, segmentation, and pattern recognition. The system starts with tracking from a single camera view. When the system predicts that the active camera will no longer have a good view of the subject of interest, tracking will be switched to another camera which provides a better view and requires the least switching to continue tracking. The nonrigidity of the human body is addressed by matching points of the middle line of the human image, spatially and temporally, using Bayesian classification schemes. Multivariate normal distributions are employed to model class-conditional densities of the features for tracking, such as location, intensity, and geometric features. Limited degrees of occlusion are tolerated within the system. Experimental results using a prototype system are presented and the performance of the algorithm is evaluated to demonstrate its feasibility for real time applications.},
   author       = {Cai, Q. and Aggarwal, J.K.},
@@ -155,35 +146,6 @@
   volume    = {},
 }
 
-@article{Chen14,
-  abstract     = {In this paper, we introduce a novel algorithm to solve the problem of object tracking across multiple non-overlapping cameras by learning inter-camera transfer models. The transfer models are divided into two parts according to different kinds of cues, i.e. spatio-temporal cues and appearance cues. To learn spatio-temporal transfer models across cameras, an unsupervised topology recovering approach based on N-neighbor accumulated cross-correlations is proposed, which estimates the topology of a non-overlapping multi-camera network. Different from previous methods, the proposed topology recovering method can deal with large amounts of data without considering the size of time window. To learn inter-camera appearance transfer models, a color transfer method is used to model the changes of color characteristics across cameras, which has an advantage of low requirements to training samples, making update efficient when illumination conditions change. The experiments are performed on different datasets. Experimental results demonstrate the effectiveness of the proposed algorithm.},
-  author       = {Chen, Xiaotang and Huang, Kaiqi and Tan, Tieniu},
-  date         = {2014},
-  doi          = {https://doi.org/10.1016/j.patcog.2013.06.011},
-  issn         = {0031-3203},
-  journaltitle = {Pattern Recognition},
-  keywords     = {Object tracking,Transfer models,Color transfer,Camera network,Non-overlapping views},
-  note         = {Handwriting Recognition and other PR Applications},
-  number       = {3},
-  pages        = {1126--1137},
-  title        = {Object tracking across non-overlapping views by learning inter-camera transfer models},
-  url          = {https://www.sciencedirect.com/science/article/pii/S003132031300263X},
-  volume       = {47},
-}
-
-@article{Chen15,
-  abstract     = {Tracking multiple targets in nonoverlapping cameras are challenging since the observations of the same targets are often separated by time and space. There might be significant appearance change of a target across camera views caused by variations in illumination conditions, poses, and camera imaging characteristics. Consequently, the same target may appear very different in two cameras. Therefore, associating tracks in different camera views directly based on their appearance similarity is difficult and prone to error. In most previous methods, the appearance similarity is computed either using color histograms or based on pretrained brightness transfer function that maps color between cameras. In this paper, a novel reference set based appearance model is proposed to improve multitarget tracking in a network of nonoverlapping cameras. Contrary to previous work, a reference set is constructed for a pair of cameras, containing subjects appearing in both camera views. For track association, instead of directly comparing the appearance of two targets in different camera views, they are compared indirectly via the reference set. Besides global color histograms, texture and shape features are extracted at different locations of a target, and AdaBoost is used to learn the discriminative power of each feature. The effectiveness of the proposed method over the state of the art on two challenging real-world multicamera video data sets is demonstrated by thorough experiments.},
-  author       = {Chen, Xiaojing and An, Le and Bhanu, Bir},
-  date         = {2015-05},
-  doi          = {10.1109/JSEN.2015.2392781},
-  issn         = {1558-1748},
-  journaltitle = {IEEE Sensors Journal},
-  number       = {5},
-  pages        = {2692--2704},
-  title        = {Multitarget Tracking in Nonoverlapping Cameras Using a Reference Set},
-  volume       = {15},
-}
-
 @article{Chen17a,
   abstract     = {Nonoverlapping multicamera visual object tracking typically consists of two steps: single-camera object tracking (SCT) and inter-camera object tracking (ICT). Most of tracking methods focus on SCT, which happens in the same scene, while for real surveillance scenes, ICT is needed and single-camera tracking methods cannot work effectively. In this paper, we try to improve the overall multicamera object tracking performance by a global graph model with an improved similarity metric. Our method treats the similarities of single-camera tracking and inter-camera tracking differently and obtains the optimization in a global graph model. The results show that our method can work better even in the condition of poor SCT.},
   author       = {Chen, Weihua and Cao, Lijun and Chen, Xiaotang and Huang, Kaiqi},
@@ -194,19 +156,6 @@
   number       = {11},
   pages        = {2367--2381},
   title        = {An Equalized Global Graph Model-Based Approach for Multicamera Object Tracking},
-  volume       = {27},
-}
-
-@article{Chen17b,
-  abstract     = {Tracking multiple targets across nonoverlapping cameras aims at estimating the trajectories of all targets, and maintaining their identity labels consistent while they move from one camera to another. Matching targets from different cameras can be very challenging, as there might be significant appearance variation and the blind area between cameras makes the target’s motion less predictable. Unlike most of the existing methods that only focus on modeling the appearance and spatiotemporal cues for inter-camera tracking, this paper presents a novel online learning approach that considers integrating high-level contextual information into the tracking system. The tracking problem is formulated using an online learned conditional random field (CRF) model that minimizes a global energy cost. Besides low-level information, social grouping behavior is explored in order to maintain targets’ identities as they move across cameras. In the proposed method, pairwise grouping behavior of targets is first learned within each camera. During inter-camera tracking, track associations that maintain single camera grouping consistencies are preferred. In addition, we introduce an iterative algorithm to find a good solution for the CRF model. Comparison experiments on several challenging real-world multicamera video sequences show that the proposed method is effective and outperforms the state-of-the-art approaches.},
-  author       = {Chen, Xiaojing and Bhanu, Bir},
-  date         = {2017-11},
-  doi          = {10.1109/TCSVT.2016.2565978},
-  issn         = {1558-2205},
-  journaltitle = {IEEE Transactions on Circuits and Systems for Video Technology},
-  number       = {11},
-  pages        = {2382--2394},
-  title        = {Integrating Social Grouping for Multitarget Tracking Across Cameras in a CRF Model},
   volume       = {27},
 }
 
@@ -229,64 +178,6 @@
   eprinttype  = {arXiv},
   pages       = {10051--10060},
   title       = {ReST: A Reconfigurable Spatial-Temporal Graph Model for Multi-Camera Multi-Object Tracking},
-}
-
-@article{Cho19,
-  abstract     = {In this study, we propose a unified framework which jointly solves both person re-identification and camera network topology inference problems with minimal prior knowledge about the environments. The proposed framework takes general multi-camera network environments into account and can be applied to online person re-identification in large-scale multi-camera networks. In addition, to show the superiority of the proposed framework, we provide a new person re-identification dataset with full annotations, named SLP, captured in the multi-camera network. Experimental results using our re-identification and public datasets show that the proposed methods are promising for both person re-identification and camera topology inference tasks.},
-  author       = {Cho, Yeong-Jun and Kim, Su-A and Park, Jae-Han and Lee, Kyuewang and Yoon, Kuk-Jin},
-  date         = {2019},
-  doi          = {https://doi.org/10.1016/j.cviu.2019.01.003},
-  issn         = {1077-3142},
-  journaltitle = {Computer Vision and Image Understanding},
-  pages        = {34--46},
-  title        = {Joint person re-identification and camera network topology inference in multiple cameras},
-  url          = {https://www.sciencedirect.com/science/article/pii/S1077314219300037},
-  volume       = {180},
-}
-
-@inproceedings{Choi12,
-  abstract  = {We present a coherent, discriminative framework for simultaneously tracking multiple people and estimating their collective activities. Instead of treating the two problems separately, our model is grounded in the intuition that a strong correlation exists between a person's motion, their activity, and the motion and activities of other nearby people. Instead of directly linking the solutions to these two problems, we introduce a hierarchy of activity types that creates a natural progression that leads from a specific person's motion to the activity of the group as a whole. Our model is capable of jointly tracking multiple people, recognizing individual activities (atomic activities), the interactions between pairs of people (interaction activities), and finally the behavior of groups of people (collective activities). We also propose an algorithm for solving this otherwise intractable joint inference problem by combining belief propagation with a version of the branch and bound algorithm equipped with integer programming. Experimental results on challenging video datasets demonstrate our theoretical claims and indicate that our model achieves the best collective activity classification results to date.},
-  author    = {Choi, Wongun and Savarese, Silvio},
-  booktitle = {Computer Vision -- ECCV 2012},
-  date      = {2012},
-  editor    = {Fitzgibbon, Andrew and Lazebnik, Svetlana and Perona, Pietro and Sato, Yoichi and Schmid, Cordelia},
-  isbn      = {978-3-642-33765-9},
-  location  = {Berlin, Heidelberg},
-  pages     = {215--230},
-  publisher = {Springer Berlin Heidelberg},
-  title     = {A Unified Framework for Multi-target Tracking and Collective Activity Recognition},
-}
-
-@inproceedings{Choi15,
-  abstract  = {In this paper, we tackle two key aspects of multiple target tracking problem: 1 designing an accurate affinity measure to associate detections and 2 implementing an efficient and accurate (near) online multiple target tracking algorithm. As for the first contribution, we introduce a novel Aggregated Local Flow Descriptor (ALFD) that encodes the relative motion pattern between a pair of temporally distant detections using long term interest point trajectories (IPTs). Leveraging on the IPTs, the ALFD provides a robust affinity measure for estimating the likelihood of matching detections regardless of the application scenarios. As for another contribution, we present a Near-Online Multi-target Tracking (NOMT) algorithm. The tracking problem is formulated as a data-association between targets and detections in a temporal window, that is performed repeatedly at every frame. While being efficient, NOMT achieves robustness via integrating multiple cues including ALFD metric, target dynamics, appearance similarity, and long term trajectory regularization into the model. Our ablative analysis verifies the superiority of the ALFD metric over the other conventional affinity metrics. We run a comprehensive experimental evaluation on two challenging tracking datasets, KITTI [16] and MOT [2] datasets. The NOMT method combined with ALFD metric achieves the best accuracy in both datasets with significant margins (about 10{\%} higher MOTA) over the state-of-the-art.},
-  author    = {Choi, Wongun},
-  booktitle = {2015 IEEE International Conference on Computer Vision (ICCV)},
-  date      = {2015-12},
-  doi       = {10.1109/ICCV.2015.347},
-  issn      = {2380-7504},
-  pages     = {3029--3037},
-  title     = {Near-Online Multi-target Tracking with Aggregated Local Flow Descriptor},
-}
-
-@inproceedings{Choi16,
-  abstract  = {Outdoor visual surveillance systems have studied object tracking in non-overlapping multiple cameras. In this paper, we present a data association method for multi-object tracking in a non-overlapping camera network. Proposed method is based on similarity function which consists of a multi-camera topology obtained from local tracking results and matching results from person re-identification. Simulation results indicate that the proposed method effectively deal with object tracking approach in a non-overlapping camera network.},
-  author    = {Choi, Hyunguk and Jeon, Moongu},
-  booktitle = {2016 IEEE International Conference on Consumer Electronics-Asia (ICCE-Asia)},
-  date      = {2016-10},
-  doi       = {10.1109/ICCE-Asia.2016.7804834},
-  pages     = {1--4},
-  title     = {Data association for non-overlapping multi-camera multi-object tracking based on similarity function},
-}
-
-@inproceedings{Chu19,
-  abstract  = {Data association-based multiple object tracking (MOT) involves multiple separated modules processed or optimized differently, which results in complex method design and requires non-trivial tuning of parameters. In this paper, we present an end-to-end model, named FAMNet, where Feature extraction, Affinity estimation and Multi-dimensional assignment are refined in a single network. All layers in FAMNet are designed differentiable thus can be optimized jointly to learn the discriminative features and higher-order affinity model for robust MOT, which is supervised by the loss directly from the assignment ground truth. In addition, we integrate single object tracking technique and a dedicated target management scheme into the FAMNet-based tracking system to further recover false negatives and inhibit noisy target candidates generated by the external detector. The proposed method is evaluated on a diverse set of benchmarks including MOT2015, MOT2017, KITTI-Car and UA-DETRAC, and achieves promising performance on all of them in comparison with state-of-the-arts.},
-  author    = {Chu, Peng and Ling, Haibin},
-  booktitle = {2019 IEEE/CVF International Conference on Computer Vision (ICCV)},
-  date      = {2019-10},
-  doi       = {10.1109/ICCV.2019.00627},
-  issn      = {2380-7504},
-  pages     = {6171--6180},
-  title     = {FAMNet: Joint Learning of Feature, Affinity and Multi-Dimensional Assignment for Online Multiple Object Tracking},
 }
 
 @inproceedings{Cipolla18,
@@ -331,27 +222,6 @@
   volume    = {1},
 }
 
-@book{Daniilidis10,
-  author    = {Kostas Daniilidis, Maragos},
-  date      = {2010-09},
-  doi       = {10.1007/978-3-642-15549-9},
-  publisher = {Springer Berlin, Heidelberg},
-  title     = {Computer Vision -- ECCV 2010},
-}
-
-@inproceedings{Das14,
-  abstract  = {Most existing person re-identification methods focus on finding similarities between persons between pairs of cameras (camera pairwise re-identification) without explicitly maintaining consistency of the results across the network. This may lead to infeasible associations when results from different camera pairs are combined. In this paper, we propose a network consistent re-identification (NCR) framework, which is formulated as an optimization problem that not only maintains consistency in re-identification results across the network, but also improves the camera pairwise re-identification performance between all the individual camera pairs. This can be solved as a binary integer programing problem, leading to a globally optimal solution. We also extend the proposed approach to the more general case where all persons may not be present in every camera. Using two benchmark datasets, we validate our approach and compare against state-of-the-art methods.},
-  author    = {Das, Abir and Chakraborty, Anirban and Roy-Chowdhury, Amit K.},
-  booktitle = {Computer Vision -- ECCV 2014},
-  date      = {2014},
-  editor    = {Fleet, David and Pajdla, Tomas and Schiele, Bernt and Tuytelaars, Tinne},
-  isbn      = {978-3-319-10605-2},
-  location  = {Cham},
-  pages     = {330--345},
-  publisher = {Springer International Publishing},
-  title     = {Consistent Re-identification in a Camera Network},
-}
-
 @inproceedings{Davila23,
   abstract  = {In this paper, we present the Multi-view Extended Videos with Identities (MEVID) dataset for large-scale, video person re-identification (ReID) in the wild. To our knowledge, MEVID represents the most-varied video person ReID dataset, spanning an extensive indoor and outdoor environment across nine unique dates in a 73-day window, various camera viewpoints, and entity clothing changes. Specifically, we label the identities of 158 unique people wearing 598 outfits taken from 8, 092 tracklets, average length of about 590 frames, seen in 33 camera views from the very-large-scale MEVA person activities dataset. While other datasets have more unique identities, MEVID emphasizes a richer set of information about each individual, such as: 4 outfits/identity vs. 2 outfits/identity in CCVID, 33 viewpoints across 17 locations vs. 6 in 5 simulated locations for MTA, and 10 million frames vs. 3 million for LS-VID. Being based on the MEVA video dataset, we also inherit data that is intentionally demographically balanced to the continental United States. To accelerate the annotation process, we developed a semi-automatic annotation framework and GUI that combines state-of-the-art real-time models for object detection, pose estimation, person ReID, and multi-object tracking. We evaluate several state-of-the-art methods on MEVID challenge problems and comprehensively quantify their robustness in terms of changes of outfit, scale, and background location. Our quantitative analysis on the realistic, unique aspects of MEVID shows that there are significant remaining challenges in video person ReID and indicates important directions for future research.},
   author    = {Davila, Daniel and Du, Dawei and Lewis, Bryon and Funk, Christopher and Van Pelt, Joseph and Collins, Roderic and Corona, Kellie and Brown, Matt and McCloskey, Scott and Hoogs, Anthony and Clipp, Brian},
@@ -364,28 +234,6 @@
   pages     = {1634-1643},
   title     = {MEVID: Multi-view Extended Videos with Identities for Video Person Re-Identification},
   volume    = {},
-}
-
-@inproceedings{Dehghan15,
-  abstract  = {In this paper we show that multiple object tracking (MOT) can be formulated in a framework, where the detection and data-association are performed simultaneously. Our method allows us to overcome the confinements of data association based MOT approaches; where the performance is dependent on the object detection results provided at input level. At the core of our method lies structured learning which learns a model for each target and infers the best location of all targets simultaneously in a video clip. The inference of our structured learning is done through a new Target Identity-aware Network Flow (TINF), where each node in the network encodes the probability of each target identity belonging to that node. The proposed Lagrangian relaxation optimization finds the high quality solution to the network. During optimization a soft spatial constraint is enforced between the nodes of the graph which helps reducing the ambiguity caused by nearby targets with similar appearance in crowded scenarios. We show that automatically detecting and tracking targets in a single framework can help resolve the ambiguities due to frequent occlusion and heavy articulation of targets. Our experiments involve challenging yet distinct datasets and show that our method can achieve results better than the state-of-art.},
-  author    = {Dehghan, Afshin and Tian, Yicong and Torr, Philip. H. S. and Shah, Mubarak},
-  booktitle = {2015 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
-  date      = {2015-06},
-  doi       = {10.1109/CVPR.2015.7298718},
-  issn      = {1063-6919},
-  pages     = {1146--1154},
-  title     = {Target Identity-aware Network Flow for online multiple target tracking},
-}
-
-@article{Dendorfer19,
-  author     = {Dendorfer, P. and Rezatofighi, H. and Milan, A. and Shi, J. and Cremers, D. and Reid, I. and Roth, S. and Schindler, K. and Leal-Taix\'{e}, L. },
-  date       = {2019-06},
-  journal    = {arXiv:1906.04567 [cs]},
-  keywords   = {Computer Science - Computer Vision and Pattern Recognition},
-  note       = {arXiv: 1906.04567},
-  shorttitle = {MOT19},
-  title      = {{CVPR19} Tracking and Detection Challenge: {H}ow crowded can it get?},
-  url        = {http://arxiv.org/abs/1906.04567},
 }
 
 @article{Dendorfer20,
@@ -528,56 +376,6 @@
   volume    = {},
 }
 
-@inproceedings{He19,
-  author    = {He, Zhiqun and Lei, Yu and Bai, Shuai and Wu, Wei},
-  booktitle = {CVPR Workshops},
-  date      = {2019},
-  title     = {Multi-Camera Vehicle Tracking with Powerful Visual Features and Spatial-Temporal Cue.},
-  volume    = {1},
-}
-
-@article{He20a,
-  abstract     = {This paper focuses on the Multi-Target Multi-Camera Tracking task (MTMCT), which aims at tracking multiple targets within a multi-camera network. As the trajectory of each target is inherently split into multiple sub-trajectories (namely local tracklets) in a multi-camera network, a major challenge of MTMCT is how to accurately match the local tracklets generated within each camera across different cameras and generate a complete global trajectory for each target, i.e., the cross-camera tracklet matching problem. We solve the cross-camera tracklet matching problem by TRACklet-to-Target Assignment (TRACTA), and propose the Restricted Non-negative Matrix Factorization (RNMF) algorithm to compute the optimal assignment solution that meets a set of constraints, which should be in force in practice. TRACTA can correct the tracking errors caused by occlusions and missed detections in local tracklets, and produce a complete global trajectory for each target across all the cameras. Moreover, we also develop an analytical way of estimating the total number of targets in the camera network, which plays an important role to compute the tracklet-to-target assignment. Experimental evaluations and ablation studies on four MTMCT benchmark datasets show the superiority of the proposed TRACTA method.},
-  author       = {He, Yuhang and Wei, Xing and Hong, Xiaopeng and Shi, Weiwei and Gong, Yihong},
-  date         = {2020},
-  doi          = {10.1109/TIP.2020.2980070},
-  issn         = {1941-0042},
-  journaltitle = {IEEE Transactions on Image Processing},
-  pages        = {5191--5205},
-  title        = {Multi-Target Multi-Camera Tracking by Tracklet-to-Target Assignment},
-  volume       = {29},
-}
-
-@inproceedings{He20b,
-  abstract  = {This paper focuses on the Multi-Target Multi-Camera Tracking (MTMCT) task in a city-scale multi-camera network. As the trajectory of each target is naturally split into multiple sub-trajectories (namely local tracklets) in different cameras, the key issue of MTMCT is how to match local tracklets belonging to the same target across different cameras. To this end, we propose an efficient two-step MTMCT approach to robustly track vehicles in a camera network. It first generates all local tracklets and then matches the ones belonging to the same target across different cameras. More specifically, in the local tracklet generation phase, we follow the tracking-by-detection paradigm and link the detections to local tracklets by graph clustering. In the cross-camera tracklet matching phase, we first develop a spatial-temporal attention mechanism to produce robust tracklet representations. We then prune false matching candidates by traffic topology reasoning and match tracklets across cameras using the recently proposed TRACklet-to-Target Assignment (TRACTA) algorithm. The proposed method is evaluated on the City-Scale Multi-Camera Vehicle Tracking task at the 2020 AI City Challenge and achieves the second-best results.},
-  author    = {He, Yuhang and Han, Jie and Yu, Wentao and Hong, Xiaopeng and Wei, Xing and Gong, Yihong},
-  booktitle = {2020 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)},
-  date      = {2020-06},
-  doi       = {10.1109/CVPRW50498.2020.00296},
-  issn      = {2160-7516},
-  pages     = {2456--2465},
-  title     = {City-Scale Multi-Camera Vehicle Tracking by Semantic Attribute Parsing and Cross-Camera Tracklet Matching},
-}
-
-@inproceedings{Heath08,
-  abstract  = {We describe and evaluate a vision-based technique for tracking many people with a network of stereo camera sensors. The technique requires lightweight local communication and is suitable for crowded scenes where targets are frequently occluded and where appearance based modeling techniques fail. In our approach, multiple stereo sensors individually estimate the 3D trajectories of salient feature points on moving objects. Sensors communicate a subset of their sparse 3D measurements to other sensors with overlapping views. Each sensor fuses 3D measurements from nearby sensors using a particle filter to robustly track nearby objects. We evaluate the technique using the MOTA-MOTP multi-target tracking performance metrics on real data sets with up to 6 people and on challenging simulations of crowds of up to 25 people with uniform appearance. Our method achieves a tracking precision of 10-30 cm in all cases and good tracking accuracy even in crowded scenes of 15 people.},
-  author    = {Heath, Kyle and Guibas, Leonidas},
-  booktitle = {2008 Second ACM/IEEE International Conference on Distributed Smart Cameras},
-  date      = {2008-09},
-  doi       = {10.1109/ICDSC.2008.4635679},
-  pages     = {1--9},
-  title     = {Multi-person tracking from sparse 3D trajectories in a camera sensor network},
-}
-
-@article{Hou19,
-  author      = {Hou, Yunzhong and Zheng, Liang and Wang, Zhongdao and Wang, Shengjin},
-  date        = {2019},
-  eprint      = {1911.12037},
-  eprintclass = {cs.CV},
-  eprinttype  = {arXiv},
-  title       = {Locality Aware Appearance Metric for Multi-Target Multi-Camera Tracking},
-}
-
 @article{Hou21,
   author     = {Yunzhong Hou and Liang Zheng},
   date       = {2021},
@@ -588,14 +386,6 @@
   title      = {Multiview Detection with Shadow Transformer (and View-Coherent Data Augmentation)},
   url        = {https://arxiv.org/abs/2108.05888},
   volume     = {abs/2108.05888},
-}
-
-@inproceedings{Hsu19,
-  author    = {Hsu, Hung-Min and Huang, Tsung-Wei and Wang, Gaoang and Cai, Jiarui and Lei, Zhichao and Hwang, Jenq-Neng},
-  booktitle = {CVPR workshops},
-  date      = {2019},
-  pages     = {416--424},
-  title     = {Multi-camera tracking of vehicles based on deep features re-id and trajectory-based camera link models.},
 }
 
 @article{Hsu20,
@@ -662,32 +452,6 @@
   url          = {https://link.springer.com/article/10.1007/s11042-018-6638-5},
 }
 
-@inproceedings{Javed03,
-  abstract  = {Conventional tracking approaches assume proximity in space, time and appearance of objects in successive observations. However, observations of objects are often widely separated in time and space when viewed from multiple non-overlapping cameras. To address this problem, we present a novel approach for establishing object correspondence across non-overlapping cameras. Our multicamera tracking algorithm exploits the redundance in paths that people and cars tend to follow, e.g. roads, walk-ways or corridors, by using motion trends and appearance of objects, to establish correspondence. Our system does not require any inter-camera calibration, instead the system learns the camera topology and path probabilities of objects using Parzen windows, during a training phase. Once the training is complete, correspondences are assigned using the maximum a posteriori (MAP) estimation framework. The learned parameters are updated with changing trajectory patterns. Experiments with real world videos are reported, which validate the proposed approach.},
-  author    = {Javed and Rasheed and Shafique and Shah},
-  booktitle = {Proceedings Ninth IEEE International Conference on Computer Vision},
-  date      = {2003-10},
-  doi       = {10.1109/ICCV.2003.1238451},
-  pages     = {952--957 vol.2},
-  title     = {Tracking across multiple cameras with disjoint views},
-}
-
-@inproceedings{Jiang18,
-  abstract  = {Online inter-camera trajectory association is a promising topic in intelligent video surveillance, which concentrates on associating trajectories belong to the same individual across different cameras according to time. It remains challenging due to the inconsistent appearance of a person in different cameras and the lack of spatio-temporal constraints between cameras. Besides, the orientation variations and the partial occlusions significantly increase the difficulty of inter-camera trajectory association. Targeting to solve these problems, this work proposes an orientation-driven person re-identification (ODPR) and an effective camera topology estimation based on appearance features for online inter-camera trajectory association. ODPR explicitly leverages the orientation cues and stable torso features to learn discriminative feature representations for identifying trajectories across cameras, which alleviates the pedestrian orientation variations by the designed orientation-driven loss function and orientation aware weights. The effective camera topology estimation introduces appearance features to generate the correct spatio-temporal constraints for narrowing the retrieval range, which improves the time efficiency and provides the possibility for intelligent inter-camera trajectory association in large-scale surveillance environments. Extensive experimental results demonstrate that our proposed approach significantly outperforms most state-of-the-art methods on the popular person re-identification datasets and the public multi-target, multi-camera tracking benchmark.},
-  author    = {Jiang, Na and Bai, SiChen and Xu, Yue and Xing, Chang and Zhou, Zhong and Wu, Wei},
-  booktitle = {Proceedings of the 26th ACM International Conference on Multimedia},
-  date      = {2018},
-  doi       = {10.1145/3240508.3240663},
-  isbn      = {9781450356657},
-  keywords  = {person re-identification,camera topology estimation,inter-camera trajectory association},
-  location  = {Seoul, Republic of Korea},
-  pages     = {1457--1465},
-  publisher = {Association for Computing Machinery},
-  series    = {MM '18},
-  title     = {Online Inter-Camera Trajectory Association Exploiting Person Re-Identification and Camera Topology},
-  url       = {https://doi.org/10.1145/3240508.3240663},
-}
-
 @online{Jocher23a,
   author  = {Glenn Jocher, Ayush Chaurasia},
   title   = {Ultralytics YOLOv8 Docs},
@@ -722,32 +486,6 @@
   organization = {IEEE Computer Society Press Los Alamitos},
   title        = {Tracking in uncalibrated cameras with overlapping field of view},
   volume       = {5},
-}
-
-@article{Khan03,
-  abstract     = {We address the issue of tracking moving objects in an environment covered by multiple uncalibrated cameras with overlapping fields of view, typical of most surveillance setups. In such a scenario, it is essential to establish correspondence between tracks of the same object, seen in different cameras, to recover complete information about the object. We call this the problem of consistent labeling of objects when seen in multiple cameras. We employ a novel approach of finding the limits of field of view (FOV) of each camera as visible in the other cameras. We show that, if the FOV lines are known, it is possible to disambiguate between multiple possibilities for correspondence. We present a method to automatically recover these lines by observing motion in the environment, Furthermore, once these lines are initialized, the homography between the views can also be recovered. We present results on indoor and outdoor sequences containing persons and vehicles.},
-  author       = {Khan, S. and Shah, M.},
-  date         = {2003-10},
-  doi          = {10.1109/TPAMI.2003.1233912},
-  issn         = {1939-3539},
-  journaltitle = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
-  number       = {10},
-  pages        = {1355--1360},
-  title        = {Consistent labeling of tracked objects in multiple cameras with overlapping fields of view},
-  volume       = {25},
-}
-
-@inproceedings{Kim06,
-  abstract  = {A multi-view multi-hypothesis approach to segmenting and tracking multiple (possibly occluded) persons on a ground plane is proposed. During tracking, several iterations of segmentation are performed using information from human appearance models and ground plane homography. To more precisely locate the ground location of a person, all center vertical axes of the person across views are mapped to the top-view plane and their intersection point on the ground is estimated. To tackle the explosive state space due to multiple targets and views, iterative segmentation-searching is incorporated into a particle filtering framework. By searching for people's ground point locations from segmentations, a set of a few good particles can be identified, resulting in low computational cost. In addition, even if all the particles are away from the true ground point, some of them move towards the true one through the iterated process as long as they are located nearby. We demonstrate the performance of the approach on several video sequences.},
-  author    = {Kim, Kyungnam and Davis, Larry S.},
-  booktitle = {Computer Vision -- ECCV 2006},
-  date      = {2006},
-  editor    = {Leonardis, Aleš and Bischof, Horst and Pinz, Axel},
-  isbn      = {978-3-540-33837-6},
-  location  = {Berlin, Heidelberg},
-  pages     = {98--109},
-  publisher = {Springer Berlin Heidelberg},
-  title     = {Multi-camera Tracking and Segmentation of Occluded People on Ground Plane Using Search-Guided Particle Filtering},
 }
 
 @misc{Kipf16,
@@ -791,17 +529,6 @@
   issn      = {2161-4407},
   pages     = {1--8},
   title     = {Graph-Based Multi-Camera Soccer Player Tracker},
-}
-
-@inproceedings{Kristan21,
-  abstract  = {The Visual Object Tracking challenge VOT2021 is the ninth annual tracker benchmarking activity organized by the VOT initiative. Results of 71 trackers are presented; many are state-of-the-art trackers published at major computer vision conferences or in journals in recent years. The VOT2021 challenge was composed of four sub-challenges focusing on different tracking domains: (i) VOT-ST2021 challenge focused on short-term tracking in RGB, (ii) VOT-RT2021 challenge focused on "real-time" short-term tracking in RGB, (iii) VOT-LT2021 focused on long-term tracking, namely coping with target disappearance and reappearance and (iv) VOT-RGBD2021 challenge focused on long-term tracking in RGB and depth imagery. The VOT-ST2021 dataset was refreshed, while VOT-RGBD2021 introduces a training dataset and sequestered dataset for winner identification. The source code for most of the trackers, the datasets, the evaluation kit and the results along with the source code for most trackers are publicly available at the challenge website1.},
-  author    = {Kristan, Matej and Matas, Jiří and Leonardis, Aleš and Felsberg, Michael and Pflugfelder, Roman and Kämäräinen, Joni-Kristian and Chang, Hyung Jin and Danelljan, Martin and Zajc, Luka Čehovin and Lukežič, Alan and Drbohlav, Ondrej and Käpylä, Jani and Häger, Gustav and Yan, Song and Yang, Jinyu and Zhang, Zhongqun and Fernández, Gustavo and Abdelpakey, Mohamed and Bhat, Goutam and Cerkezi, Llukman and Cevikalp, Hakan and Chen, Shengyong and Chen, Xin and Cheng, Miao and Cheng, Ziyi and Chiu, Yu-Chen and Cirakman, Ozgun and Cui, Yutao and Dai, Kenan and Dasari, Mohana Murali and Deng, Qili and Dong, Xingping and Du, Daniel K. and Dunnhofer, Matteo and Feng, Zhen-Hua and Feng, Zhiyong and Fu, Zhihong and Ge, Shiming and Gorthi, Rama Krishna and Gu, Yuzhang and Gunsel, Bilge and Guo, Qing and Gurkan, Filiz and Han, Wencheng and Huang, Yanyan and Lawin, Felix Järemo and Jhang, Shang-Jhih and Ji, Rongrong and Jiang, Cheng and Jiang, Yingjie and Juefei-Xu, Felix and Jun, Yin and Ke, Xiao and Khan, Fahad Shahbaz and Hak Kim, Byeong and Kittler, Josef and Lan, Xiangyuan and Lee, Jun Ha and Leibe, Bastian and Li, Hui and Li, Jianhua and Li, Xianxian and Li, Yuezhou and Liu, Bo and Liu, Chang and Liu, Jingen and Liu, Li and Liu, Qingjie and Lu, Huchuan and Lu, Wei and Luiten, Jonathon and Ma, Jie and Ma, Ziang and Martinel, Niki and Mayer, Christoph and Memarmoghadam, Alireza and Micheloni, Christian and Niu, Yuzhen and Paudel, Danda and Peng, Houwen and Qiu, Shoumeng and Rajiv, Aravindh and Rana, Muhammad and Robinson, Andreas and Saribas, Hasan and Shao, Ling and Shehata, Mohamed and Shen, Furao and Shen, Jianbing and Simonato, Kristian and Song, Xiaoning and Tang, Zhangyong and Timofte, Radu and Torr, Philip and Tsai, Chi-Yi and Uzun, Bedirhan and Van Gool, Luc and Voigtlaender, Paul and Wang, Dong and Wang, Guangting and Wang, Liangliang and Wang, Lijun and Wang, Limin and Wang, Linyuan and Wang, Yong and Wang, Yunhong and Wu, Chenyan and Wu, Gangshan and Wu, Xiao-Jun and Xie, Fei and Xu, Tianyang and Xu, Xiang and Xue, Wanli and Yan, Bin and Yang, Wankou and Yang, Xiaoyun and Ye, Yu and Yin, Jun and Zhang, Chengwei and Zhang, Chunhui and Zhang, Haitao and Zhang, Kaihua and Zhang, Kangkai and Zhang, Xiaohan and Zhang, Xiaolin and Zhang, Xinyu and Zhang, Zhibin and Zhao, Shaochuan and Zhen, Ming and Zhong, Bineng and Zhu, Jiawen and Zhu, Xue-Feng},
-  booktitle = {2021 IEEE/CVF International Conference on Computer Vision Workshops (ICCVW)},
-  date      = {2021-10},
-  doi       = {10.1109/ICCVW54120.2021.00305},
-  issn      = {2473-9944},
-  pages     = {2711--2738},
-  title     = {The Ninth Visual Object Tracking VOT2021 Challenge Results},
 }
 
 @inproceedings{Kristan22,
@@ -849,19 +576,6 @@
   volume    = {2},
 }
 
-@inproceedings{Kuo10,
-  abstract  = {We propose a novel system for associating multi-target tracks across multiple non-overlapping cameras by an on-line learned discriminative appearance affinity model. Collecting reliable training samples is a major challenge in on-line learning since supervised correspondence is not available at runtime. To alleviate the inevitable ambiguities in these samples, Multiple Instance Learning (MIL) is applied to learn an appearance affinity model which effectively combines three complementary image descriptors and their corresponding similarity measurements. Based on the spatial-temporal information and the proposed appearance affinity model, we present an improved inter-camera track association framework to solve the ``target handover'' problem across cameras. Our evaluations indicate that our method have higher discrimination between different targets than previous methods.},
-  author    = {Kuo, Cheng-Hao and Huang, Chang and Nevatia, Ram},
-  booktitle = {Computer Vision -- ECCV 2010},
-  date      = {2010},
-  editor    = {Daniilidis, Kostas and Maragos, Petros and Paragios, Nikos},
-  isbn      = {978-3-642-15549-9},
-  location  = {Berlin, Heidelberg},
-  pages     = {383--396},
-  publisher = {Springer Berlin Heidelberg},
-  title     = {Inter-camera Association of Multi-target Tracks by On-Line Learned Appearance Affinity Models},
-}
-
 @article{Kurach19,
   author     = {Karol Kurach and Anton Raichuk and Piotr Stanczyk and Michal Zajac and Olivier Bachem and Lasse Espeholt and Carlos Riquelme and Damien Vincent and Marcin Michalski and Olivier Bousquet and Sylvain Gelly},
   date       = {2019},
@@ -872,17 +586,6 @@
   title      = {Google Research Football: {A} Novel Reinforcement Learning Environment},
   url        = {http://arxiv.org/abs/1907.11180},
   volume     = {abs/1907.11180},
-}
-
-@inproceedings{Layne17,
-  abstract  = {Video surveillance systems are now widely deployed to improve our lives by enhancing safety, security, health monitoring and business intelligence. This has motivated extensive research into automated video analysis. Nevertheless, there is a gap between the focus of contemporary research, and the needs of end users of video surveillance systems. Many existing benchmarks and methodologies focus on narrowly defined problems in detection, tracking, re-identification or recognition. In contrast, end users face higher-level problems such as long-term monitoring of identities in order to build a picture of a person's activity across the course of a day, producing usage statistics of a particular area of space, and that these capabilities should be robust to challenges such as change of clothing. To achieve this effectively requires less widely studied capabilities such as spatio-temporal reasoning about people identities and locations within a space partially observed by multiple cameras over an extended time period. To bridge this gap between research and required capabilities, we propose a new dataset LIMA that encompasses the challenges of monitoring a typical home / office environment. LIMA contains 4.5 hours of RGB-D video from three cameras monitoring a four room house. To reflect the challenges of a realistic practical application, the dataset includes clothes changes and visitors to ensure the global reasoning is a realistic open-set problem. In addition to raw data, we provide identity annotation for benchmarking, and tracking results from a contemporary RGB-D tracker - thus allowing focus on the higher level monitoring problems.},
-  author    = {Layne, Ryan and Hannuna, Sion and Camplani, Massimo and Hall, Jake and Hospedales, Timothy M. and Xiang, Tao and Mirmehdi, Majid and Damen, Dima},
-  booktitle = {2017 IEEE Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)},
-  date      = {2017-07},
-  doi       = {10.1109/CVPRW.2017.189},
-  issn      = {2160-7516},
-  pages     = {1462--1470},
-  title     = {A Dataset for Persistent Multi-target Multi-camera Tracking in RGB-D},
 }
 
 @article{Lecun98,
@@ -897,30 +600,6 @@
   pages    = {2278-2324},
   title    = {Gradient-based learning applied to document recognition},
   volume   = {86},
-}
-
-@article{Lee18,
-  abstract     = {Due to the expanding scale of camera networks, Multiple Camera Tracking (MCT) of humans has received increased attention in recent years. In this paper, we present a novel approach to tracking each human within a single camera and across multiple disjoint cameras. Our framework includes a multi-object tracking and segmentation system, a two-phase feature extractor, and an online-learning-based camera link model estimation. For tracking within a single camera, we apply tracking by segmentation and local object detection with multi-kernel feedback to adaptively improve the robustness of the algorithm. In inter-camera tracking, we introduce an effective integration of appearance and context features. Couples are automatically detected, and the couple feature is also integrated with existing features. The proposed algorithm is scalable by a fully unsupervised online-learning framework. In our experiments, the proposed method outperforms all of the state-of-the-art methods in the benchmark National Laboratory of Pattern Recognition (NLPR)_MCT dataset.},
-  author       = {Lee, Young-Gun and Tang, Zheng and Hwang, Jenq-Neng},
-  date         = {2018-10},
-  doi          = {10.1109/TCSVT.2017.2707399},
-  issn         = {1558-2205},
-  journaltitle = {IEEE Transactions on Circuits and Systems for Video Technology},
-  number       = {10},
-  pages        = {2870--2883},
-  title        = {Online-Learning-Based Human Tracking Across Non-Overlapping Cameras},
-  volume       = {28},
-}
-
-@inproceedings{Li19,
-  abstract  = {Multi-target Multi-camera Tracking (MTMCT) aims to extract the trajectories from videos captured by a set of cameras. Recently, the tracking performance of MTMCT is significantly enhanced with the employment of re-identification (Re-ID) model. However, the appearance feature usually becomes unreliable due to the occlusion and orientation variance of the targets. Directly applying Re-ID model in MTMCT will encounter the problem of identity switches (IDS) and tracklet fragment caused by occlusion. To solve these problems, we propose a novel tracking framework in this paper. In this framework, the occlusion status and orientation information are utilized in Re-ID model with human pose information considered. In addition, the tracklet association using the proposed fused tracking feature is adopted to handle the fragment problem. The proposed tracker achieves 81.3{\%} IDF1 on the multiple-camera hard sequence, which outperforms all other reference methods by a large margin.},
-  author    = {Li, Peng and Zhang, Jiabin and Zhu, Zheng and Li, Yanwei and Jiang, Lu and Huang, Guan},
-  booktitle = {2019 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)},
-  date      = {2019-06},
-  doi       = {10.1109/CVPRW.2019.00192},
-  issn      = {2160-7516},
-  pages     = {1506--1516},
-  title     = {State-Aware Re-Identification Feature for Multi-Target Multi-Camera Tracking},
 }
 
 @article{Li20,
@@ -947,36 +626,6 @@
   pages     = {9814-9824},
   title     = {Visio-Temporal Attention for Multi-Camera Multi-Target Association},
   volume    = {},
-}
-
-@inproceedings{Li22a,
-  abstract  = {Multi-Target Multi-Camera tracking is a fundamental task for intelligent traffic systems. The track 1 of AI City Challenge 2022 aims at the city-scale multi-camera vehicle tracking task. In this paper we propose an accurate vehicle tracking system composed of 4 parts, including: (1) State-of-the-art detection and re-identification models for vehicle detection and feature extraction. (2) Single camera tracking, where we introduce augmented tracks prediction and multi-level association method on top of tracking-by-detection paradigm.(3) Zone-based singe-camera track-let merging strategy. (4) Multi-camera spatial-temporal matching and clustering strategy. The proposed system achieves promising results and ranks the second place in Track 1 of the AI City Challenge 2022 with a IDF1 score of 0.8437.},
-  author    = {Li, Fei and Wang, Zhen and Nie, Ding and Zhang, Shiyi and Jiang, Xingqun and Zhao, Xingxing and Hu, Peng},
-  booktitle = {2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)},
-  date      = {2022-06},
-  doi       = {10.1109/CVPRW56347.2022.00369},
-  issn      = {2160-7516},
-  pages     = {3264--3272},
-  title     = {Multi-Camera Vehicle Tracking System for AI City Challenge 2022},
-}
-
-@inproceedings{Li22b,
-  abstract  = {In order to solve the problem of multi-target multi-camera tracking, the method of detection and tracking is used to complete single-camera multi-target tracking, and a person re-identification model using mutual information time weight aggregation is proposed to extract appearance features, and determine whether the camera is in the camera. A new method for cross-camera multi-target tracking is finally performed. We use the deep learning framework Pytorch to build network models and tune model-related parameters and compare experiments with existing models on the dataset. The results show that the model has better tracking performance.},
-  author    = {Li, Jiayue and Piao, Yan},
-  booktitle = {2022 IEEE 5th International Conference on Electronic Information and Communication Technology (ICEICT)},
-  date      = {2022-08},
-  doi       = {10.1109/ICEICT55736.2022.9908659},
-  pages     = {149--151},
-  title     = {Multi-Target Multi-Camera Tracking Based On Mutual Information-Temporal Weight Aggregation Person Re-Identification},
-}
-
-@article{Lian23,
-  archiveprefix = {arXiv},
-  author        = {Qing Lian and Tai Wang and Dahua Lin and Jiangmiao Pang},
-  date          = {2023},
-  eprint        = {2303.16628},
-  primaryclass  = {cs.CV},
-  title         = {DORT: Modeling Dynamic Objects in Recurrent for Multi-Camera 3D Object Detection and Tracking},
 }
 
 @article{Lin14,
@@ -1039,29 +688,6 @@
   volume   = {60},
 }
 
-@inproceedings{Lui21,
-  abstract  = {Multi-Target Multi-Camera Tracking has a wide range of applications and is the basis for many advanced inferences and predictions. This paper describes our solution to the Track 3 multi-camera vehicle tracking task in 2021 AI City Challenge (AICITY21). This paper proposes a multi-target multi-camera vehicle tracking framework guided by the crossroad zones. The framework includes: (1) Use mature detection and vehicle re-identification models to extract targets and appearance features. (2) Use modified JDE-Tracker (without detection module) to track single-camera vehicles and generate single-camera tracklets. (3) According to the characteristics of the crossroad, the Tracklet Filter Strategy and the Direction Based Temporal Mask are proposed. (4) Propose Sub-clustering in Adjacent Cameras for multi-camera tracklets matching. Through the above techniques, our method obtained an IDF1 score of 0.8095, ranking first on the leaderboard1. The code will be released later.},
-  author    = {Liu, Chong and Zhang, Yuqi and Luo, Hao and Tang, Jiasheng and Chen, Weihua and Xu, Xianzhe and Wang, Fan and Li, Hao and Shen, Yi-Dong},
-  booktitle = {2021 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)},
-  date      = {2021-06},
-  doi       = {10.1109/CVPRW53098.2021.00466},
-  issn      = {2160-7516},
-  pages     = {4124--4132},
-  title     = {City-Scale Multi-Camera Vehicle Tracking Guided by Crossroad Zones},
-}
-
-@article{Luiten20,
-  author     = {Jonathon Luiten and Aljosa Osep and Patrick Dendorfer and Philip H. S. Torr and Andreas Geiger and Laura Leal{-}Taix{\'{e}} and Bastian Leibe},
-  date       = {2020},
-  eprint     = {2009.07736},
-  eprinttype = {arXiv},
-  journal    = {CoRR},
-  timestamp  = {Fri, 20 Nov 2020 13:22:19 +0100},
-  title      = {{HOTA:} {A} Higher Order Metric for Evaluating Multi-Object Tracking},
-  url        = {https://arxiv.org/abs/2009.07736},
-  volume     = {abs/2009.07736},
-}
-
 @article{Ma21,
   author  = {Ma, Cong and Yang, Fan and Li, Yuan and Jia, Huizhu and Xie, Xiaodong and Gao, Wen},
   date    = {2021-12},
@@ -1084,19 +710,6 @@
   pages     = {8834-8844},
   title     = {TrackFormer: Multi-Object Tracking with Transformers},
   volume    = {},
-}
-
-@article{Meyer17,
-  abstract     = {We propose an algorithm for tracking an unknown number of targets based on measurements provided by multiple sensors. Our algorithm achieves low computational complexity and excellent scalability by running belief propagation on a suitably devised factor graph. A redundant formulation of data association uncertainty and the use of “augmented target states” including binary target indicators make it possible to exploit statistical independencies for a drastic reduction of complexity. An increase in the number of targets, sensors, or measurements leads to additional variable nodes in the factor graph but not to higher dimensions of the messages. As a consequence, the complexity of our method scales only quadratically in the number of targets, linearly in the number of sensors, and linearly in the number of measurements per sensor. The performance of the method compares well with that of previously proposed methods, including methods with a less favorable scaling behavior. In particular, our method can outperform multisensor versions of the probability hypothesis density (PHD) filter, the cardinalized PHD filter, and the multi-Bernoulli filter.},
-  author       = {Meyer, Florian and Braca, Paolo and Willett, Peter and Hlawatsch, Franz},
-  date         = {2017-07},
-  doi          = {10.1109/TSP.2017.2688966},
-  issn         = {1941-0476},
-  journaltitle = {IEEE Transactions on Signal Processing},
-  number       = {13},
-  pages        = {3478--3493},
-  title        = {A Scalable Algorithm for Tracking an Unknown Number of Targets Using Multiple Sensors},
-  volume       = {65},
 }
 
 @article{Milan16a,
@@ -1164,29 +777,6 @@
   year           = {2020},
 }
 
-@inproceedings{Nummiaro03,
-  abstract  = {This paper presents a multi-view tracker, meant to operate in smart rooms that are equipped with multiple cameras. The cameras are assumed to be calibrated. In particular, we demonstrate a virtual classroom application, where the system automatically selects the camera with the 'best' view on the face of a person moving in the room. Real-time object tracking, which is needed to achieve this, is implemented by means of color-based particle filtering. The use of multiple model histograms for the target (human head) results robust tracking, even when the view on the target changes considerably like from the front to the back. Information is shared between the cameras, which adds robustness to the system. Once one camera has lost the target, it can be reinitialized with the help of the epipolar constraints suggested by the others. Experiments in our research environment corroborate the effectiveness of the approach.},
-  author    = {Nummiaro, Katja and Koller-Meier, Esther and Svoboda, Tomš and Roth, Daniel and Van Gool, Luc},
-  booktitle = {Pattern Recognition},
-  date      = {2003},
-  editor    = {Michaelis, Bernd and Krell, Gerald},
-  isbn      = {978-3-540-45243-0},
-  location  = {Berlin, Heidelberg},
-  pages     = {591--599},
-  publisher = {Springer Berlin Heidelberg},
-  title     = {Color-Based Object Tracking in Multi-camera Environments},
-}
-
-@inproceedings{Orazio09,
-  abstract  = {People Tracking in multiple cameras is of great interest for wide area video surveillance systems. Multi-camera tracking with non-overlapping fields of view (FOV) involves the tracking of people in the blind region and their correspondence matching across cameras. We consider these problems in this paper. We propose a multi camera architecture for wide area surveillance and a real time people tracking algorithm across non overlapping cameras. We compared different methods to evaluate the color Brightness Transfer Function (BTF) between non overlapping cameras. These approaches are based on a testing phase during which the color histogram mapping, between pairs of images of the same object observed in the different field of views, is carried out. The experimental results compare two different transfer functions and demonstrate their limits in people association when a new person enters in one camera FOV.},
-  author    = {D'Orazio, T. and Mazzeo, P.L. and Spagnolo, P.},
-  booktitle = {2009 Third ACM/IEEE International Conference on Distributed Smart Cameras (ICDSC)},
-  date      = {2009-08},
-  doi       = {10.1109/ICDSC.2009.5289365},
-  pages     = {1--6},
-  title     = {Color Brightness Transfer Function evaluation for non overlapping multi camera tracking},
-}
-
 @incollection{Pearl88,
   address   = {San Francisco (CA)},
   author    = {Judea Pearl},
@@ -1199,39 +789,6 @@
   publisher = {Morgan Kaufmann},
   title     = {Probabilistic Reasoning in Intelligent Systems (Chapters 1-3)},
   url       = {https://www.sciencedirect.com/science/article/pii/B9780080514895500072},
-}
-
-@inproceedings{Pellegrini09,
-  abstract  = {Object tracking typically relies on a dynamic model to predict the object's location from its past trajectory. In crowded scenarios a strong dynamic model is particularly important, because more accurate predictions allow for smaller search regions, which greatly simplifies data association. Traditional dynamic models predict the location for each target solely based on its own history, without taking into account the remaining scene objects. Collisions are resolved only when they happen. Such an approach ignores important aspects of human behavior: people are driven by their future destination, take into account their environment, anticipate collisions, and adjust their trajectories at an early stage in order to avoid them. In this work, we introduce a model of dynamic social behavior, inspired by models developed for crowd simulation. The model is trained with videos recorded from birds-eye view at busy locations, and applied as a motion model for multi-people tracking from a vehicle-mounted camera. Experiments on real sequences show that accounting for social interactions and scene knowledge improves tracking performance, especially during occlusions.},
-  author    = {Pellegrini, S. and Ess, A. and Schindler, K. and van Gool, L.},
-  booktitle = {2009 IEEE 12th International Conference on Computer Vision},
-  date      = {2009-09},
-  doi       = {10.1109/ICCV.2009.5459260},
-  issn      = {2380-7504},
-  pages     = {261--268},
-  title     = {You'll never walk alone: Modeling social behavior for multi-target tracking},
-}
-
-@inproceedings{Peng16,
-  abstract  = {Most existing person re-identification (Re-ID) approaches follow a supervised learning framework, in which a large number of labelled matching pairs are required for training. This severely limits their scalability in realworld applications. To overcome this limitation, we develop a novel cross-dataset transfer learning approach to learn a discriminative representation. It is unsupervised in the sense that the target dataset is completely unlabelled. Specifically, we present an multi-task dictionary learning method which is able to learn a dataset-shared but target-data-biased representation. Experimental results on five benchmark datasets demonstrate that the method significantly outperforms the state-of-the-art.},
-  author    = {Peng, Peixi and Xiang, Tao and Wang, Yaowei and Pontil, Massimiliano and Gong, Shaogang and Huang, Tiejun and Tian, Yonghong},
-  booktitle = {2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
-  date      = {2016-06},
-  doi       = {10.1109/CVPR.2016.146},
-  issn      = {1063-6919},
-  pages     = {1306--1315},
-  title     = {Unsupervised Cross-Dataset Transfer Learning for Person Re-identification},
-}
-
-@inproceedings{Qian20,
-  abstract  = {City-scale multi-camera vehicle tracking is an important task in the intelligent city and traffic management. It is quite challenging with large scale variance, frequent occlusion and appearance variance caused by viewing perspective difference. In this paper, we propose ELECTRICITY, an efficient multi-camera vehicle tracking system with aggregation loss and fast multi-target cross-camera tracking strategy. The proposed system contains four main modules. Firstly, we extract tracklets under single camera view through object detection and multi-object tracking modules which shared the detection features. After that, we match the generated tracklets through a multicamera re-identification module. Finally, we eliminate isolated tracklets and synchronize tracking ids according to the re-identification results. The proposed system wins the first place in the City-Scale Multi-Camera Vehicle Tracking of AI City 2020 Challenge (Track 3)1 with a score of 0.4585.},
-  author    = {Qian, Yijun and Yu, Lijun and Liu, Wenhe and Hauptmann, Alexander G.},
-  booktitle = {2020 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)},
-  date      = {2020-06},
-  doi       = {10.1109/CVPRW50498.2020.00302},
-  issn      = {2160-7516},
-  pages     = {2511--2519},
-  title     = {ELECTRICITY: An Efficient Multi-camera Vehicle Tracking System for Intelligent City},
 }
 
 @inproceedings{Quach21,
@@ -1343,41 +900,6 @@
   volume    = {},
 }
 
-@article{Song08,
-  abstract     = {We address the problem of tracking multiple people in a network of nonoverlapping cameras. This introduces certain challenges that are unique to this particular application scenario, in addition to existing challenges in tracking like pose and illumination variations, occlusion, clutter and sensor noise. For this purpose, we propose a novel multi-objective optimization framework by combining short term feature correspondences across the cameras with long-term feature dependency models. The overall solution strategy involves adapting the similarities between features observed at different cameras based on the long-term models and finding the stochastically optimal path for each person. For modeling the long-term interdependence of the features over space and time, we propose a novel method based on discriminant analysis models. The entire process allows us to adaptively evolve the feature correspondences by observing the system performance over a time window, and correct for errors in the similarity estimations. We show results on data collected by two large camera networks. These experiments prove that incorporation of the long-term models enable us to hold tracks of objects over extended periods of time, including situations where there are large ldquoblindrdquo areas. The proposed approach is implemented by distributing the processing over the entire network.},
-  author       = {Song, Bi and Roy-Chowdhury, Amit K.},
-  date         = {2008-08},
-  doi          = {10.1109/JSTSP.2008.925992},
-  issn         = {1941-0484},
-  journaltitle = {IEEE Journal of Selected Topics in Signal Processing},
-  number       = {4},
-  pages        = {582--596},
-  title        = {Robust Tracking in A Camera Network: A Multi-Objective Optimization Framework},
-  volume       = {2},
-}
-
-@inproceedings{Specker21,
-  abstract  = {Multi-camera tracking of vehicles on a city-scale level is a crucial task for efficient traffic monitoring. Most of the errors made by such multi-target multi-camera tracking systems arise due to tracking failures or misleading visual information of detection boxes under occlusion. Therefore, we propose an occlusion-aware approach that leverages temporal information from tracks to improve the single-camera tracking performance by an occlusion handling strategy and additional modules to filter false detections. For the multi-camera tracking, we discard obstacle-occluded detection boxes by a background filtering technique and boxes overlapping with other targets using the available track information to improve the quality of extracted visual features. Furthermore, topological and temporal constraints are incorporated to simplify the re-identification task in the multi-camera clustering. We give detailed insights into our method with ablative experiments and show its competitiveness on the CityFlowV2 dataset, where we achieve promising results ranking 4th in Track 3 of the 2021 AI City Challenge.},
-  author    = {Specker, Andreas and Stadler, Daniel and Florin, Lucas and Beyerer, Jürgen},
-  booktitle = {2021 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)},
-  date      = {2021-06},
-  doi       = {10.1109/CVPRW53098.2021.00471},
-  issn      = {2160-7516},
-  pages     = {4168--4177},
-  title     = {An Occlusion-aware Multi-target Multi-camera Tracking System},
-}
-
-@inproceedings{Specker22,
-  abstract  = {Multi-camera tracking of vehicles on a city-wide level is a core component of modern traffic monitoring systems. For this task, single-camera tracking failures are the most common causes of errors concerning automatic multi-target multi-camera tracking systems. To address these problems, we propose several modules that aim at improving single-camera tracklets, e.g., appearance-based tracklet splitting, single-camera clustering, and track completion. After these track refinement steps, hierarchical clustering is used to associate the enhanced single-camera tracklets. During this stage, we leverage vehicle re-identification features as well as prior knowledge about the scene's topology. Last, the proposed track completion strategy is adopted for the cross-camera association task to obtain the final multi-camera tracks. Our method proves itself competitive: With it, we achieved 4th place in track 1 of the 2022 AI City Challenge.},
-  author    = {Specker, Andreas and Florin, Lucas and Cormier, Mickael and Beyerer, Jürgen},
-  booktitle = {2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)},
-  date      = {2022-06},
-  doi       = {10.1109/CVPRW56347.2022.00361},
-  issn      = {2160-7516},
-  pages     = {3198--3208},
-  title     = {Improving Multi-Target Multi-Camera Tracking by Track Refinement and Completion},
-}
-
 @article{Sun20,
   author     = {Peize Sun and Yi Jiang and Rufeng Zhang and Enze Xie and Jinkun Cao and Xinting Hu and Tao Kong and Zehuan Yuan and Changhu Wang and Ping Luo},
   date       = {2020},
@@ -1398,17 +920,6 @@
   year    = {2020},
 }
 
-@article{Taix15,
-  author     = {Leal-Taix\'{e}, L. and Milan, A. and Reid, I. and Roth, S. and Schindler, K.},
-  date       = {2015-04},
-  journal    = {arXiv:1504.01942 [cs]},
-  keywords   = {Computer Science - Computer Vision and Pattern Recognition},
-  note       = {arXiv: 1504.01942},
-  shorttitle = {MOTChallenge 2015},
-  title      = {{MOTC}hallenge 2015: {T}owards a Benchmark for Multi-Target Tracking},
-  url        = {http://arxiv.org/abs/1504.01942},
-}
-
 @inproceedings{Tang19,
   abstract  = {Urban traffic optimization using traffic cameras as sensors is driving the need to advance state-of-the-art multi-target multi-camera (MTMC) tracking. This work introduces CityFlow, a city-scale traffic camera dataset consisting of more than 3 hours of synchronized HD videos from 40 cameras across 10 intersections, with the longest distance between two simultaneous cameras being 2.5 km. To the best of our knowledge, CityFlow is the largest-scale dataset in terms of spatial coverage and the number of cameras/videos in an urban environment. The dataset contains more than 200K annotated bounding boxes covering a wide range of scenes, viewing angles, vehicle models, and urban traffic flow conditions. Camera geometry and calibration information are provided to aid spatio-temporal analysis. In addition, a subset of the benchmark is made available for the task of image-based vehicle re-identification (ReID). We conducted an extensive experimental evaluation of baselines/state-of-the-art approaches in MTMC tracking, multi-target single-camera (MTSC) tracking, object detection, and image-based ReID on this dataset, analyzing the impact of different network architectures, loss functions, spatio-temporal models and their combinations on task effectiveness. An evaluation server is launched with the release of our benchmark at the 2019 AI City Challenge (https://www.aicitychallenge.org/) that allows researchers to compare the performance of their newest techniques. We expect this dataset to catalyze research in this field, propel the state-of-the-art forward, and lead to deployed traffic optimization(s) in the real world.},
   author    = {Tang, Zheng and Naphade, Milind and Liu, Ming-Yu and Yang, Xiaodong and Birchfield, Stan and Wang, Shuo and Kumar, Ratnesh and Anastasiu, David and Hwang, Jenq-Neng},
@@ -1420,18 +931,6 @@
   title     = {CityFlow: A City-Scale Benchmark for Multi-Target Multi-Camera Vehicle Tracking and Re-Identification},
 }
 
-@article{Tao16,
-  author     = {Ran Tao and Efstratios Gavves and Arnold W. M. Smeulders},
-  date       = {2016},
-  eprint     = {1605.05863},
-  eprinttype = {arXiv},
-  journal    = {CoRR},
-  timestamp  = {Tue, 15 Oct 2019 08:23:29 +0200},
-  title      = {Siamese Instance Search for Tracking},
-  url        = {http://arxiv.org/abs/1605.05863},
-  volume     = {abs/1605.05863},
-}
-
 @misc{Teepe23,
   archiveprefix = {arXiv},
   author        = {Torben Teepe and Philipp Wolters and Johannes Gilg and Fabian Herzog and Gerhard Rigoll},
@@ -1439,15 +938,6 @@
   eprint        = {2310.13350},
   primaryclass  = {cs.CV},
   title         = {EarlyBird: Early-Fusion for Multi-View Tracking in the Bird's Eye View},
-}
-
-@article{Tesfaye17,
-  author      = {Tesfaye, Yonatan Tariku and Zemene, Eyasu and Prati, Andrea and Pelillo, Marcello and Shah, Mubarak},
-  date        = {2017},
-  eprint      = {1706.06196},
-  eprintclass = {cs.CV},
-  eprinttype  = {arXiv},
-  title       = {Multi-Target Tracking in Multiple Non-Overlapping Cameras using Constrained Dominant Sets},
 }
 
 @article{Tesfaye19,
@@ -1479,16 +969,6 @@
   volume      = {044},
 }
 
-@inproceedings{Varga15,
-  abstract  = {Combining multiple observation views has proven beneficial for pedestrian tracking. In this paper, we present a methodology for tracking pedestrians in an uncalibrated multi-view camera network. Using a set of color and infrared cameras, we can accurately tracking pedestrians for a general scene configuration. We design an algorithmic framework that can be generalized to an arbitrary number of cameras. A novel pedestrian detection algorithm based on Center-symmetric Local Binary Patterns is integrated into the proposed system. In our experiments the common field of view of two neighboring cameras was about 30{\%}. The system improves upon existing systems in the following ways: (1) The system registers partially overlapping camera-views automatically and does not require any manual input. (2) The system reaches the state-of-the-art performance when the common field of view of any two cameras is low and successfully integrates optical and infrared cameras. Our experiments also demonstrate that the proposed architecture is able to provide robust, real-time input to a video surveillance system. Our system was tested in a multi-view, outdoor environment with uncalibrated cameras.},
-  author    = {Varga, Domonkos and Szirányi, Tamás and Kiss, Attila and Spórás, László and Havasi, László},
-  booktitle = {2015 IEEE International Conference on Computer Vision Workshop (ICCVW)},
-  date      = {2015-12},
-  doi       = {10.1109/ICCVW.2015.33},
-  pages     = {184--191},
-  title     = {A Multi-View Pedestrian Tracking Method in an Uncalibrated Camera Network},
-}
-
 @article{Varior16,
   author     = {Rahul Rama Varior and Mrinal Haloi and Gang Wang},
   date       = {2016},
@@ -1513,17 +993,6 @@
   volume     = {abs/1706.03762},
 }
 
-@article{Voigtlaender19,
-  author     = {Paul Voigtlaender and Michael Krause and Aljosa Osep and Jonathon Luiten and Berin Balachandar Gnana Sekar and Andreas Geiger and Bastian Leibe},
-  date       = {2019},
-  journal    = {arXiv:1902.03604[cs]},
-  keywords   = {Computer Science - Computer Vision and Pattern Recognition},
-  note       = {arXiv: 1902.03604},
-  shorttitle = {MOTS20},
-  title      = {MOTS: Multi-Object Tracking and Segmentation},
-  url        = {http://arxiv.org/abs/1902.03604},
-}
-
 @inproceedings{Wang20a,
   abstract  = {Modern multiple object tracking (MOT) systems usually follow the tracking-by-detection paradigm. It has 1) a detection model for target localization and 2) an appearance embedding model for data association. Having the two models separately executed might lead to efficiency problems, as the running time is simply a sum of the two steps without investigating potential structures that can be shared between them. Existing research efforts on real-time MOT usually focus on the association step, so they are essentially real-time association methods but not real-time MOT system. In this paper, we propose an MOT system that allows target detection and appearance embedding to be learned in a shared model. Specifically, we incorporate the appearance embedding model into a single-shot detector, such that the model can simultaneously output detections and the corresponding embeddings. We further propose a simple and fast association method that works in conjunction with the joint model. In both components the computation cost is significantly reduced compared with former MOT systems, resulting in a neat and fast baseline for future follow-ups on real-time MOT algorithm design. To our knowledge, this work reports the first (near) real-time MOT system, with a running speed of 22 to 40 FPS depending on the input resolution. Meanwhile, its tracking accuracy is comparable to the state-of-the-art trackers embodying separate detection and embedding (SDE) learning ({\$}{\$}64.4{\backslash}{\%}{\$}{\$}64.4{\%}MOTA v.s. {\$}{\$}66.1{\backslash}{\%}{\$}{\$}66.1{\%}MOTA on MOT-16 challenge). Code and models are available at https://github.com/Zhongdao/Towards-Realtime-MOT.},
   author    = {Wang, Zhongdao and Zheng, Liang and Liu, Yixuan and Li, Yali and Wang, Shengjin},
@@ -1537,18 +1006,6 @@
   title     = {Towards Real-Time Multi-Object Tracking},
 }
 
-@article{Wang20b,
-  author     = {Yongxin Wang and Xinshuo Weng and Kris Kitani},
-  date       = {2020},
-  eprint     = {2006.13164},
-  eprinttype = {arXiv},
-  journal    = {CoRR},
-  timestamp  = {Tue, 20 Oct 2020 12:00:14 +0200},
-  title      = {Joint Detection and Multi-Object Tracking with Graph Neural Networks},
-  url        = {https://arxiv.org/abs/2006.13164},
-  volume     = {abs/2006.13164},
-}
-
 @inproceedings{Wang21,
   abstract  = {In this paper we study techniques for accurate detection, localization, and tracking of multiple people in an indoor scene covered by multiple top-view fisheye cameras. This is a rarely studied setting within the topic of multi-camera object tracking. The experimental results on test videos exhibit good performance for practical use. We also propose methods to account for occlusion by scene objects at different stages of the algorithm that lead to improved results.},
   author    = {Wang, Tsaipei and Liao, Chih-Hao and Hsieh, Li-Hsuan and Tsui, Arvin Wen and Huang, Hsin-Chien},
@@ -1558,15 +1015,6 @@
   issn      = {2642-9357},
   pages     = {1--5},
   title     = {People Detection and Tracking Using a Fisheye Camera Network},
-}
-
-@misc{Wang23a,
-  archiveprefix = {arXiv},
-  author        = {Yu-Hsiang Wang and Jun-Wei Hsieh and Ping-Yang Chen and Ming-Ching Chang and Hung Hin So and Xin Li},
-  date          = {2023},
-  eprint        = {2211.08824},
-  primaryclass  = {cs.CV},
-  title         = {SMILEtrack: SiMIlarity LEarning for Occlusion-Aware Multiple Object Tracking},
 }
 
 @article{Wang23b,
@@ -1622,17 +1070,6 @@
   volume    = {1},
 }
 
-@inproceedings{Xing09,
-  abstract  = {This paper presents an online detection-based two-stage multi-object tracking method in dense visual surveillances scenarios with a single camera. In the local stage, a particle filter with observer selection that could deal with partial object occlusion is used to generate a set of reliable tracklets. In the global stage, the detection responses are collected from a temporal sliding window to deal with ambiguity caused by full object occlusion to generate a set of potential tracklets. The reliable tracklets generated in the local stage and the potential tracklets generated within the temporal sliding window are associated by Hungarian algorithm on a modified pairwise tracklets association cost matrix to get the global optimal association. This method is applied to the pedestrian class and evaluated on two challenging datasets. The experimental results prove the effectiveness of our method.},
-  author    = {Xing, Junliang and Ai, Haizhou and Lao, Shihong},
-  booktitle = {2009 IEEE Conference on Computer Vision and Pattern Recognition},
-  date      = {2009-06},
-  doi       = {10.1109/CVPR.2009.5206745},
-  issn      = {1063-6919},
-  pages     = {1200--1207},
-  title     = {Multi-object tracking through occlusions by local tracklets filtering and global tracklets association with detection responses},
-}
-
 @article{Yang21,
   author     = {Zongxin Yang and Yunchao Wei and Yi Yang},
   date       = {2021},
@@ -1645,17 +1082,6 @@
   volume     = {abs/2106.02638},
 }
 
-@inproceedings{Yang22a,
-  abstract  = {Multi-Camera Multi-Target tracking (MCMT) is an essential task in intelligent transportation systems. It is highly challenging due to several problems such as heavy occlusion and appearance variance caused by various camera perspectives and congested vehicles. In this paper, we propose a practical framework for dealing with the city-scale MCMT task, consisting of four modules. The vehicles detection and ReID feature extraction are the first two modules, which locate all vehicles and extract the appearance features for all cameras. The third module is Single-Camera Multi-Target tracking (SCMT), which tracks multiple vehicles to generate candidate trajectories within each camera on the basis of the detected boxes and appearance features. The last module is Inter-Camera Association (ICA), which associates all candidate trajectories between two successive cameras using the K-reciprocal nearest neighbors algorithm, and combines all successively matched trajectories for final results. The ICA module takes the constraints of traveling time, road topology structures, and traffic rules into consideration to reduce the searching space and accelerate the matching speed. Experiments results on the public test set of 2022 AI CITY CHALLENGE Track1 demonstrate the effectiveness of our method, which achieves IDF1 of 84.86{\%}, ranking 1st on the leaderboard.},
-  author    = {Yang, Xipeng and Ye, Jin and Lu, Jincheng and Gong, Chenting and Jiang, Minyue and Lin, Xiangru and Zhang, Wei and Tan, Xiao and Li, Yingying and Ye, Xiaoqing and Ding, Errui},
-  booktitle = {2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)},
-  date      = {2022-06},
-  doi       = {10.1109/CVPRW56347.2022.00349},
-  issn      = {2160-7516},
-  pages     = {3095--3105},
-  title     = {Box-Grained Reranking Matching for Multi-Camera Multi-Target Tracking},
-}
-
 @misc{Yang22b,
   archiveprefix = {arXiv},
   author        = {Zongxin Yang and Yi Yang},
@@ -1663,43 +1089,6 @@
   eprint        = {2210.09782},
   primaryclass  = {cs.CV},
   title         = {Decoupling Features in Hierarchical Propagation for Video Object Segmentation},
-}
-
-@misc{Yang23,
-  archiveprefix = {arXiv},
-  author        = {Fan Yang and Shigeyuki Odashima and Sosuke Yamao and Hiroaki Fujimoto and Shoichi Masui and Shan Jiang},
-  date          = {2023},
-  eprint        = {2302.03820},
-  primaryclass  = {cs.CV},
-  title         = {A Unified Multi-view Multi-person Tracking Framework},
-}
-
-@article{Yoon18,
-  abstract     = {In this study, a multiple hypothesis tracking (MHT) algorithm for multi-target multi-camera tracking (MCT) with disjoint views is proposed. The authors' method forms track-hypothesis trees, and each branch of them represents a multi-camera track of a target that may move within a camera as well as move across cameras. Furthermore, multi-target tracking within a camera is performed simultaneously with the tree formation by manipulating a status of each track hypothesis. Each status represents three different stages of a multi-camera track: tracking, searching, and end-of-track. The tracking status means targets are tracked by a single camera tracker. In the searching status, the disappeared targets are examined if they reappear in other cameras. The end-of-track status does the target exited the camera network due to its lengthy invisibility. These three status assists MHT to form the track-hypothesis trees for multi-camera tracking. Furthermore, a gating technique which eliminates the unlikely observation-to-track association using space-time information has been introduced. In the experiments, the proposed method has been tested using two datasets, DukeMTMC and NLPR\\_MCT, which demonstrates that the method outperforms the state-of-the-art method in terms of improvement of the accuracy. In addition, real-time and online performance of proposed method is also showed in this study.},
-  author       = {Yoon, Kwangjin and Song, Young-min and Jeon, Moongu},
-  date         = {2018},
-  doi          = {https://doi.org/10.1049/iet-ipr.2017.1244},
-  eprint       = {https://ietresearch.onlinelibrary.wiley.com/doi/pdf/10.1049/iet-ipr.2017.1244},
-  journaltitle = {IET Image Processing},
-  keywords     = {trees (mathematics),target tracking,object tracking,MHT algorithm,multiple hypothesis tracking algorithm,multi target multi-camera tracking,track-hypothesis trees,DukeMTMC,NLPR_MCT},
-  number       = {7},
-  pages        = {1175--1184},
-  title        = {Multiple hypothesis tracking algorithm for multi-target multi-camera tracking with disjoint views},
-  url          = {https://ietresearch.onlinelibrary.wiley.com/doi/abs/10.1049/iet-ipr.2017.1244},
-  volume       = {12},
-}
-
-@article{You21,
-  abstract     = {Multi-target multi-camera tracking (MTMCT) targets to generate trajectories of the object that appeared under multiple cameras automatically. MTMCT can be treated as a combination of intra-camera tracking and cross-camera tracking. The existing work only employs the global description to perform the tracklet generating. However, the global description cannot model the local similarity between targets, leading to existing methods not to be robust to occlusion and fast motion. To handle the mentioned problem, we propose an online Optical-based Pose Association (OPA) for multi-target multi-camera tracking. The proposed method utilizes local pose matching to solve the occlusion problem, and applies optical flow to reduce the distance caused by fast motion. For optical-based pose association, we firstly employ OpenPose to generate human pose for each proposal. Then, we utilize the optical flow generated by PWC-Net to adjust the estimated pose for the previous frame. Finally, the modified Object Keypoint Similarity is used to compute the similarity between the pose of the current frame and adjusted pose in the prior frame. Once obtaining the optical-based pose similarity, we combine it with the visual and bounding box spatial similarities to generate the final similarity matrix, and apply the Kuhn-Munkras algorithm for data association. The experiments on the MTMCT and MOT datasets verify the rationality of using human pose information and prove the superiority of the proposed method.},
-  author       = {You, Sisi and Yao, Hantao and Xu, Changsheng},
-  date         = {2021-08},
-  doi          = {10.1109/TCSVT.2020.3036467},
-  issn         = {1558-2205},
-  journaltitle = {IEEE Transactions on Circuits and Systems for Video Technology},
-  number       = {8},
-  pages        = {3105--3117},
-  title        = {Multi-Target Multi-Camera Tracking With Optical-Based Pose Association},
-  volume       = {31},
 }
 
 @inproceedings{Yu13,
@@ -1777,21 +1166,6 @@
   volume    = {},
 }
 
-@article{Zhang15a,
-  abstract     = {In this paper we propose a framework for tracking multiple interacting targets in a wide-area camera network consisting of both overlapping and non-overlapping cameras. Our method is motivated from observations that both individuals and groups of targets interact with each other in natural scenes. We associate each raw target trajectory (i.e., a tracklet) with a group state, which indicates if the trajectory belongs to an individual or a group. Structural Support Vector Machine (SSVM) is applied to the group states to decide if merge or split events occur in the scene. Information fusion between multiple overlapping cameras is handled using a homography-based voting scheme. The problem of tracking multiple interacting targets is then converted to a network flow problem, for which the solution can be obtained by the K-shortest paths algorithm. We demonstrate the effectiveness of the proposed algorithm on the challenging VideoWeb dataset in which a large amount of multi-person interaction activities are present. Comparative analysis with state-of-the-art methods is also shown.},
-  author       = {Zhang, Shu and Zhu, Yingying and Roy-Chowdhury, Amit},
-  date         = {2015},
-  doi          = {https://doi.org/10.1016/j.cviu.2015.01.002},
-  issn         = {1077-3142},
-  journaltitle = {Computer Vision and Image Understanding},
-  keywords     = {Multi-camera tracking,Multi-target tracking,Interacting targets,Wide-area camera network,Network flow},
-  note         = {Image Understanding for Real-world Distributed Video Networks},
-  pages        = {64--73},
-  title        = {Tracking multiple interacting targets in a camera network},
-  url          = {https://www.sciencedirect.com/science/article/pii/S1077314215000168},
-  volume       = {134},
-}
-
 @inproceedings{Zhang15b,
   abstract  = {In this paper, we propose a novel Non-Overlapping Camera Network Tracking Dataset (CamNeT) for evaluating multi-target tracking algorithms. The dataset is composed of five to eight cameras covering both indoor and outdoor scenes at a university. This dataset consists of six scenarios. Within each scenario are challenges relevant to lighting changes, complex topographies, crowded scenes, and changing grouping dynamics. Persons with predefined trajectories are combined with persons with random trajectories. Ground truth data for predefined trajectories is provided for each camera. Also, a baseline multi-target tracking system is presented. The tracking results using the baseline system are provided, which can be compared with future works. The work provides a comprehensive multicamera dataset for performance evaluation in this challenging application domain, as well as an initial set of results.},
   author    = {Zhang, Shu and Staudt, Elliot and Faltemier, Tim and Roy-Chowdhury, Amit K.},
@@ -1801,15 +1175,6 @@
   issn      = {1550-5790},
   pages     = {365--372},
   title     = {A Camera Network Tracking (CamNeT) Dataset and Performance Baseline},
-}
-
-@article{Zhang17,
-  author      = {Zhang, Zhimeng and Wu, Jianan and Zhang, Xuan and Zhang, Chi},
-  date        = {2017},
-  eprint      = {1712.09531},
-  eprintclass = {cs.CV},
-  eprinttype  = {arXiv},
-  title       = {Multi-Target, Multi-Camera Tracking by Hierarchical Clustering: Recent Progress on DukeMTMC Project},
 }
 
 @article{Zhang21,
@@ -1847,18 +1212,6 @@
   pages     = {1116-1124},
   title     = {Scalable Person Re-identification: A Benchmark},
   volume    = {},
-}
-
-@article{Zheng16a,
-  author     = {Liang Zheng and Hengheng Zhang and Shaoyan Sun and Manmohan Chandraker and Qi Tian},
-  date       = {2016},
-  eprint     = {1604.02531},
-  eprinttype = {arXiv},
-  journal    = {CoRR},
-  timestamp  = {Mon, 13 Aug 2018 16:46:45 +0200},
-  title      = {Person Re-identification in the Wild},
-  url        = {http://arxiv.org/abs/1604.02531},
-  volume     = {abs/1604.02531},
 }
 
 @inproceedings{Zheng16b,
@@ -1935,17 +1288,4 @@
   eprinttype  = {arXiv},
   pages       = {366--382},
   title       = {Online Multi-Object Tracking with Dual Matching Attention Networks},
-}
-
-@article{Zou19,
-  abstract     = {Online multi-object tracking (MOT) has broad applications in time-critical video analysis scenarios such as advanced driver-assistance systems (ADASs) and autonomous driving. In this paper, the proposed system aims at tracking multiple vehicles in the front view of an onboard monocular camera. The vehicle detection probes are customized to generate high precision detection, which plays a basic role in the following tracking-by-detection method. A novel Siamese network with a spatial pyramid pooling (SPP) layer is applied to calculate pairwise appearance similarity. The motion model captured from the refined bounding box provides the relative movements and aspects. The online-learned policy treats each tracking period as a Markov decision process (MDP) to maintain long-term, robust tracking. The proposed method is validated in a moving vehicle with an onboard NVIDIA Jetson TX2 and returns real-time speeds. Compared with other methods on KITTI and self-collected datasets, our method achieves significant performance in terms of the &ldquo;Mostly-tracked&rdquo;, &ldquo;Fragmentation&rdquo;, and &ldquo;ID switch&rdquo; variables.},
-  author       = {Zou, Yi and Zhang, Weiwei and Weng, Wendi and Meng, Zhengyun},
-  date         = {2019},
-  doi          = {10.3390/s19061309},
-  issn         = {1424-8220},
-  journaltitle = {Sensors},
-  number       = {6},
-  title        = {Multi-Vehicle Tracking via Real-Time Detection Probes and a Markov Decision Process Policy},
-  url          = {https://www.mdpi.com/1424-8220/19/6/1309},
-  volume       = {19},
 }
