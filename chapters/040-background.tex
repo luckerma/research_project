@@ -26,16 +26,15 @@ Data association is the process of associating currently detected objects with e
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.75\textwidth]{resources/fig/Tesfaye19-intra_inter_camera_tracking.png}
-    \caption{Intra- (left) and inter-camera (right) tracking~\cite[Fig.~1]{Tesfaye19}}\label{fig:intra_inter_camera_tracking}
+    \caption[Intra- and inter-camera tracking]{Intra- (left) and inter-camera (right) tracking~\cite[source image:][Fig.~1]{Tesfaye19}}\label{fig:intra_inter_camera_tracking}
 \end{figure}
 
 The two steps of data association of three non-overlapping camera views are illustrated in Figure~\ref{fig:intra_inter_camera_tracking}. The first step is intra-camera tracking, where the trajectories within the three camera views are associated independently. The second step is inter-camera tracking, where the trajectories are associated across the three camera views and the IDs of the objects are maintained. This simple example can be extended to any number of camera views, overlapping or non-overlapping.
 
-%TODO: Change "Cross" to "Inter" in figure
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.75\textwidth]{resources/fig/Ma21-tracking_process.png}
-    \caption{Tracking process~\cite[Fig.~1]{Ma21}}\label{fig:projection}
+    \caption[Tracking process]{Tracking process~\cite[source image:][Fig.~1]{Ma21}}\label{fig:projection}
 \end{figure}
 
 Figure~\ref{fig:projection} shows a schematic representation of the intra-, inter-camera matching and tracking process of the three camera views. This figure complements figure~\ref{fig:intra_inter_camera_tracking} by visually demonstrating the steps mentioned. First, the people in the three camera views are detected and intra-camera tracking is performed by merging the individual detections into tracklets. Optionally, depending on the algorithm, localization within the world (using a common ground plane) could be performed. Finally, after the intra-camera trajectories have been generated, the inter-camera matching is performed to obtain the final tracks of the people.
@@ -139,7 +138,7 @@ MT measures the proportion of ground truth trajectories that are covered by the 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.75\textwidth]{resources/fig/Wu06-MT_ML.png}
-    \caption{MT and ML~\cite[Fig.~5]{Wu06}}\label{fig:mt_ml}
+    \caption[MT and ML]{MT and ML~\cite[source image:][Fig.~5]{Wu06}}\label{fig:mt_ml}
 \end{figure}
 
 Figure~\ref{fig:mt_ml} illustrates various scenarios encountered in multi-target tracking evaluations:
