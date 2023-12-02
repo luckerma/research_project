@@ -2,7 +2,7 @@
 This chapter provides an overview of the basic concepts of object detection and tracking and the steps of an MTMCT system, along with a discussion of its key challenges and issues. It also introduces the basic building blocks of MTMCT. Finally, the datasets and metrics used to evaluate MTMCT systems are explained.
 
 \section{Steps of an MTMCT System}\label{sec:steps_of_an_mtmct_system}
-An MTMCT system typically consists of the following steps: detection, feature extraction, data association, and tracking. The steps are only briefly mentioned and described here, exact methods and algorithms are discussed in the chapter~\ref{chap:literature_review}.
+An MTMCT system typically consists of the following steps: detection, feature extraction, data association, and tracking. The steps are only briefly mentioned and described here, exact methods and algorithms are discussed in the Chapter~\ref{chap:literature_review}.
 
 \subsection{Detection}\label{subsec:detection}
 Detection refers to the process of identifying objects of interest within video frames. This is typically done using a variety of techniques, ranging from traditional image processing methods to deep learning models. The goal of the detection step is to locate and classify objects in the frame, providing a basis for subsequent steps in the MTMCT process.
@@ -26,7 +26,7 @@ Data association is the process of associating currently detected objects with e
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.75\textwidth]{resources/fig/Tesfaye19-intra_inter_camera_tracking.png}
-    \caption[Intra- and inter-camera tracking]{Intra- (left) and inter-camera (right) tracking~\cite[source image:][Fig.~1]{Tesfaye19}}\label{fig:intra_inter_camera_tracking}
+    \caption[Intra- and Inter-Camera Tracking]{Intra- (left) and Inter-Camera (right) Tracking~\cite[source image:][Fig.~1]{Tesfaye19}}\label{fig:intra_inter_camera_tracking}
 \end{figure}
 
 The two steps of data association of three non-overlapping camera views are illustrated in Figure~\ref{fig:intra_inter_camera_tracking}. The first step is intra-camera tracking, where the trajectories within the three camera views are associated independently. The second step is inter-camera tracking, where the trajectories are associated across the three camera views and the IDs of the objects are maintained. This simple example can be extended to any number of camera views, overlapping or non-overlapping.
@@ -34,10 +34,10 @@ The two steps of data association of three non-overlapping camera views are illu
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.75\textwidth]{resources/fig/Ma21-tracking_process.png}
-    \caption[Tracking process]{Tracking process~\cite[source image:][Fig.~1]{Ma21}}\label{fig:projection}
+    \caption[Tracking Process]{Tracking Process~\cite[source image:][Fig.~1]{Ma21}}\label{fig:projection}
 \end{figure}
 
-Figure~\ref{fig:projection} shows a schematic representation of the intra-, inter-camera matching and tracking process of the three camera views. This figure complements figure~\ref{fig:intra_inter_camera_tracking} by visually demonstrating the steps mentioned. First, the people in the three camera views are detected and intra-camera tracking is performed by merging the individual detections into tracklets. Optionally, depending on the algorithm, localization within the world (using a common ground plane) could be performed. Finally, after the intra-camera trajectories have been generated, the inter-camera matching is performed to obtain the final tracks of the people.
+Figure~\ref{fig:projection} shows a schematic representation of the intra-, inter-camera matching and tracking process of the three camera views. This figure complements Figure~\ref{fig:intra_inter_camera_tracking} by visually demonstrating the steps mentioned. First, the people in the three camera views are detected and intra-camera tracking is performed by merging the individual detections into tracklets. Optionally, depending on the algorithm, localization within the world (using a common ground plane) could be performed. Finally, after the intra-camera trajectories have been generated, the inter-camera matching is performed to obtain the final tracks of the people.
 
 \subsection{Tracking}\label{subsec:tracking}
 Tracking refers to the step of maintaining the tracklets and trajectories of detected objects over time. This involves predicting the future location of an object based on its past movements and updating its trajectory as new observations (tracklets) become available with the next frame of a video. In summary, tracking is responsible for maintaining and managing the trajectories and IDs of objects as they move through the scene and ensuring consistent global IDs across multiple camera views.
@@ -87,7 +87,7 @@ Commonly used datasets for training object detectors are:
     \item \textbf{ImageNet:} Large dataset used for image classification and object detection. Object detectors trained on ImageNet are capable of recognizing a wide range of objects~\cite{Deng09}.
 \end{itemize}
 
-Beside these datasets, there are several datasets specifically designed for MTMCT research. These datasets are discussed in the subsection~\ref{subsec:datasets_and_challenges}.
+Beside these datasets, there are several datasets specifically designed for MTMCT research. These datasets are discussed in the Subsection~\ref{subsec:datasets_and_challenges}.
 
 \section{Metrics and Evaluation}\label{sec:metrics_and_evaluation}
 Evaluating the performance of an MTMCT system is critical to understanding its effectiveness and reliability. In addition to well-known metrics such as accuracy, precision and recall, there are several metrics specifically designed for MTMCT systems. These metrics are discussed in this section.
@@ -120,7 +120,7 @@ The IDF1 score is another important metric for evaluating MTMCT systems. It repr
     \quad\text{\cite[Eq.~11]{Ristani16}}
 \end{equation}
 
-In equation~\ref{eq:idf1}:
+In the Equation~\ref{eq:idf1}:
 
 \begin{itemize}
     \item \textbf{IDTP (Identification True Positives):} Represents the number of detections that were correctly identified.

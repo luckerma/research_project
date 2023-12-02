@@ -36,7 +36,7 @@ The YOLO framework, introduced by \citeauthor{Redmon15} in \citeyear{Redmon15}, 
     }
 \end{table}
 
-The table~\ref{tab:overview_object_detectors} compares the mentioned prominent object detection models used in MTMCT:
+The Table~\ref{tab:overview_object_detectors} compares the mentioned prominent object detection models used in MTMCT:
 
 \begin{itemize}
     \item \textbf{Speed:} Refers to the time it takes the detector to process a single frame, usually measured in milliseconds. High speed is critical for real-time tracking applications where live or near-live video feeds must be processed.
@@ -66,7 +66,7 @@ The Kalman Filter~\cite{Kalman60} is one of the early foundations of object trac
 As tracking scenarios became more complex, approaches such as Multiple Hypothesis Tracking (MHT)~\cite{Blackman04} were developed to manage multiple potential data association hypotheses, especially in cluttered scenes~\cite{Reid79}.
 
 \subsection{Datasets and Challenges}\label{subsec:datasets_and_challenges}
-In addition to the datasets mentioned in the section~\ref{sec:datasets}, which are used for object detection in general, there are also datasets that are more specific to MTMCT. Typically, these are for tracking specific object classes, mainly people and vehicles. Datasets that meet these requirements are listed in the table~\ref{tab:overview_datasets}.
+In addition to the datasets mentioned in the Section~\ref{sec:datasets}, which are used for object detection in general, there are also datasets that are more specific to MTMCT. Typically, these are for tracking specific object classes, mainly people and vehicles. Datasets that meet these requirements are listed in the Table~\ref{tab:overview_datasets}.
 
 \begin{table}[ht]
     \centering
@@ -94,7 +94,7 @@ In addition to the datasets mentioned in the section~\ref{sec:datasets}, which a
 \end{table}
 \footnotetext[1]{extension of Market-1501~\cite{Zheng15}}
 
-The table~\ref{tab:overview_datasets} provides a summary of various datasets that have made significant contributions to the MTMCT research field. Each dataset is categorized based on several different criteria to reflect its unique characteristics and relevance:
+The Table~\ref{tab:overview_datasets} provides a summary of various datasets that have made significant contributions to the MTMCT research field. Each dataset is categorized based on several different criteria to reflect its unique characteristics and relevance:
 
 \begin{itemize}
     \item \textbf{Environment:} Data collection setting, from controlled indoor environments to dynamic outdoor locations.
@@ -145,7 +145,7 @@ Both SORT and DeepSORT have set benchmarks in object tracking, demonstrating how
     \item \textbf{DeepSORT:} Enhances SORT by adding appearance information to the data association step, improving tracking accuracy, especially in cases where objects interact closely or are temporarily occluded.
 \end{itemize}
 
-It is important to note that both tracking frameworks rely on an external object detector to provide bounding box detections, which can be any of the object detection models discussed in the section~\ref{subsec:milestone_detection}. Neither SORT nor DeepSORT can perform inter-camera tracking; this step must be performed separately.
+It is important to note that both tracking frameworks rely on an external object detector to provide bounding box detections, which can be any of the object detection models discussed in the Section~\ref{subsec:milestone_detection}. Neither SORT nor DeepSORT can perform inter-camera tracking; this step must be performed separately.
 
 \subsubsection{Tracking-by-Regression}\label{subsubsec:tracking-by-regression}
 Tracking-by-Regression (TbR) involves directly estimating the position of the object in each frame of a video sequence. In contrast to the TbD approach, regression-based methods predict changes in position of the object. Most approaches learn a regression function from the input image features to the position coordinates. The advantage of this method is its ability to continuously refine the estimated position, making it well-suited for scenarios with smooth motion or predictable trajectory patterns.
@@ -174,7 +174,7 @@ In the same year, \citeauthor{Wang20a} published the paper \citetitle{Wang20a}~\
     \item \(f^{-}\): Represents a negative instance (different ID than anchor)
 \end{itemize}
 
-The triplet loss defined in equation~\ref{eq:triplet_loss} is used to learn an embedding space in which instances of the same ID are closely mapped to each other, while the embeddings of different IDs are pushed apart.
+The triplet loss defined in the Equation~\ref{eq:triplet_loss} is used to learn an embedding space in which instances of the same ID are closely mapped to each other, while the embeddings of different IDs are pushed apart.
 
 A more recent framework is the FairMOT~\cite{Zhang21} algorithm proposed by \citeauthor{Zhang21} in \citeyear{Zhang21}. It combines the two tasks of object detection and re-ID, while addressing the \textit{unfairness} issue in multitask learning, which arises because re-ID is often treated as a secondary task in existing frameworks and not given enough attention. The paper raises three key issues with existing multitask learning frameworks:
 
@@ -192,7 +192,7 @@ To jointly train the detection and re-ID branches in the FairMOT network, the un
     \quad\text{\cite[Eq.~5]{Zhang21}}
 \end{equation}
 
-The uncertainty loss defined in equation~\ref{eq:uncertainty_loss} is used to jointly train the detection and re-ID tasks by assigning different weights to the two tasks to allow for a fair learning process. The weights \(w_1\) and \(w_2\) are used to control the balance between the two tasks and are learned during training. \(L_{\text{detection}}\) and \(L_{\text{identity}}\) are the detection and re-ID losses respectively.
+The uncertainty loss defined in the Equation~\ref{eq:uncertainty_loss} is used to jointly train the detection and re-ID tasks by assigning different weights to the two tasks to allow for a fair learning process. The weights \(w_1\) and \(w_2\) are used to control the balance between the two tasks and are learned during training. \(L_{\text{detection}}\) and \(L_{\text{identity}}\) are the detection and re-ID losses respectively.
 
 By addressing the three key issues with existing multitask learning frameworks, the FairMOT framework is able to outperform state-of-the-art methods in both tracking accuracy and speed on the MOT17 dataset.
 
@@ -219,7 +219,7 @@ In the paper on the single-shot approach SMOT discussed earlier, it is mentioned
 Similar to MCTChain, the paper \citetitle{Nikodem20}~\cite{Nikodem20} introduces a decentralized tracking algorithm following the TbD paradigm, which performs intra-camera tracking locally on the camera and uses ISM-based wireless device-to-device communication for inter-camera tracking.
 
 \subsection{Online and Real-Time}\label{subsec:online_and_real-time}
-In addition to subsections~\ref{subsec:single-shot_approaches} and~\ref{subsec:edge_computing}, which cover single-shot approaches and edge computing and their relevance to real-time applications, this subsection focuses on online and real-time implementations, mentioning specific methods.
+In addition to Subsections~\ref{subsec:single-shot_approaches} and~\ref{subsec:edge_computing}, which cover single-shot approaches and edge computing and their relevance to real-time applications, this subsection focuses on online and real-time implementations, mentioning specific methods.
 
 Unlike most of the methods used in MTMCT, the real-time system Uni-ID~\cite{Chen22} follows a distributed concept to ensure that the communication and computing costs of each camera in the network remain nearly constant as the number of cameras increases. Therefore, smart stations are installed on the tracked roadside and connected by a wireless multi-hop network. YOLO is used for detection and DeepSORT for tracking. First, intra-camera tracking and feature extraction are performed to assign a local ID to each object. Second, the local ID, features and trajectory information of the target are sent to the neighboring node in the network. Third, the neighboring node performs inter-camera tracking to assign a global ID to the target. The system is tested with three nodes and achieves real-time performance with a relatively low-power GPU for each node.
 
