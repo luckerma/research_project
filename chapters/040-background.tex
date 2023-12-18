@@ -2,7 +2,13 @@
 This chapter provides an overview of the basic concepts of object detection and tracking and the steps of an MTMCT system, along with a discussion of its key challenges and issues. It also introduces the basic building blocks of MTMCT. Finally, the datasets and metrics used to evaluate MTMCT systems are explained.
 
 \section{Steps of an MTMCT System}\label{sec:steps_of_an_mtmct_system}
-An MTMCT system typically consists of the following steps: detection, feature extraction, data association, and tracking. The steps are only briefly mentioned and described here, exact methods and algorithms are discussed in the Chapter~\ref{chap:literature_review}.
+Figure~\ref{fig:mtmct_steps} visualizes the typical steps of an MTMCT system: detection, feature extraction, data association and tracking. The steps are only briefly mentioned and described here, exact methods and algorithms are discussed in the Chapter~\ref{chap:literature_review}.
+
+\begin{figure}[ht]
+    \centering
+    \input{resources/fig/mtmct_steps.tex}
+    \caption{Steps of an MTMCT System}\label{fig:mtmct_steps}
+\end{figure}
 
 \subsection{Detection}\label{subsec:detection}
 Detection refers to the process of identifying objects of interest within video frames. This is typically done using a variety of techniques, ranging from traditional image processing methods to deep learning models. The goal of the detection step is to locate and classify objects in the frame, providing a basis for subsequent steps in the MTMCT process.

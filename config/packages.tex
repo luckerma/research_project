@@ -1,8 +1,8 @@
 \usepackage{ifluatex}
 \ifluatex
-	\usepackage{fontspec}
+    \usepackage{fontspec}
 \else
-	\usepackage[T1]{fontenc}
+    \usepackage[T1]{fontenc}
 \fi
 
 \usepackage[english]{babel}
@@ -25,7 +25,8 @@
 \definecolor{THOrange}{RGB}{236,101,37}
 \definecolor{THPurple}{RGB}{175,54,140}
 
-\usepackage{tikz}
+\usepackage[margin=1in]{geometry}
+\input{config/tikz.tex}
 \usepackage{pgfplots}
 \pgfplotsset{compat=newest}
 \usepackage{hyperref}
@@ -35,10 +36,10 @@
 \usepackage{datetime2}
 
 \usepackage[
-	backend=biber,
-	sorting=none,
-	style=ieee,
-	maxbibnames=20,
+    backend=biber,
+    sorting=none,
+    style=ieee,
+    maxbibnames=20,
 ]{biblatex}
 \addbibresource{resources/references.bib}
 
@@ -61,22 +62,22 @@
 \newcommand{\comm}[1]{\glqq\texttt{\textbackslash #1}\grqq{}}
 
 \hypersetup{
-	pdfauthor={Luca Uckermann},
-	pdftitle={Multi-Camera Multi-Object Tracking and Re-Identification},
-	pdfsubject={Research Project},
-	pdfkeywords={
-			Multi-Camera,
-			Multi-Object,
-			Multi-Target,
-			Re-Identification,
-			Tracking,
-		},
-	bookmarksnumbered=true,
-	pdfstartview=FitH,
-	colorlinks=true,
-	citecolor=green,
-	linkcolor=red,
-	urlcolor=blue,
-	filecolor=black,
-	%hidelinks,
+    pdfauthor={Luca Uckermann},
+    pdftitle={Multi-Target Multi-Camera Tracking and Re-Identification from Detection to Tracking in Real-Time Scenarios},
+    pdfsubject={Research Project},
+    pdfkeywords={
+            Multi-Camera,
+            Multi-Object,
+            Multi-Target,
+            Re-Identification,
+            Tracking,
+        },
+    bookmarksnumbered=true,
+    pdfstartview=FitH,
+    colorlinks=true,
+    citecolor=green,
+    linkcolor=red,
+    urlcolor=blue,
+    filecolor=black,
+    %hidelinks,
 }
