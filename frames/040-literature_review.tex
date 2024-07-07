@@ -14,7 +14,7 @@
     \framesubtitle{Milestones}
 
     \begin{itemize}
-        \item<1->Detection
+        \item <1->Detection
               \only<2>{
                   \begin{itemize}
                       \item (Faster) R-CNN~\cite{Girshick14,Girshick15,Ren17}
@@ -24,7 +24,7 @@
                   \end{itemize}
               }
               \vspace{5pt}
-        \item<3->Feature Extraction
+        \item <3->Feature Extraction
               \only<4>{
                   \begin{itemize}
                       \item Scale-Invariant Feature Transform (SIFT)~\cite{Lowe04}
@@ -34,7 +34,7 @@
                   \end{itemize}
               }
               \vspace{5pt}
-        \item<5->Data Association
+        \item <5->Data Association
               \only<6>{
                   \begin{itemize}
                       \item Hungarian Algorithm~\cite{Kuhn55}
@@ -45,7 +45,7 @@
                   \end{itemize}
               }
               \vspace{5pt}
-        \item<7->Tracking
+        \item <7->Tracking
               \only<8>{
                   \begin{itemize}
                       \item Kalman Filter~\cite{Kalman60}
@@ -54,7 +54,7 @@
                   \end{itemize}
               }
               \vspace{5pt}
-        \item<9->Datasets and Challenges
+        \item <9->Datasets and Challenges
               \only<10>{
                   \begin{itemize}
                       \item see Table~\ref{tab:overview_datasets}
@@ -123,7 +123,7 @@
     \framesubtitle{Tracking Paradigms}
 
     \begin{itemize}
-        \item<1->\textbf{Tracking-by-Detection}
+        \item <1->\textbf{Tracking-by-Detection}
               \only<6->{
                   \begin{itemize}
                       \item Sort~\cite{Bewley16}
@@ -131,13 +131,13 @@
                   \end{itemize}
               }
               \vspace{5pt}
-        \item<2->Tracking-by-Regression
+        \item <2->Tracking-by-Regression
               \vspace{5pt}
-        \item<3->Tracking-by-Segmentation
+        \item <3->Tracking-by-Segmentation
               \vspace{5pt}
-        \item<4->Tracking-by-Attention
+        \item <4->Tracking-by-Attention
               \vspace{5pt}
-        \item<5->\textbf{Single-Shot Approaches}
+        \item <5->\textbf{Single-Shot Approaches}
               \only<7->{
                   \begin{itemize}
                       \item Tracktor~\cite{Bergmann19}
@@ -147,7 +147,7 @@
                   \end{itemize}
               }
               \vspace{10pt}
-        \item<8->\textbf{Note:} Only refers to detection and intra-camera tracking\\(inter-camera tracking requires additional step)
+        \item[]<8->\textbf{Note:} Only refers to detection and intra-camera tracking\\(inter-camera tracking requires additional step)
     \end{itemize}
 \end{frame}
 
@@ -157,13 +157,13 @@
     \framesubtitle{Graph-Based}
 
     \begin{itemize}
-        \item<1->Data association problem as graph
+        \item <1->Data association problem as graph
               \vspace{5pt}
-        \item<2->Nodes represent detections
+        \item <2->Nodes represent detections
               \vspace{5pt}
-        \item<3->Edges represent association costs
+        \item <3->Edges represent association costs
               \vspace{5pt}
-        \item<4->Recently use of Graph Neural Networks (GNNs)~\cite{Scarselli09}
+        \item <4->Recently use of Graph Neural Networks (GNNs)~\cite{Scarselli09}
               \vspace{5pt}
     \end{itemize}
 \end{frame}
@@ -174,16 +174,16 @@
     \framesubtitle{Edge-Computing}
 
     \begin{itemize}
-        \item<1->\textbf{Advantages:}
+        \item <1->\textbf{Advantages:}
               \begin{itemize}
                   \item Process data near source
                   \item Reduce latency and bandwidth
                   \item Improve security and privacy (data not stored)
               \end{itemize}
               \vspace{5pt}
-        \item<2->\textbf{Drawback:} Limited resources
+        \item <2->\textbf{Drawback:} Limited resources
               \vspace{10pt}
-        \item<3->\textbf{Examples:}
+        \item <3->\textbf{Examples:}
               \begin{itemize}
                   \item Multi-Camera TrackingChain (MCTChain)~\cite{Wang23b}
                   \item Multi-Camera Tracking using\\Edge-Computing and Low-Power Communication~\cite{Nikodem20}
@@ -197,7 +197,7 @@
     \framesubtitle{Online and Real-Time}
 
     \begin{itemize}
-        \item<1->\citetitle{Wang21}~\cite{Wang21}
+        \item <1->\citetitle{Wang21}~\cite{Wang21}
               \begin{itemize}
                   \item Simulate checkout-free store
                   \item Fisheye cameras
@@ -206,7 +206,7 @@
                   \item About 10 FPS without GPU
               \end{itemize}
               \vspace{5pt}
-        \item<2->Fast-Constrained Dominant Set Clustering (FCDSC)~\cite{Tesfaye19}
+        \item <2->Fast-Constrained Dominant Set Clustering (FCDSC)~\cite{Tesfaye19}
               \begin{itemize}
                   \item Graph-based approach
                   \item Consider only a sub-graph at each step
@@ -222,21 +222,21 @@
     \framesubtitle{State-of-the-Art}
 
     \begin{itemize}
-        \item<1-> Self-supervised Camera Link Model (SCLM)~\cite{Hsu22}
+        \item <1-> Self-supervised Camera Link Model (SCLM)~\cite{Hsu22}
               \begin{itemize}
                   \item Graph Auto-Encoder (GAE)~\cite{Kipf16}
                   \item Zone generation algorithm
                   \item State-of-the-art on CityFlow 2019 and 2020
               \end{itemize}
               \vspace{5pt}
-        \item<2-> Lifted Multicut Meets Geometry Projections (LMGP)~\cite{Nguyen22a}
+        \item <2-> Lifted Multicut Meets Geometry Projections (LMGP)~\cite{Nguyen22a}
               \begin{itemize}
                   \item Use of POM
                   \item Bottom center of bounding box projection
                   \item State-of-the-art on Wildtrack
               \end{itemize}
               \vspace{5pt}
-        \item<3-> EarlyBird~\cite{Teepe23}
+        \item <3-> EarlyBird~\cite{Teepe23}
               \begin{itemize}
                   \item Early fusion in bird's eye view
                   \item Encoder network
@@ -244,7 +244,7 @@
                   \item Second best on Wildtrack
               \end{itemize}
               \vspace{5pt}
-        \item<4-> AOT, DeAOT, DMAOT~\cite{Yang21, Yang22b}
+        \item <4-> AOT, DeAOT, DMAOT~\cite{Yang21, Yang22b}
               \begin{itemize}
                   \item Transformer architecture
                   \item Segmentation-based tracking
@@ -259,7 +259,7 @@
     \framesubtitle{Honorable Mentions}
 
     \begin{itemize}
-        \item<1->Harry Potter's Marauder's Map~\cite{Yu13}
+        \item <1->Harry Potter's Marauder's Map~\cite{Yu13}
               \begin{itemize}
                   \item Draws parallels to Marauder's Map from Harry Potter
                   \item Localizes and tracks people
@@ -267,7 +267,7 @@
                   \item Real-world nursing home, 15 cameras
               \end{itemize}
               \vspace{5pt}
-        \item<2->MTA Dataset~\cite{Koehl20}
+        \item <2->MTA Dataset~\cite{Koehl20}
               \begin{itemize}
                   \item MTMCT dataset
                   \item Virtual environment (GTA V)

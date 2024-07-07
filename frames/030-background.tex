@@ -20,17 +20,17 @@
     \end{figure}
 
     \begin{itemize}
-        \item<2->\textbf{Detection:} Detect objects in each frame of each camera
+        \item <2->\textbf{Detection:} Detect objects in each frame of each camera
               \vspace{5pt}
-        \item<3->\textbf{Feature Extraction:} Extract features from each detection
+        \item <3->\textbf{Feature Extraction:} Extract features from each detection
               \vspace{5pt}
-        \item<4->\textbf{Data Association:} Associate detections with existing trajectories (hierarchical)
+        \item <4->\textbf{Data Association:} Associate detections with existing trajectories
               \begin{itemize}
                   \item \textbf{Intra-Camera:} Within each camera
                   \item \textbf{Inter-Camera:} Across cameras
               \end{itemize}
               \vspace{5pt}
-        \item<5->\textbf{Tracking:} Maintaining trajectories over time\\(create, update, delete)
+        \item <5->\textbf{Tracking:} Maintaining trajectories over time\\(create, update, delete)
     \end{itemize}
 \end{frame}
 
@@ -64,14 +64,14 @@
     \framesubtitle{Fundamental Concepts}
 
     \begin{itemize}
-        \item<1->Single-Target Single-Camera Tracking (STSCT)
+        \item <1->Single-Target Single-Camera Tracking (STSCT)
               \begin{itemize}
                   \item Simplest form of tracking
                   \item Track a single target in FOV of a single camera
                   \item \textbf{Goal:} Maintain ID and trajectory of target
               \end{itemize}
               \vspace{5pt}
-        \item<2->Multi-Target Single-Camera Tracking (MTSCT)
+        \item <2->Multi-Target Single-Camera Tracking (MTSCT)
               \begin{itemize}
                   \item Builds on principles of STSCT
                   \item Adds complexity of multiple targets
@@ -86,13 +86,13 @@
     \framesubtitle{Challenges in MTMCT}
 
     \begin{itemize}
-        \item<1->\textbf{Occlusions:} Targets can be occluded by other targets or objects
+        \item <1->\textbf{Occlusions:} Targets can be occluded by other targets or objects
               \vspace{5pt}
-        \item<2->\textbf{Varying Lighting Conditions:} Lighting conditions can change over time and across cameras
+        \item <2->\textbf{Varying Lighting Conditions:} Lighting conditions can change over time and across cameras
               \vspace{5pt}
-        \item<3->\textbf{Camera Specifications:} Cameras can have different specifications (e.g.~resolution, FPS, FOV, angle, ...)
+        \item <3->\textbf{Camera Specifications:} Cameras can have different specifications (e.g.~resolution, FPS, FOV, angle, ...)
               \vspace{5pt}
-        \item<4->\textbf{Uncertainties (unknown number of):}
+        \item <4->\textbf{Uncertainties (unknown number of):}
               \begin{itemize}
                   \item Targets in entire camera
                   \item Targets in single camera
@@ -107,15 +107,15 @@
     \framesubtitle{Metrics and Evaluation}
 
     \begin{itemize}
-        \item<1->\textbf{MOTP:} Multiple Object Tracking Precision\\(accuracy of object localization)~\cite{Bernardin08}
+        \item <1->\textbf{MOTP:} Multiple Object Tracking Precision\\(accuracy of object localization)~\cite{Bernardin08}
               \vspace{0pt}
-        \item<1->\textbf{MOTA:} Multiple Object Tracking Accuracy\\(three in one: misses, false positives, ID switches)~\cite{Bernardin08}
+        \item <1->\textbf{MOTA:} Multiple Object Tracking Accuracy\\(three in one: misses, false positives, ID switches)~\cite{Bernardin08}
               \vspace{5pt}
-        \item<2->\textbf{IDF1:} ID F1 Score (harmonic mean of precision and recall)~\cite{Ristani16}
-              \vspace{10pt}
-        \item<3->\textbf{MT:} Mostly Tracked (\(\geq80\%\) correctly tracked)~\cite{Wu06}
+        \item <2->\textbf{IDF1:} ID F1 Score (harmonic mean of precision and recall)~\cite{Ristani16}
+              \vspace{5pt}
+        \item <3->\textbf{MT:} Mostly Tracked (\(\geq80\%\) correctly tracked)~\cite{Wu06}
               \vspace{0pt}
-        \item<3->\textbf{ML:} Mostly Lost (\(\leq20\%\) correctly tracked)~\cite{Wu06}
+        \item <3->\textbf{ML:} Mostly Lost (\(\leq20\%\) correctly tracked)~\cite{Wu06}
               \vspace{5pt}
               \begin{figure}[ht]
                   \centering
