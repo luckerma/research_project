@@ -20,15 +20,17 @@ jobs:
         uses: actions/checkout@v4.2.2
 
       - name: Build Latex PDF and HTML
+        continue-on-error: true
         run: |
           sudo apt update
-          sudo apt install texlive-full
-          pdflatex master.tex
-          make4ht master.tex
+          sudo apt install latexmk texlive-full
 
           mkdir ./output
+          latexmk -pdf master.tex
+          make4ht -u -d ./output/ master.tex
+
+          mv output/master.html ./output/index.html
           mv master.pdf ./output/
-          mv master.html ./output/index.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3.0.1
@@ -47,30 +49,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-  release:
-    needs: deploy
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1.1.4
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
-
-      - name: Upload Release Asset
-        id: upload-release-asset
-        uses: actions/upload-release-asset@v1.0.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./output/master.pdf
-          asset_name: master.pdf
-          asset_content_type: application/pdf
