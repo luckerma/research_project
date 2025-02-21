@@ -10,9 +10,9 @@ These methods have even demonstrated the feasibility of tracking people in real-
 This section highlights significant milestones that have shaped the field of MTMCT research, focusing on five critical areas: detection, feature extraction, data association, tracking, and datasets and challenges.
 
 \begin{figure}[ht]
-    \centering
-    \input{resources/fig/milestones.tex}
-    \caption{Milestones in MTMCT}\label{fig:milestones}
+	\centering
+	\input{resources/fig/milestones.tex}
+	\caption{Milestones in MTMCT}\label{fig:milestones}
 \end{figure}
 
 The Figure~\ref{fig:milestones} shows the algorithms and techniques in the green boxes (right) that correspond to each milestone area in the blue box (left). The following subsections discuss the techniques in more detail.
@@ -29,27 +29,27 @@ The YOLO framework, introduced by \citeauthor{Redmon15} in \citeyear{Redmon15}, 
 \citeauthor{Liu16} proposed SSD in \citeyear{Liu16}, another influential single-shot object detector that balances the tradeoff between speed and accuracy. Unlike YOLO, SSD operates on multiple feature maps at different resolutions to effectively handle objects of different sizes. The architecture applies a set of convolutional filters to these feature maps to predict both bounding box offsets and class probabilities for a fixed set of default bounding boxes distributed across the image. The ability to detect and track objects across multiple scales and perspectives makes SSD particularly well-suited for MTMCT applications.
 
 \begin{table}[ht]
-    \centering
-    \caption{Overview Object Detectors}\label{tab:overview_object_detectors}
-    \resizebox{\textwidth}{!}{
-        \begin{tabular}{|l|c|c|c|}
-            \hline
-            \textbf{Model}            & \textbf{Speed} & \textbf{Accuracy} & \textbf{Computational Requirements} \\
-            \hline
-            Faster R-CNN~\cite{Ren17} & Moderate       & High              & High                                \\
-            YOLO~\cite{Redmon15}      & Very High      & Moderate          & Low                                 \\
-            SSD~\cite{Liu16}          & High           & High              & Moderate                            \\
-            \hline
-        \end{tabular}
-    }
+	\centering
+	\caption{Overview Object Detectors}\label{tab:overview_object_detectors}
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{|l|c|c|c|}
+			\hline
+			\textbf{Model}            & \textbf{Speed} & \textbf{Accuracy} & \textbf{Computational Requirements} \\
+			\hline
+			Faster R-CNN~\cite{Ren17} & Moderate       & High              & High                                \\
+			YOLO~\cite{Redmon15}      & Very High      & Moderate          & Low                                 \\
+			SSD~\cite{Liu16}          & High           & High              & Moderate                            \\
+			\hline
+		\end{tabular}
+	}
 \end{table}
 
 The Table~\ref{tab:overview_object_detectors} compares the mentioned prominent object detection models used in MTMCT:
 
 \begin{itemize}
-    \item \textbf{Speed:} Refers to the time it takes the detector to process a single frame, usually measured in milliseconds. High speed is critical for real-time tracking applications where live or near-live video feeds must be processed.
-    \item \textbf{Accuracy:} Measures the ability to correctly identify and locate objects. It is usually quantified in terms of precision and recall rates, or average precision (AP) over a dataset.
-    \item \textbf{Computational Requirements:} Refers to the resources required to run the detector, typically measured in terms of floating-point operations (FLOPs) or memory and processing power. Efficient use of computational resources is essential for deploying MTMCT systems on hardware with limited capabilities.
+	\item \textbf{Speed:} Refers to the time it takes the detector to process a single frame, usually measured in milliseconds. High speed is critical for real-time tracking applications where live or near-live video feeds must be processed.
+	\item \textbf{Accuracy:} Measures the ability to correctly identify and locate objects. It is usually quantified in terms of precision and recall rates, or average precision (AP) over a dataset.
+	\item \textbf{Computational Requirements:} Refers to the resources required to run the detector, typically measured in terms of floating-point operations (FLOPs) or memory and processing power. Efficient use of computational resources is essential for deploying MTMCT systems on hardware with limited capabilities.
 \end{itemize}
 
 \subsection{Feature Extraction}\label{subsec:milestone:eature_extraction}
@@ -77,49 +77,49 @@ As tracking scenarios became more complex, approaches such as Multiple Hypothesi
 In addition to the datasets mentioned in the Section~\ref{sec:datasets}, which are used for object detection in general, there are also datasets that are more specific to MTMCT. Typically, these are for tracking specific object classes, mainly people and vehicles. Datasets that meet these requirements are listed in the Table~\ref{tab:overview_datasets}.
 
 \begin{table}[ht]
-    \centering
-    \caption{Overview of Datasets}\label{tab:overview_datasets}
-    \resizebox{\textwidth}{!}{
-        \begin{tabular}{|l|c|c|c|c|c|c|c|c|}
-            \hline
-            \textbf{Dataset}                     & \textbf{Environment} & \textbf{Num. of Scenarios} & \textbf{Num. of Cameras (Overlap)} & \textbf{FPS} & \textbf{IDs} & \textbf{Year} & \textbf{Class}  \\
-            \hline
-            PETS~\cite{Ferryman09}               & Outdoor              & 3                          & 8 (\cmark)                         & 25           & ---          & 2009          & Person          \\
-            MARS\footnotemark[1]~\cite{Zheng16b} & Mixed                & Multiple                   & 6 (\cmark)                         & ---          & 1261         & 2016          & Person          \\
-            MOT16~\cite{Milan16a}                & Outdoor              & 14                         & 1                                  & 25-30        & ---          & 2016          & Person, Vehicle \\
-            DukeMTMC~\cite{Ristani16}            & Outdoor              & 1                          & 8 (\cmark)                         & 60           & 2834         & 2016          & Person          \\
-            MOT17~\cite{Milan16a}                & Outdoor              & 14                         & 1                                  & 25-30        & ---          & 2018          & Person          \\
-            Wildtrack~\cite{Chavdarova18}        & Outdoor              & Multiple                   & 7 (\cmark)                         & 2            & 313          & 2018          & Person          \\
-            MSMT17~\cite{Wei18}                  & Mixed                & 12                         & 15 (\cmark)                        & 15           & 4101         & 2018          & Person          \\
-            CityFlowV1~\cite{Tang19}             & Outdoor              & 5                          & 40 (\cmark)                        & 10           & 666          & 2019          & Vehicle         \\
-            MOT20~\cite{Dendorfer20}             & Outdoor              & 8                          & 1                                  & 25           & ---          & 2020          & Person, Vehicle \\
-            CityFlowV2~\cite{Tang19}             & Outdoor              & 6                          & 46 (\cmark)                        & 10           & 880          & 2021          & Vehicle         \\
-            MMPTRACK~\cite{Han23}                & Indoor               & 5                          & 23 (\cmark)                        & 15           & ---          & 2023          & Person          \\
-            MEVID~\cite{Davila23}                & Mixed                & 17                         & 33 (\cmark)                        & ---          & 158          & 2023          & Person          \\
-            \hline
-        \end{tabular}
-    }
+	\centering
+	\caption{Overview of Datasets}\label{tab:overview_datasets}
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{|l|c|c|c|c|c|c|c|c|}
+			\hline
+			\textbf{Dataset}                     & \textbf{Environment} & \textbf{Num. of Scenarios} & \textbf{Num. of Cameras (Overlap)} & \textbf{FPS} & \textbf{IDs} & \textbf{Year} & \textbf{Class}  \\
+			\hline
+			PETS~\cite{Ferryman09}               & Outdoor              & 3                          & 8 (\cmark)                         & 25           & ---          & 2009          & Person          \\
+			MARS\footnotemark[1]~\cite{Zheng16b} & Mixed                & Multiple                   & 6 (\cmark)                         & ---          & 1261         & 2016          & Person          \\
+			MOT16~\cite{Milan16a}                & Outdoor              & 14                         & 1                                  & 25-30        & ---          & 2016          & Person, Vehicle \\
+			DukeMTMC~\cite{Ristani16}            & Outdoor              & 1                          & 8 (\cmark)                         & 60           & 2834         & 2016          & Person          \\
+			MOT17~\cite{Milan16a}                & Outdoor              & 14                         & 1                                  & 25-30        & ---          & 2018          & Person          \\
+			Wildtrack~\cite{Chavdarova18}        & Outdoor              & Multiple                   & 7 (\cmark)                         & 2            & 313          & 2018          & Person          \\
+			MSMT17~\cite{Wei18}                  & Mixed                & 12                         & 15 (\cmark)                        & 15           & 4101         & 2018          & Person          \\
+			CityFlowV1~\cite{Tang19}             & Outdoor              & 5                          & 40 (\cmark)                        & 10           & 666          & 2019          & Vehicle         \\
+			MOT20~\cite{Dendorfer20}             & Outdoor              & 8                          & 1                                  & 25           & ---          & 2020          & Person, Vehicle \\
+			CityFlowV2~\cite{Tang19}             & Outdoor              & 6                          & 46 (\cmark)                        & 10           & 880          & 2021          & Vehicle         \\
+			MMPTRACK~\cite{Han23}                & Indoor               & 5                          & 23 (\cmark)                        & 15           & ---          & 2023          & Person          \\
+			MEVID~\cite{Davila23}                & Mixed                & 17                         & 33 (\cmark)                        & ---          & 158          & 2023          & Person          \\
+			\hline
+		\end{tabular}
+	}
 \end{table}
 \footnotetext[1]{extension of Market-1501~\cite{Zheng15}}
 
 The Table~\ref{tab:overview_datasets} provides a summary of various datasets that have made significant contributions to the MTMCT research field. Each dataset is categorized based on several different criteria to reflect its unique characteristics and relevance:
 
 \begin{itemize}
-    \item \textbf{Environment:} Data collection setting, from controlled indoor environments to dynamic outdoor locations.
-    \item \textbf{Num. of Scenarios:} Specifies the number of distinct scenarios or situations represented in the dataset.
-    \item \textbf{Num. of Cameras (Overlap):} Returns the number of cameras involved and indicates whether there is overlap in their views.
-    \item \textbf{FPS:} Indicates the frame rate of the dataset, important for real-time processing considerations.
-    \item \textbf{IDs:} Enumerates the unique IDs present, which can provide a measure of the complexity of the dataset.
-    \item \textbf{Year:} Returns the year of publication, which represents the timeliness of the dataset.
-    \item \textbf{Class:} Identifies the annotated classes, such as persons or vehicles.
+	\item \textbf{Environment:} Data collection setting, from controlled indoor environments to dynamic outdoor locations.
+	\item \textbf{Num. of Scenarios:} Specifies the number of distinct scenarios or situations represented in the dataset.
+	\item \textbf{Num. of Cameras (Overlap):} Returns the number of cameras involved and indicates whether there is overlap in their views.
+	\item \textbf{FPS:} Indicates the frame rate of the dataset, important for real-time processing considerations.
+	\item \textbf{IDs:} Enumerates the unique IDs present, which can provide a measure of the complexity of the dataset.
+	\item \textbf{Year:} Returns the year of publication, which represents the timeliness of the dataset.
+	\item \textbf{Class:} Identifies the annotated classes, such as persons or vehicles.
 \end{itemize}
 
 Each of the datasets listed plays a role in the following sections and the literature reviewed is often evaluated using one or more of these datasets. The datasets are also used to train and test the tracking methods.
 
 \begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.75\textwidth]{resources/fig/Ma21-dukemtmc.png}
-    \caption[DukeMTMC]{DukeMTMC~\cite[source image:][Fig.~2]{Ma21}}\label{fig:dukemtmc}
+	\centering
+	\includegraphics[width=0.75\textwidth]{resources/fig/Ma21-dukemtmc.png}
+	\caption[DukeMTMC]{DukeMTMC~\cite[source image:][Fig.~2]{Ma21}}\label{fig:dukemtmc}
 \end{figure}
 
 Figure~\ref{fig:dukemtmc} visualizes part of the DukeMTMC dataset as an example of one of the MTMCT datasets. It shows the camera views of the Duke University campus used in the dataset, illustrating the variety of scenes and perspectives for tracking individuals across different locations and conditions. The central aerial view shows the spatial arrangement of the cameras, with their respective FOVs highlighted. All eight camera views are shown in a given frame, including the bounding boxes of the tracked individuals.
@@ -127,10 +127,10 @@ Figure~\ref{fig:dukemtmc} visualizes part of the DukeMTMC dataset as an example 
 In recent years, challenges have been established to encourage research in object detection and tracking, although they have mostly focused on STSCT and MTSCT. Nevertheless, these challenges remain relevant to MTMCT research. The most recent representatives of the primary challenges are:
 
 \begin{itemize}
-    \item \textbf{MOT20 Challenge:} Benchmark, which includes crowded environments and variable lighting conditions. It also provides ground truth data to facilitate evaluation. The MOT datasets are released in conjunction with the MOTChallenge~\cite{Dendorfer20}.
-    \item \textbf{2023 AICity Challenge:} Focuses on AI applications in smart cities and includes multi-object tracking for traffic monitoring and anomaly detection as one of its key components. The CityFlow datasets are part of the AICity Challenges~\cite{Naphade23}.
-    \item \textbf{VOT2022 Challenge (Visual Object Tracking Challenge):} An annual competition that provides a standardized dataset and evaluation framework for tracking single objects~\cite{Kristan22}.
-    \item \textbf{VOTS2023 Challenge (Visual Object Tracking and Segmentation Challenge):} An extension of the VOT Challenge that focuses on multi-object tracking. Recently published in October 2023, the challenge confirms the rapidly growing interest in this area~\cite{Kristan23}.
+	\item \textbf{MOT20 Challenge:} Benchmark, which includes crowded environments and variable lighting conditions. It also provides ground truth data to facilitate evaluation. The MOT datasets are released in conjunction with the MOTChallenge~\cite{Dendorfer20}.
+	\item \textbf{2023 AICity Challenge:} Focuses on AI applications in smart cities and includes multi-object tracking for traffic monitoring and anomaly detection as one of its key components. The CityFlow datasets are part of the AICity Challenges~\cite{Naphade23}.
+	\item \textbf{VOT2022 Challenge (Visual Object Tracking Challenge):} An annual competition that provides a standardized dataset and evaluation framework for tracking single objects~\cite{Kristan22}.
+	\item \textbf{VOTS2023 Challenge (Visual Object Tracking and Segmentation Challenge):} An extension of the VOT Challenge that focuses on multi-object tracking. Recently published in October 2023, the challenge confirms the rapidly growing interest in this area~\cite{Kristan23}.
 \end{itemize}
 
 \section{Methods}\label{sec:methods}
@@ -149,8 +149,8 @@ Building on the foundation laid by SORT, the DeepSORT~\cite{Wojke17} algorithm w
 Both SORT and DeepSORT have set benchmarks in object tracking, demonstrating how the integration of motion and appearance information can lead to improved tracking performance.
 
 \begin{itemize}
-    \item \textbf{SORT:} Focuses on speed and simplicity by using motion models for prediction and frame-by-frame data association.
-    \item \textbf{DeepSORT:} Enhances SORT by adding appearance information to the data association step, improving tracking accuracy, especially in cases where objects interact closely or are temporarily occluded.
+	\item \textbf{SORT:} Focuses on speed and simplicity by using motion models for prediction and frame-by-frame data association.
+	\item \textbf{DeepSORT:} Enhances SORT by adding appearance information to the data association step, improving tracking accuracy, especially in cases where objects interact closely or are temporarily occluded.
 \end{itemize}
 
 It is important to note that both tracking frameworks rely on an external object detector to provide bounding box detections, which can be any of the object detection models discussed in the Section~\ref{subsec:milestone_detection}. Neither SORT nor DeepSORT can perform inter-camera tracking; this step must be performed separately.
@@ -171,15 +171,15 @@ A notable contribution in this area is the Single-Shot Multi Object Tracking (SM
 In the same year, \citeauthor{Wang20a} published the paper \citetitle{Wang20a}~\cite{Wang20a}, which proposes a single deep network that Jointly learns the Detection and Embedding (JDE) model. By reducing the computational cost, the system is able to achieve (near) real-time performance while being nearly as accurate as the models trained separately for detection and embedding. The architecture is based on the Feature Pyramid Network (FPN)~\cite{Lin17}, which is useful for detecting objects of different sizes. A variation of the triplet loss~\cite{Schroff15} is used to learn the embedding space, which is used for data association. This variation of the triplet loss is defined as follows:
 
 \begin{equation}
-    \label{eq:triplet_loss}
-    \mathcal{L}_{\text{triplet}}=\sum_i \max \left(0, f^{\top} f_i^{-}-f^{\top} f^{+}\right)
-    \quad\text{\cite[Eq.~1]{Wang20a}}
+	\label{eq:triplet_loss}
+	\mathcal{L}_{\text{triplet}}=\sum_i \max \left(0, f^{\top} f_i^{-}-f^{\top} f^{+}\right)
+	\quad\text{\cite[Eq.~1]{Wang20a}}
 \end{equation}
 
 \begin{itemize}
-    \item \(f^{\top}\): Instance in a mini-batch selected as the anchor
-    \item \(f^{+}\): Represents a positive instance (same ID as anchor)
-    \item \(f^{-}\): Represents a negative instance (different ID than anchor)
+	\item \(f^{\top}\): Instance in a mini-batch selected as the anchor
+	\item \(f^{+}\): Represents a positive instance (same ID as anchor)
+	\item \(f^{-}\): Represents a negative instance (different ID than anchor)
 \end{itemize}
 
 The triplet loss defined in the Equation~\ref{eq:triplet_loss} is used to learn an embedding space in which instances of the same ID are closely mapped to each other, while the embeddings of different IDs are pushed apart.
@@ -187,17 +187,17 @@ The triplet loss defined in the Equation~\ref{eq:triplet_loss} is used to learn 
 A more recent framework is the FairMOT~\cite{Zhang21} algorithm proposed by \citeauthor{Zhang21} in \citeyear{Zhang21}. It combines the two tasks of object detection and re-ID, while addressing the \textit{unfairness} issue in multitask learning, which arises because re-ID is often treated as a secondary task in existing frameworks and not given enough attention. The paper raises three key issues with existing multitask learning frameworks:
 
 \begin{enumerate}
-    \item \textbf{Unfairness Caused by Anchors:} The re-ID task is overlooked in the anchor-based detection framework, where anchors are optimized only for the detection task.
-    \item \textbf{Unfairness Caused by Features:} One-shot trackers share most of their features between the detection and re-ID branches. While detection requires deep features to estimate the object class, re-ID requires low-level appearance features to distinguish between different IDs, leading to a conflict between the two tasks.
-    \item \textbf{Unfairness Caused by Feature Dimension:} The feature dimension of re-ID features is usually much higher than that of detection features, but high-dimensional features significantly degrade detection performance.
+	\item \textbf{Unfairness Caused by Anchors:} The re-ID task is overlooked in the anchor-based detection framework, where anchors are optimized only for the detection task.
+	\item \textbf{Unfairness Caused by Features:} One-shot trackers share most of their features between the detection and re-ID branches. While detection requires deep features to estimate the object class, re-ID requires low-level appearance features to distinguish between different IDs, leading to a conflict between the two tasks.
+	\item \textbf{Unfairness Caused by Feature Dimension:} The feature dimension of re-ID features is usually much higher than that of detection features, but high-dimensional features significantly degrade detection performance.
 \end{enumerate}
 
 To jointly train the detection and re-ID branches in the FairMOT network, the uncertainty loss proposed by \textcite{Cipolla18} is used. The uncertainty loss is defined as:
 
 \begin{equation}
-    \label{eq:uncertainty_loss}
-    L_{\text{total}}=\frac{1}{2}\left(\frac{1}{e^{w_1}} L_{\text{detection}}+\frac{1}{e^{w_2}} L_{\text{identity}}+w_1+w_2\right)
-    \quad\text{\cite[Eq.~5]{Zhang21}}
+	\label{eq:uncertainty_loss}
+	L_{\text{total}}=\frac{1}{2}\left(\frac{1}{e^{w_1}} L_{\text{detection}}+\frac{1}{e^{w_2}} L_{\text{identity}}+w_1+w_2\right)
+	\quad\text{\cite[Eq.~5]{Zhang21}}
 \end{equation}
 
 The uncertainty loss defined in the Equation~\ref{eq:uncertainty_loss} is used to jointly train the detection and re-ID tasks by assigning different weights to the two tasks to allow for a fair learning process. The weights \(w_1\) and \(w_2\) are used to control the balance between the two tasks and are learned during training. \(L_{\text{detection}}\) and \(L_{\text{identity}}\) are the detection and re-ID losses respectively.

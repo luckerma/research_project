@@ -5,9 +5,9 @@ This chapter provides an overview of the basic concepts of object detection and 
 Figure~\ref{fig:mtmct_steps} visualizes the typical steps of an MTMCT system: detection, feature extraction, data association and tracking. The steps are only briefly mentioned and described here, exact methods and algorithms are discussed in the Chapter~\ref{chap:literature_review}.
 
 \begin{figure}[ht]
-    \centering
-    \input{resources/fig/mtmct_steps.tex}
-    \caption{Steps of an MTMCT System}\label{fig:mtmct_steps}
+	\centering
+	\input{resources/fig/mtmct_steps.tex}
+	\caption{Steps of an MTMCT System}\label{fig:mtmct_steps}
 \end{figure}
 
 \subsection{Detection}\label{subsec:detection}
@@ -20,9 +20,9 @@ Feature extraction involves extracting relevant information from detected object
 To understand the data association step, it is necessary to define the following terms:
 
 \begin{itemize}
-    \item \textbf{Tracklets:} Short segments of a path of an object captured within the view of a single-camera, formed by connecting successive frame detections.
-    \item \textbf{Trajectories:} The complete path of an object over time, often across multiple frames and cameras, created by merging tracklets.
-    \item \textbf{Tracks:} Refined trajectories that represent the validated path of an object after correction for inaccuracies and false detections.
+	\item \textbf{Tracklets:} Short segments of a path of an object captured within the view of a single-camera, formed by connecting successive frame detections.
+	\item \textbf{Trajectories:} The complete path of an object over time, often across multiple frames and cameras, created by merging tracklets.
+	\item \textbf{Tracks:} Refined trajectories that represent the validated path of an object after correction for inaccuracies and false detections.
 \end{itemize}
 
 In the research literature, these terms are often used interchangeably and not always consistently, but for the purposes of this project, the above definitions will be used.
@@ -30,17 +30,17 @@ In the research literature, these terms are often used interchangeably and not a
 Data association is the process of associating currently detected objects with existing trajectories based on similarities in their features. This is done by comparing the features of detected objects and trajectories with the features of existing trajectories and assigning the detected objects to the most similar trajectories. This step is critical for maintaining the IDs of objects as they move through or even leave and re-enter the scene, which is called re-ID. Typically, the data association step is performed hierarchically: first on a single-camera view (intra-camera), before the trajectories are associated across multi-camera views (inter-camera) and finally optimized globally to form tracks.
 
 \begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.75\textwidth]{resources/fig/Tesfaye19-intra_inter_camera_tracking.png}
-    \caption[Intra- and Inter-Camera Tracking]{Intra- (left) and Inter-Camera (right) Tracking~\cite[source image:][Fig.~1]{Tesfaye19}}\label{fig:intra_inter_camera_tracking}
+	\centering
+	\includegraphics[width=0.75\textwidth]{resources/fig/Tesfaye19-intra_inter_camera_tracking.png}
+	\caption[Intra- and Inter-Camera Tracking]{Intra- (left) and Inter-Camera (right) Tracking~\cite[source image:][Fig.~1]{Tesfaye19}}\label{fig:intra_inter_camera_tracking}
 \end{figure}
 
 The two steps of data association of three non-overlapping camera views are illustrated in Figure~\ref{fig:intra_inter_camera_tracking}. The first step is intra-camera tracking, where the trajectories within the three camera views are associated independently. The second step is inter-camera tracking, where the trajectories are associated across the three camera views and the IDs of the objects are maintained. This simple example can be extended to any number of camera views, overlapping or non-overlapping.
 
 \begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.75\textwidth]{resources/fig/Ma21-tracking_process.png}
-    \caption[Tracking Process]{Tracking Process~\cite[source image:][Fig.~1]{Ma21}}\label{fig:projection}
+	\centering
+	\includegraphics[width=0.75\textwidth]{resources/fig/Ma21-tracking_process.png}
+	\caption[Tracking Process]{Tracking Process~\cite[source image:][Fig.~1]{Ma21}}\label{fig:projection}
 \end{figure}
 
 Figure~\ref{fig:projection} shows a schematic representation of the intra-, inter-camera matching and tracking process of the three camera views. This figure complements Figure~\ref{fig:intra_inter_camera_tracking} by visually demonstrating the steps mentioned. First, the people in the three camera views are detected and intra-camera tracking is performed by merging the individual detections into tracklets. Optionally, depending on the algorithm, localization within the world (using a common ground plane) could be performed. Finally, after the intra-camera trajectories have been generated, the inter-camera matching is performed to obtain the final tracks of the people.
@@ -72,10 +72,10 @@ Lighting conditions can have a significant impact on the performance of an MTMCT
 The specifications of the cameras used in an MTMCT system can have a significant impact on its performance. If multiple cameras are used, they may have different specifications:
 
 \begin{itemize}
-    \item \textbf{Resolution:} Number of pixels in the image
-    \item \textbf{FPS:} Number of frames captured per second
-    \item \textbf{FOV:} Area covered by the camera
-    \item \textbf{Angle:} Angle from which the camera is capturing the scene
+	\item \textbf{Resolution:} Number of pixels in the image
+	\item \textbf{FPS:} Number of frames captured per second
+	\item \textbf{FOV:} Area covered by the camera
+	\item \textbf{Angle:} Angle from which the camera is capturing the scene
 \end{itemize}
 
 This can make it difficult to maintain consistent tracking across different camera views, especially when objects move from one camera to another. Objects can look different when viewed from different cameras, and their size and shape can be distorted. To achieve accurate tracking, the system must account for these variations and correctly align objects across camera views.
@@ -89,8 +89,8 @@ Datasets are a fundamental aspect of MTMCT research; they are the resource for t
 Commonly used datasets for training object detectors are:
 
 \begin{itemize}
-    \item \textbf{Microsoft COCO (Common Objects in Context):} Comprehensive dataset used for object detection and segmentation. COCO includes a wide variety of objects~\cite{Lin14}.
-    \item \textbf{ImageNet:} Large dataset used for image classification and object detection. Object detectors trained on ImageNet are capable of recognizing a wide range of objects~\cite{Deng09}.
+	\item \textbf{Microsoft COCO (Common Objects in Context):} Comprehensive dataset used for object detection and segmentation. COCO includes a wide variety of objects~\cite{Lin14}.
+	\item \textbf{ImageNet:} Large dataset used for image classification and object detection. Object detectors trained on ImageNet are capable of recognizing a wide range of objects~\cite{Deng09}.
 \end{itemize}
 
 Beside these datasets, there are several datasets specifically designed for MTMCT research. These datasets are discussed in the Subsection~\ref{subsec:datasets_and_challenges}.
@@ -102,17 +102,17 @@ Evaluating the performance of an MTMCT system is critical to understanding its e
 Multiple Object Tracking Precision (MOTP) and Multiple Object Tracking Accuracy (MOTA) are two standard metrics used to evaluate multi-target tracking systems. MOTP measures the accuracy of object localization, while MOTA combines three types of error into a single metric to provide a comprehensive evaluation of tracking performance. Both metrics were introduced by \textcite{Bernardin08} in \citeyear{Bernardin08}.
 
 \begin{equation}
-    \label{eq:motp}
-    \text{MOTP}=\frac{\sum_{i, t} d_t^i}{\sum_t c_t}
-    \quad\text{\cite[Eq.~1]{Bernardin08}}
+	\label{eq:motp}
+	\text{MOTP}=\frac{\sum_{i, t} d_t^i}{\sum_t c_t}
+	\quad\text{\cite[Eq.~1]{Bernardin08}}
 \end{equation}
 
 The equation \ref{eq:motp} provides a measure of the average error in the estimated positions of the tracked objects. In this equation, \(d_t^i\) is the distance between the predicted position and the ground truth position of object \(i\) in frame \(t\), and \(c_t\) is the number of correctly matched objects (the true positives) in frame \(t\). The distances for all matched objects across all frames are divided by the total number of matched objects across all frames. MOTP ranges from 0 to 1, a lower MOTP value indicates higher precision in object localization.
 
 \begin{equation}
-    \label{eq:mota}
-    \text{MOTA}=1-\frac{\sum_t (m_t+fp_t+mme_t)}{\sum_t g_t}
-    \quad\text{\cite[Eq.~2]{Bernardin08}}
+	\label{eq:mota}
+	\text{MOTA}=1-\frac{\sum_t (m_t+fp_t+mme_t)}{\sum_t g_t}
+	\quad\text{\cite[Eq.~2]{Bernardin08}}
 \end{equation}
 
 The equation \ref{eq:mota} combines three types of errors into a single performance measure. In this equation, \(m_t\) is the number of misses (true objects not detected), \(fp_t\) is the number of false positives (false object detections), \(mme_t\) is the number of mismatch errors (ID switches) and \(g_t\) is the total number of true objects present in the frame \(t\). The MOTA score is one minus the sum of all errors divided by the total number of true objects across all frames. MOTA ranges from \(-\infty\) to 1, a higher MOTA value indicates better tracking accuracy.
@@ -121,17 +121,17 @@ The equation \ref{eq:mota} combines three types of errors into a single performa
 The IDF1 score is another important metric for evaluating MTMCT systems. It represents the harmonic mean of identification precision and recall, providing a balanced measure that considers both the ratio of correctly identified detections and the average number of ground truth and computed detections. This metric was introduced by \citeauthor{Ristani16} in their widely referenced paper \citetitle{Ristani16}~\cite{Ristani16}.
 
 \begin{equation}
-    \label{eq:idf1}
-    \text{IDF}_1 = \frac{2 \times \text{IDTP}}{2 \times \text{IDTP} + \text{IDFP} + \text{IDFN}}
-    \quad\text{\cite[Eq.~11]{Ristani16}}
+	\label{eq:idf1}
+	\text{IDF}_1 = \frac{2 \times \text{IDTP}}{2 \times \text{IDTP} + \text{IDFP} + \text{IDFN}}
+	\quad\text{\cite[Eq.~11]{Ristani16}}
 \end{equation}
 
 In the Equation~\ref{eq:idf1}:
 
 \begin{itemize}
-    \item \textbf{IDTP (Identification True Positives):} Represents the number of detections that were correctly identified.
-    \item \textbf{IDFP (Identification False Positives):} Represents the number of detections that were misidentified.
-    \item \textbf{IDFN (Identification False Negatives):} Returns the number of actual detections that were missed or not identified.
+	\item \textbf{IDTP (Identification True Positives):} Represents the number of detections that were correctly identified.
+	\item \textbf{IDFP (Identification False Positives):} Represents the number of detections that were misidentified.
+	\item \textbf{IDFN (Identification False Negatives):} Returns the number of actual detections that were missed or not identified.
 \end{itemize}
 
 The IDF1 metric essentially captures identification precision and recall in multi-object tracking scenarios. The higher the IDF1 score, the better the performance of the tracker in maintaining consistent IDs.
@@ -142,19 +142,19 @@ The Mostly Tracked (ML) and Mostly Lost (ML) metrics are used to evaluate the ef
 MT measures the proportion of ground truth trajectories that are covered by the tracker for at least 80\% of their respective lifetime, indicating the ability of the system to track objects consistently over time. On the other hand, ML measures the proportion of ground truth trajectories that are covered by the tracker for less than 20\% of their respective lifetimes, reflecting the inability of the system to maintain consistent object tracking.
 
 \begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.75\textwidth]{resources/fig/Wu06-MT_ML.png}
-    \caption[MT and ML]{MT and ML~\cite[source image:][Fig.~5]{Wu06}}\label{fig:mt_ml}
+	\centering
+	\includegraphics[width=0.75\textwidth]{resources/fig/Wu06-MT_ML.png}
+	\caption[MT and ML]{MT and ML~\cite[source image:][Fig.~5]{Wu06}}\label{fig:mt_ml}
 \end{figure}
 
 Figure~\ref{fig:mt_ml} illustrates various scenarios encountered in multi-target tracking evaluations:
 
 \begin{itemize}
-    \item \textbf{Ground Truth Trajectory (Blue):} Represents the actual path or movement of an object in the scene.
-    \item \textbf{Result Trajectory (Red):} Represents the predicted path of an object by the tracking system.
-    \item \textbf{False Alarm:} Points where the tracking system detects an object when there is no object in the ground truth.
-    \item \textbf{ID Switch:} An instance where the ID assigned to an object is incorrectly changed during tracking.
-    \item \textbf{Trajectory Fragment:} A segment of the resulting trajectory that is shorter than the ground truth, indicating a break or interruption in tracking.
-    \item \textbf{Mostly Tracked:} Scenarios where the resulting trajectory closely follows the ground truth trajectory for most of the path of the object (\(\geq 80\%\)).
-    \item \textbf{Mostly Lost:} Scenarios where the resulting trajectory only briefly aligns or intersects with the ground truth trajectory, indicating that the object was not effectively tracked for most of its path (\(\leq 20\%\)).
+	\item \textbf{Ground Truth Trajectory (Blue):} Represents the actual path or movement of an object in the scene.
+	\item \textbf{Result Trajectory (Red):} Represents the predicted path of an object by the tracking system.
+	\item \textbf{False Alarm:} Points where the tracking system detects an object when there is no object in the ground truth.
+	\item \textbf{ID Switch:} An instance where the ID assigned to an object is incorrectly changed during tracking.
+	\item \textbf{Trajectory Fragment:} A segment of the resulting trajectory that is shorter than the ground truth, indicating a break or interruption in tracking.
+	\item \textbf{Mostly Tracked:} Scenarios where the resulting trajectory closely follows the ground truth trajectory for most of the path of the object (\(\geq 80\%\)).
+	\item \textbf{Mostly Lost:} Scenarios where the resulting trajectory only briefly aligns or intersects with the ground truth trajectory, indicating that the object was not effectively tracked for most of its path (\(\leq 20\%\)).
 \end{itemize}

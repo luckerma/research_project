@@ -1,28 +1,28 @@
 \begin{tikzpicture}[node distance=1cm and 4cm, auto]
-    % Milestones
-    \node (m1) [milestone] {Detection};
-    \node (m2) [milestone, below=of m1] {Feature Extraction};
-    \node (m3) [milestone, below=of m2] {Data Association};
-    \node (m4) [milestone, below=of m3] {Tracking};
-    \node (m5) [milestone, below=of m4] {Datasets and Challenges};
+	% Milestones
+	\node (m1) [milestone] {Detection};
+	\node (m2) [milestone, below=of m1] {Feature Extraction};
+	\node (m3) [milestone, below=of m2] {Data Association};
+	\node (m4) [milestone, below=of m3] {Tracking};
+	\node (m5) [milestone, below=of m4] {Datasets and Challenges};
 
-    % Techniques
-    \node (t1) [technique, right=of m1] {(Faster) R-CNN, YOLO, SSD};
-    \node (t2) [technique, right=of m2, below=of t1] {SIFT, HOG, CNNs};
-    \node (t3) [technique, right=of m3, below=of t2] {Hungarian Algorithm, JPDAF, POM, RNNs};
-    \node (t4) [technique, right=of m4, below=of t3] {Kalman Filter, MHT};
-    \node (t5) [technique, right=of m5, below=of t4] {see Table~\ref{tab:overview_datasets}};
+	% Techniques
+	\node (t1) [technique, right=of m1] {(Faster) R-CNN, YOLO, SSD};
+	\node (t2) [technique, right=of m2, below=of t1] {SIFT, HOG, CNNs};
+	\node (t3) [technique, right=of m3, below=of t2] {Hungarian Algorithm, JPDAF, POM, RNNs};
+	\node (t4) [technique, right=of m4, below=of t3] {Kalman Filter, MHT};
+	\node (t5) [technique, right=of m5, below=of t4] {see Table~\ref{tab:overview_datasets}};
 
-    % Arrows
-    \draw [arrow] (m1) -- (m2);
-    \draw [arrow] (m2) -- (m3);
-    \draw [arrow] (m3) -- (m4);
-    \draw [arrow] (m4) -- (m5);
+	% Arrows
+	\draw [arrow] (m1) -- (m2);
+	\draw [arrow] (m2) -- (m3);
+	\draw [arrow] (m3) -- (m4);
+	\draw [arrow] (m4) -- (m5);
 
-    % Connections
-    \draw [arrow] (t1) -- (m1);
-    \draw [arrow] (t2) -- (m2);
-    \draw [arrow] (t3) -- (m3);
-    \draw [arrow] (t4) -- (m4);
-    \draw [arrow] (t5) -- (m5);
+	% Connections
+	\draw [arrow] (t1) -- (m1);
+	\draw [arrow] (t2) -- (m2);
+	\draw [arrow] (t3) -- (m3);
+	\draw [arrow] (t4) -- (m4);
+	\draw [arrow] (t5) -- (m5);
 \end{tikzpicture}

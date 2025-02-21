@@ -1,12 +1,12 @@
 \begin{tikzpicture}[node distance=1.5cm and 0.5cm, auto]
-    % Place nodes
-    \node [block] (detection) {Detection};
-    \node [block, right=of detection] (feature) {Feature Extraction};
-    \node [block, right=of feature] (association) {Data Association};
-    \node [block, right=of association] (tracking) {Tracking};
+	% Place nodes
+	\node [block] (detection) {Detection};
+	\node [block, right=of detection] (feature) {Feature Extraction};
+	\node [block, right=of feature] (association) {Data Association};
+	\node [block, right=of association] (tracking) {Tracking};
 
-    % Draw edges
-    \draw [arrow] (detection) -- (feature);
-    \draw [arrow] (feature) -- (association);
-    \draw [arrow] (association) -- (tracking);
+	% Draw edges
+	\draw [arrow] (detection) -- (feature);
+	\draw [arrow] (feature) -- (association);
+	\draw [arrow] (association) -- (tracking);
 \end{tikzpicture}
